@@ -1,0 +1,80 @@
+/**
+ * Styles for the kit selector area.
+ *
+ * @author Matt Acosta
+ */
+
+.arrow {
+  cursor: pointer;
+  display: block;
+  height: 35px;
+  margin-top: 140px;
+  width: 28px;
+}
+
+.arrow-left {
+  background: url('../images/arrow_left.png') no-repeat;
+}
+
+.arrow-right {
+  background: url('../images/arrow_right.png') no-repeat;
+}
+
+.kits {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+}
+
+.kits li {
+  background: url('../images/charitembg.png') no-repeat;
+  background-position: -16px 216px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  width: 140px;
+}
+
+.kits li:hover {
+  background-position: -16px -243px;
+}
+
+.kits p {
+  margin-top: 1em;
+}
+
+.kit-frame {
+  height: 280px;
+  overflow: hidden;
+  width: 140px;
+}
+
+.kit-frame > img {
+  position: relative;
+}
+
+.kit-name {
+  color: #FCB461;
+}
+
+.scroll-panel {
+  margin: 0 0.5em;
+  padding: 0 28px;
+  position: relative;
+}
+
+.scroll-panel > div {
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.scroll-left {
+  left: 0;
+}
+
+.scroll-right {
+  right: 0;
+}

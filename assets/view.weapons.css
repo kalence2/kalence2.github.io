@@ -1,0 +1,266 @@
+/**
+ * Styles for the weapon loadout panel and weapon selector area.
+ *
+ * @author Matt Acosta
+ */
+
+#equipment-selector > .selector-group {
+  padding-top: 0.5em;
+}
+
+#mod-selector .selector-group {
+  padding-top: 0.5em;
+}
+
+.character-loadout {
+  float: left;
+  padding-top: 0.8em;
+}
+
+.consumable {
+  background-size: 80px 80px;
+  color: #5C81A8;
+  cursor: pointer;
+}
+
+.consumable > img {
+  border: 1px solid #5C81A8;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 60px;
+  width: 80px;
+}
+
+.consumable > p {
+  border: 1px solid #5C81A8;
+  border-radius: 4px;
+  font-size: 0.8em;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  width: 80px;
+}
+
+.consumable-item {
+  float: left;
+  margin-left: 14px;  /* (400 - (80 + 2) * 4) / 5 = 14.4 */
+}
+
+.consumable-item > pre {
+  color: #5C81A8;
+  font-size: 0.6em;
+  height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.consumable-panel {
+  border-top: 1px solid #5C81A8;
+  padding: 1em 0 0.8em 0;
+}
+
+/**
+ * Both height and width are needed to get a grid layout. The values are
+ * somewhat arbitrary however.
+ */
+.equipment-cell {
+  float: left;
+  height: 190px;
+  margin-bottom: 0.5em;
+  width: 190px;
+}
+
+.equipment-cell > ul {
+  color: #5C81A8;
+  font-size: 0.7em;
+  list-style: none;
+  margin: -32px 0 0 0;
+  padding: 0;
+  text-align: center;
+}
+
+.equipment-cell > ul li {
+  cursor: pointer;
+  margin: 0.5em 0;
+}
+
+.equipment-cell > ul li:hover {
+  color: white;
+}
+
+.equipment-small {
+  color: #5C81A8;
+  font-size: 0.7em;
+  height: 96px;
+  margin: 0 auto;
+  padding-bottom: 32px;
+  text-align: center;
+  width: 128px;
+}
+
+.item-rank {
+  background: url('../images/powerbg.png')  no-repeat;
+  background-size: 108px 36px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8em;
+  height: 36px;
+  line-height: 36px;
+  margin-left: 0.5em;
+  text-align: center;
+  width: 36px;
+}
+
+.item-rank:hover {
+  background-position: -36px 0;
+}
+
+.item-rank.rank-active {
+  background-position: -72px 0;
+}
+
+.mod-disabled > p,
+.mod-inuse {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.rank-selector {
+  border-top: 1px solid #5C81A8;
+  height: 40px;
+  font-size: 0.8em;
+  line-height: 40px;
+  padding: 0 0.5em 0.25em;
+  white-space: nowrap;  /* Prevent the ranks from wrapping for no apparent reason. */
+}
+
+.weapon {
+  color: #5C81A8;
+  display: inline-block;
+  float: left;
+  height: 110px;  /* Height of the non-reflective area of the background image. */
+  margin-left: 5px;
+  padding-bottom: 50px;  /* The reflection portion will be shown in the padding. */
+  text-align: center;
+  width: 160px;
+}
+
+.weapon-small {
+  color: #5C81A8;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  font-size: 0.7em;
+  height: 88px;
+  margin-left: 1em;
+  padding-bottom: 44px;  /* Add 4px for wrapped text. */
+  text-align: center;
+  width: 128px
+}
+
+.weapon > img {
+  cursor: pointer;
+}
+
+.weapon-small:hover {
+  color: white;
+}
+
+.weapon-dmg {
+  font-size: 0.8em;
+}
+
+.weapon-empty {
+  border: 1px solid #5C81A8;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+  height: 110px;
+  line-height: 110px;
+}
+
+.weapon-equipped {
+  background-image: url('../images/readycheck.png');
+  background-size: 32px 32px;
+  float: left;
+  height: 32px;
+  margin: 11px 0.5em;
+  width: 32px;
+}
+
+.weapon-info {
+  font-size: 0.92em;  /* Entirely because of the Adas Anti-Synthetic Rifle, sigh! */
+  height: 55px;
+  margin-left: 0.4em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.weapon-info .stat-id {
+  font-size: 0.8em;
+}
+
+.weapon-mod {
+  color: #5C81A8;
+  float: left;
+  height: 55px;
+  padding-bottom: 25px;
+  margin-left: 0.4em;
+  text-align: center;
+  width: 80px;
+}
+
+.weapon-mod > img {
+  cursor: pointer;
+}
+
+.weapon-mod > p {
+  border: 1px solid #5C81A8;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75em;
+  line-height: 53px;  /* Height - 2px from border. */
+}
+
+.weapon-mod-disabled {
+  opacity: 0.4;
+}
+
+.weapon-select-top {
+  height: 40px;
+  padding: 0 0.5em;
+}
+
+.weapon-summary {
+  float: left;
+  height: 110px;
+  padding-bottom: 50px;
+  width: 235px;
+}
+
+/* Reduce the amount of whitespace in comparison tooltips. */
+.weapon-tip {
+  max-width: 300px;
+}
+
+.weapon-type {
+  color: #5C81A8;
+  float: right;
+  font-weight: normal;
+}
+
+/* Should have just kept the images seperate... */
+.rarity-0 { background: url('../images/rarity.png') no-repeat 0 -160px; }
+.rarity-1 { background: url('../images/rarity.png') no-repeat -160px -160px; }
+.rarity-2 { background: url('../images/rarity.png') no-repeat -320px -160px; }
+.rarity-3 { background: url('../images/rarity.png') no-repeat -480px -160px; }
+
+.rarity-small-0 { background: url('../images/rarity.png') no-repeat 0 -128px; background-size: 512px 256px; }
+.rarity-small-1 { background: url('../images/rarity.png') no-repeat -128px -128px; background-size: 512px 256px; }
+.rarity-small-2 { background: url('../images/rarity.png') no-repeat -256px -128px; background-size: 512px 256px; }
+.rarity-small-3 { background: url('../images/rarity.png') no-repeat -384px -128px; background-size: 512px 256px; }
+
+.rarity-xsmall-0 { background: url('../images/rarity.png') no-repeat 0 -80px; background-size: 320px 160px; }
+.rarity-xsmall-1 { background: url('../images/rarity.png') no-repeat -80px -80px; background-size: 320px 160px; }
+.rarity-xsmall-2 { background: url('../images/rarity.png') no-repeat -160px -80px; background-size: 320px 160px; }
+.rarity-xsmall-3 { background: url('../images/rarity.png') no-repeat -240px -80px; background-size: 320px 160px; }

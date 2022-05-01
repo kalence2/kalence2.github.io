@@ -1,0 +1,215 @@
+/**
+ * User interface styles.
+ *
+ * @author Matt Acosta
+ */
+
+.ui-button {
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  font-size: 0.7em;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 0.75em;
+}
+
+.ui-button-default {
+  border: 1px solid #5C81A8;
+  margin: 4px 0.25em;
+}
+
+.ui-button-default:hover {
+  background-color: #5C81A8;
+}
+
+.ui-button-primary {
+  background-color: darkred;
+  border: 1px solid red;
+  margin: 4px 0.25em;
+}
+
+.ui-collapse-button {
+  background: url('../images/arrow_right.png') no-repeat;
+  background-size: 24px 30px;
+  cursor: pointer;
+  float: right;
+  height: 30px;
+  margin: 3px 0;
+  width: 24px;
+}
+
+.ui-collapse-down {
+  background-image: url('../images/arrow_down_r.png');
+  background-size: 30px 24px;
+  height: 24px;
+  margin: 6px 0;
+  width: 30px;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * UI Input Rules
+ * -----------------------------------------------------------------------------
+ */
+
+.ui-input-checkbox {
+  display: none;
+}
+
+.ui-input-checkbox + label.ui-input-label {
+  padding-left: 22px;  /* 20px box + 2px borders */
+  position: relative;
+}
+
+.ui-input-checkbox + label .ui-check {
+  /* Fixes a bug with IE not handling the cursor rule when the position is set to absolute. */
+  background-color: #0C131C;
+  
+  border: 1px solid #5C81A8;
+  /* border-radius: 4px; */
+  /* box-shadow: 0 0 1px #7998B9; */
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 20px;
+}
+
+.ui-input-checkbox + label .ui-check:after {
+  border-color: lime;
+  border-style: none none solid solid;
+  border-width: 0 0 4px 4px;
+  content: '';
+  cursor: pointer;
+  height: 6px;
+  left: 2px;
+  opacity: 0;
+  position: absolute;
+  top: 3px;
+  width: 12px;
+  
+  -webkit-transform: rotate(-45deg);  /* Chrome and Safari */
+  -ms-transform: rotate(-45deg);  /* IE9 */
+  transform: rotate(-45deg);
+}
+
+.ui-input-checkbox + label .ui-check:hover:after {
+  opacity: 0.4;
+}
+
+.ui-input-checkbox:checked + label .ui-check:after {
+  opacity: 1.0;
+}
+
+.ui-input-checkbox + label .ui-check-label {
+  padding-left: 0.3em;
+  /* white-space: nowrap; */
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * UI Tab Rules
+ * -----------------------------------------------------------------------------
+ */
+
+.ui-tabs {
+  margin: 1em;
+}
+
+.ui-tabs-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ui-tabs-nav a {
+  color: #35C2DC;
+  display: block;
+  height: 100%;
+  padding-left: 0.2em;
+  text-decoration: none;
+}
+
+.ui-tabs-nav a:hover {
+  color: white;
+}
+/* IE10 makes the background of active links grey for whatever reason. */
+.ui-tabs-nav a:active {
+  background-color: transparent;
+}
+
+.ui-tabs-vertical {
+  padding-left: 160px;
+}
+
+.ui-tabs-vertical .ui-tabs-nav {
+  float: left;
+  margin: 0 0 0 -160px;  /* Place into the padding of the parent container. */
+  padding: 0;
+  width: 160px;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li  {
+  border: 1px solid #5C81A8;
+  border-radius: 4px;
+  height: 54px;
+  margin: 0.2em 0;
+  padding-right: 1px;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+  background-color: darkred;
+  border: 1px solid red;
+  padding-right: 0;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active a {
+  color: white;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * UI Tooltip Rules
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * Required tooltip rules, try not to mess with them.
+ */
+.ui-tooltip {
+  height: auto;
+  max-width: 400px;
+  position: absolute;
+  width: auto;
+  z-index: 9999;
+}
+
+/**
+ * Customizable tooltip rules.
+ */
+.ui-tooltip {
+  background-color: rgba(15, 15, 15, 0.85);
+  border: 1px solid #5C81A8;
+  border-radius: 5px;
+  box-shadow: 0 0 15px black;
+}
+
+/**
+ * The tooltip is placed outside of the main content <div> so copy its style here.
+ */
+.ui-tooltip-content {
+  color: white;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 0.66em;
+  margin: 0.75em;
+  padding: 0;
+  white-space: pre-line;
+}
+
+.ui-tooltip-content h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0 0 0.5em;
+}

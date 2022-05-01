@@ -1,0 +1,128 @@
+/**
+ * Styles for the power summary panel and power selector area.
+ *
+ * @author Matt Acosta
+ */
+
+.power-attributes {
+  float: none;
+  font-size: 0.6em;
+  height: 128px;
+  margin-left: 0.5em;
+  white-space: normal;
+}
+
+.power-attributes .stat-id {
+  width: 120px;
+}
+
+.power-evo {
+  float: left;
+  height: 128px;
+  margin-left: 0.25em;
+  width: 64px;
+}
+
+/* TODO Experimental. Not used. */
+.power-export {
+  background-color: #5C81A8;
+  border: 1px solid skyblue;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  font-size: 0.7em;
+  height: 22px;
+  line-height: 22px;
+  margin: 7px 0;
+  padding: 0 8px;
+}
+
+.power-frame {
+  background: url('../images/powerbg.png') no-repeat;
+  background-size: 192px 64px;
+  cursor: pointer;
+  float: left;
+}
+
+/* A seperate class is also used because JS cannot trigger a CSS hover. */
+.power-frame:hover,
+.power-required {
+  background-position: -64px 0;
+}
+
+.power-frame.power-active {
+  background-position: -128px 0;
+}
+
+.power-frame.power-disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.power-frame.power-disabled:hover {
+  background-position: 0 0;
+  opacity: 1.0;
+}
+
+.power-icon {
+  /*background-size: 384px 128px;*/
+  height: 64px;
+  overflow: hidden;
+  width: 64px;
+}
+
+.power-icon > img {
+  height: 128px;
+  position: relative;
+  width: 384px;  /* Scale the image down 50%. */
+}
+
+.power-label {
+  padding-left: 0.25em;
+  position: absolute;
+}
+
+.power-label > p,
+.power-label .ui-check-label {
+  font-size: 0.85em;  /* Hawk Missile Launcher */
+}
+
+.power-reset {
+  background: url('../images/consumables/MPRespec.png') no-repeat;
+  background-size: 48px 36px;
+  cursor: pointer;
+  float: right;
+  height: 36px;
+  width: 48px;
+}
+
+.power-tree {
+  border-top: 1px solid #5C81A8;
+  padding: 0.5em 0.25em;
+  white-space: nowrap;
+}
+
+.power-tree > .power-frame {
+  margin-left: 0.25em;
+  margin-top: 32px;
+}
+/*
+.rank-1  { background-position: 0 0; }
+.rank-2  { background-position: -64px 0; }
+.rank-3  { background-position: -128px 0; }
+.rank-4A { background-position: -192px 0; }
+.rank-4B { background-position: -192px -64px; }
+.rank-5A { background-position: -256px 0; }
+.rank-5B { background-position: -256px -64px; }
+.rank-6A { background-position: -320px 0; }
+.rank-6B { background-position: -320px -64px; }
+*/
+.rank-1 > img  { left: 0; }
+.rank-2 > img  { left: -64px; }
+.rank-3 > img  { left: -128px; }
+.rank-4A > img { left: -192px; }
+.rank-4B > img { left: -192px; top: -64px; }
+.rank-5A > img { left: -256px; }
+.rank-5B > img { left: -256px; top: -64px; }
+.rank-6A > img { left: -320px; }
+.rank-6B > img { left: -320px; top: -64px; }

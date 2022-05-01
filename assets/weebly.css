@@ -1,0 +1,97 @@
+/**
+ * Compatibility styles when hosted on Weebly.
+ *
+ * @author Matt Acosta
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Rules provided by the builder.
+ * -----------------------------------------------------------------------------
+ */
+
+#me3-builder {
+  border: 1px solid #5C81A8;
+  width: auto;
+}
+
+#me3-builder,
+#me3-builder p {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 16px !important;
+}
+
+#me3-builder .builder-footer p {
+  font-size: 0.58em !important;
+}
+
+#me3-builder .consumable p,
+#me3-builder .weapon-mod p {
+  font-size: 0.8em !important;
+}
+
+#me3-builder .equipment-cell p,
+#me3-builder .weapon-small p {
+  font-size: 1em !important;
+}
+
+.builder-panel {
+  line-height: normal;
+}
+
+.builder-panel h2,
+.builder-panel h3 {
+  font-weight: bold;
+}
+
+.equipment-cell ul > li {
+  margin: 0.3em 0;
+}
+
+.rank-selector > p {
+  line-height: 40px;
+}
+
+.ui-tooltip {
+  font-size: 16px;
+}
+
+.ui-tooltip p {
+  font-family: Verdana, Arial, sans-serif;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.ui-tooltip table td {
+  padding: 0.1em 0.5em;
+}
+
+#character-builder {
+  font-size: 1.1em;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Rules provided by the site theme.
+ * -----------------------------------------------------------------------------
+ */
+
+body {
+  min-width: 1066px;
+}
+
+.container, .wsite-footer {
+  max-width: none;
+}
+
+.postload {
+  overflow: inherit;
+}
+
+.postload #content {
+  overflow-y: inherit;
+}
+
+#content {
+  overflow: inherit;
+}

@@ -1,0 +1,248 @@
+/**
+ * Styles shared between all areas.
+ * 
+ * @author Matt Acosta
+ */
+
+/**
+ * -----------------------------------------------------------------------------
+ * Basic page styles.
+ * -----------------------------------------------------------------------------
+ */
+
+#me3-builder {
+  background-color: #0C131C;
+  color: white;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1.1em;
+  margin: 0;
+  min-width: 1000px;  /* Must be the same as the content width. */
+  padding: 0;
+  width: 100%;  /* Along with the min-width property, this fixes a zoomed window's width. */
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* Keep this here so other rules can override it. */
+.builder-panel p {
+  padding: 0;
+  margin: 0;
+}
+
+.builder-panel pre {
+  font-family: Verdana, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.builder-heading {
+  border-bottom: 1px solid #5C81A8;
+  color: #5C81A8;
+  text-align: center;
+}
+
+.builder-heading a,
+.builder-heading a:visited {
+  color: #35C2DC;
+  text-decoration: none;
+}
+
+.builder-heading a:hover {
+  color: white;
+}
+
+.builder-heading h2 {
+  margin: 0;
+  padding: 0.5em;
+}
+
+.builder-help {
+  border-bottom: 1px solid #5C81A8;
+  padding: 0.3em 0.5em;
+}
+
+.builder-help-about { float: right; }
+.builder-help-tip { float: left; }
+
+.builder-footer {
+  border-top: 1px solid #5C81A8;
+  color: #7998B9;
+  text-align: justify;
+}
+
+.builder-footer a {
+  color: #35C2DC;
+  text-decoration: none;
+}
+
+.builder-footer a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.builder-footer p {
+  font-size: 0.55em;
+}
+
+.builder-footer > div {
+  padding: 0.3em 0.5em;
+}
+
+.builder-tip .stat-id {
+  text-align: right;
+}
+
+.builder-tip table {
+  margin: 0.5em 0;
+}
+
+.builder-tip table td {
+  padding: 0 0.5em;
+}
+
+.builder-tip ul {
+  list-style: none;
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+.error { color: red; }
+
+.error-panel {
+  padding: 1em;
+  text-align: center;
+}
+
+.error-panel .error {
+  font-size: 1.3em;
+  margin-bottom: 1em;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Character summary and other shared styles.
+ * -----------------------------------------------------------------------------
+ */
+
+.armor   { color: #FFB12A; }
+.barrier { color: #7A5EAA; }
+.health  { color: #D32224; }
+.shield  { color: #00ADE4; }
+
+/* Standardized colors (from Wikipedia). */
+.bronze   { color: #CD7F32; }
+.silver   { color: #C0C0C0; }
+.gold     { color: #FFD700; }
+.platinum { color: #E5E4E2; }
+
+.buff   { color: lime; }
+.debuff { color: red; }
+
+.bonus-value {
+  text-align: right;
+}
+
+#build-content {
+  border-left: 1px solid #5C81A8;
+  overflow: hidden;
+}
+
+#build-summary {
+  border-right: 1px solid #5C81A8;
+  float: left;
+  margin-right: -1px;
+  width: 400px;
+}
+
+#character-builder {
+  border-left: 1px solid #5C81A8;
+  border-right: 1px solid #5C81A8;
+  clear: both;
+  margin: 0 auto;
+  width: 998px;
+}
+
+.character-button {
+  margin: 0 1em;
+}
+
+.character-image {
+  float: left;
+  height: 280px;
+  overflow: hidden;
+  margin: 0 15px;
+  width: 140px;
+}
+
+.character-image > img {
+  position: relative;
+}
+
+.character-profile {
+  border-bottom: 1px solid #5C81A8;
+  float: left;
+  padding: 0.7em 0;
+  width: 400px;
+}
+
+.character-profile .stat-id {
+  font-size: 0.7em;
+}
+
+.character-stats {
+  float: left;
+  width: 230px;
+}
+
+.character-stats .stat-table {
+  height: 250px;
+  width: 230px;
+}
+
+.character-toolbar {
+  clear: left;
+  float: left;
+  height: 30px;
+  width: 230px;
+}
+
+.infobar {
+  height: 36px;  /* Technically a clearfix <div> should be used instead. */
+  padding: 0 0.5em;
+}
+
+.infobar > p {
+  float: left;
+  line-height: 36px;
+}
+
+.selector-group {
+  border-top: 1px solid #5C81A8;
+}
+
+.selector-group > p {
+  padding: 0.5em 0;
+}
+
+.stat-id {
+  color: #5C81A8;
+  text-align: right;
+}
+
+.stat-table {
+  display: table;
+  float: left;  /* TODO May not need this. */
+}
+
+.stat-table > table {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.stat-tip {
+  border-bottom: 1px dotted white;
+  cursor: default;
+  white-space: nowrap;
+}
