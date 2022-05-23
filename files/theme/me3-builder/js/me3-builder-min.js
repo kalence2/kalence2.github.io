@@ -2175,54 +2175,59 @@
      @requires game.kits.js
      @requires locale.en.js
     */
-    var h = h || {}, H = h.Ya = h.Ya || {}, ua = h.Cb.Tb, J = { organic: { health: 1, armor: 1, barrier: 1, shield: 1 } }; H.I = { mc: 0, na: 1, sa: 2, yA: 3, Wd: 4, gy: 5 }; H.xd = 9; H.Qb = 4; H.D = { ja: 0, Na: 1, Ba: 2, Va: 3, Da: 4 }; H.U = { eb: 0, kb: 1, dd: 2, yb: 3, ic: 4, Db: 5 };
-    H.Df = [[{ name: a.hs, a: a.js, u: 210, F: 262, G: 38.6, K: 48.2, B: 30, mode: H.I.sa, f: H.e.wa, i: J, d: "AssaultRifle_Avenger.png", type: H.D.ja, H: 1, L: .5 }, { name: a.Ar, a: a.Br, u: 144, F: 180, G: 68.6, K: 85.8, B: 24, mode: H.I.Wd, za: 3, f: H.e.X, i: J, d: "AssaultRifle_Vindicator.png", type: H.D.ja, H: 1.25, L: .7 }, { name: a.os, a: a.ps, u: 96, F: 120, G: 103.6, K: 129.5, B: 16, mode: H.I.na, f: H.e.X, i: J, d: "AssaultRifle_Mattock.png", type: H.D.ja, H: 1.5, L: .9 }, {
-        name: a.Qt, a: a.Rt, u: 350, F: 450, G: 41.9, K: 52.4, B: 50, mode: H.I.sa, f: H.e.X, i: J, d: "AssaultRifle_Cobra.png", type: H.D.ja,
+    var h = h || {}, H = h.Ya = h.Ya || {}, ua = h.Cb.Tb, J = { organic: { health: 1, armor: 1, barrier: 1, shield: 1 } }; 
+    H.I = { mc: 0, na: 1, sa: 2, yA: 3, Wd: 4, gy: 5 }; 
+    H.xd = 9; 
+    H.Qb = 4; 
+    H.D = { assault: 0, pistol: 1, shotgun: 2, smg: 3, sniper: 4 }; 
+    H.U = { eb: 0, kb: 1, dd: 2, yb: 3, ic: 4, Db: 5 };
+    H.Df = [[{ name: a.hs, a: a.js, u: 210, F: 262, G: 38.6, K: 48.2, B: 30, mode: H.I.sa, f: H.e.wa, i: J, d: "AssaultRifle_Avenger.png", type: H.D.assault, H: 1, L: .5 }, { name: a.Ar, a: a.Br, u: 144, F: 180, G: 68.6, K: 85.8, B: 24, mode: H.I.Wd, za: 3, f: H.e.X, i: J, d: "AssaultRifle_Vindicator.png", type: H.D.assault, H: 1.25, L: .7 }, { name: a.os, a: a.ps, u: 96, F: 120, G: 103.6, K: 129.5, B: 16, mode: H.I.na, f: H.e.X, i: J, d: "AssaultRifle_Mattock.png", type: H.D.assault, H: 1.5, L: .9 }, {
+        name: a.Qt, a: a.Rt, u: 350, F: 450, G: 41.9, K: 52.4, B: 50, mode: H.I.sa, f: H.e.X, i: J, d: "AssaultRifle_Cobra.png", type: H.D.assault,
         H: 1.35, L: .8
-    }, { name: a.Xi, a: a.Yi, u: 72, F: 96, G: 178.1, K: 222.6, B: 24, mode: H.I.sa, f: H.e.t, i: { organic: { health: 1, armor: 1, barrier: 2, shield: 2 } }, d: "AssaultRifle_Adas_MP.png", type: H.D.ja, H: 2, L: 1.4, Wa: !1, ub: !1 }, { name: a.Ql, a: a.Rl, u: 308, F: 392, G: 55.4, K: 69.2, B: 28, mode: H.I.sa, race: ua.Sb, f: H.e.t, i: J, d: "AssaultRifle_Collector.png", type: H.D.ja, H: 1.6, L: 1.2 }, { name: a.lp, a: a.mp, u: 480, F: 640, G: 28.8, K: 36, B: 100, mode: H.I.sa, race: ua.Ua, f: H.e.t, i: J, d: "AssaultRifle_Geth.png", type: H.D.ja, H: 1, L: .5, Vb: 3 }, {
+    }, { name: a.Xi, a: a.Yi, u: 72, F: 96, G: 178.1, K: 222.6, B: 24, mode: H.I.sa, f: H.e.t, i: { organic: { health: 1, armor: 1, barrier: 2, shield: 2 } }, d: "AssaultRifle_Adas_MP.png", type: H.D.assault, H: 2, L: 1.4, Wa: !1, ub: !1 }, { name: a.Ql, a: a.Rl, u: 308, F: 392, G: 55.4, K: 69.2, B: 28, mode: H.I.sa, race: ua.Sb, f: H.e.t, i: J, d: "AssaultRifle_Collector.png", type: H.D.assault, H: 1.6, L: 1.2 }, { name: a.lp, a: a.mp, u: 480, F: 640, G: 28.8, K: 36, B: 100, mode: H.I.sa, race: ua.Ua, f: H.e.t, i: J, d: "AssaultRifle_Geth.png", type: H.D.assault, H: 1, L: .5, Vb: 3 }, {
         name: a.Qr, a: a.Rr, u: 18, F: 28, G: 279.2,
-        K: 349, B: 4, mode: H.I.na, f: H.e.t, i: J, d: "AssaultRifle_Falcon.png", type: H.D.ja, H: 1.75, L: 1, Wa: !1, ub: !1
-    }, { name: a.Wr, a: a.Xr, u: 168, F: 210, G: 164.8, K: 206, B: 21, mode: H.I.Wd, za: 3, f: H.e.t, i: J, d: "AssaultRifle_Argus.png", type: H.D.ja, H: 2, L: 1.4 }, { name: a.bs, a: a.cs, u: 360, F: 480, G: 63.6, K: 79.5, B: 60, mode: H.I.sa, f: H.e.t, i: J, d: "AssaultRifle_Revenant.png", type: H.D.ja, H: 1.8, L: 1.25 }, { name: a.gz, a: a.hz, u: 60, F: 72, G: 144.7, K: 180.9, B: 12, mode: H.I.sa, f: H.e.t, i: J, d: "AssaultRifle_Krogan.png", type: H.D.ja, H: 2, L: 1.4, Wa: !1, ub: !1, wi: !0 }, {
+        K: 349, B: 4, mode: H.I.na, f: H.e.t, i: J, d: "AssaultRifle_Falcon.png", type: H.D.assault, H: 1.75, L: 1, Wa: !1, ub: !1
+    }, { name: a.Wr, a: a.Xr, u: 168, F: 210, G: 164.8, K: 206, B: 21, mode: H.I.Wd, za: 3, f: H.e.t, i: J, d: "AssaultRifle_Argus.png", type: H.D.assault, H: 2, L: 1.4 }, { name: a.bs, a: a.cs, u: 360, F: 480, G: 63.6, K: 79.5, B: 60, mode: H.I.sa, f: H.e.t, i: J, d: "AssaultRifle_Revenant.png", type: H.D.assault, H: 1.8, L: 1.25 }, { name: a.gz, a: a.hz, u: 60, F: 72, G: 144.7, K: 180.9, B: 12, mode: H.I.sa, f: H.e.t, i: J, d: "AssaultRifle_Krogan.png", type: H.D.assault, H: 2, L: 1.4, Wa: !1, ub: !1, wi: !0 }, {
         name: a.Gl,
-        a: a.Hl, u: 80, F: 100, G: 106.2, K: 129.5, B: 20, mode: H.I.sa, f: H.e.ya, i: J, d: "AssaultRifle_Cerberus.png", type: H.D.ja, H: 1.75, L: 1.25
-    }, { name: a.pp, a: a.qp, u: 600, F: 750, G: 62.2, K: 77.8, B: 220, mode: H.I.sa, race: ua.Ua, f: H.e.ya, i: { organic: { health: 1, armor: 1, barrier: 1.75, shield: 1.75 } }, d: "AssaultRifle_Spitfire.png", type: H.D.ja, H: 3, L: 2.5 }, { name: a.fs, a: a.gs, u: 0, F: 57, G: 67.9, K: 84.8, B: 38, mode: H.I.sa, f: H.e.ya, i: J, d: "AssaultRifle_Lancer_MP.png", type: H.D.ja, H: 1.3, L: .8 }, {
+        a: a.Hl, u: 80, F: 100, G: 106.2, K: 129.5, B: 20, mode: H.I.sa, f: H.e.ya, i: J, d: "AssaultRifle_Cerberus.png", type: H.D.assault, H: 1.75, L: 1.25
+    }, { name: a.pp, a: a.qp, u: 600, F: 750, G: 62.2, K: 77.8, B: 220, mode: H.I.sa, race: ua.Ua, f: H.e.ya, i: { organic: { health: 1, armor: 1, barrier: 1.75, shield: 1.75 } }, d: "AssaultRifle_Spitfire.png", type: H.D.assault, H: 3, L: 2.5 }, { name: a.fs, a: a.gs, u: 0, F: 57, G: 67.9, K: 84.8, B: 38, mode: H.I.sa, f: H.e.ya, i: J, d: "AssaultRifle_Lancer_MP.png", type: H.D.assault, H: 1.3, L: .8 }, {
         name: a.us, a: a.vs, u: 40, F: 56, G: 460, K: 575, B: 8, mode: H.I.na, f: H.e.ya,
-        i: J, d: "AssaultRifle_Saber.png", type: H.D.ja, H: 1.7, L: 1.4
-    }, { name: a.et, a: a.ft, u: 400, F: 500, G: 44.4, K: 55.5, B: 100, mode: H.I.sa, f: H.e.ya, i: { organic: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 } }, d: "AssaultRifle_LMG.png", type: H.D.ja, H: 2.5, L: 2, ob: !0, rc: !0, Ib: 1.5, wi: !0 }, { name: a.it, a: a.jt, u: 144, F: 180, G: 119.9, K: 149.9, B: 16, mode: H.I.yA, za: 2, f: H.e.ya, i: J, d: "AssaultRifle_Valkyrie.png", type: H.D.ja, H: 1.5, L: 1.25, Vb: 3 }, {
+        i: J, d: "AssaultRifle_Saber.png", type: H.D.assault, H: 1.7, L: 1.4
+    }, { name: a.et, a: a.ft, u: 400, F: 500, G: 44.4, K: 55.5, B: 100, mode: H.I.sa, f: H.e.ya, i: { organic: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 } }, d: "AssaultRifle_LMG.png", type: H.D.assault, H: 2.5, L: 2, ob: !0, rc: !0, Ib: 1.5, wi: !0 }, { name: a.it, a: a.jt, u: 144, F: 180, G: 119.9, K: 149.9, B: 16, mode: H.I.yA, za: 2, f: H.e.ya, i: J, d: "AssaultRifle_Valkyrie.png", type: H.D.assault, H: 1.5, L: 1.25, Vb: 3 }, {
         name: a.Ot, a: a.Pt, u: 0, F: 125, G: 19.2, K: 25.8, B: 100, mode: H.I.sa, race: ua.Sb, f: H.e.ya, i: J, d: "AssaultRifle_Prothean_MP.png",
-        type: H.D.ja, H: 2, L: 1.4, ob: !0, rc: !0, Ib: 4, wi: !0
-    }], [{ name: a.Sr, a: a.Tr, u: 90, F: 112, G: 58.8, K: 73.5, B: 15, mode: H.I.na, f: H.e.wa, i: J, d: "Pistol_Predator.png", type: H.D.Na, H: .5, L: .2 }, { name: a.Yr, a: a.Zr, u: 72, F: 90, G: 114.8, K: 143.5, B: 12, mode: H.I.na, f: H.e.X, i: J, d: "Pistol_Phalanx.png", type: H.D.Na, H: .6, L: .25 }, { name: a.Si, a: a.Ti, u: 12, F: 24, G: 420.2, K: 490, B: 3, mode: H.I.na, f: H.e.t, i: { organic: { health: 1, armor: 1, barrier: 5, shield: 5 } }, d: "Pistol_Asari.png", type: H.D.Na, H: .5, L: .2, Wa: !1, ub: !1 }, {
+        type: H.D.assault, H: 2, L: 1.4, ob: !0, rc: !0, Ib: 4, wi: !0
+    }], [{ name: a.Sr, a: a.Tr, u: 90, F: 112, G: 58.8, K: 73.5, B: 15, mode: H.I.na, f: H.e.wa, i: J, d: "Pistol_Predator.png", type: H.D.pistol, H: .5, L: .2 }, { name: a.Yr, a: a.Zr, u: 72, F: 90, G: 114.8, K: 143.5, B: 12, mode: H.I.na, f: H.e.X, i: J, d: "Pistol_Phalanx.png", type: H.D.pistol, H: .6, L: .25 }, { name: a.Si, a: a.Ti, u: 12, F: 24, G: 420.2, K: 490, B: 3, mode: H.I.na, f: H.e.t, i: { organic: { health: 1, armor: 1, barrier: 5, shield: 5 } }, d: "Pistol_Asari.png", type: H.D.pistol, H: .5, L: .2, Wa: !1, ub: !1 }, {
         name: a.vj, a: a.wj, u: 72, F: 90, G: 77.2, K: 96.5,
-        B: 18, mode: H.I.na, f: H.e.t, i: J, d: "Pistol_Thor.png", type: H.D.Na, H: 1.1, L: .6, ob: !0, rc: !0, Ib: 3, Yd: 3
-    }, { name: a.bo, a: a.co, u: 15, F: 25, G: 784.9, K: 981.1, B: 1, mode: H.I.mc, f: H.e.t, i: J, d: "Pistol_Bloodpack_MP.png", type: H.D.Na, H: 1.2, L: .7 }, { name: a.sr, a: a.tr, u: 30, F: 40, G: 125.7, K: 157.1, B: 6, mode: H.I.na, f: H.e.t, i: J, d: "Pistol_Silencer_MP.png", type: H.D.Na, H: 1.2, L: .7, Vb: 4 }, { name: a.$r, a: a.as, u: 30, F: 40, G: 276.1, K: 345.1, B: 6, mode: H.I.na, f: H.e.t, i: J, d: "Pistol_Carnifex.png", type: H.D.Na, H: 1.2, L: .7 }, {
+        B: 18, mode: H.I.na, f: H.e.t, i: J, d: "Pistol_Thor.png", type: H.D.pistol, H: 1.1, L: .6, ob: !0, rc: !0, Ib: 3, Yd: 3
+    }, { name: a.bo, a: a.co, u: 15, F: 25, G: 784.9, K: 981.1, B: 1, mode: H.I.mc, f: H.e.t, i: J, d: "Pistol_Bloodpack_MP.png", type: H.D.pistol, H: 1.2, L: .7 }, { name: a.sr, a: a.tr, u: 30, F: 40, G: 125.7, K: 157.1, B: 6, mode: H.I.na, f: H.e.t, i: J, d: "Pistol_Silencer_MP.png", type: H.D.pistol, H: 1.2, L: .7, Vb: 4 }, { name: a.$r, a: a.as, u: 30, F: 40, G: 276.1, K: 345.1, B: 6, mode: H.I.na, f: H.e.t, i: J, d: "Pistol_Carnifex.png", type: H.D.pistol, H: 1.2, L: .7 }, {
         name: a.Or, a: a.Pr, u: 24, F: 36, G: 93.7,
-        K: 117.1, B: 4, mode: H.I.na, za: 6, f: H.e.ya, i: { organic: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 } }, d: "Pistol_Talon.png", type: H.D.Na, H: .9, L: .6
-    }, { name: a.ds, a: a.es, u: 21, F: 33, G: 424.9, K: 531.1, B: 3, mode: H.I.na, f: H.e.ya, i: J, d: "Pistol_Ivory.png", type: H.D.Na, H: 1, L: .7 }, { name: a.Zs, a: a.$s, u: 192, F: 240, G: 86.1, K: 107.7, B: 24, mode: H.I.sa, f: H.e.ya, i: J, d: "Pistol_Eagle.png", type: H.D.Na, H: .45, L: .25 }, { name: a.vw, a: a.ww, u: 20, F: 30, G: 375.2, K: 469, B: 4, mode: H.I.na, f: H.e.ya, i: J, d: "Pistol_Scorpion.png", type: H.D.Na, H: 1.1, L: .6, Wa: !1, ub: !1 }],
-    [{ name: a.Er, a: a.Fr, u: 15, F: 25, G: 48.1, K: 60.2, B: 5, mode: H.I.na, za: 8, f: H.e.wa, i: J, d: "Shotgun_Katana.png", type: H.D.Ba, H: 1.5, L: .9 }, { name: a.Cr, a: a.Dr, u: 15, F: 25, G: 64.6, K: 80.7, B: 3, mode: H.I.na, za: 8, f: H.e.X, i: J, d: "Shotgun_Eviscerator.png", type: H.D.Ba, H: 1.25, L: .7 }, { name: a.Ir, a: a.Jr, u: 24, F: 34, G: 35.4, K: 44.2, B: 8, mode: H.I.sa, za: 8, f: H.e.X, i: J, d: "Shotgun_Scimitar.png", type: H.D.Ba, H: 1.15, L: .6 }, { name: a.Pi, a: a.Qi, u: 30, F: 40, G: 100, K: 125, B: 2, mode: H.I.na, za: 8, f: H.e.t, i: J, d: "Shotgun_Raider.png", type: H.D.Ba, H: 2, L: 1.4 }, {
+        K: 117.1, B: 4, mode: H.I.na, za: 6, f: H.e.ya, i: { organic: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 } }, d: "Pistol_Talon.png", type: H.D.pistol, H: .9, L: .6
+    }, { name: a.ds, a: a.es, u: 21, F: 33, G: 424.9, K: 531.1, B: 3, mode: H.I.na, f: H.e.ya, i: J, d: "Pistol_Ivory.png", type: H.D.pistol, H: 1, L: .7 }, { name: a.Zs, a: a.$s, u: 192, F: 240, G: 86.1, K: 107.7, B: 24, mode: H.I.sa, f: H.e.ya, i: J, d: "Pistol_Eagle.png", type: H.D.pistol, H: .45, L: .25 }, { name: a.vw, a: a.ww, u: 20, F: 30, G: 375.2, K: 469, B: 4, mode: H.I.na, f: H.e.ya, i: J, d: "Pistol_Scorpion.png", type: H.D.pistol, H: 1.1, L: .6, Wa: !1, ub: !1 }],
+    [{ name: a.Er, a: a.Fr, u: 15, F: 25, G: 48.1, K: 60.2, B: 5, mode: H.I.na, za: 8, f: H.e.wa, i: J, d: "Shotgun_Katana.png", type: H.D.shotgun, H: 1.5, L: .9 }, { name: a.Cr, a: a.Dr, u: 15, F: 25, G: 64.6, K: 80.7, B: 3, mode: H.I.na, za: 8, f: H.e.X, i: J, d: "Shotgun_Eviscerator.png", type: H.D.shotgun, H: 1.25, L: .7 }, { name: a.Ir, a: a.Jr, u: 24, F: 34, G: 35.4, K: 44.2, B: 8, mode: H.I.sa, za: 8, f: H.e.X, i: J, d: "Shotgun_Scimitar.png", type: H.D.shotgun, H: 1.15, L: .6 }, { name: a.Pi, a: a.Qi, u: 30, F: 40, G: 100, K: 125, B: 2, mode: H.I.na, za: 8, f: H.e.t, i: J, d: "Shotgun_Raider.png", type: H.D.shotgun, H: 2, L: 1.4 }, {
         name: a.jn,
-        a: a.kn, u: 24, F: 34, G: 55.6, K: 69.5, B: 4, mode: H.I.na, za: 8, f: H.e.t, i: J, d: "Shotgun_Disciple.png", type: H.D.Ba, H: 1, L: .5
-    }, { name: a.jp, a: a.kp, u: 15, F: 25, G: 714.2, K: 892.7, B: 5, mode: H.I.na, za: 1.6, race: ua.Ua, f: H.e.t, i: J, d: "Shotgun_Geth.png", type: H.D.Ba, H: 2, L: 1.4, ri: .45, ob: !0, Wa: !1, ub: !1, Ib: 1 }, { name: a.yp, a: a.zp, u: 12, F: 22, G: 88, K: 110, B: 3, mode: H.I.na, za: 6, f: H.e.t, i: J, d: "Shotgun_Graal.png", type: H.D.Ba, H: 2, L: 1.4, ob: !0, ub: !1, rc: !0, Ib: 2, Vb: 3 }, {
+        a: a.kn, u: 24, F: 34, G: 55.6, K: 69.5, B: 4, mode: H.I.na, za: 8, f: H.e.t, i: J, d: "Shotgun_Disciple.png", type: H.D.shotgun, H: 1, L: .5
+    }, { name: a.jp, a: a.kp, u: 15, F: 25, G: 714.2, K: 892.7, B: 5, mode: H.I.na, za: 1.6, race: ua.Ua, f: H.e.t, i: J, d: "Shotgun_Geth.png", type: H.D.shotgun, H: 2, L: 1.4, ri: .45, ob: !0, Wa: !1, ub: !1, Ib: 1 }, { name: a.yp, a: a.zp, u: 12, F: 22, G: 88, K: 110, B: 3, mode: H.I.na, za: 6, f: H.e.t, i: J, d: "Shotgun_Graal.png", type: H.D.shotgun, H: 2, L: 1.4, ob: !0, ub: !1, rc: !0, Ib: 2, Vb: 3 }, {
         name: a.Mr, a: a.Nr, u: 8, F: 18, G: 167.8, K: 206, B: 1, mode: H.I.mc, za: 8, f: H.e.t, i: J, d: "Shotgun_Claymore.png",
-        type: H.D.Ba, H: 2.5, L: 2
-    }, { name: a.ct, a: a.dt, u: 48, F: 64, G: 61.7, K: 77.1, B: 6, mode: H.I.sa, za: 8, f: H.e.t, i: J, d: "Shotgun_Assault.png", type: H.D.Ba, H: 1.5, L: .9 }, { name: a.Av, a: a.Bv, u: 66, F: 88, G: 52.8, K: 66, B: 22, mode: H.I.sa, za: 8, f: H.e.t, i: { organic: { health: 1, armor: .5, barrier: 2, shield: 2 } }, d: "Shotgun_Quarian.png", type: H.D.Ba, H: 1.75, L: 1.25 }, { name: a.ur, a: a.vr, u: 18, F: 28, G: 117.6, K: 147, B: 2, mode: H.I.na, za: 8, f: H.e.ya, i: J, d: "Shotgun_Striker.png", type: H.D.Ba, H: 1.2, L: .9 }, {
+        type: H.D.shotgun, H: 2.5, L: 2
+    }, { name: a.ct, a: a.dt, u: 48, F: 64, G: 61.7, K: 77.1, B: 6, mode: H.I.sa, za: 8, f: H.e.t, i: J, d: "Shotgun_Assault.png", type: H.D.shotgun, H: 1.5, L: .9 }, { name: a.Av, a: a.Bv, u: 66, F: 88, G: 52.8, K: 66, B: 22, mode: H.I.sa, za: 8, f: H.e.t, i: { organic: { health: 1, armor: .5, barrier: 2, shield: 2 } }, d: "Shotgun_Quarian.png", type: H.D.shotgun, H: 1.75, L: 1.25 }, { name: a.ur, a: a.vr, u: 18, F: 28, G: 117.6, K: 147, B: 2, mode: H.I.na, za: 8, f: H.e.ya, i: J, d: "Shotgun_Striker.png", type: H.D.shotgun, H: 1.2, L: .9 }, {
         name: a.Ts, a: a.Us, u: 20, F: 30, G: 630.7, K: 788.4, B: 4, mode: H.I.na,
-        f: H.e.ya, i: J, d: "Shotgun_Crusader.png", type: H.D.Ba, H: 2.3, L: 2
-    }, { name: a.$B, a: a.aC, u: 12, F: 22, G: 636, K: 795, B: 4, mode: H.I.na, f: H.e.ya, i: J, d: "Shotgun_Salarian_MP.png", type: H.D.Ba, H: 2, L: 1.4, ob: !0, Wa: !1, ub: !1, rc: !0, Ib: 1.25 / 3, Yd: 3, si: !0 }], [{ name: a.Ur, a: a.Vr, u: 360, F: 468, G: 38.7, K: 48.3, B: 36, mode: H.I.gy, za: 6, f: H.e.wa, i: J, d: "SMG_Shuriken.png", type: H.D.Va, H: .45, L: .2 }, { name: a.wr, a: a.xr, u: 275, F: 350, G: 40.8, K: 51, B: 25, mode: H.I.sa, f: H.e.X, i: J, d: "SMG_Locust.png", type: H.D.Va, H: .65, L: .3, Vb: 3 }, {
+        f: H.e.ya, i: J, d: "Shotgun_Crusader.png", type: H.D.shotgun, H: 2.3, L: 2
+    }, { name: a.$B, a: a.aC, u: 12, F: 22, G: 636, K: 795, B: 4, mode: H.I.na, f: H.e.ya, i: J, d: "Shotgun_Salarian_MP.png", type: H.D.shotgun, H: 2, L: 1.4, ob: !0, Wa: !1, ub: !1, rc: !0, Ib: 1.25 / 3, Yd: 3, si: !0 }], [{ name: a.Ur, a: a.Vr, u: 360, F: 468, G: 38.7, K: 48.3, B: 36, mode: H.I.gy, za: 6, f: H.e.wa, i: J, d: "SMG_Shuriken.png", type: H.D.smg, H: .45, L: .2 }, { name: a.wr, a: a.xr, u: 275, F: 350, G: 40.8, K: 51, B: 25, mode: H.I.sa, f: H.e.X, i: J, d: "SMG_Locust.png", type: H.D.smg, H: .65, L: .3, Vb: 3 }, {
         name: a.ws, a: a.xs, u: 400, F: 500,
-        G: 47.5, K: 59.4, B: 50, mode: H.I.sa, f: H.e.X, i: J, d: "SMG_Tempest.png", type: H.D.Va, H: .65, L: .3
-    }, { name: a.hp, a: a.ip, u: 600, F: 800, G: 16.1, K: 20.1, B: 100, mode: H.I.sa, race: ua.Ua, f: H.e.t, i: J, d: "SMG_Geth.png", type: H.D.Va, H: .65, L: .3, ob: !0, rc: !0, Ib: 2.5 }, { name: a.Gr, a: a.Hr, u: 168, F: 216, G: 53.7, K: 67.2, B: 24, mode: H.I.Wd, za: 3, f: H.e.t, i: J, d: "SMG_Hornet.png", type: H.D.Va, H: .85, L: .45 }, { name: a.ol, a: a.pl, u: 320, F: 400, G: 40.1, K: 50.1, B: 40, mode: H.I.sa, f: H.e.ya, i: J, d: "SMG_Bloodpack_MP.png", type: H.D.Va, H: .85, L: .45 }, {
+        G: 47.5, K: 59.4, B: 50, mode: H.I.sa, f: H.e.X, i: J, d: "SMG_Tempest.png", type: H.D.smg, H: .65, L: .3
+    }, { name: a.hp, a: a.ip, u: 600, F: 800, G: 16.1, K: 20.1, B: 100, mode: H.I.sa, race: ua.Ua, f: H.e.t, i: J, d: "SMG_Geth.png", type: H.D.smg, H: .65, L: .3, ob: !0, rc: !0, Ib: 2.5 }, { name: a.Gr, a: a.Hr, u: 168, F: 216, G: 53.7, K: 67.2, B: 24, mode: H.I.Wd, za: 3, f: H.e.t, i: J, d: "SMG_Hornet.png", type: H.D.smg, H: .85, L: .45 }, { name: a.ol, a: a.pl, u: 320, F: 400, G: 40.1, K: 50.1, B: 40, mode: H.I.sa, f: H.e.ya, i: J, d: "SMG_Bloodpack_MP.png", type: H.D.smg, H: .85, L: .45 }, {
         name: a.Sl, a: a.Tl, u: 0, F: 40,
-        G: 41.2, K: 51.5, B: 30, mode: H.I.sa, race: ua.Sb, f: H.e.ya, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SMG_Collector.png", type: H.D.Va, H: .85, L: .45
-    }, { name: a.at, a: a.bt, u: 280, F: 360, G: 102.5, K: 128.1, B: 40, mode: H.I.sa, f: H.e.ya, i: J, d: "SMG_Hurricane.png", type: H.D.Va, H: .85, L: .45 }], [{ name: a.ms, a: a.ns, u: 9, F: 19, G: 738.7, K: 886.4, B: 1, mode: H.I.mc, f: H.e.wa, i: J, d: "SniperRifle_Mantis.png", type: H.D.Da, H: 1.75, L: 1 }, {
-        name: a.yr, a: a.zr, u: 105, F: 131, G: 86, K: 107.5, B: 15, mode: H.I.na, f: H.e.X, i: J, d: "SniperRifle_Raptor.png", type: H.D.Da,
+        G: 41.2, K: 51.5, B: 30, mode: H.I.sa, race: ua.Sb, f: H.e.ya, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SMG_Collector.png", type: H.D.smg, H: .85, L: .45
+    }, { name: a.at, a: a.bt, u: 280, F: 360, G: 102.5, K: 128.1, B: 40, mode: H.I.sa, f: H.e.ya, i: J, d: "SMG_Hurricane.png", type: H.D.smg, H: .85, L: .45 }], [{ name: a.ms, a: a.ns, u: 9, F: 19, G: 738.7, K: 886.4, B: 1, mode: H.I.mc, f: H.e.wa, i: J, d: "SniperRifle_Mantis.png", type: H.D.sniper, H: 1.75, L: 1 }, {
+        name: a.yr, a: a.zr, u: 105, F: 131, G: 86, K: 107.5, B: 15, mode: H.I.na, f: H.e.X, i: J, d: "SniperRifle_Raptor.png", type: H.D.sniper,
         H: 1, L: .7
-    }, { name: a.Kr, a: a.Lr, u: 120, F: 150, G: 98, K: 122.5, B: 15, mode: H.I.Wd, za: 3, f: H.e.X, i: J, d: "SniperRifle_Incisor.png", type: H.D.Da, H: 1.5, L: .9 }, { name: a.qs, a: a.rs, u: 36, F: 46, G: 292.1, K: 365.2, B: 6, mode: H.I.na, f: H.e.X, i: J, d: "SniperRifle_Viper.png", type: H.D.Da, H: 1.25, L: .7 }, { name: a.Ul, a: a.Vl, u: 0, F: 45, G: 73, K: 91.3, B: 35, mode: H.I.sa, race: ua.Sb, f: H.e.t, i: J, d: "SniperRifle_Collector.png", type: H.D.Da, H: 2, L: 1.4 }, {
-        name: a.Yq, a: a.Zq, u: 15, F: 25, G: 890.7, K: 1113.4, B: 1, mode: H.I.mc, f: H.e.t, i: J, d: "SniperRifle_Batarian.png", type: H.D.Da,
+    }, { name: a.Kr, a: a.Lr, u: 120, F: 150, G: 98, K: 122.5, B: 15, mode: H.I.Wd, za: 3, f: H.e.X, i: J, d: "SniperRifle_Incisor.png", type: H.D.sniper, H: 1.5, L: .9 }, { name: a.qs, a: a.rs, u: 36, F: 46, G: 292.1, K: 365.2, B: 6, mode: H.I.na, f: H.e.X, i: J, d: "SniperRifle_Viper.png", type: H.D.sniper, H: 1.25, L: .7 }, { name: a.Ul, a: a.Vl, u: 0, F: 45, G: 73, K: 91.3, B: 35, mode: H.I.sa, race: ua.Sb, f: H.e.t, i: J, d: "SniperRifle_Collector.png", type: H.D.sniper, H: 2, L: 1.4 }, {
+        name: a.Yq, a: a.Zq, u: 15, F: 25, G: 890.7, K: 1113.4, B: 1, mode: H.I.mc, f: H.e.t, i: J, d: "SniperRifle_Batarian.png", type: H.D.sniper,
         H: 2, L: 1.4, ob: !0, ub: !1, Ib: 1.75, Vb: 3, If: .6
-    }, { name: a.fr, a: a.gr, u: 9, F: 18, G: 493.4, K: 616.8, B: 3, mode: H.I.na, f: H.e.t, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SniperRifle_Turian.png", type: H.D.Da, H: 2, L: 1.4, Wa: !1, ub: !1 }, { name: a.ss, a: a.ts, u: 7, F: 17, G: 997, K: 1246, B: 1, mode: H.I.mc, f: H.e.t, i: J, d: "SniperRifle_Widow.png", type: H.D.Da, H: 2.5, L: 2 }, { name: a.gl, a: a.hl, u: 15, F: 25, G: 739, K: 923.8, B: 3, mode: H.I.na, f: H.e.ya, i: J, d: "SniperRifle_BlackWidow.png", type: H.D.Da, H: 2.3, L: 2 }, {
+    }, { name: a.fr, a: a.gr, u: 9, F: 18, G: 493.4, K: 616.8, B: 3, mode: H.I.na, f: H.e.t, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SniperRifle_Turian.png", type: H.D.sniper, H: 2, L: 1.4, Wa: !1, ub: !1 }, { name: a.ss, a: a.ts, u: 7, F: 17, G: 997, K: 1246, B: 1, mode: H.I.mc, f: H.e.t, i: J, d: "SniperRifle_Widow.png", type: H.D.sniper, H: 2.5, L: 2 }, { name: a.gl, a: a.hl, u: 15, F: 25, G: 739, K: 923.8, B: 3, mode: H.I.na, f: H.e.ya, i: J, d: "SniperRifle_BlackWidow.png", type: H.D.sniper, H: 2.3, L: 2 }, {
         name: a.Tq, a: a.Uq, u: 5, F: 15, G: 1236, K: 1545.8,
-        B: 1, mode: H.I.mc, race: ua.Ua, f: H.e.ya, i: J, d: "SniperRifle_Javelin.png", type: H.D.Da, H: 2.7, L: 2.4
-    }, { name: a.ks, a: a.ls, u: 180, F: 225, G: 72.6, K: 92.2, B: 25, mode: H.I.sa, f: H.e.ya, i: J, d: "SniperRifle_Indra.png", type: H.D.Da, H: 1, L: .7 }, { name: a.gt, a: a.ht, u: 30, F: 39, G: 396.2, K: 515.5, B: 3, mode: H.I.na, f: H.e.ya, i: J, d: "SniperRifle_Valiant.png", type: H.D.Da, H: 1.75, L: 1 }]];
+        B: 1, mode: H.I.mc, race: ua.Ua, f: H.e.ya, i: J, d: "SniperRifle_Javelin.png", type: H.D.sniper, H: 2.7, L: 2.4
+    }, { name: a.ks, a: a.ls, u: 180, F: 225, G: 72.6, K: 92.2, B: 25, mode: H.I.sa, f: H.e.ya, i: J, d: "SniperRifle_Indra.png", type: H.D.sniper, H: 1, L: .7 }, { name: a.gt, a: a.ht, u: 30, F: 39, G: 396.2, K: 515.5, B: 3, mode: H.I.na, f: H.e.ya, i: J, d: "SniperRifle_Valiant.png", type: H.D.sniper, H: 1.75, L: 1 }]];
     H.nh = [[{ name: a.Bi, a: a.Ci, f: H.e.wa, R: H.U.ic, d: "AssaultRifleMagSize.png", c: [{ attributes: { magazineSize: .4 } }, { attributes: { magazineSize: .5 } }, { attributes: { magazineSize: .6 } }, { attributes: { magazineSize: .7 } }, { attributes: { magazineSize: .8 } }] }, { name: a.Hi, a: a.Ii, f: H.e.wa, R: H.U.Db, d: "AssaultRifleAccuracy.png", c: [{ attributes: { accuracy: .15 } }, { attributes: { accuracy: .2 } }, { attributes: { accuracy: .25 } }, { attributes: { accuracy: .3 } }, { attributes: { accuracy: .35 } }] }, {
         name: a.Ji, a: a.Ki, f: H.e.wa, R: H.U.eb, d: "AssaultRifleStability.png",
         c: [{ attributes: { stability: .3 } }, { attributes: { stability: .4 } }, { attributes: { stability: .5 } }, { attributes: { stability: .6 } }, { attributes: { stability: .7 } }]
@@ -2324,10 +2329,38 @@
     h = h || {}; jQuery191(function () { h.Xa.initialize() });
     (function (d, c) {
         function e(x, d, f) {
-            var k = {}, t = []; f = c.extend({ Jf: null }, f); d || (d = v[G]); for (var e = 0; e < x.length; e++)k[x[e]] = 0; for (var e = [3, 4, 0, 1, 2], m = [N[3], N[4], N[0], N[1], N[2]], I = 0; I < m.length; I++) { var F = B.o[e[I]], ba = T[e[I]]; if (m[I] && (F.M || ba)) for (var g = 0; g < m[I].length; g++) { var n = m[I][g]; if (F.c[n].attributes) { var q = F.c[n].attributes; ba && F.pb && (q = F.pb(q)); if (q = K(q, x, k)) n = { type: "power", object: F, ia: n }, t.push(c.extend(q, n)) } } } P(d, t, x, k); f.Jf && P(f.Jf, t, x, k); for (e = 0; e < X.length; e++)-1 != X[e] && (d = oa[e][X[e]], q = K(d.c[ga[e]].attributes,
-                x, k)) && (n = { type: "equipment", object: d, ia: ga[e] }, t.push(c.extend(q, n))); return { data: k, C: t }
+            var k = {}, t = []; 
+            f = c.extend({ Jf: null }, f); 
+            d || (d = v[G]); 
+            for (var e = 0; e < x.length; e++)
+                k[x[e]] = 0; 
+            for (var e = [3, 4, 0, 1, 2], m = [N[3], N[4], N[0], N[1], N[2]], I = 0; I < m.length; I++) { 
+                var F = B.o[e[I]], ba = T[e[I]]; 
+                if (m[I] && (F.M || ba)) 
+                    for (var g = 0; g < m[I].length; g++) { 
+                        var n = m[I][g]; 
+                        if (F.c[n].attributes) { 
+                            var q = F.c[n].attributes; 
+                            ba && F.pb && (q = F.pb(q)); 
+                            if (q = K(q, x, k)) 
+                                n = { type: "power", object: F, ia: n }, t.push(c.extend(q, n)) 
+                        } 
+                    } 
+            } 
+            P(d, t, x, k); 
+            f.Jf && P(f.Jf, t, x, k); 
+            for (e = 0; e < X.length; e++)
+                -1 != X[e] && (d = gear[e][X[e]], q = K(d.c[ga[e]].attributes, x, k)) && (n = { type: "equipment", object: d, ia: ga[e] }, t.push(c.extend(q, n))); 
+            return { data: k, C: t }
         }
-        function P(x, d, f, k) { if (-1 != x.Ia) { var t = ka[x.type][x.Ia], e = K(t.c[x.hb].attributes, f, k); e && d.push(c.extend(e, { type: "mod", object: t, ia: x.hb })) } -1 != x.Ja && (t = ka[x.type][x.Ja], (e = K(t.c[x.ib].attributes, f, k)) && d.push(c.extend(e, { type: "mod", object: t, ia: x.ib }))) } function s(c) {
+        function P(x, d, f, k) { 
+            if (-1 != x.Ia) { 
+                var t = mods[x.type][x.Ia], e = K(t.c[x.hb].attributes, f, k); 
+                e && d.push(c.extend(e, { type: "mod", object: t, ia: x.hb })) 
+            } 
+            -1 != x.Ja && (t = mods[x.type][x.Ja], (e = K(t.c[x.ib].attributes, f, k)) && d.push(c.extend(e, { type: "mod", object: t, ia: x.ib }))) 
+        } 
+        function s(c) {
             for (var d = {}, f = B.o[c], k = 0; k < f.c.length; k++) {
                 var t = !1; N[c] && -1 != N[c].indexOf(k) && (t = !0); if (0 == k || t) for (var e in f.c[k].attributes) d[e] || (d[e] = {
                     value: 0,
@@ -2411,16 +2444,16 @@
             if (2 != c.length) 
                 return !1; 
             var f = Hash.decode(c), k = f[0], f = f[1]; 
-            return k < oa[d].length && f < oa[d][k].c.length ? (X[d] = k, ga[d] = f, !0) : !1 
+            return k < gear[d].length && f < gear[d][k].c.length ? (X[d] = k, ga[d] = f, !0) : !1 
         } 
         function ja(d) {
             if (!d || 3 > d.length) return null; 
             d = Hash.decode(d);
             var r = c.extend({}, { type: d[0], ra: d[1], ia: d[2], Ia: -1, hb: -1, Ja: -1, ib: -1 }); 
-            if (r.type >= la.length || r.ra >= la[r.type].length || r.ia > sa.xd) 
+            if (r.type >= weapons.length || r.ra >= weapons[r.type].length || r.ia > sa.xd) 
                 return null; 
-            null != d[3] && d[3] < ka[r.type].length && null != d[4] && d[4] <= sa.Qb && (r.Ia = d[3], r.hb = d[4]); 
-            null != d[5] && d[5] < ka[r.type].length && null != d[6] && d[6] <= sa.Qb && (r.Ja = d[5], r.ib = d[6]); 
+            null != d[3] && d[3] < mods[r.type].length && null != d[4] && d[4] <= sa.Qb && (r.Ia = d[3], r.hb = d[4]); 
+            null != d[5] && d[5] < mods[r.type].length && null != d[6] && d[6] <= sa.Qb && (r.Ja = d[5], r.ib = d[6]); 
             return r
         } 
         function y() {
@@ -2482,10 +2515,10 @@
             } else f < classes.length && (ma = f), c = !0; 
             if (r[1]) {
                 var k = ja(r[1]), e = ja(r[2]); 
-                k && (v[d.aa.ha] = k); 
-                e && (k ? k.type != e.type ? v[d.aa.xa] = e : c = !0 : (v[d.aa.ha] = e, c = !0));
+                k && (v[0] = k); 
+                e && (k ? k.type != e.type ? v[1] = e : c = !0 : (v[0] = e, c = !0));
                 e || "" == r[2] || (c = !0); 
-                k || e || (L(classes[f]), c = !0); 
+                k || e || (equip_default_weapons(classes[f]), c = !0); 
                 r[3] && (c |= !ca(r[3].substr(0, 2), d.Ab.jb), c |= !ca(r[3].substr(2, 2), d.Ab.mb), c |= !ca(r[3].substr(4, 2), d.Ab.Hb), c |= !ca(r[3].substr(6, 2), d.Ab.Fa)); 
                 w = points_at_level[19]; 
                 if (r[4]) 
@@ -2508,24 +2541,55 @@
             } 
             c && y()
         } 
-        function L(c) {
-            switch (c) { case "adept": case "engineer": q(d.aa.ha, M.ja, 0, 0); q(d.aa.xa, M.Na, 0, 0); break; case "soldier": q(d.aa.ha, M.ja, 0, 0); q(d.aa.xa, M.Da, 0, 0); break; case "sentinel": q(d.aa.ha, M.ja, 0, 0); q(d.aa.xa, M.Ba, 0, 0); break; case "infiltrator": q(d.aa.ha, M.Da, 0, 0); q(d.aa.xa, M.Va, 0, 0); break; case "vanguard": q(d.aa.ha, M.Ba, 0, 0), q(d.aa.xa, M.Va, 0, 0) } 
+        function equip_default_weapons(c) {
+            switch (c) { 
+                case "adept": 
+                case "engineer": 
+                    equip_weapon(0, weapon_type.assault, 0, 0); 
+                    equip_weapon(1, weapon_type.pistol, 0, 0); 
+                    break; 
+                case "soldier": 
+                    equip_weapon(0, weapon_type.assault, 0, 0); 
+                    equip_weapon(1, weapon_type.sniper, 0, 0); 
+                    break; 
+                case "sentinel": 
+                    equip_weapon(0, weapon_type.assault, 0, 0); 
+                    equip_weapon(1, weapon_type.shotgun, 0, 0); 
+                    break; 
+                case "infiltrator": 
+                    equip_weapon(0, weapon_type.sniper, 0, 0); 
+                    equip_weapon(1, weapon_type.smg, 0, 0); 
+                    break; 
+                case "vanguard": 
+                    equip_weapon(0, weapon_type.shotgun, 0, 0), 
+                    equip_weapon(1, weapon_type.smg, 0, 0) 
+            } 
         } 
         function da(c, r, f) { 
-            c < classes.length && r < va[c].length && (ma = c, Y = r, B = va[c][r], -1 == v[d.aa.ha].type && -1 == v[d.aa.xa].type && !1 !== f && L(classes[c])) 
+            c < classes.length && r < character[c].length && (ma = c, Y = r, B = character[c][r], -1 == v[0].type && -1 == v[1].type && !1 !== f && equip_default_weapons(classes[c])) 
         } 
-        function q(c, d, f, k, e, m) { 
-            if (!(d >= la.length || f >= la[d].length || 10 <= k)) { if ("undefined" == typeof e || e >= ka[d].length) e = -1; if ("undefined" == typeof m || m >= ka[d].length) m = -1; v[c].type = d; v[c].ra = f; v[c].ia = k; v[c].Ia = e; v[c].Ja = m } 
+        function equip_weapon(c, d, f, k, e, m) { 
+            if (!(d >= weapons.length || f >= weapons[d].length || 10 <= k)) { 
+                if ("undefined" == typeof e || e >= mods[d].length) 
+                    e = -1; 
+                if ("undefined" == typeof m || m >= mods[d].length) 
+                    m = -1; 
+                v[c].type = d; 
+                v[c].ra = f; 
+                v[c].ia = k; 
+                v[c].Ia = e; 
+                v[c].Ja = m 
+            } 
         } 
         var sa = h.Ya, 
-            oa = h.Ya.eg, 
+            gear = h.Ya.eg, 
             power_types = h.b.O, 
-            va = h.Cb.Re, 
+            character = h.Cb.Re, 
             races = h.Cb.Tb, 
             classes = h.Cb.Oh, 
-            la = h.Ya.Df, 
-            ka = h.Ya.nh, 
-            M = h.Ya.D, 
+            weapons = h.Ya.Df, 
+            mods = h.Ya.nh, 
+            weapon_type = h.Ya.D, 
             spec_patterns = [
                 [0, 0, 0, 0, 0], 
                 [0, 0, 0, 0, 1],
@@ -2581,8 +2645,8 @@
                 [0, 1, 2, 4, 6, 7], 
                 [0, 1, 2, 4, 6, 8]
             ], 
-            Q = [3.5, 4, 4, 4.5], 
-            ia = [15, 30, 50, 50]; 
+            base_shield_regen_delay = [3.5, 4, 4, 4.5], 
+            armor_penalty = [15, 30, 50, 50]; 
         d.mg = { KC: 0, VC: 1, Ng: 2, SC: 3 }; 
         d.Ab = { jb: 0, mb: 1, Hb: 2, Fa: 3 }; 
         d.Pa = { eb: 0, Jb: 1, ee: 2 }; 
@@ -2590,7 +2654,7 @@
         d.lf = { rb: 0, Ww: 1 }; 
         d.aa = { ha: 0, xa: 1 }; 
         var T = [!1, !1, !1, !1, !1], 
-            G = d.aa.ha, 
+            G = 0, 
             w = points_at_level[19], 
             Y = -1, 
             X = [-1, -1, -1, -1], 
@@ -2622,7 +2686,19 @@
                         !0 == f && y() 
                     } 
                 }; 
-                d.Zn = function (c) { G = c }; d.Uo = function () { return B.r }; d.Dc = function (c) { return X[c] }; d.Fe = function (c) { return ga[c] }; d.Ob = function (c) {
+                d.Zn = function (c) { 
+                    G = c 
+                }; 
+                d.Uo = function () { 
+                    return B.r 
+                }; 
+                d.Dc = function (c) { 
+                    return X[c] 
+                }; 
+                d.Fe = function (c) { 
+                    return ga[c] 
+                }; 
+                d.Ob = function (c) {
                     return 3 >
                         c ? d.Pa.eb : 1 == c % 2 ? d.Pa.Jb : d.Pa.ee
                 }; 
@@ -2662,30 +2738,34 @@
                         c.data.shieldStrength), d = d + c.data.maxShield * (1 + c.data.maxShieldStrength); return { value: d, C: c.C }
                 }; 
                 d.Yo = function () { 
-                    var x; x = c.extend({ Hf: d.mg.Ng }, x); x = Q[x.Hf]; 
+                    var x; x = c.extend({ Hf: d.mg.Ng }, x); x = base_shield_regen_delay[x.Hf]; 
                     var r = x - 1, f = e(["shieldRechargeRate"]); 
                     x *= 1 - f.data.shieldRechargeRate; 
                     r *= 1 - f.data.shieldRechargeRate; 
                     return { IC: r, HC: x, C: f.C } 
                 }; 
-                d.Zo = function () { return B.qa ? d.lf.rb : d.lf.Ww }; d.ap = function () { return { d: "MP_" + classes[ma] + ".png", index: Y } }; d.Qa = function (d) { return c.extend({}, v[d]) }; d.bp = function (c) {
-                    var d = e(["ammoCapacity", "magazineSize"], c), f = la[c.type][c.ra],
+                d.Zo = function () { return B.qa ? d.lf.rb : d.lf.Ww }; d.ap = function () { return { d: "MP_" + classes[ma] + ".png", index: Y } }; 
+                d.Qa = function (d) { 
+                    return c.extend({}, v[d]) 
+                }; 
+                d.bp = function (c) {
+                    var d = e(["ammoCapacity", "magazineSize"], c), f = weapons[c.type][c.ra],
                     k = 0; 0 != f.u && (k = f.u + (f.F - f.u) / 9 * c.ia, k *= 1 + d.data.ammoCapacity); var m = f.B; 0 == f.u && (m = f.B + (f.F - f.B) / 9 * c.ia); m *= 1 + d.data.magazineSize; return { EC: Math.floor(k), GC: Math.floor(m) }
                 }; 
                 d.Ec = function (x, m, f) {
                     var k = "ammoArmorWeakening ammoDamage enemyArmorPenetration enemyArmorWeakening enemyDamageTaken enemyWeaponDamageTaken globalDamage headshot headshotMod weaponDamage".split(" "), 
-                    g = la[x.type][x.ra], n = []; 
-                    n[M.ja] = "weaponDamageAssault"; 
-                    n[M.Na] = "weaponDamagePistol"; 
-                    n[M.Ba] = "weaponDamageShotgun"; 
-                    n[M.Va] = "weaponDamageSMG";
-                    n[M.Da] = "weaponDamageSniper"; 
+                    g = weapons[x.type][x.ra], n = []; 
+                    n[weapon_type.assault] = "weaponDamageAssault"; 
+                    n[weapon_type.pistol] = "weaponDamagePistol"; 
+                    n[weapon_type.shotgun] = "weaponDamageShotgun"; 
+                    n[weapon_type.smg] = "weaponDamageSMG";
+                    n[weapon_type.sniper] = "weaponDamageSniper"; 
                     k.push(n[g.type]); 
                     g.race == races.Ua && B.race == races.Ua && k.push("gethWeaponDamage"); 
                     g.race == races.Sb && B.race == races.Sb && k.push("protheanWeaponDamage"); 
-                    g.type == M.ja && k.push("tcDamageAssault"); 
-                    g.type == M.Ba && k.push("tcDamageShotgun"); 
-                    g.type == M.Da && k.push("tcDamageSniper"); 
+                    g.type == weapon_type.assault && k.push("tcDamageAssault"); 
+                    g.type == weapon_type.shotgun && k.push("tcDamageShotgun"); 
+                    g.type == weapon_type.sniper && k.push("tcDamageSniper"); 
                     var q = null; 
                     !S[x.type][x.ra] || f ? (q = e(k, x), S[x.type][x.ra] = q, pa[x.type][x.ra] = q.C) : q = S[x.type][x.ra]; 
                     m = c.extend({ gb: !1, Hf: d.mg.Ng, ea: "health", target: "organic", type: "normal" }, m); 
@@ -2710,7 +2790,7 @@
                         if (-1 == k) 
                             return 0; 
                         q = x * q.data.ammoDamage * (1 + q.data.enemyDamageTaken); 
-                        k = oa[d.Ab.Fa][k]; 
+                        k = gear[d.Ab.Fa][k]; 
                         q *= k.i[m.ea]; 
                         g.za && (q *= Math.floor(g.za)); 
                         k.c[f].Zc && q > k.c[f].Zc && (q = k.c[f].Zc); 
@@ -2720,15 +2800,22 @@
                     ra = g.Vb ? g.Vb : 2.5; 
                     "headshot" == m.type && !1 !== g.Wa ? (ra *= 1 + F, q += sa) : ra = 1; 
                     F = x * ba * q * (ra + f); 
-                    "armor" == m.ea && !1 !== g.ub && (k *= I, 0 > k && (k = 0), F -= ia[m.Hf] * k, 5 > F && (F = 5)); 
+                    "armor" == m.ea && !1 !== g.ub && (k *= I, 0 > k && (k = 0), F -= armor_penalty[m.Hf] * k, 5 > F && (F = 5)); 
                     F *= g.i[m.target][m.ea]; g.za && (F *= g.za); 
                     F += n * (ra + f); m.gb && g.si && (F += q * (g.Yd + 1)); 
                     return Math.round(F)
                 }; 
-                d.cp = function (c) { return pa[c.type][c.ra] || [] }; d.Fc = function (c) { var d = la[c.type][c.ra]; return d.H + (d.L - d.H) / 9 * c.ia }; d.Kg = function () {
-                    var c = ["encumbrance", "weaponWeight"], m = []; m[M.ja] = "weaponWeightAssault"; m[M.Na] = "weaponWeightPistol"; m[M.Ba] = "weaponWeightShotgun"; m[M.Va] = "weaponWeightSMG"; m[M.Da] = "weaponWeightSniper";
-                    var f = []; f[M.ja] = "modWeightAssault"; f[M.Na] = "modWeightPistol"; f[M.Ba] = "modWeightShotgun"; f[M.Va] = "modWeightSMG"; f[M.Da] = "modWeightSniper"; var k = []; k[M.ja] = "modULMAssault"; k[M.Na] = "modULMPistol"; k[M.Ba] = "modULMShotgun"; k[M.Va] = "modULMSMG"; k[M.Da] = "modULMSniper"; c.push(m[v[d.aa.ha].type]); c.push(f[v[d.aa.ha].type]); c.push(k[v[d.aa.ha].type]); -1 != v[d.aa.xa].type && (c.push(m[v[d.aa.xa].type]), c.push(f[v[d.aa.xa].type]), c.push(k[v[d.aa.xa].type])); var c = e(c, v[d.aa.ha], { Jf: v[d.aa.xa] }), g = 2 + B.r, g = g + c.data.encumbrance /
-                        100, q = d.Qa(d.aa.ha), n = d.Fc(q), n = n - c.data[f[q.type]], n = n * (1 - c.data[k[q.type]]), n = n - c.data.weaponWeight - c.data[m[q.type]], g = g - n, q = d.Qa(d.aa.xa); -1 != q.type && (n = d.Fc(q), n -= c.data[f[q.type]], n *= 1 - c.data[k[q.type]], n = n - c.data.weaponWeight - c.data[m[q.type]], g -= n); -2 > g ? g = -2 : 2 < g && (g = 2); return { value: g, C: c.C }
+                d.cp = function (c) { 
+                    return pa[c.type][c.ra] || [] 
+                }; 
+                d.Fc = function (c) { 
+                    var d = weapons[c.type][c.ra]; 
+                    return d.H + (d.L - d.H) / 9 * c.ia 
+                }; 
+                d.Kg = function () {
+                    var c = ["encumbrance", "weaponWeight"], m = []; m[weapon_type.assault] = "weaponWeightAssault"; m[weapon_type.pistol] = "weaponWeightPistol"; m[weapon_type.shotgun] = "weaponWeightShotgun"; m[weapon_type.smg] = "weaponWeightSMG"; m[weapon_type.sniper] = "weaponWeightSniper";
+                    var f = []; f[weapon_type.assault] = "modWeightAssault"; f[weapon_type.pistol] = "modWeightPistol"; f[weapon_type.shotgun] = "modWeightShotgun"; f[weapon_type.smg] = "modWeightSMG"; f[weapon_type.sniper] = "modWeightSniper"; var k = []; k[weapon_type.assault] = "modULMAssault"; k[weapon_type.pistol] = "modULMPistol"; k[weapon_type.shotgun] = "modULMShotgun"; k[weapon_type.smg] = "modULMSMG"; k[weapon_type.sniper] = "modULMSniper"; c.push(m[v[0].type]); c.push(f[v[0].type]); c.push(k[v[0].type]); -1 != v[1].type && (c.push(m[v[1].type]), c.push(f[v[1].type]), c.push(k[v[1].type])); var c = e(c, v[0], { Jf: v[1] }), g = 2 + B.r, g = g + c.data.encumbrance /
+                        100, q = d.Qa(0), n = d.Fc(q), n = n - c.data[f[q.type]], n = n * (1 - c.data[k[q.type]]), n = n - c.data.weaponWeight - c.data[m[q.type]], g = g - n, q = d.Qa(1); -1 != q.type && (n = d.Fc(q), n -= c.data[f[q.type]], n *= 1 - c.data[k[q.type]], n = n - c.data.weaponWeight - c.data[m[q.type]], g -= n); -2 > g ? g = -2 : 2 < g && (g = 2); return { value: g, C: c.C }
                 }; 
                 d.Ie = function (c, e) { 
                     var f = w - cost_of_evolution[e]; 
@@ -2744,11 +2831,50 @@
                     return -1 !=
                         "armor bow damage dot dsDOT hammer overload shadowstrike".split(" ").indexOf(c)
                 }; 
-                d.eh = function () { for (var c = 0; c < B.o.length; c++)if (B.o[c].Oa && N[c]) return !0; return !1 }; d.Oe = function () { return -1 != Y }; d.fh = function (c) { return -1 == Y || c >= B.o.length ? !1 : T[c] }; d.vb = function (c, d) { return N[c] ? 0 <= N[c].indexOf(d) : !1 }; d.gh = function (c, e, f) { return !0 == f && d.Pe(c, e) ? !0 : d.Ie(c, e) }; d.Pe = function (c, e) { var f = d.Ob(e); return d.vb(c, e) || f == d.Pa.eb ? !1 : d.vb(c, f == d.Pa.Jb ? e + 1 : e - 1) }; d.Sq = function (c, d) {
-                    return -1 == v[c].type || d > ka[v[c].type].length ?
-                        !1 : v[c].Ia == d || v[c].Ja == d
+                d.eh = function () { 
+                    for (var c = 0; c < B.o.length; c++)
+                        if (B.o[c].Oa && N[c]) 
+                            return !0; 
+                    return !1 
                 }; 
-                d.PC = function (c, d) { return -1 == v[c].type ? !1 : -1 == (0 == d ? v[c].Ia : v[c].Ja) }; d.ud = function (c, d, f) { if (-1 == v[c].type || f > ka[v[c].type].length) return !1; d = 0 == d ? v[c].Ja : v[c].Ia; return -1 == d ? !1 : ka[v[c].type][f].R == ka[v[c].type][d].R ? !0 : !1 }; d.hh = function (c) { return G == c }; d.Dv = function (c, d) { -1 != v[c].type && (0 == d ? (v[c].Ia = -1, v[c].hb = -1) : (v[c].Ja = -1, v[c].ib = -1), y()) }; d.Iv = function (c) { X[c] = -1; ga[c] = -1; y() }; 
+                d.Oe = function () { 
+                    return -1 != Y 
+                }; 
+                d.fh = function (c) { 
+                    return -1 == Y || c >= B.o.length ? !1 : T[c] 
+                }; 
+                d.vb = function (c, d) { 
+                    return N[c] ? 0 <= N[c].indexOf(d) : !1 
+                }; 
+                d.gh = function (c, e, f) { 
+                    return !0 == f && d.Pe(c, e) ? !0 : d.Ie(c, e) 
+                }; 
+                d.Pe = function (c, e) { 
+                    var f = d.Ob(e); 
+                    return d.vb(c, e) || f == d.Pa.eb ? !1 : d.vb(c, f == d.Pa.Jb ? e + 1 : e - 1) 
+                }; 
+                d.Sq = function (c, d) {
+                    return -1 == v[c].type || d > mods[v[c].type].length ? !1 : v[c].Ia == d || v[c].Ja == d
+                }; 
+                d.PC = function (c, d) { 
+                    return -1 == v[c].type ? !1 : -1 == (0 == d ? v[c].Ia : v[c].Ja) 
+                }; 
+                d.ud = function (c, d, f) { 
+                    if (-1 == v[c].type || f > mods[v[c].type].length) 
+                        return !1; 
+                    d = 0 == d ? v[c].Ja : v[c].Ia; 
+                    return -1 == d ? !1 : mods[v[c].type][f].R == mods[v[c].type][d].R ? !0 : !1 
+                }; 
+                d.hh = function (c) { 
+                    return G == c 
+                }; 
+                d.Dv = function (c, d) { 
+                    -1 != v[c].type && (0 == d ? (v[c].Ia = -1, v[c].hb = -1) : (v[c].Ja = -1, v[c].ib = -1), y()) 
+                }; 
+                d.Iv = function (c) { 
+                    X[c] = -1; ga[c] = -1; 
+                    y() 
+                }; 
                 d.Kh = function () { 
                     T = [!1, !1, !1, !1, !1]; 
                     N = []; 
@@ -2756,8 +2882,10 @@
                     y() 
                 }; 
                 d.Jv = function (e) {
-                    e == d.aa.ha && (v[d.aa.ha] =
-                        c.extend({}, v[d.aa.xa])); v[d.aa.xa] = { ia: -1, type: -1, ra: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }; G = d.aa.ha; y()
+                    e == 0 && (v[0] = c.extend({}, v[1])); 
+                    v[1] = { ia: -1, type: -1, ra: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }; 
+                    G = 0; 
+                    y()
                 }; 
                 d.Dw = function (c, e) { 
                     if (!d.vb(c, e) && d.gh(c, e)) { 
@@ -2780,9 +2908,11 @@
                         y() 
                     } 
                 }; 
-                d.Jw = function (c, d, f) { d < oa[c].length && f < oa[c][d].c.length && (X[c] = d, ga[c] = f, y()) }; d.Kw = function (c, d) {
-                    -1 != X[c] && d < oa[c][X[c]].c.length &&
-                    (ga[c] = d, y())
+                d.Jw = function (c, d, f) { 
+                    d < gear[c].length && f < gear[c][d].c.length && (X[c] = d, ga[c] = f, y()) 
+                }; 
+                d.Kw = function (c, d) {
+                    -1 != X[c] && d < gear[c][X[c]].c.length && (ga[c] = d, y())
                 }; 
                 d.Lw = function (c, d) { 
                     da(c, d); 
@@ -2795,12 +2925,12 @@
                 d.Nw = function (c, d, f, e) { 
                     var m = v[c].Ia, g = v[c].Ja; 
                     v[c].type != d && (g = m = -1); 
-                    q(c, d, f, e, m, g); 
+                    equip_weapon(c, d, f, e, m, g); 
                     y() 
                 }; 
                 d.Ow = function (c, e, f, k) { 
                     var m = v[c].type; 
-                    -1 == m || f > ka[m].length || k > sa.Qb || d.ud(c, e, f) || (0 == e ? (v[c].Ia = f, v[c].hb = k) : (v[c].Ja = f, v[c].ib = k), y()) 
+                    -1 == m || f > mods[m].length || k > sa.Qb || d.ud(c, e, f) || (0 == e ? (v[c].Ia = f, v[c].hb = k) : (v[c].Ja = f, v[c].ib = k), y()) 
                 }; 
                 d.Pw = function (c, d, f) { 
                     if (!(-1 == v[c].type || f > sa.Qb)) { 
@@ -2986,7 +3116,27 @@
         } function g() {
             for (var d = c("<div>").addClass("selector-group").attr("id", "equipment-type-" + G.Hb).data("type", G.Hb), e = 0; e < T[G.Hb].length; e++) { var f = T[G.Hb][e], g = Core.mediaUrl + "images/consumables/" + f.d, f = c("<div>").addClass("weapon-small rarity-small-" + U.e.wa).append(aa.Lb(g, 128, 96, "equipment")).append(c("<p>").text(f.name)).data("type", G.Hb).data("equipment", e).click(n); d.append(f) } d.append(c("<div>").addClass("clearfix"));
             return d
-        } function z() { var e = S; E.Iv(e); A(); d.Ea(); c("#character-builder").trigger(k[e]) } function fa() { E.Jv(f); m(); d.Ea(); c("#character-builder").trigger("weaponSelected.View.WeaponSelector"); c("#character-builder").trigger("equippedWeaponChanged.View.WeaponSelector") } function u() { E.Dv(f, x); ha(); d.Ea(); c("#character-builder").trigger("weaponModSelected.View.WeaponSelector") } function p() {
+        } function z() { 
+            var e = S; 
+            E.Iv(e); 
+            A(); 
+            d.Ea(); 
+            c("#character-builder").trigger(k[e]) 
+        } 
+        function fa() { 
+            E.Jv(f); 
+            m(); 
+            d.Ea(); 
+            c("#character-builder").trigger("weaponSelected.View.WeaponSelector"); 
+            c("#character-builder").trigger("equippedWeaponChanged.View.WeaponSelector") 
+        } 
+        function u() { 
+            E.Dv(f, x); 
+            ha(); 
+            d.Ea(); 
+            c("#character-builder").trigger("weaponModSelected.View.WeaponSelector") 
+        } 
+        function p() {
             E.Zn(f); c(this).hide(); f == B.ha ? (c("#primary-weapon .weapon-equipped").show(), c("#secondary-weapon .weapon-equipped").hide()) :
                 (c("#primary-weapon .weapon-equipped").hide(), c("#secondary-weapon .weapon-equipped").show()); c("#character-builder").trigger("equippedWeaponChanged.View.WeaponSelector")
         } function A(d, e) { e != t && (S = -1, t.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function m(d, e) { e != xa && (f = -1, xa.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function ha(d, e) { e != ya && (x = f = -1, ya.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function O(e) {
@@ -3007,8 +3157,10 @@
                 E.Sq(f, c(e).data("mod")) &&
                 c(e).hide(); E.ud(f, x, c(e).data("mod")) && c(e).addClass("mod-inuse")
             })
-        } function L() {
-            var d = c(this).data("slot"); d != S && (c("#build-content").trigger("overlayShowing.View.Character", t), S = d, c("#equipment-empty-button").hide(), c("#equipment-selector .rank-selector").show(), c("#equipment-selector .item-rank").removeClass("rank-active").show(), c("#equipment-selector .ui-collapse-down").click(), c("#equipment-selector > .selector-group").hide(), c("#equipment-type-" + G.mb).hide(), c("#equipment-type-" + S).show(),
+        } 
+        function L() {
+            var d = c(this).data("slot"); 
+            d != S && (c("#build-content").trigger("overlayShowing.View.Character", t), S = d, c("#equipment-empty-button").hide(), c("#equipment-selector .rank-selector").show(), c("#equipment-selector .item-rank").removeClass("rank-active").show(), c("#equipment-selector .ui-collapse-down").click(), c("#equipment-selector > .selector-group").hide(), c("#equipment-type-" + G.mb).hide(), c("#equipment-type-" + S).show(),
                 d = E.Dc(S), -1 != d && (c("#equipment-empty-button").show(), v = E.Fe(S), c("#equipment-rank-" + v).addClass("rank-active")), S == G.Fa ? (c("#equipment-slot").text(w.SA), c("#equipment-selector .rank-selector").hide()) : S == G.jb ? (c("#equipment-slot").text(w.TA), c("#equipment-selector .rank-selector").hide()) : (S == G.mb ? (c("#equipment-slot").text(w.UA), c("#equipment-selector .stat-id").text(w.YA + ": "), -1 == d ? (v = U.mh, c("#equipment-rank-" + v).addClass("rank-active"), c("#gear-button-" + U.e.t).click()) : c("#gear-button-" + T[S][d].f).click()) :
                     (c("#equipment-slot").text(w.VA), c("#equipment-selector .stat-id").text(w.JA + ": "), c("#equipment-selector #equipment-rank-3").hide(), c("#equipment-selector #equipment-rank-4").hide(), -1 == d && (v = 2, c("#equipment-rank-" + v).addClass("rank-active"))), na(c("#equipment-type-" + S))), t.fadeIn("fast"))
         } function da() {
