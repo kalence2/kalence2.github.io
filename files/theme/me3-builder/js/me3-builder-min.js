@@ -2326,70 +2326,256 @@
         function e(x, d, f) {
             var k = {}, t = []; f = c.extend({ Jf: null }, f); d || (d = v[G]); for (var e = 0; e < x.length; e++)k[x[e]] = 0; for (var e = [3, 4, 0, 1, 2], m = [N[3], N[4], N[0], N[1], N[2]], I = 0; I < m.length; I++) { var F = B.o[e[I]], ba = T[e[I]]; if (m[I] && (F.M || ba)) for (var g = 0; g < m[I].length; g++) { var n = m[I][g]; if (F.c[n].attributes) { var q = F.c[n].attributes; ba && F.pb && (q = F.pb(q)); if (q = K(q, x, k)) n = { type: "power", object: F, ia: n }, t.push(c.extend(q, n)) } } } P(d, t, x, k); f.Jf && P(f.Jf, t, x, k); for (e = 0; e < X.length; e++)-1 != X[e] && (d = oa[e][X[e]], q = K(d.c[ga[e]].attributes,
                 x, k)) && (n = { type: "equipment", object: d, ia: ga[e] }, t.push(c.extend(q, n))); return { data: k, C: t }
-        } function P(x, d, f, k) { if (-1 != x.Ia) { var t = ka[x.type][x.Ia], e = K(t.c[x.hb].attributes, f, k); e && d.push(c.extend(e, { type: "mod", object: t, ia: x.hb })) } -1 != x.Ja && (t = ka[x.type][x.Ja], (e = K(t.c[x.ib].attributes, f, k)) && d.push(c.extend(e, { type: "mod", object: t, ia: x.ib }))) } function s(c) {
+        }
+        function P(x, d, f, k) { if (-1 != x.Ia) { var t = ka[x.type][x.Ia], e = K(t.c[x.hb].attributes, f, k); e && d.push(c.extend(e, { type: "mod", object: t, ia: x.hb })) } -1 != x.Ja && (t = ka[x.type][x.Ja], (e = K(t.c[x.ib].attributes, f, k)) && d.push(c.extend(e, { type: "mod", object: t, ia: x.ib }))) } function s(c) {
             for (var d = {}, f = B.o[c], k = 0; k < f.c.length; k++) {
                 var t = !1; N[c] && -1 != N[c].indexOf(k) && (t = !0); if (0 == k || t) for (var e in f.c[k].attributes) d[e] || (d[e] = {
                     value: 0,
                     C: []
                 }), d[e].value += f.c[k].attributes[e], d[e].C.push({ attributes: [{ attr: e, value: f.c[k].attributes[e] }], object: f, ia: k, type: "power" })
             } return d
-        } function K(c, d, f) { var k = [], t; for (t in c) -1 != d.indexOf(t) && (f[t] += c[t], k.push({ attr: t, value: c[t] })); return 0 == k.length ? !1 : { attributes: k } } function g(c, d) { var f = 0, k = e(["globalPowerDamage"]), f = f + k.data.globalPowerDamage; return { value: d.Yc * (1 + f), C: [] } } function z(c) {
+        } 
+        function K(c, d, f) { var k = [], t; for (t in c) -1 != d.indexOf(t) && (f[t] += c[t], k.push({ attr: t, value: c[t] })); return 0 == k.length ? !1 : { attributes: k } } function g(c, d) { var f = 0, k = e(["globalPowerDamage"]), f = f + k.data.globalPowerDamage; return { value: d.Yc * (1 + f), C: [] } } function z(c) {
             var d = [], f = s(c); c = f.durability.value - B.o[c].c[0].attributes.durability; d = f.durability.C; d.shift(); f.omniShieldHealth &&
                 (c += f.omniShieldHealth.value, d = d.concat(f.omniShieldHealth.C)); f = f.omniShield.value; return { value: f * (1 + c), C: d }
-        } function fa(d, r) {
+        } 
+        function fa(d, r) {
             var f = [], k = 0; r = c.extend({ ea: "health" }, r); var t = s(d); t.powerDamage && (k += t.powerDamage.value, f = t.powerDamage.C); var m = B.o[d], g = m.i[r.ea]; if (t.powerDamageBarrier) { if ("barrier" == r.ea || "shield" == r.ea) g = 5; f = f.concat(t.powerDamageBarrier.C) } var I = e("armorPowerDamage enemyDamageTaken enemyPowerDamageTaken globalDamage globalPowerDamage techDamage".split(" ")), f = f.concat(I.C), F = I.data.enemyDamageTaken +
                 I.data.enemyPowerDamageTaken, k = k + (I.data.globalDamage + I.data.globalPowerDamage + I.data.techDamage), k = k + I.data.armorPowerDamage, I = 0, k = t.overload.value * (1 + k) * (1 + F); t.neuralShock && (I = k * m.i[r.ea]); return { value: k * g + I, C: f }
-        } function u(c, d, f, k) { var t = [], m = 0; c = s(c); c[f] && (m += c[f].value, t = c[f].C); if (k) { f = e(k); for (var g in f.data) m += f.data[g]; 0 < f.C.length && (t = t.concat(f.C)) } return { value: c[d].value * (1 + m), C: t } } function p(d, r, f, k, t) {
+        } 
+        function u(c, d, f, k) { var t = [], m = 0; c = s(c); c[f] && (m += c[f].value, t = c[f].C); if (k) { f = e(k); for (var g in f.data) m += f.data[g]; 0 < f.C.length && (t = t.concat(f.C)) } return { value: c[d].value * (1 + m), C: t } } function p(d, r, f, k, t) {
             var m = [], g = 0, I = 1; t = c.extend({ ea: "health" }, t); var F = s(d); F[f] && (g += F[f].value, m =
                 F[f].C); F.powerDamageArmor && ("armor" == t.ea && (I += F.powerDamageArmor.value), m = m.concat(F.powerDamageArmor.C)); F.powerDamageBarrier && ("barrier" == t.ea && (I += F.powerDamageBarrier.value), m = m.concat(F.powerDamageBarrier.C)); F.powerDamageShield && ("shield" == t.ea && (I += F.powerDamageShield.value), F.powerDamageBarrier && F.powerDamageBarrier.value == F.powerDamageShield.value || (m = m.concat(F.powerDamageShield.C))); f = B.o[d]; f.i && (I *= f.i[t.ea]); d = ["globalDamage", "globalPowerDamage", "enemyDamageTaken", "enemyPowerDamageTaken"];
             f.type == W.fa ? d = d.concat("bioticDamage") : f.type == W.ta && (d = d.concat("techDamage")); k && (d = d.concat("modMeleeDamage")); "armor" != r && (d = d.concat("armorPowerDamage")); d = e(d); m = m.concat(d.C); g += d.data.globalDamage + d.data.globalPowerDamage; f.type == W.fa ? g += d.data.bioticDamage : f.type == W.ta && (g += d.data.techDamage); "armor" != r && (g += d.data.armorPowerDamage); f = d.data.enemyDamageTaken + d.data.enemyPowerDamageTaken; var ba = 0, ba = "undefined" !== typeof t.Yc ? t.Yc : F[r].value; r = ba * (1 + g) * (1 + f) * I; k && (r *= 1 + d.data.modMeleeDamage);
             return { value: r, C: m }
-        } function A(c) { var r = [], f = 0; c = s(c); c.rechargeSpeed && (f += c.rechargeSpeed.value, r = c.rechargeSpeed.C); var k = !1, t = e(["globalRecharge", "bioticOrbs", "orbRecharge"]); 0 != t.data.globalRecharge && (f += t.data.globalRecharge, k = !0); 0 != t.data.bioticOrbs && (f += t.data.orbRecharge * t.data.bioticOrbs, k = !0); k && (r = r.concat(t.C)); k = d.Kg().value; c = c.baseRechargeSpeed.value; return { value: 0 <= f + k ? 1 / (1 + f + k) * c : c * (1 - (f + k)), C: r } } function m(c, d, f) {
+        } 
+        function A(c) { var r = [], f = 0; c = s(c); c.rechargeSpeed && (f += c.rechargeSpeed.value, r = c.rechargeSpeed.C); var k = !1, t = e(["globalRecharge", "bioticOrbs", "orbRecharge"]); 0 != t.data.globalRecharge && (f += t.data.globalRecharge, k = !0); 0 != t.data.bioticOrbs && (f += t.data.orbRecharge * t.data.bioticOrbs, k = !0); k && (r = r.concat(t.C)); k = d.Kg().value; c = c.baseRechargeSpeed.value; return { value: 0 <= f + k ? 1 / (1 + f + k) * c : c * (1 - (f + k)), C: r } } function m(c, d, f) {
             var k = [], t = s(c); c = 0; t[f] && (c += t[f].value, k = t[f].C); d = t[d].value; return {
                 value: d /
                     (1 + c), C: k
             }
-        } function ha(d, r) { var f = [], k = 0, t = 1; r = c.extend({ ea: "health" }, r); var m = s(d); m.powerDamage && (k += m.powerDamage.value, f = m.powerDamage.C); var g = B.o[d]; g.i && (t *= g.i[r.ea]); g = e(["globalDamage", "globalPowerDamage", "meleeDamage", "modMeleeDamage", "techDamage"]); f = f.concat(g.C); k += 2 * g.data.globalDamage; k += g.data.globalPowerDamage + g.data.meleeDamage + g.data.techDamage; k = m.shadowstrike.value * (1 + k) * t; k *= 1 + g.data.modMeleeDamage; return { value: k, C: f } } function O(c) {
+        } 
+        function ha(d, r) { var f = [], k = 0, t = 1; r = c.extend({ ea: "health" }, r); var m = s(d); m.powerDamage && (k += m.powerDamage.value, f = m.powerDamage.C); var g = B.o[d]; g.i && (t *= g.i[r.ea]); g = e(["globalDamage", "globalPowerDamage", "meleeDamage", "modMeleeDamage", "techDamage"]); f = f.concat(g.C); k += 2 * g.data.globalDamage; k += g.data.globalPowerDamage + g.data.meleeDamage + g.data.techDamage; k = m.shadowstrike.value * (1 + k) * t; k *= 1 + g.data.modMeleeDamage; return { value: k, C: f } } function O(c) {
             var d = [], f = 0; c = s(c); c.shieldBoostPower && (f +=
                 c.shieldBoostPower.value, d = c.shieldBoostPower.C); var k = e(["globalPowerDamage", "shieldBoostPassive"]), f = f + (k.data.globalPowerDamage + k.data.shieldBoostPassive), d = d.concat(k.C); c = c.shieldBoost.value; return { value: c * (1 + f), C: d }
-        } function n(c, d) { var f = 0, k = 0, t = s(c); t.powerDamage && (f += t.powerDamage.value, 0 < f && (f -= .2)); t = e(["globalPowerDamage", "enemyPowerDamageTaken"]); f += t.data.globalPowerDamage; k += t.data.enemyPowerDamageTaken; return { value: d.Yc * (1 + f) * (1 + k), C: [] } } function Z(c, d) {
+        } 
+        function n(c, d) { var f = 0, k = 0, t = s(c); t.powerDamage && (f += t.powerDamage.value, 0 < f && (f -= .2)); t = e(["globalPowerDamage", "enemyPowerDamageTaken"]); f += t.data.globalPowerDamage; k += t.data.enemyPowerDamageTaken; return { value: d.Yc * (1 + f) * (1 + k), C: [] } } function Z(c, d) {
             var f = 0, k = s(c); k.powerDamage &&
                 (f += k.powerDamage.value, 0 < f && (f -= .3)); k = e(["globalPowerDamage"]); f += k.data.globalPowerDamage; return { value: d.Yc * (1 + f), C: [] }
-        } function D(c) { if (!c) return !0; c = Hash.decode(c); if (c[0] < wa.length) { c = wa[c[0]].slice(0); for (var d = 0; d < c.length; d++)if (!B.o[d].g && c[d]) return !1; T = c; return !0 } return !1 } function ca(c, d) { if (!c || ".." == c) return !0; if (2 != c.length) return !1; var f = Hash.decode(c), k = f[0], f = f[1]; return k < oa[d].length && f < oa[d][k].c.length ? (X[d] = k, ga[d] = f, !0) : !1 } function ja(d) {
+        } 
+        function D(c) { if (!c) return !0; c = Hash.decode(c); if (c[0] < wa.length) { c = wa[c[0]].slice(0); for (var d = 0; d < c.length; d++)if (!B.o[d].g && c[d]) return !1; T = c; return !0 } return !1 } function ca(c, d) { if (!c || ".." == c) return !0; if (2 != c.length) return !1; var f = Hash.decode(c), k = f[0], f = f[1]; return k < oa[d].length && f < oa[d][k].c.length ? (X[d] = k, ga[d] = f, !0) : !1 } function ja(d) {
             if (!d || 3 > d.length) return null; d = Hash.decode(d);
             var r = c.extend({}, { type: d[0], ra: d[1], ia: d[2], Ia: -1, hb: -1, Ja: -1, ib: -1 }); if (r.type >= la.length || r.ra >= la[r.type].length || r.ia > sa.xd) return null; null != d[3] && d[3] < ka[r.type].length && null != d[4] && d[4] <= sa.Qb && (r.Ia = d[3], r.hb = d[4]); null != d[5] && d[5] < ka[r.type].length && null != d[6] && d[6] <= sa.Qb && (r.Ja = d[5], r.ib = d[6]); return r
-        } function y() {
-            for (var c = Hash.encode([ma, Y]), d = "", f = 0; 5 > f; f++)if (N[f]) {
-                var k; a: {
-                    k = N[f]; for (var t = 0; t < aa.length; t++)if (k.length == aa[t].length) {
-                        for (var e = !0, m = 0; m < k.length; m++)if (aa[t][m] !=
-                            k[m]) { e = !1; break } if (e) { k = t; break a }
-                    } k = -1
-                } d += Hash.encode([k], !0)
-            } else d += Hash.empty; a: { for (f = 0; f < wa.length; f++) { k = !0; for (t = 0; t < T.length; t++)if (T[t] != wa[f][t]) { k = !1; break } if (k) break a } f = -1 } 0 != f && (d += Hash.encode([f])); d = Core.trimRight(d, Hash.empty); f = Hash.delimiter; k = ""; for (t = 0; t < v.length; t++)e = v[t], e = Hash.encode([e.type, e.ra, e.ia, e.Ia, e.hb, e.Ja, e.ib], !0), k = "" != e ? k + (e + Hash.delimiter) : k + Hash.delimiter; t = Hash.encode([X[0], ga[0], X[1], ga[1], X[2], ga[2], X[3], ga[3]], !0); "" != t && (k += t); c += f + k + Hash.delimiter +
-                d; window.history.replaceState ? window.history.replaceState({}, document.title, "#" + c) : window.location.replace("#" + c)
-        } function ea() {
-            var c = !1, r = Core.getHash().split(Hash.delimiter), f; a: { for (f = 0; f < na.length; f++)if (na[f] == r[0]) break a; f = !1 } if (!1 === f) { var k = Hash.decode(r[0]); f = k[0]; "undefined" === typeof k[1] ? f < na.length && (ma = f) : "undefined" !== typeof r[1] && "" !== r[1] ? (Telemetry.trackEvent("ME3 Builder", "Import (" + na[f] + ")", "kit: " + k[1], !0), da(f, k[1], !1)) : (da(f, k[1]), c = !0) } else f < na.length && (ma = f), c = !0; if (r[1]) {
-                var k =
-                    ja(r[1]), e = ja(r[2]); k && (v[d.aa.ha] = k); e && (k ? k.type != e.type ? v[d.aa.xa] = e : c = !0 : (v[d.aa.ha] = e, c = !0)); e || "" == r[2] || (c = !0); k || e || (L(na[f]), c = !0); r[3] && (c |= !ca(r[3].substr(0, 2), d.Ab.jb), c |= !ca(r[3].substr(2, 2), d.Ab.mb), c |= !ca(r[3].substr(4, 2), d.Ab.Hb), c |= !ca(r[3].substr(6, 2), d.Ab.Fa)); w = E[19]; if (r[4]) for (f = 0; f < r[4].length; f++)if (5 == f) c |= !D(r[4][f]); else if (r[4][f] != Hash.empty) {
-                        k = f; e = Hash.decode(r[4][f])[0]; if (5 > k && e < aa.length) { N[k] = aa[e].slice(0); for (e = 0; e < N[k].length; e++)w -= U[N[k][e]]; k = !0 } else k = !1; c |=
-                            !k
+        } 
+        function y() {
+            for (var c = Hash.encode([ma, Y]), d = "", f = 0; 5 > f; f++)
+                if (N[f]) {
+                    var k; 
+                    a: {
+                    k = N[f]; 
+                    for (var t = 0; t < aa.length; t++)
+                        if (k.length == aa[t].length) {
+                            for (var e = !0, m = 0; m < k.length; m++)
+                                if (aa[t][m] != k[m]) {
+                                     e = !1; break 
+                                } 
+                                if (e) { 
+                                    k = t; 
+                                    break a 
+                                }
+                        } 
+                    k = -1
+                    } 
+                    d += Hash.encode([k], !0)
+                } else d += Hash.empty; 
+                a: { 
+                for (f = 0; f < wa.length; f++) { 
+                    k = !0; 
+                    for (t = 0; t < T.length; t++)
+                        if (T[t] != wa[f][t]) { 
+                            k = !1; 
+                            break 
+                        } 
+                        if (k) break a 
+                } 
+                f = -1 
+                } 
+                0 != f && (d += Hash.encode([f])); 
+                d = Core.trimRight(d, Hash.empty); 
+                f = Hash.delimiter; 
+                k = ""; 
+                for (t = 0; t < v.length; t++)
+                    e = v[t], e = Hash.encode([e.type, e.ra, e.ia, e.Ia, e.hb, e.Ja, e.ib], !0), k = "" != e ? k + (e + Hash.delimiter) : k + Hash.delimiter; 
+                    t = Hash.encode([X[0], ga[0], X[1], ga[1], X[2], ga[2], X[3], ga[3]], !0); 
+                    "" != t && (k += t); 
+                    c += f + k + Hash.delimiter + d; 
+                    window.history.replaceState ? window.history.replaceState({}, document.title, "#" + c) : window.location.replace("#" + c)
+        } 
+        function ea() {
+            var c = !1, r = Core.getHash().split(Hash.delimiter), f; 
+            a: { 
+                for (f = 0; f < classes.length; f++)
+                    if (classes[f] == r[0]) break a; 
+                f = !1 
+            } 
+            if (!1 === f) { 
+                var k = Hash.decode(r[0]); 
+                f = k[0]; 
+                "undefined" === typeof k[1] ? f < classes.length && (ma = f) : 
+                "undefined" !== typeof r[1] && "" !== r[1] ? (Telemetry.trackEvent("ME3 Builder", "Import (" + classes[f] + ")", "kit: " + k[1], !0), da(f, k[1], !1)) : (da(f, k[1]), c = !0) 
+            } else f < classes.length && (ma = f), c = !0; 
+            if (r[1]) {
+                var k = ja(r[1]), e = ja(r[2]); 
+                k && (v[d.aa.ha] = k); 
+                e && (k ? k.type != e.type ? v[d.aa.xa] = e : c = !0 : (v[d.aa.ha] = e, c = !0));
+                e || "" == r[2] || (c = !0); 
+                k || e || (L(classes[f]), c = !0); 
+                r[3] && (c |= !ca(r[3].substr(0, 2), d.Ab.jb), c |= !ca(r[3].substr(2, 2), d.Ab.mb), c |= !ca(r[3].substr(4, 2), d.Ab.Hb), c |= !ca(r[3].substr(6, 2), d.Ab.Fa)); 
+                w = points_at_level[19]; 
+                if (r[4]) 
+                    for (f = 0; f < r[4].length; f++)
+                        if (5 == f) 
+                            c |= !D(r[4][f]); 
+                        else if (r[4][f] != Hash.empty) {
+                            k = f; 
+                            e = Hash.decode(r[4][f])[0]; 
+                            if (5 > k && e < aa.length) { 
+                                N[k] = aa[e].slice(0); 
+                                for (e = 0; e < N[k].length; e++)
+                                    w -= cost_of_evolution[N[k][e]]; 
+                                    k = !0 
+                                } 
+                            else 
+                            k = !1; 
+                            c |= !k
                     }
-            } c && y()
-        } function L(c) { switch (c) { case "adept": case "engineer": q(d.aa.ha, M.ja, 0, 0); q(d.aa.xa, M.Na, 0, 0); break; case "soldier": q(d.aa.ha, M.ja, 0, 0); q(d.aa.xa, M.Da, 0, 0); break; case "sentinel": q(d.aa.ha, M.ja, 0, 0); q(d.aa.xa, M.Ba, 0, 0); break; case "infiltrator": q(d.aa.ha, M.Da, 0, 0); q(d.aa.xa, M.Va, 0, 0); break; case "vanguard": q(d.aa.ha, M.Ba, 0, 0), q(d.aa.xa, M.Va, 0, 0) } } function da(c, r, f) { c < na.length && r < va[c].length && (ma = c, Y = r, B = va[c][r], -1 == v[d.aa.ha].type && -1 == v[d.aa.xa].type && !1 !== f && L(na[c])) } function q(c, d, f,
-            k, e, m) { if (!(d >= la.length || f >= la[d].length || 10 <= k)) { if ("undefined" == typeof e || e >= ka[d].length) e = -1; if ("undefined" == typeof m || m >= ka[d].length) m = -1; v[c].type = d; v[c].ra = f; v[c].ia = k; v[c].Ia = e; v[c].Ja = m } } var sa = h.Ya, oa = h.Ya.eg, W = h.b.O, va = h.Cb.Re, ta = h.Cb.Tb, na = h.Cb.Oh, la = h.Ya.Df, ka = h.Ya.nh, M = h.Ya.D, wa = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 1], [0, 0, 0, 1, 0], [0, 0, 0, 1, 1], [0, 0, 1, 0, 0], [0, 0, 1, 0, 1], [0, 0, 1, 1, 0], [0, 0, 1, 1, 1], [0, 1, 0, 0, 0], [0, 1, 0, 0, 1], [0, 1, 0, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 0, 0], [0, 1, 1, 0, 1], [0, 1, 1, 1, 0], [0, 1, 1, 1, 1], [1, 0, 0, 0, 0],
-            [1, 0, 0, 0, 1], [1, 0, 0, 1, 0], [1, 0, 0, 1, 1], [1, 0, 1, 0, 0], [1, 0, 1, 0, 1], [1, 0, 1, 1, 0], [1, 0, 1, 1, 1], [1, 1, 0, 0, 0], [1, 1, 0, 0, 1], [1, 1, 0, 1, 0], [1, 1, 0, 1, 1], [1, 1, 1, 0, 0], [1, 1, 1, 0, 1], [1, 1, 1, 1, 0], [1, 1, 1, 1, 1]], E = [2, 5, 8, 11, 14, 17, 20, 24, 28, 32, 36, 40, 45, 50, 55, 60, 66, 72, 78, 84], U = [1, 2, 3, 4, 4, 5, 5, 6, 6], aa = [[0], [0, 1], [0, 1, 2], [0, 1, 2, 3], [0, 1, 2, 4], [0, 1, 2, 3, 5], [0, 1, 2, 3, 6], [0, 1, 2, 3, 5, 7], [0, 1, 2, 3, 5, 8], [0, 1, 2, 3, 6, 7], [0, 1, 2, 3, 6, 8], [0, 1, 2, 4, 5], [0, 1, 2, 4, 6], [0, 1, 2, 4, 5, 7], [0, 1, 2, 4, 5, 8], [0, 1, 2, 4, 6, 7], [0, 1, 2, 4, 6, 8]], Q = [3.5, 4, 4, 4.5], ia = [15, 30, 50, 50]; d.mg =
-                { KC: 0, VC: 1, Ng: 2, SC: 3 }; d.Ab = { jb: 0, mb: 1, Hb: 2, Fa: 3 }; d.Pa = { eb: 0, Jb: 1, ee: 2 }; d.RC = { QC: 0, NC: 1 }; d.lf = { rb: 0, Ww: 1 }; d.aa = { ha: 0, xa: 1 }; var T = [!1, !1, !1, !1, !1], G = d.aa.ha, w = E[19], Y = -1, X = [-1, -1, -1, -1], ga = [-1, -1, -1, -1], B = null, N = [], ma = 0, v = [{ type: -1, ra: -1, ia: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }, { type: -1, ra: -1, ia: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }], S = [[], [], [], [], []], pa = [[], [], [], [], []]; d.initialize = function () { c(window).on("hashchange", function () { y() }); ea() }; d.Ui = function (c) {
+            } 
+            c && y()
+        } 
+        function L(c) {
+            switch (c) { case "adept": case "engineer": q(d.aa.ha, M.ja, 0, 0); q(d.aa.xa, M.Na, 0, 0); break; case "soldier": q(d.aa.ha, M.ja, 0, 0); q(d.aa.xa, M.Da, 0, 0); break; case "sentinel": q(d.aa.ha, M.ja, 0, 0); q(d.aa.xa, M.Ba, 0, 0); break; case "infiltrator": q(d.aa.ha, M.Da, 0, 0); q(d.aa.xa, M.Va, 0, 0); break; case "vanguard": q(d.aa.ha, M.Ba, 0, 0), q(d.aa.xa, M.Va, 0, 0) } 
+        } 
+        function da(c, r, f) { 
+            c < classes.length && r < va[c].length && (ma = c, Y = r, B = va[c][r], -1 == v[d.aa.ha].type && -1 == v[d.aa.xa].type && !1 !== f && L(classes[c])) 
+        } 
+        function q(c, d, f, k, e, m) { 
+            if (!(d >= la.length || f >= la[d].length || 10 <= k)) { if ("undefined" == typeof e || e >= ka[d].length) e = -1; if ("undefined" == typeof m || m >= ka[d].length) m = -1; v[c].type = d; v[c].ra = f; v[c].ia = k; v[c].Ia = e; v[c].Ja = m } 
+        } 
+        var sa = h.Ya, 
+            oa = h.Ya.eg, 
+            W = h.b.O, 
+            va = h.Cb.Re, 
+            ta = h.Cb.Tb, 
+            classes = h.Cb.Oh, 
+            la = h.Ya.Df, 
+            ka = h.Ya.nh, 
+            M = h.Ya.D, 
+            wa = [
+                [0, 0, 0, 0, 0], 
+                [0, 0, 0, 0, 1],
+                [0, 0, 0, 1, 0],
+                [0, 0, 0, 1, 1],
+                [0, 0, 1, 0, 0],
+                [0, 0, 1, 0, 1],
+                [0, 0, 1, 1, 0],
+                [0, 0, 1, 1, 1],
+                [0, 1, 0, 0, 0],
+                [0, 1, 0, 0, 1],
+                [0, 1, 0, 1, 0],
+                [0, 1, 0, 1, 1],
+                [0, 1, 1, 0, 0],
+                [0, 1, 1, 0, 1],
+                [0, 1, 1, 1, 0],
+                [0, 1, 1, 1, 1],
+                [1, 0, 0, 0, 0],        
+                [1, 0, 0, 0, 1],
+                [1, 0, 0, 1, 0],
+                [1, 0, 0, 1, 1],
+                [1, 0, 1, 0, 0],
+                [1, 0, 1, 0, 1],
+                [1, 0, 1, 1, 0],
+                [1, 0, 1, 1, 1],
+                [1, 1, 0, 0, 0],
+                [1, 1, 0, 0, 1],
+                [1, 1, 0, 1, 0],
+                [1, 1, 0, 1, 1],
+                [1, 1, 1, 0, 0],
+                [1, 1, 1, 0, 1],
+                [1, 1, 1, 1, 0],
+                [1, 1, 1, 1, 1]
+            ], 
+            points_at_level = [2, 5, 8, 11, 14, 17, 20, 24, 28, 32, 36, 40, 45, 50, 55, 60, 66, 72, 78, 84], 
+            cost_of_evolution = [1, 2, 3, 4, 4, 5, 5, 6, 6], 
+            aa = [
+                [0], 
+                [0, 1], 
+                [0, 1, 2], 
+                [0, 1, 2, 3], 
+                [0, 1, 2, 4], 
+                [0, 1, 2, 3, 5], 
+                [0, 1, 2, 3, 6], 
+                [0, 1, 2, 3, 5, 7], 
+                [0, 1, 2, 3, 5, 8], 
+                [0, 1, 2, 3, 6, 7], 
+                [0, 1, 2, 3, 6, 8], 
+                [0, 1, 2, 4, 5], 
+                [0, 1, 2, 4, 6], 
+                [0, 1, 2, 4, 5, 7], 
+                [0, 1, 2, 4, 5, 8], 
+                [0, 1, 2, 4, 6, 7], 
+                [0, 1, 2, 4, 6, 8]
+            ], 
+            Q = [3.5, 4, 4, 4.5], 
+            ia = [15, 30, 50, 50]; 
+        d.mg = { KC: 0, VC: 1, Ng: 2, SC: 3 }; 
+        d.Ab = { jb: 0, mb: 1, Hb: 2, Fa: 3 }; 
+        d.Pa = { eb: 0, Jb: 1, ee: 2 }; 
+        d.RC = { QC: 0, NC: 1 }; 
+        d.lf = { rb: 0, Ww: 1 }; 
+        d.aa = { ha: 0, xa: 1 }; 
+        var T = [!1, !1, !1, !1, !1], 
+            G = d.aa.ha, 
+            w = points_at_level[19], 
+            Y = -1, 
+            X = [-1, -1, -1, -1], 
+            ga = [-1, -1, -1, -1], 
+            B = null, 
+            N = [], 
+            ma = 0, 
+            v = [{ type: -1, ra: -1, ia: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }, { type: -1, ra: -1, ia: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }], 
+            S = [[], [], [], [], []], 
+            pa = [[], [], [], [], []]; 
+                d.initialize = function () { c(window).on("hashchange", function () { y() }); ea() }; 
+                d.Ui = function (c) {
                     if (-1 == Y || c >= B.o.length || T[c]) return []; var d = []; if (B.Wb && -1 !=
                         B.Wb.indexOf(c)) for (var f = 0; f < B.Wb.length; f++) { var k = B.Wb[f]; T[k] && (T[k] = !1, d.push(k)) } T[c] = !0; y(); return d
-                }; d.Rm = function (c) { -1 == Y || c >= B.o.length || (T[c] = !1, y()) }; d.$m = function () { Y = -1; d.Kh() }; d.sg = function (c, d, f) { if (N[c] && (d = N[c].indexOf(d), -1 != d)) { var k = 1; !0 == f && (k = N[c].length - d); d = N[c].splice(d, k); 0 == N[c].length && (N[c] = null); for (c = 0; c < d.length; c++)w += U[d[c]]; !0 == f && y() } }; d.Zn = function (c) { G = c }; d.Uo = function () { return B.r }; d.Dc = function (c) { return X[c] }; d.Fe = function (c) { return ga[c] }; d.Ob = function (c) {
+                }; 
+                d.Rm = function (c) { -1 == Y || c >= B.o.length || (T[c] = !1, y()) }; 
+                d.$m = function () { 
+                    Y = -1; 
+                    d.Kh() 
+                }; 
+                d.sg = function (c, d, f) { 
+                    if (N[c] && (d = N[c].indexOf(d), -1 != d)) { 
+                        var k = 1; 
+                        !0 == f && (k = N[c].length - d); 
+                        d = N[c].splice(d, k); 
+                        0 == N[c].length && (N[c] = null); 
+                        for (c = 0; c < d.length; c++)
+                            w += cost_of_evolution[d[c]]; 
+                        !0 == f && y() 
+                    } 
+                }; 
+                d.Zn = function (c) { G = c }; d.Uo = function () { return B.r }; d.Dc = function (c) { return X[c] }; d.Fe = function (c) { return ga[c] }; d.Ob = function (c) {
                     return 3 >
                         c ? d.Pa.eb : 1 == c % 2 ? d.Pa.Jb : d.Pa.ee
-                }; d.Vo = function () { var c = e(["grenadeCapacity"]); d.eh() && c.data.grenadeCapacity++; return { value: c.data.grenadeCapacity, C: c.C } }; d.Wo = function () { var c = e(["durability"]); return { value: B.v * (1 + c.data.durability), C: c.C } }; d.Gg = function (d) {
+                }; 
+                d.Vo = function () { var c = e(["grenadeCapacity"]); d.eh() && c.data.grenadeCapacity++; return { value: c.data.grenadeCapacity, C: c.C } }; d.Wo = function () { var c = e(["durability"]); return { value: B.v * (1 + c.data.durability), C: c.C } }; d.Gg = function (d) {
                     d = c.extend({ ea: "health" }, d); var r = e("enemyDamageTaken globalDamage meleeDamage meleeDamageArmor meleeDamageBarrier meleeDamageShield modMeleeDamage arrows meleeHeavyBase omniShieldFire sabotageMelee".split(" ")), f = B.s, k = r.data.enemyDamageTaken,
                         t = 0, m = r.data.globalDamage + r.data.meleeDamage, g = r.data.meleeHeavyBase, I = 1; "armor" == d.ea ? I += r.data.meleeDamageArmor : "barrier" == d.ea ? I += r.data.meleeDamageBarrier : "shield" == d.ea && (I += r.data.meleeDamageShield); var F = B.A, F = F * (1 + m) * (1 + r.data.modMeleeDamage) * (1 + k); "armor" == d.ea && r.data.omniShieldFire && (t = F); B.Zd && (F *= B.Zd[d.ea], f = B.Zd); var ba = 0 != g ? g : B.w, n = B.s; 0 != g && (f = n = { health: 1, armor: .75, barrier: 1, shield: 1 }); var q = 1; B.vi && (q = r.data.arrows ? r.data.arrows : B.vi); ba = ba * (1 + m) * (1 + r.data.modMeleeDamage) * (1 + k);
                     ba = ba * n[d.ea] * I; 0 == g && (ba = (ba + t) * q, ba *= 1 + r.data.sabotageMelee); return { ui: F * I + t, ti: ba, C: r.C, i: f }
-                }; d.Hg = function () { return B.V ? B.V : B.name }; d.nd = function (c) { return "undefined" !== typeof c && c < B.o.length ? B.o[c] : B.o }; d.Xo = function (c, d) {
+                }; 
+                d.Hg = function () { return B.V ? B.V : B.name }; d.nd = function (c) { return "undefined" !== typeof c && c < B.o.length ? B.o[c] : B.o }; d.Xo = function (c, d) {
                     var f = {
                         baseRechargeSpeed: A, omniShield: z, shieldBoost: O, bloodlustHOT: function () { return u(c, d, "bloodlustHealthRegen") }, decoyShield: function () { return u(c, d, "decoyShieldStrength") }, duration: function () { return u(c, d, "powerDuration", ["globalDuration"]) }, force: function () {
                             return u(c,
@@ -2402,40 +2588,101 @@
                         for (var f = s(c), k =
                             f[d].C, e = 0; e < k.length; e++)if (0 == k[e].ia) { k.splice(e, 1); break } k = { value: f[d].value, C: k }
                     } return k
-                }; d.Ge = function (c, d, f) {
+                }; 
+                d.Ge = function (c, d, f) {
                     var k = {
                         ATTR_DMG: function () { return p(c, null, "powerDamage", !1, f) }, armor: function () { return p(c, d, "powerDamage", !1, f) }, bow: function () { return p(c, d, "powerDamage", !0, f) }, damage: function () { return p(c, d, "powerDamage", !1, f) }, dot: function () { return p(c, d, "powerDamage", !1, f) }, dsDOT: function () { return p(c, d, "dotDamage", !1, f) }, hammer: function () { return p(c, d, "powerDamage", !0, f) }, bladeDamage: g, overload: fa,
                         shadowstrike: ha, netAOE: Z, singularity: n
                     }; return k[d] ? k[d](c, f) : null
-                }; d.Ig = function () { return w }; d.LC = function (c) { return U[c] }; d.Jg = function (c, e) { var f = [], k = d.Ob(e); if (!d.Ie(c, e)) return []; for (var m = e - 1; 0 <= m; m--) { var g = d.Ob(m); if (g != d.Pa.Jb) { if (d.vb(c, m) || d.Pe(c, m)) break; f.push(k == d.Pa.Jb && g == d.Pa.ee ? m - 1 : m) } } return f }; d.MC = function (c) { return N[c] }; d.He = function () { return ma }; d.$o = function () {
+                }; 
+                d.Ig = function () { 
+                    return w 
+                }; 
+                d.LC = function (c) { 
+                    return cost_of_evolution[c] 
+                }; 
+                d.Jg = function (c, e) { var f = [], k = d.Ob(e); if (!d.Ie(c, e)) return []; for (var m = e - 1; 0 <= m; m--) { var g = d.Ob(m); if (g != d.Pa.Jb) { if (d.vb(c, m) || d.Pe(c, m)) break; f.push(k == d.Pa.Jb && g == d.Pa.ee ? m - 1 : m) } } return f }; d.MC = function (c) { return N[c] }; d.He = function () { return ma }; d.$o = function () {
                     var c = e(["durability", "shieldStrength", "maxShield", "maxShieldStrength"]), d = B.qa ? B.qa : B.Q, d = d * (1 + c.data.durability +
                         c.data.shieldStrength), d = d + c.data.maxShield * (1 + c.data.maxShieldStrength); return { value: d, C: c.C }
-                }; d.Yo = function () { var x; x = c.extend({ Hf: d.mg.Ng }, x); x = Q[x.Hf]; var r = x - 1, f = e(["shieldRechargeRate"]); x *= 1 - f.data.shieldRechargeRate; r *= 1 - f.data.shieldRechargeRate; return { IC: r, HC: x, C: f.C } }; d.Zo = function () { return B.qa ? d.lf.rb : d.lf.Ww }; d.ap = function () { return { d: "MP_" + na[ma] + ".png", index: Y } }; d.Qa = function (d) { return c.extend({}, v[d]) }; d.bp = function (c) {
+                }; 
+                d.Yo = function () { 
+                    var x; x = c.extend({ Hf: d.mg.Ng }, x); x = Q[x.Hf]; 
+                    var r = x - 1, f = e(["shieldRechargeRate"]); 
+                    x *= 1 - f.data.shieldRechargeRate; 
+                    r *= 1 - f.data.shieldRechargeRate; 
+                    return { IC: r, HC: x, C: f.C } 
+                }; 
+                d.Zo = function () { return B.qa ? d.lf.rb : d.lf.Ww }; d.ap = function () { return { d: "MP_" + classes[ma] + ".png", index: Y } }; d.Qa = function (d) { return c.extend({}, v[d]) }; d.bp = function (c) {
                     var d = e(["ammoCapacity", "magazineSize"], c), f = la[c.type][c.ra],
                     k = 0; 0 != f.u && (k = f.u + (f.F - f.u) / 9 * c.ia, k *= 1 + d.data.ammoCapacity); var m = f.B; 0 == f.u && (m = f.B + (f.F - f.B) / 9 * c.ia); m *= 1 + d.data.magazineSize; return { EC: Math.floor(k), GC: Math.floor(m) }
-                }; d.Ec = function (x, m, f) {
+                }; 
+                d.Ec = function (x, m, f) {
                     var k = "ammoArmorWeakening ammoDamage enemyArmorPenetration enemyArmorWeakening enemyDamageTaken enemyWeaponDamageTaken globalDamage headshot headshotMod weaponDamage".split(" "), g = la[x.type][x.ra], n = []; n[M.ja] = "weaponDamageAssault"; n[M.Na] = "weaponDamagePistol"; n[M.Ba] = "weaponDamageShotgun"; n[M.Va] = "weaponDamageSMG";
                     n[M.Da] = "weaponDamageSniper"; k.push(n[g.type]); g.race == ta.Ua && B.race == ta.Ua && k.push("gethWeaponDamage"); g.race == ta.Sb && B.race == ta.Sb && k.push("protheanWeaponDamage"); g.type == M.ja && k.push("tcDamageAssault"); g.type == M.Ba && k.push("tcDamageShotgun"); g.type == M.Da && k.push("tcDamageSniper"); var q = null; !S[x.type][x.ra] || f ? (q = e(k, x), S[x.type][x.ra] = q, pa[x.type][x.ra] = q.C) : q = S[x.type][x.ra]; m = c.extend({ gb: !1, Hf: d.mg.Ng, ea: "health", target: "organic", type: "normal" }, m); var k = 1 - q.data.enemyArmorPenetration, I = 1 - q.data.enemyArmorWeakening;
                     f = q.data.enemyDamageTaken + q.data.enemyWeaponDamageTaken; var F = q.data.headshotMod, ba = 1, ra = q.data.weaponDamage + q.data.globalDamage, y = 0, sa = q.data.headshot; q.data.gethWeaponDamage && (y += q.data.gethWeaponDamage); q.data.protheanWeaponDamage && (y += q.data.protheanWeaponDamage); q.data.tcDamageAssault && (y += q.data.tcDamageAssault); q.data.tcDamageShotgun && (y += q.data.tcDamageShotgun); q.data.tcDamageSniper && (y += q.data.tcDamageSniper); q.data.ammoArmorWeakening && (I = 1 - q.data.ammoArmorWeakening); g.If && (ba = g.If); ra +=
                         q.data[n[g.type]]; x = g.G + (g.K - g.G) / 9 * x.ia; "ammo" != m.type && !m.gb && g.ri && (x *= g.ri); m.gb && g.ob && (n = g.Yd ? g.Yd : 1, "ammo" == m.type && g.si && n++, "ammo" != m.type || "ammo" == m.type && g.rc) && (x = x * g.Ib * n); x *= 1 + y; n = g.If ? x * (1 - ba) : 0; if ("ammo" == m.type) { k = d.Dc(d.Ab.Fa); f = d.Fe(d.Ab.Fa); if (-1 == k) return 0; q = x * q.data.ammoDamage * (1 + q.data.enemyDamageTaken); k = oa[d.Ab.Fa][k]; q *= k.i[m.ea]; g.za && (q *= Math.floor(g.za)); k.c[f].Zc && q > k.c[f].Zc && (q = k.c[f].Zc); return Math.round(q) } q = 1 + ra; ra = g.Vb ? g.Vb : 2.5; "headshot" == m.type && !1 !== g.Wa ? (ra *=
                             1 + F, q += sa) : ra = 1; F = x * ba * q * (ra + f); "armor" == m.ea && !1 !== g.ub && (k *= I, 0 > k && (k = 0), F -= ia[m.Hf] * k, 5 > F && (F = 5)); F *= g.i[m.target][m.ea]; g.za && (F *= g.za); F += n * (ra + f); m.gb && g.si && (F += q * (g.Yd + 1)); return Math.round(F)
-                }; d.cp = function (c) { return pa[c.type][c.ra] || [] }; d.Fc = function (c) { var d = la[c.type][c.ra]; return d.H + (d.L - d.H) / 9 * c.ia }; d.Kg = function () {
+                }; 
+                d.cp = function (c) { return pa[c.type][c.ra] || [] }; d.Fc = function (c) { var d = la[c.type][c.ra]; return d.H + (d.L - d.H) / 9 * c.ia }; d.Kg = function () {
                     var c = ["encumbrance", "weaponWeight"], m = []; m[M.ja] = "weaponWeightAssault"; m[M.Na] = "weaponWeightPistol"; m[M.Ba] = "weaponWeightShotgun"; m[M.Va] = "weaponWeightSMG"; m[M.Da] = "weaponWeightSniper";
                     var f = []; f[M.ja] = "modWeightAssault"; f[M.Na] = "modWeightPistol"; f[M.Ba] = "modWeightShotgun"; f[M.Va] = "modWeightSMG"; f[M.Da] = "modWeightSniper"; var k = []; k[M.ja] = "modULMAssault"; k[M.Na] = "modULMPistol"; k[M.Ba] = "modULMShotgun"; k[M.Va] = "modULMSMG"; k[M.Da] = "modULMSniper"; c.push(m[v[d.aa.ha].type]); c.push(f[v[d.aa.ha].type]); c.push(k[v[d.aa.ha].type]); -1 != v[d.aa.xa].type && (c.push(m[v[d.aa.xa].type]), c.push(f[v[d.aa.xa].type]), c.push(k[v[d.aa.xa].type])); var c = e(c, v[d.aa.ha], { Jf: v[d.aa.xa] }), g = 2 + B.r, g = g + c.data.encumbrance /
                         100, q = d.Qa(d.aa.ha), n = d.Fc(q), n = n - c.data[f[q.type]], n = n * (1 - c.data[k[q.type]]), n = n - c.data.weaponWeight - c.data[m[q.type]], g = g - n, q = d.Qa(d.aa.xa); -1 != q.type && (n = d.Fc(q), n -= c.data[f[q.type]], n *= 1 - c.data[k[q.type]], n = n - c.data.weaponWeight - c.data[m[q.type]], g -= n); -2 > g ? g = -2 : 2 < g && (g = 2); return { value: g, C: c.C }
-                }; d.Ie = function (c, e) { var f = w - U[e]; if (0 > f) return !1; for (var k = e - 1; 0 <= k; k--) { var m = d.Ob(k); m != d.Pa.Jb && (m != d.Pa.eb ? d.vb(c, k) || d.vb(c, k - 1) || (f -= U[k]) : d.vb(c, k) || (f -= U[k])) } return 0 <= f }; d.dh = function (c) {
+                }; 
+                d.Ie = function (c, e) { 
+                    var f = w - cost_of_evolution[e]; 
+                    if (0 > f) 
+                        return !1; 
+                    for (var k = e - 1; 0 <= k; k--) { 
+                        var m = d.Ob(k); 
+                        m != d.Pa.Jb && (m != d.Pa.eb ? d.vb(c, k) || d.vb(c, k - 1) || (f -= cost_of_evolution[k]) : d.vb(c, k) || (f -= cost_of_evolution[k])) 
+                    } 
+                    return 0 <= f 
+                }; 
+                d.dh = function (c) {
                     return -1 !=
                         "armor bow damage dot dsDOT hammer overload shadowstrike".split(" ").indexOf(c)
-                }; d.eh = function () { for (var c = 0; c < B.o.length; c++)if (B.o[c].Oa && N[c]) return !0; return !1 }; d.Oe = function () { return -1 != Y }; d.fh = function (c) { return -1 == Y || c >= B.o.length ? !1 : T[c] }; d.vb = function (c, d) { return N[c] ? 0 <= N[c].indexOf(d) : !1 }; d.gh = function (c, e, f) { return !0 == f && d.Pe(c, e) ? !0 : d.Ie(c, e) }; d.Pe = function (c, e) { var f = d.Ob(e); return d.vb(c, e) || f == d.Pa.eb ? !1 : d.vb(c, f == d.Pa.Jb ? e + 1 : e - 1) }; d.Sq = function (c, d) {
+                }; 
+                d.eh = function () { for (var c = 0; c < B.o.length; c++)if (B.o[c].Oa && N[c]) return !0; return !1 }; d.Oe = function () { return -1 != Y }; d.fh = function (c) { return -1 == Y || c >= B.o.length ? !1 : T[c] }; d.vb = function (c, d) { return N[c] ? 0 <= N[c].indexOf(d) : !1 }; d.gh = function (c, e, f) { return !0 == f && d.Pe(c, e) ? !0 : d.Ie(c, e) }; d.Pe = function (c, e) { var f = d.Ob(e); return d.vb(c, e) || f == d.Pa.eb ? !1 : d.vb(c, f == d.Pa.Jb ? e + 1 : e - 1) }; d.Sq = function (c, d) {
                     return -1 == v[c].type || d > ka[v[c].type].length ?
                         !1 : v[c].Ia == d || v[c].Ja == d
-                }; d.PC = function (c, d) { return -1 == v[c].type ? !1 : -1 == (0 == d ? v[c].Ia : v[c].Ja) }; d.ud = function (c, d, f) { if (-1 == v[c].type || f > ka[v[c].type].length) return !1; d = 0 == d ? v[c].Ja : v[c].Ia; return -1 == d ? !1 : ka[v[c].type][f].R == ka[v[c].type][d].R ? !0 : !1 }; d.hh = function (c) { return G == c }; d.Dv = function (c, d) { -1 != v[c].type && (0 == d ? (v[c].Ia = -1, v[c].hb = -1) : (v[c].Ja = -1, v[c].ib = -1), y()) }; d.Iv = function (c) { X[c] = -1; ga[c] = -1; y() }; d.Kh = function () { T = [!1, !1, !1, !1, !1]; N = []; w = E[19]; y() }; d.Jv = function (e) {
+                }; 
+                d.PC = function (c, d) { return -1 == v[c].type ? !1 : -1 == (0 == d ? v[c].Ia : v[c].Ja) }; d.ud = function (c, d, f) { if (-1 == v[c].type || f > ka[v[c].type].length) return !1; d = 0 == d ? v[c].Ja : v[c].Ia; return -1 == d ? !1 : ka[v[c].type][f].R == ka[v[c].type][d].R ? !0 : !1 }; d.hh = function (c) { return G == c }; d.Dv = function (c, d) { -1 != v[c].type && (0 == d ? (v[c].Ia = -1, v[c].hb = -1) : (v[c].Ja = -1, v[c].ib = -1), y()) }; d.Iv = function (c) { X[c] = -1; ga[c] = -1; y() }; 
+                d.Kh = function () { 
+                    T = [!1, !1, !1, !1, !1]; 
+                    N = []; 
+                    w = points_at_level[19]; 
+                    y() 
+                }; 
+                d.Jv = function (e) {
                     e == d.aa.ha && (v[d.aa.ha] =
                         c.extend({}, v[d.aa.xa])); v[d.aa.xa] = { ia: -1, type: -1, ra: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }; G = d.aa.ha; y()
-                }; d.Dw = function (c, e) { if (!d.vb(c, e) && d.gh(c, e)) { for (var f = d.Jg(c, e), k = f.length - 1; 0 <= k; k--)N[c] ? N[c].push(f[k]) : N[c] = [f[k]], w -= U[f[k]]; if (N[c]) for (k = 0; k <= N[c].length; k++) { if (k == N[c].length) { N[c].push(e); break } if (e < N[c][k]) { N[c].splice(k, 0, e); break } } else N[c] = [e]; w -= U[e]; y() } }; d.Jw = function (c, d, f) { d < oa[c].length && f < oa[c][d].c.length && (X[c] = d, ga[c] = f, y()) }; d.Kw = function (c, d) {
+                }; 
+                d.Dw = function (c, e) { 
+                    if (!d.vb(c, e) && d.gh(c, e)) { 
+                        for (var f = d.Jg(c, e), k = f.length - 1; 0 <= k; k--)
+                            N[c] ? N[c].push(f[k]) : N[c] = [f[k]], w -= cost_of_evolution[f[k]]; 
+                        if (N[c]) 
+                            for (k = 0; k <= N[c].length; k++) { 
+                                if (k == N[c].length) { 
+                                    N[c].push(e); 
+                                    break 
+                                } 
+                                if (e < N[c][k]) { 
+                                    N[c].splice(k, 0, e); 
+                                    break 
+                                } 
+                            } 
+                        else 
+                            N[c] = [e]; 
+                        w -= cost_of_evolution[e]; 
+                        y() 
+                    } 
+                }; 
+                d.Jw = function (c, d, f) { d < oa[c].length && f < oa[c][d].c.length && (X[c] = d, ga[c] = f, y()) }; d.Kw = function (c, d) {
                     -1 != X[c] && d < oa[c][X[c]].c.length &&
                     (ga[c] = d, y())
-                }; d.Lw = function (c, d) { da(c, d); y() }; d.Mw = function (c) { c < na.length && (ma = c); y() }; d.Nw = function (c, d, f, e) { var m = v[c].Ia, g = v[c].Ja; v[c].type != d && (g = m = -1); q(c, d, f, e, m, g); y() }; d.Ow = function (c, e, f, k) { var m = v[c].type; -1 == m || f > ka[m].length || k > sa.Qb || d.ud(c, e, f) || (0 == e ? (v[c].Ia = f, v[c].hb = k) : (v[c].Ja = f, v[c].ib = k), y()) }; d.Pw = function (c, d, f) { if (!(-1 == v[c].type || f > sa.Qb)) { if (0 == d) { if (-1 == v[c].Ia) return; v[c].hb = f } else { if (-1 == v[c].Ja) return; v[c].ib = f } y() } }; d.Qw = function (c, d) { v[c].ia = d; y() }; d.UB = function () {
+                }; 
+                d.Lw = function (c, d) { da(c, d); y() }; d.Mw = function (c) { c < classes.length && (ma = c); y() }; d.Nw = function (c, d, f, e) { var m = v[c].Ia, g = v[c].Ja; v[c].type != d && (g = m = -1); q(c, d, f, e, m, g); y() }; d.Ow = function (c, e, f, k) { var m = v[c].type; -1 == m || f > ka[m].length || k > sa.Qb || d.ud(c, e, f) || (0 == e ? (v[c].Ia = f, v[c].hb = k) : (v[c].Ja = f, v[c].ib = k), y()) }; d.Pw = function (c, d, f) { if (!(-1 == v[c].type || f > sa.Qb)) { if (0 == d) { if (-1 == v[c].Ia) return; v[c].hb = f } else { if (-1 == v[c].Ja) return; v[c].ib = f } y() } }; d.Qw = function (c, d) { v[c].ia = d; y() }; d.UB = function () {
                     for (var c =
                         0; c < B.o.length; c++)if (!0 == B.o[c].Oa) return !0; return !1
                 }

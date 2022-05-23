@@ -7,7 +7,7 @@ The 'h' variable
 - h.b: power data (JSON)
 - h.Cb.Tb: races (number-valued map)
 - h.Cb.Oh: classes (string array)
-- h.Cb.Re: character data (JSON matrix)
+- h.Cb.Re: character data (JSON matrix) [Adept, Soldier, Engineer, Sentinel, Infiltrator, Vanguard]
 - h.Ya.eg: gear data (JSON matrix) [armor, gear, weapon, ammo]
 - h.Ya.Df: weapon data (JSON matrix) [AR, P, SG, SMG, SR]
 - h.Ya.nh: mod data (JSON matrix) [AR, P, SG, SMG, SR]
