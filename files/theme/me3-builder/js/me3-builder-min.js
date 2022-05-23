@@ -1312,7 +1312,7 @@
         function c(c) { var d = {}, g; for (g in c) { var e = g; "arrowArmorWeakening" == g ? e = "enemyArmorWeakening" : "arrowCount" == g ? e = "arrows" : "arrowDamageTaken" == g && (e = "enemyDamageTaken"); d[e] = d[e] ? d[e] + c[g] : c[g] } return d } 
         function e(c) { var d = {}, g; for (g in c) { var e = g; "globalPowerDamage" == g && (e = "armorPowerDamage"); d[e] = d[e] ? d[e] + c[g] : c[g] } return d } 
         function P(c) { var d = {}, g; for (g in c) { var e = g; "rageMeleeDamage" == g && (e = "meleeDamage"); d[e] = d[e] ? d[e] + c[g] : c[g] } return d } 
-        d.power_types = { none: 0, biotic: 1, tech: 2 }; 
+        d.O = { eb: 0, fa: 1, ta: 2 }; 
         d.sc = {
             h: ["baseRechargeSpeed", "duration", "weaponDamage"], g: !0, icon: "AdrenalineRush", c: [{ name: a.sc, a: a.fj, attributes: { baseRechargeSpeed: 6, duration: 4, weaponDamage: .5 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.W, a: a.Ka, attributes: { powerDuration: .3 } }, { name: a.Op, a: a.aj, attributes: { damageReduction: .4 } }, { name: a.l, a: a.bj, attributes: { weaponDamage: .2 } }, { name: a.W, a: a.Ka, attributes: { powerDuration: .4 } }, { name: a.P, a: a.cj, attributes: { meleeDamage: .5 } }, { name: a.Eb, a: a.dj, attributes: { shieldStrength: 1 } }, { name: a.Hu, a: a.ej, attributes: { ATTR_INT: 1 } }]
         };
@@ -2366,11 +2366,11 @@
             f = B.o[d]; 
             f.i && (I *= f.i[t.ea]); 
             d = ["globalDamage", "globalPowerDamage", "enemyDamageTaken", "enemyPowerDamageTaken"];
-            f.type == power_types.biotic ? d = d.concat("bioticDamage") : f.type == power_types.tech && (d = d.concat("techDamage")); 
+            f.type == power_types.fa ? d = d.concat("bioticDamage") : f.type == power_types.ta && (d = d.concat("techDamage")); 
             k && (d = d.concat("modMeleeDamage")); 
             "armor" != r && (d = d.concat("armorPowerDamage")); d = e(d); m = m.concat(d.C); 
             g += d.data.globalDamage + d.data.globalPowerDamage; 
-            f.type == power_types.biotic ? g += d.data.bioticDamage : f.type == power_types.tech && (g += d.data.techDamage); 
+            f.type == power_types.fa ? g += d.data.bioticDamage : f.type == power_types.ta && (g += d.data.techDamage); 
             "armor" != r && (g += d.data.armorPowerDamage); 
             f = d.data.enemyDamageTaken + d.data.enemyPowerDamageTaken; 
             var ba = 0, ba = "undefined" !== typeof t.Yc ? t.Yc : F[r].value; 
@@ -2505,7 +2505,7 @@
         } 
         var sa = h.Ya, 
             oa = h.Ya.eg, 
-            power_types = h.b.power_types, 
+            power_types = h.b.O, 
             va = h.Cb.Re, 
             races = h.Cb.Tb, 
             classes = h.Cb.Oh, 
