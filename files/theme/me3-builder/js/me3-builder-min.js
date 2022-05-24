@@ -2267,7 +2267,7 @@
         { name: a.sC, a: a.tC, f: C.rarity.rare, d: "Gear_Combo_AssaultDamageGrenadeCap.png",
         c: [{ attributes: { grenadeCapacity: 1, weaponDamageAssault: .04 } }, { attributes: { grenadeCapacity: 1, weaponDamageAssault: .06 } }, { attributes: { grenadeCapacity: 1, weaponDamageAssault: .08 } }, 
             { attributes: { grenadeCapacity: 2, weaponDamageAssault: .1 } }, { attributes: { grenadeCapacity: 2, weaponDamageAssault: .12 } }] },
-        { name: "Vibration damper", a: a.vibration_damper_desc, f: C.rarity.uncommon, d: "Gear_WeaponStability.png",
+        { name: "Vibration Damper", a: a.vibration_damper_desc, f: C.rarity.unobtainable, d: "Gear_WeaponStability.png",
         c: [{ attributes: { stability: .15 }}, { attributes: { stability: .22 }}, { attributes: { stability: .28 }}, { attributes: { stability: .34 }}, { attributes: { stability: .40 }}] }
     ], [
         { name: a.ek, a: a.fk, d: "WeaponDamageBonus_AssaultRifle.png",
@@ -3483,7 +3483,15 @@
     */
     V = V || {}; jQuery191(function () { V.Ef.initialize() });
     (function (d, c) {
-        function e() { var d = c(this); d.hasClass("ui-collapse-down") ? (c(".ui-collapsible", d.parent().parent()).slideUp("fast"), d.removeClass("ui-collapse-down")) : (c(".ui-collapsible").hide(), c(".ui-collapse-button").removeClass("ui-collapse-down"), c(".ui-collapsible", d.parent().parent()).slideDown("fast"), d.addClass("ui-collapse-down")) } function P() {
+
+        function e() { 
+            var d = c(this); 
+            d.hasClass("ui-collapse-down") ? 
+                (c(".ui-collapsible", d.parent().parent()).slideUp("fast"), d.removeClass("ui-collapse-down")) : 
+                (c(".ui-collapsible").hide(), c(".ui-collapse-button").removeClass("ui-collapse-down"), c(".ui-collapsible", d.parent().parent()).slideDown("fast"), d.addClass("ui-collapse-down")) 
+        } 
+            
+        function P() {
             for (var d = [], e = 0; e < equipment[G.Fa].length; e++) {
                 for (var f = equipment[G.Fa][e], g = c("<ul>"), k = 0; k < f.c.length; k++) {
                     var m = c("<p>").text(f.name + " " + Y[k]), y = c("<li>").append(m).data("type",
@@ -3496,11 +3504,14 @@
                 for (var f = equipment[G.jb][e], g = c("<ul>"), k = 0; k < f.c.length; k++) { var m = c("<p>").text(f.name + " " + Y[k]), y = c("<li>").append(m).data("type", G.jb).data("equipment", e).data("rank", k).click(n), p = c("<div>").append(c("<h3>").text(f.name + " " + Y[k])).append(c("<p>").text(ia.Nb(f.a, f.c[k].attributes))); Q.ba(m, p); g.append(y) } f = c("<div>").addClass("equipment-small rarity-small-" + U.rarity.common).append(aa.Lb(Core.mediaUrl + "images/consumables/" + f.d, 128, 96, "equipment"));
                 g = c("<div>").addClass("equipment-cell").append(f).append(g); d.push(g)
             } d.push(c("<div>").addClass("clearfix")); return c("<div>").attr("id", "equipment-type-" + G.jb).addClass("selector-group").data("type", G.jb).append(d)
-        } function K() {
+        } 
+        
+        function K() {
             for (var d = c("<div>").addClass("ui-collapse-button").click(e), 
                      f = c("<div>").addClass("infobar ui-collapse-header"), 
                      g = c("<div>").addClass("ui-collapsible"), 
-                     k = c("<div>").addClass("ui-collapsible"), 
+                     k = c("<div>").addClass("ui-collapsible"),
+                     z = c("<div>").addClass("ui-collapsible"),
                      m = 0; m < equipment[G.mb].length; m++) {
                 var y = equipment[G.mb][m], p = c("<div>")
                     .addClass("weapon-small rarity-small-" + y.f)
@@ -3508,15 +3519,19 @@
                     .append(c("<p>").text(y.name)).data("type", G.mb)
                     .data("equipment", m)
                     .click(n);
-                    y.f == U.rarity.uncommon ? g.append(p) : k.append(p)
+                    y.f == U.rarity.uncommon ? g.append(p) : y.f == U.rarity.rare ? k.append(p) : z.append(p)
             } 
             g = c("<div>").addClass("selector-group")
-                          .append(f.clone().append(c("<p>").text(w.HB)).append(d.clone(!0).attr("id", "gear-button-" + U.rarity.uncommon)))
-                          .append(g.append(c("<div>").addClass("clearfix")).hide()); 
-            d = c("<div>").addClass("selector-group")
-                          .append(f.append(c("<p>").text(w.oB)).append(d.attr("id", "gear-button-" + U.rarity.rare)))
+                          .append(f.clone().append(c("<p>").text("Uncommon")).append(d.clone(1).attr("id", "gear-button-" + U.rarity.uncommon)))
+                          .append(g.append(c("<div>").addClass("clearfix")).hide());
+            k = c("<div>").addClass("selector-group")
+                          .append(f.clone().append(c("<p>").text("Rare")).append(d.clone(1).attr("id", "gear-button-" + U.rarity.rare)))
                           .append(k.append(c("<div>").addClass("clearfix")).hide());
-            return c("<div>").attr("id", "equipment-type-" + G.mb).data("type", G.mb).append(g, d)
+            z = c("<div>").addClass("selector-group")
+                          .append(f.clone().append(c("<p>").text("Unobtainable")).append(d.clone(1).attr("id", "gear-button-" + U.rarity.unobtainable)))
+                          .append(z.append(c("<div>").addClass("clearfix")).hide());
+
+            return c("<div>").attr("id", "equipment-type-" + G.mb).data("type", G.mb).append(g).append(k).append(z)
         } 
         
         function g() {
@@ -3548,10 +3563,14 @@
         } function A(d, e) { e != t && (S = -1, t.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function m(d, e) { e != xa && (f = -1, xa.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function ha(d, e) { e != ya && (x = f = -1, ya.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function O(e) {
             c(this).hasClass("rank-active") ?
             e.stopPropagation() : (c("#equipment-selector .item-rank").removeClass("rank-active"), c(this).addClass("rank-active"), v = c(this).data("rank"), E.Kw(S, v), d.Ea(), S != G.Fa && S != G.jb && na(c("#equipment-type-" + S)), c("#character-builder").trigger(k[S]))
-        } function n() { var e = S; if (S == G.Fa || S == G.jb) v = c(this).data("rank"); E.Jw(S, c(this).data("equipment"), v); Telemetry.trackEvent("ME3 Builder", "onEquipmentSelected", "slot: " + S); A(); d.Ea(); c("#character-builder").trigger(k[e]) } function Z() {
+        } 
+        
+        function n() { var e = S; if (S == G.Fa || S == G.jb) v = c(this).data("rank"); E.Jw(S, c(this).data("equipment"), v); Telemetry.trackEvent("ME3 Builder", "onEquipmentSelected", "slot: " + S); A(); d.Ea(); c("#character-builder").trigger(k[e]) } function Z() {
             var d = E.Qa(B.ha); la(c("#primary-weapon"),
                 d); Q.Aa(c("#primary-weapon .weapon-dmg")); Q.ba(c("#primary-weapon .weapon-dmg"), oa(d, X[d.type][d.ra])); Q.Aa(c("#primary-weapon .weapon img")); Q.ba(c("#primary-weapon .weapon img"), va(d)); d = E.Qa(B.xa); -1 != d.type && (la(c("#secondary-weapon"), d), Q.Aa(c("#secondary-weapon .weapon-dmg")), Q.ba(c("#secondary-weapon .weapon-dmg"), oa(d, X[d.type][d.ra])), Q.Aa(c("#secondary-weapon .weapon img")), Q.ba(c("#secondary-weapon .weapon img"), va(d)))
-        } function D(e) {
+        } 
+        
+        function D(e) {
             c(this).hasClass("rank-active") ? e.stopPropagation() :
             (c("#weapon-selector .item-rank").removeClass("rank-active"), c(this).addClass("rank-active"), r = c(this).data("rank"), E.Qw(f, r), ka(), d.Ea(), c("#character-builder").trigger("weaponSelected.View.WeaponSelector"))
         } function ca() { E.Nw(f, c(this).data("type"), c(this).data("weapon"), r); Telemetry.trackEvent("ME3 Builder", "onWeaponSelected", "type: " + c(this).data("type")); m(); d.Ea(); c("#character-builder").trigger("weaponSelected.View.WeaponSelector") } function ja(e) {

@@ -255,12 +255,13 @@
 .rarity-2 { background: url('../images/rarity.png') no-repeat -320px -160px; }
 .rarity-3 { background: url('../images/rarity.png') no-repeat -480px -160px; }
 
-.rarity-small-0 { background: url('../images/rarity.png') no-repeat 0 -128px; background-size: 512px 256px; }
-.rarity-small-1 { background: url('../images/rarity.png') no-repeat -128px -128px; background-size: 512px 256px; }
-.rarity-small-2 { background: url('../images/rarity.png') no-repeat -256px -128px; background-size: 512px 256px; }
-.rarity-small-3 { background: url('../images/rarity.png') no-repeat -384px -128px; background-size: 512px 256px; }
+.rarity-small-0 { background: url('../images/rarity.png') no-repeat 0 -128px; background-size: 640px 256px; }
+.rarity-small-1 { background: url('../images/rarity.png') no-repeat -128px -128px; background-size: 640px 256px; }
+.rarity-small-2 { background: url('../images/rarity.png') no-repeat -256px -128px; background-size: 640px 256px; }
+.rarity-small-3 { background: url('../images/rarity.png') no-repeat -384px -128px; background-size: 640px 256px; }
+.rarity-small-4 { background: url('../images/rarity.png') no-repeat -512px -128px; background-size: 640px 256px; }
 
-.rarity-xsmall-0 { background: url('../images/rarity.png') no-repeat 0 -80px; background-size: 320px 160px; }
-.rarity-xsmall-1 { background: url('../images/rarity.png') no-repeat -80px -80px; background-size: 320px 160px; }
-.rarity-xsmall-2 { background: url('../images/rarity.png') no-repeat -160px -80px; background-size: 320px 160px; }
-.rarity-xsmall-3 { background: url('../images/rarity.png') no-repeat -240px -80px; background-size: 320px 160px; }
+.rarity-xsmall-0 { background: url('../images/rarity.png') no-repeat 0 -80px; background-size: 400px 160px; }
+.rarity-xsmall-1 { background: url('../images/rarity.png') no-repeat -80px -80px; background-size: 400px 160px; }
+.rarity-xsmall-2 { background: url('../images/rarity.png') no-repeat -160px -80px; background-size: 400px 160px; }
+.rarity-xsmall-3 { background: url('../images/rarity.png') no-repeat -240px -80px; background-size: 400px 160px; }
