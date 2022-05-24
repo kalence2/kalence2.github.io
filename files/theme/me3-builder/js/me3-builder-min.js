@@ -1303,6 +1303,7 @@
     b.AC = "Warp Rounds"; 
     b.BC = "Applies warp ammo for one mission.\nDamage: +{ammoDamage}%\nBiotic Damage Bonus: +{ATTR_PCT}%\nArmor Weakening: +{ammoArmorWeakening}% for {ATTR_TIME} seconds";
     b.bf3infiname = "Battlefield 3 Infiltrator";
+    b.vibration_damper_desc = "Decrease weapon kickback and improve firing stability by upgrading autotargeting electronics.\nWeapon Stability +{stability}%";
     /*
      Copyright 2013
     
@@ -2177,66 +2178,129 @@
     */
     var h = h || {}, C = h.Ya = h.Ya || {}; C.mh = 4; C.rarity = { common: 0, uncommon: 1, rare: 2, ultrarare: 3, unobtainable: 4 };
     C.eg = [[
-        { name: a.Zi, a: a.$i, d: "SpeedBonus.png", c: [{ attributes: { movementSpeed: .05 } }, { attributes: { movementSpeed: .15 } }, { attributes: { movementSpeed: .25 } }] },
-        { name: a.um, a: a.vm, d: "ShieldBonus.png", c: [{ attributes: { shieldStrength: .3 } }, { attributes: { shieldStrength: .6 } }, { attributes: { shieldStrength: 1 } }, { attributes: { shieldStrength: 1.5 } }] },
-        { name: a.Au, a: a.Bu, d: "PowerBonusDamage.png", c: [{ attributes: { globalPowerDamage: .1 } }, { attributes: { globalPowerDamage: .2 } }, { attributes: { globalPowerDamage: .3 } }, { attributes: { globalPowerDamage: .5 } }] },
-        { name: a.Du, a: a.Eu, d: "PowerBonus.png", c: [{ attributes: { globalRecharge: .1 } }, { attributes: { globalRecharge: .2 } }, { attributes: { globalRecharge: .3 } }] },
-        { name: a.mx, a: a.nx, d: "ShieldRegenBonus.png", c: [{ attributes: { shieldRechargeRate: .1, ATTR_INT: 1 } }, { attributes: { shieldRechargeRate: .2, ATTR_INT: 2 } }, { attributes: { shieldRechargeRate: .3, ATTR_INT: 3 } }] },
-        { name: a.Ry, a: a.Sy, d: "StabilityBonus.png", c: [{ attributes: { stability: .1, ATTR_INT: 1 } }, { attributes: { stability: .2, ATTR_INT: 2 } }, { attributes: { stability: .3, ATTR_INT: 3 } }] }
+        { name: a.Zi, a: a.$i, d: "SpeedBonus.png",
+        c: [{ attributes: { movementSpeed: .05 } }, { attributes: { movementSpeed: .15 } }, { attributes: { movementSpeed: .25 } }] },
+        { name: a.um, a: a.vm, d: "ShieldBonus.png",
+        c: [{ attributes: { shieldStrength: .3 } }, { attributes: { shieldStrength: .6 } }, { attributes: { shieldStrength: 1 } }, { attributes: { shieldStrength: 1.5 } }] },
+        { name: a.Au, a: a.Bu, d: "PowerBonusDamage.png",
+        c: [{ attributes: { globalPowerDamage: .1 } }, { attributes: { globalPowerDamage: .2 } }, { attributes: { globalPowerDamage: .3 } }, { attributes: { globalPowerDamage: .5 } }] },
+        { name: a.Du, a: a.Eu, d: "PowerBonus.png",
+        c: [{ attributes: { globalRecharge: .1 } }, { attributes: { globalRecharge: .2 } }, { attributes: { globalRecharge: .3 } }] },
+        { name: a.mx, a: a.nx, d: "ShieldRegenBonus.png",
+        c: [{ attributes: { shieldRechargeRate: .1, ATTR_INT: 1 } }, { attributes: { shieldRechargeRate: .2, ATTR_INT: 2 } }, { attributes: { shieldRechargeRate: .3, ATTR_INT: 3 } }] },
+        { name: a.Ry, a: a.Sy, d: "StabilityBonus.png",
+        c: [{ attributes: { stability: .1, ATTR_INT: 1 } }, { attributes: { stability: .2, ATTR_INT: 2 } }, { attributes: { stability: .3, ATTR_INT: 3 } }] }
     ], [
-        { name: a.Vi, a: a.Wi, f: C.rarity.uncommon, d: "Gear_BioticDamage.png", c: [{ attributes: { bioticDamage: .05 } }, { attributes: { bioticDamage: .075 } }, { attributes: { bioticDamage: .1 } }, { attributes: { bioticDamage: .125 } }, { attributes: { bioticDamage: .15 } }] },
-        { name: a.bk, a: a.ck, f: C.rarity.uncommon, d: "Gear_WeaponDamage_AssaultRifle.png", c: [{ attributes: { weaponDamageAssault: .05 } }, { attributes: { weaponDamageAssault: .075 } }, { attributes: { weaponDamageAssault: .1 } }, { attributes: { weaponDamageAssault: .125 } }, { attributes: { weaponDamageAssault: .15 } }] }, 
-        { name: a.Ym, a: a.Zm, f: C.rarity.uncommon, d: "Gear_WeaponDamage_All.png", c: [{ attributes: { weaponDamage: .03 } }, { attributes: { weaponDamage: .05 } }, { attributes: { weaponDamage: .07 } }, { attributes: { weaponDamage: .085 } }, { attributes: { weaponDamage: .1 } }] },
-        { name: a.Un, a: a.Vn, f: C.rarity.uncommon, d: "Gear_TechDamage.png", c: [{ attributes: { techDamage: .05 } }, { attributes: { techDamage: .075 } }, { attributes: { techDamage: .1 } }, { attributes: { techDamage: .125 } }, { attributes: { techDamage: .15 } }] }, 
-        { name: a.Cq, a: a.Dq, f: C.rarity.uncommon, d: "Gear_MeleeDamage.png", c: [{ attributes: { meleeDamage: .1 } }, { attributes: { meleeDamage: .125 } }, { attributes: { meleeDamage: .15 } }, { attributes: { meleeDamage: .175 } }, { attributes: { meleeDamage: .2 } }] },
-        { name: a.Is, a: a.Js, f: C.rarity.uncommon, d: "Gear_PowerBonus_Damage.png", c: [{ attributes: { globalPowerDamage: .04 } }, { attributes: { globalPowerDamage: .06 } }, { attributes: { globalPowerDamage: .08 } }, { attributes: { globalPowerDamage: .1 } }, { attributes: { globalPowerDamage: .12 } }] }, 
-        { name: a.Rs, a: a.Ss, f: C.rarity.uncommon, d: "Gear_ShieldRegen.png", c: [{ attributes: { shieldRechargeRate: .05 } }, { attributes: { shieldRechargeRate: .075 } }, { attributes: { shieldRechargeRate: .1 } }, { attributes: { shieldRechargeRate: .125 } }, { attributes: { shieldRechargeRate: .15 } }] },
-        { name: a.$t, a: a.au, f: C.rarity.uncommon, d: "Gear_WeaponDamage_Pistol.png", c: [{ attributes: { weaponDamagePistol: .05 } }, { attributes: { weaponDamagePistol: .075 } }, { attributes: { weaponDamagePistol: .1 } }, { attributes: { weaponDamagePistol: .125 } }, { attributes: { weaponDamagePistol: .15 } }] },
-        { name: a.bx, a: a.cx, f: C.rarity.uncommon, d: "Gear_ShieldStrength.png", c: [{ attributes: { shieldStrength: .1 } }, { attributes: { shieldStrength: .15 } }, { attributes: { shieldStrength: .2 } }, { attributes: { shieldStrength: .25 } }, { attributes: { shieldStrength: .3 } }] },
-        { name: a.Bx, a: a.Cx, f: C.rarity.uncommon, d: "Gear_WeaponDamage_Shotgun.png", c: [{ attributes: { weaponDamageShotgun: .05 } }, { attributes: { weaponDamageShotgun: .075 } }, { attributes: { weaponDamageShotgun: .1 } }, { attributes: { weaponDamageShotgun: .125 } }, { attributes: { weaponDamageShotgun: .15 } }] },
-        { name: a.Qv, a: a.Rv, f: C.rarity.uncommon, d: "Gear_WeaponDamage_SMG.png", c: [{ attributes: { weaponDamageSMG: .05 } }, { attributes: { weaponDamageSMG: .075 } }, { attributes: { weaponDamageSMG: .1 } }, { attributes: { weaponDamageSMG: .125 } }, { attributes: { weaponDamageSMG: .15 } }] }, 
-        { name: a.sy, a: a.ty, f: C.rarity.uncommon, d: "Gear_WeaponDamage_SniperRifle.png", c: [{ attributes: { weaponDamageSniper: .05 } }, { attributes: { weaponDamageSniper: .075 } }, { attributes: { weaponDamageSniper: .1 } }, { attributes: { weaponDamageSniper: .125 } }, { attributes: { weaponDamageSniper: .15 } }] },
-        { name: a.kz, a: a.lz, f: C.rarity.uncommon, d: "Gear_PowerBonus_Cooldown.png", c: [{ attributes: { globalRecharge: .05 } }, { attributes: { globalRecharge: .075 } }, { attributes: { globalRecharge: .1 } }, { attributes: { globalRecharge: .125 } }, { attributes: { globalRecharge: .15 } }] }, 
-        { name: a.lA, a: a.mA, f: C.rarity.uncommon, d: "Gear_AmmoCapacity.png", c: [{ attributes: { ammoCapacity: 0 } }, { attributes: { ammoCapacity: 0 } }, { attributes: { ammoCapacity: 0 } }, { attributes: { ammoCapacity: 0 } }, { attributes: { ammoCapacity: .3 } }] },
-        { name: a.pC, a: a.qC, f: C.rarity.uncommon, d: "Gear_HeadshotDamage.png", c: [{ attributes: { headshot: .08 } }, { attributes: { headshot: .11 } }, { attributes: { headshot: .14 } }, { attributes: { headshot: .17 } }, { attributes: { headshot: .2 } }] }, 
-        { name: a.Hj, a: a.Ij, f: C.rarity.rare, d: "Gear_CobraCapacity.png", c: [{ attributes: { cobraCapacity: 1, ammoCapacity: .05 } }, { attributes: { cobraCapacity: 1, ammoCapacity: .075 } }, { attributes: { cobraCapacity: 2, ammoCapacity: .1 } }, { attributes: { cobraCapacity: 2, ammoCapacity: .125 } }, { attributes: { cobraCapacity: 3, ammoCapacity: .15 } }] },
-        { name: a.$j, a: a.ak, f: C.rarity.rare, d: "Gear_ThermalCapacity.png", c: [{ attributes: { thermalCapacity: 1, weaponDamage: .02 } }, { attributes: { thermalCapacity: 1, weaponDamage: .04 } }, { attributes: { thermalCapacity: 2, weaponDamage: .06 } }, { attributes: { thermalCapacity: 2, weaponDamage: .07 } }, { attributes: { thermalCapacity: 3, weaponDamage: .08 } }] }, 
-        { name: a.mk, a: a.nk, f: C.rarity.rare, d: "Gear_Combo_WeaponStabilityAmmoCapacity.png", c: [{ attributes: { ammoCapacity: .05, stability: .1 } }, { attributes: { ammoCapacity: .075, stability: .15 } }, { attributes: { ammoCapacity: .1, stability: .2 } }, { attributes: { ammoCapacity: .125, stability: .25 } }, { attributes: { ammoCapacity: .15, stability: .3 } }] },
-        { name: a.yk, a: a.zk, f: C.rarity.rare, d: "Gear_BatarianGauntlet.png", c: [{ attributes: { meleeHeavyBase: 600 } }, { attributes: { meleeHeavyBase: 650 } }, { attributes: { meleeHeavyBase: 700 } }, { attributes: { meleeHeavyBase: 750 } }, { attributes: { meleeHeavyBase: 800 } }] },
-        { name: a.Gk, a: a.Hk, f: C.rarity.rare, d: "Gear_Combo_ShotgunDamageMeleeDamage.png", c: [{ attributes: { meleeDamage: .04, weaponDamageShotgun: .04 } }, { attributes: { meleeDamage: .06, weaponDamageShotgun: .06 } }, { attributes: { meleeDamage: .08, weaponDamageShotgun: .08 } }, { attributes: { meleeDamage: .1, weaponDamageShotgun: .1 } }, { attributes: { meleeDamage: .12, weaponDamageShotgun: .12 } }] }, 
-        { name: a.am, a: a.bm, f: C.rarity.rare, d: "Gear_Combo_AssaultRifleDamagePistolDamage.png", c: [{ attributes: { weaponDamageAssault: .04, weaponDamagePistol: .04 } }, { attributes: { weaponDamageAssault: .06, weaponDamagePistol: .06 } }, { attributes: { weaponDamageAssault: .08, weaponDamagePistol: .08 } }, { attributes: { weaponDamageAssault: .1, weaponDamagePistol: .1 } }, { attributes: { weaponDamageAssault: .12, weaponDamagePistol: .12 } }] }, 
-        { name: a.cm, a: a.dm, f: C.rarity.rare, d: "Gear_Combo_PistolDamageBioticDamage.png", c: [{ attributes: { weaponDamagePistol: .04, bioticDamage: .04 } }, { attributes: { weaponDamagePistol: .06, bioticDamage: .06 } }, { attributes: { weaponDamagePistol: .08, bioticDamage: .08 } }, { attributes: { weaponDamagePistol: .1, bioticDamage: .1 } }, { attributes: { weaponDamagePistol: .12, bioticDamage: .12 } }] },
-        { name: a.eo, a: a.fo, f: C.rarity.rare, d: "Gear_Combo_SMGDamagePowerCooldown.png", c: [{ attributes: { weaponDamageSMG: .04, globalRecharge: .04 } }, { attributes: { weaponDamageSMG: .06, globalRecharge: .06 } }, { attributes: { weaponDamageSMG: .08, globalRecharge: .08 } }, { attributes: { weaponDamageSMG: .1, globalRecharge: .1 } }, { attributes: { weaponDamageSMG: .12, globalRecharge: .12 } }] }, 
-        { name: a.np, a: a.op, f: C.rarity.rare, d: "Gear_VisionHelmet.png", c: [{ attributes: { radius: 10 } }, { attributes: { radius: 12.5 } }, { attributes: { radius: 15 } }, { attributes: { radius: 17.5 } }, { attributes: { radius: 20 } }] },
-        { name: a.sb, a: a.Bp, f: C.rarity.rare, d: "Gear_GrenadeCapacity.png", c: [{ attributes: { grenadeCapacity: 1 } }, { attributes: { grenadeCapacity: 2 } }, { attributes: { grenadeCapacity: 3 } }, { attributes: { grenadeCapacity: 4 } }, { attributes: { grenadeCapacity: 5 } }] }, 
-        { name: a.Ep, a: a.Fp, f: C.rarity.rare, d: "Gear_Combo_SniperDamageSMGDamage.png", c: [{ attributes: { weaponDamageSMG: .04, weaponDamageSniper: .04 } }, { attributes: { weaponDamageSMG: .06, weaponDamageSniper: .06 } }, { attributes: { weaponDamageSMG: .08, weaponDamageSniper: .08 } }, { attributes: { weaponDamageSMG: .1, weaponDamageSniper: .1 } }, { attributes: { weaponDamageSMG: .12, weaponDamageSniper: .12 } }] },
-        { name: a.Vq, a: a.Wq, f: C.rarity.rare, d: "Gear_Combo_ShieldStrengthMeleeDamage.png", c: [{ attributes: { meleeDamage: .04, shieldStrength: .06 } }, { attributes: { meleeDamage: .06, shieldStrength: .1 } }, { attributes: { meleeDamage: .08, shieldStrength: .14 } }, { attributes: { meleeDamage: .1, shieldStrength: .17 } }, { attributes: { meleeDamage: .12, shieldStrength: .2 } }] }, 
-        { name: a.Cs, a: a.Ds, f: C.rarity.rare, d: "Gear_Combo_MeleeDamageBioticDamage.png", c: [{ attributes: { bioticDamage: .04, meleeDamage: .04 } }, { attributes: { bioticDamage: .06, meleeDamage: .06 } }, { attributes: { bioticDamage: .08, meleeDamage: .08 } }, { attributes: { bioticDamage: .1, meleeDamage: .1 } }, { attributes: { bioticDamage: .12, meleeDamage: .12 } }] },
-        { name: a.Es, a: a.Fs, f: C.rarity.rare, d: "Gear_MassMedigel.png", c: [{ attributes: { radius: 10 } }, { attributes: { radius: 15 } }, { attributes: { radius: 20 } }, { attributes: { radius: 25 } }, { attributes: { radius: 30 } }] }, 
-        { name: a.Ct, a: a.Dt, f: C.rarity.rare, d: "Gear_Combo_TechDamagePowerCooldown.png", c: [{ attributes: { globalRecharge: .04, techDamage: .04 } }, { attributes: { globalRecharge: .06, techDamage: .06 } }, { attributes: { globalRecharge: .08, techDamage: .08 } }, { attributes: { globalRecharge: .1, techDamage: .1 } }, { attributes: { globalRecharge: .12, techDamage: .12 } }] },
-        { name: a.Ft, a: a.Gt, f: C.rarity.rare, d: "Gear_Combo_SniperDamageTechDamage.png", c: [{ attributes: { techDamage: .04, weaponDamageSniper: .04 } }, { attributes: { techDamage: .06, weaponDamageSniper: .06 } }, { attributes: { techDamage: .08, weaponDamageSniper: .08 } }, { attributes: { techDamage: .1, weaponDamageSniper: .1 } }, { attributes: { techDamage: .12, weaponDamageSniper: .12 } }] },
-        { name: a.Lv, a: a.Mv, f: C.rarity.rare, d: "Gear_MedigelCapacity.png", c: [{ attributes: { medigelCapacity: 1, shieldRechargeRate: .04 } }, { attributes: { medigelCapacity: 1, shieldRechargeRate: .06 } }, { attributes: { medigelCapacity: 2, shieldRechargeRate: .08 } }, { attributes: { medigelCapacity: 2, shieldRechargeRate: .1 } }, { attributes: { medigelCapacity: 3, shieldRechargeRate: .12 } }] }, 
-        { name: a.wx, a: a.xx, f: C.rarity.rare, d: "Gear_Combo_ShotgunDamageGrenadeCap.png", c: [{ attributes: { grenadeCapacity: 1, weaponDamageShotgun: .04 } }, { attributes: { grenadeCapacity: 1, weaponDamageShotgun: .06 } }, { attributes: { grenadeCapacity: 1, weaponDamageShotgun: .08 } }, { attributes: { grenadeCapacity: 2, weaponDamageShotgun: .1 } }, { attributes: { grenadeCapacity: 2, weaponDamageShotgun: .12 } }] }, 
-        { name: a.iz, a: a.jz, f: C.rarity.rare, d: "Gear_Combo_ShieldStrengthShieldRegen.png", c: [{ attributes: { shieldRechargeRate: .04, shieldStrength: .06 } }, { attributes: { shieldRechargeRate: .06, shieldStrength: .1 } }, { attributes: { shieldRechargeRate: .08, shieldStrength: .14 } }, { attributes: { shieldRechargeRate: .1, shieldStrength: .17 } }, { attributes: { shieldRechargeRate: .12, shieldStrength: .2 } }] },
-        { name: a.zz, a: a.Az, f: C.rarity.rare, d: "Gear_SurvivalCapacity.png", c: [{ attributes: { opsPackCapacity: 1, shieldStrength: .06 } }, { attributes: { opsPackCapacity: 1, shieldStrength: .1 } }, { attributes: { opsPackCapacity: 2, shieldStrength: .14 } }, { attributes: { opsPackCapacity: 2, shieldStrength: .17 } }, { attributes: { opsPackCapacity: 3, shieldStrength: .2 } }] }, 
-        { name: a.sC, a: a.tC, f: C.rarity.rare, d: "Gear_Combo_AssaultDamageGrenadeCap.png", c: [{ attributes: { grenadeCapacity: 1, weaponDamageAssault: .04 } }, { attributes: { grenadeCapacity: 1, weaponDamageAssault: .06 } }, { attributes: { grenadeCapacity: 1, weaponDamageAssault: .08 } }, { attributes: { grenadeCapacity: 2, weaponDamageAssault: .1 } }, { attributes: { grenadeCapacity: 2, weaponDamageAssault: .12 } }] }
+        { name: a.Vi, a: a.Wi, f: C.rarity.uncommon, d: "Gear_BioticDamage.png",
+        c: [{ attributes: { bioticDamage: .05 } }, { attributes: { bioticDamage: .075 } }, { attributes: { bioticDamage: .1 } }, { attributes: { bioticDamage: .125 } }, { attributes: { bioticDamage: .15 } }] },
+        { name: a.bk, a: a.ck, f: C.rarity.uncommon, d: "Gear_WeaponDamage_AssaultRifle.png",
+        c: [{ attributes: { weaponDamageAssault: .05 } }, { attributes: { weaponDamageAssault: .075 } }, { attributes: { weaponDamageAssault: .1 } }, { attributes: { weaponDamageAssault: .125 } }, { attributes: { weaponDamageAssault: .15 } }] }, 
+        { name: a.Ym, a: a.Zm, f: C.rarity.uncommon, d: "Gear_WeaponDamage_All.png",
+        c: [{ attributes: { weaponDamage: .03 } }, { attributes: { weaponDamage: .05 } }, { attributes: { weaponDamage: .07 } }, { attributes: { weaponDamage: .085 } }, { attributes: { weaponDamage: .1 } }] },
+        { name: a.Un, a: a.Vn, f: C.rarity.uncommon, d: "Gear_TechDamage.png",
+        c: [{ attributes: { techDamage: .05 } }, { attributes: { techDamage: .075 } }, { attributes: { techDamage: .1 } }, { attributes: { techDamage: .125 } }, { attributes: { techDamage: .15 } }] }, 
+        { name: a.Cq, a: a.Dq, f: C.rarity.uncommon, d: "Gear_MeleeDamage.png",
+        c: [{ attributes: { meleeDamage: .1 } }, { attributes: { meleeDamage: .125 } }, { attributes: { meleeDamage: .15 } }, { attributes: { meleeDamage: .175 } }, { attributes: { meleeDamage: .2 } }] },
+        { name: a.Is, a: a.Js, f: C.rarity.uncommon, d: "Gear_PowerBonus_Damage.png",
+        c: [{ attributes: { globalPowerDamage: .04 } }, { attributes: { globalPowerDamage: .06 } }, { attributes: { globalPowerDamage: .08 } }, { attributes: { globalPowerDamage: .1 } }, { attributes: { globalPowerDamage: .12 } }] }, 
+        { name: a.Rs, a: a.Ss, f: C.rarity.uncommon, d: "Gear_ShieldRegen.png",
+        c: [{ attributes: { shieldRechargeRate: .05 } }, { attributes: { shieldRechargeRate: .075 } }, { attributes: { shieldRechargeRate: .1 } }, { attributes: { shieldRechargeRate: .125 } }, { attributes: { shieldRechargeRate: .15 } }] },
+        { name: a.$t, a: a.au, f: C.rarity.uncommon, d: "Gear_WeaponDamage_Pistol.png",
+        c: [{ attributes: { weaponDamagePistol: .05 } }, { attributes: { weaponDamagePistol: .075 } }, { attributes: { weaponDamagePistol: .1 } }, { attributes: { weaponDamagePistol: .125 } }, { attributes: { weaponDamagePistol: .15 } }] },
+        { name: a.bx, a: a.cx, f: C.rarity.uncommon, d: "Gear_ShieldStrength.png",
+        c: [{ attributes: { shieldStrength: .1 } }, { attributes: { shieldStrength: .15 } }, { attributes: { shieldStrength: .2 } }, { attributes: { shieldStrength: .25 } }, { attributes: { shieldStrength: .3 } }] },
+        { name: a.Bx, a: a.Cx, f: C.rarity.uncommon, d: "Gear_WeaponDamage_Shotgun.png",
+        c: [{ attributes: { weaponDamageShotgun: .05 } }, { attributes: { weaponDamageShotgun: .075 } }, { attributes: { weaponDamageShotgun: .1 } }, { attributes: { weaponDamageShotgun: .125 } }, { attributes: { weaponDamageShotgun: .15 } }] },
+        { name: a.Qv, a: a.Rv, f: C.rarity.uncommon, d: "Gear_WeaponDamage_SMG.png",
+        c: [{ attributes: { weaponDamageSMG: .05 } }, { attributes: { weaponDamageSMG: .075 } }, { attributes: { weaponDamageSMG: .1 } }, { attributes: { weaponDamageSMG: .125 } }, { attributes: { weaponDamageSMG: .15 } }] }, 
+        { name: a.sy, a: a.ty, f: C.rarity.uncommon, d: "Gear_WeaponDamage_SniperRifle.png",
+        c: [{ attributes: { weaponDamageSniper: .05 } }, { attributes: { weaponDamageSniper: .075 } }, { attributes: { weaponDamageSniper: .1 } }, { attributes: { weaponDamageSniper: .125 } }, { attributes: { weaponDamageSniper: .15 } }] },
+        { name: a.kz, a: a.lz, f: C.rarity.uncommon, d: "Gear_PowerBonus_Cooldown.png",
+        c: [{ attributes: { globalRecharge: .05 } }, { attributes: { globalRecharge: .075 } }, { attributes: { globalRecharge: .1 } }, { attributes: { globalRecharge: .125 } }, { attributes: { globalRecharge: .15 } }] }, 
+        { name: a.lA, a: a.mA, f: C.rarity.uncommon, d: "Gear_AmmoCapacity.png",
+        c: [{ attributes: { ammoCapacity: 0 } }, { attributes: { ammoCapacity: 0 } }, { attributes: { ammoCapacity: 0 } }, { attributes: { ammoCapacity: 0 } }, { attributes: { ammoCapacity: .3 } }] },
+        { name: a.pC, a: a.qC, f: C.rarity.uncommon, d: "Gear_HeadshotDamage.png",
+        c: [{ attributes: { headshot: .08 } }, { attributes: { headshot: .11 } }, { attributes: { headshot: .14 } }, { attributes: { headshot: .17 } }, { attributes: { headshot: .2 } }] }, 
+        { name: a.Hj, a: a.Ij, f: C.rarity.rare, d: "Gear_CobraCapacity.png",
+        c: [{ attributes: { cobraCapacity: 1, ammoCapacity: .05 } }, { attributes: { cobraCapacity: 1, ammoCapacity: .075 } }, { attributes: { cobraCapacity: 2, ammoCapacity: .1 } }, { attributes: { cobraCapacity: 2, ammoCapacity: .125 } }, { attributes: { cobraCapacity: 3, ammoCapacity: .15 } }] },
+        { name: a.$j, a: a.ak, f: C.rarity.rare, d: "Gear_ThermalCapacity.png",
+        c: [{ attributes: { thermalCapacity: 1, weaponDamage: .02 } }, { attributes: { thermalCapacity: 1, weaponDamage: .04 } }, { attributes: { thermalCapacity: 2, weaponDamage: .06 } }, { attributes: { thermalCapacity: 2, weaponDamage: .07 } }, { attributes: { thermalCapacity: 3, weaponDamage: .08 } }] }, 
+        { name: a.mk, a: a.nk, f: C.rarity.rare, d: "Gear_Combo_WeaponStabilityAmmoCapacity.png",
+        c: [{ attributes: { ammoCapacity: .05, stability: .1 } }, { attributes: { ammoCapacity: .075, stability: .15 } }, { attributes: { ammoCapacity: .1, stability: .2 } }, { attributes: { ammoCapacity: .125, stability: .25 } }, { attributes: { ammoCapacity: .15, stability: .3 } }] },
+        { name: a.yk, a: a.zk, f: C.rarity.rare, d: "Gear_BatarianGauntlet.png",
+        c: [{ attributes: { meleeHeavyBase: 600 } }, { attributes: { meleeHeavyBase: 650 } }, { attributes: { meleeHeavyBase: 700 } }, { attributes: { meleeHeavyBase: 750 } }, { attributes: { meleeHeavyBase: 800 } }] },
+        { name: a.Gk, a: a.Hk, f: C.rarity.rare, d: "Gear_Combo_ShotgunDamageMeleeDamage.png",
+        c: [{ attributes: { meleeDamage: .04, weaponDamageShotgun: .04 } }, { attributes: { meleeDamage: .06, weaponDamageShotgun: .06 } }, { attributes: { meleeDamage: .08, weaponDamageShotgun: .08 } }, { attributes: { meleeDamage: .1, weaponDamageShotgun: .1 } }, { attributes: { meleeDamage: .12, weaponDamageShotgun: .12 } }] }, 
+        { name: a.am, a: a.bm, f: C.rarity.rare, d: "Gear_Combo_AssaultRifleDamagePistolDamage.png",
+        c: [{ attributes: { weaponDamageAssault: .04, weaponDamagePistol: .04 } }, { attributes: { weaponDamageAssault: .06, weaponDamagePistol: .06 } }, { attributes: { weaponDamageAssault: .08, weaponDamagePistol: .08 } }, { attributes: { weaponDamageAssault: .1, weaponDamagePistol: .1 } }, { attributes: { weaponDamageAssault: .12, weaponDamagePistol: .12 } }] }, 
+        { name: a.cm, a: a.dm, f: C.rarity.rare, d: "Gear_Combo_PistolDamageBioticDamage.png",
+        c: [{ attributes: { weaponDamagePistol: .04, bioticDamage: .04 } }, { attributes: { weaponDamagePistol: .06, bioticDamage: .06 } }, { attributes: { weaponDamagePistol: .08, bioticDamage: .08 } }, { attributes: { weaponDamagePistol: .1, bioticDamage: .1 } }, { attributes: { weaponDamagePistol: .12, bioticDamage: .12 } }] },
+        { name: a.eo, a: a.fo, f: C.rarity.rare, d: "Gear_Combo_SMGDamagePowerCooldown.png",
+        c: [{ attributes: { weaponDamageSMG: .04, globalRecharge: .04 } }, { attributes: { weaponDamageSMG: .06, globalRecharge: .06 } }, { attributes: { weaponDamageSMG: .08, globalRecharge: .08 } }, { attributes: { weaponDamageSMG: .1, globalRecharge: .1 } }, { attributes: { weaponDamageSMG: .12, globalRecharge: .12 } }] }, 
+        { name: a.np, a: a.op, f: C.rarity.rare, d: "Gear_VisionHelmet.png",
+        c: [{ attributes: { radius: 10 } }, { attributes: { radius: 12.5 } }, { attributes: { radius: 15 } }, { attributes: { radius: 17.5 } }, { attributes: { radius: 20 } }] },
+        { name: a.sb, a: a.Bp, f: C.rarity.rare, d: "Gear_GrenadeCapacity.png",
+        c: [{ attributes: { grenadeCapacity: 1 } }, { attributes: { grenadeCapacity: 2 } }, { attributes: { grenadeCapacity: 3 } }, { attributes: { grenadeCapacity: 4 } }, { attributes: { grenadeCapacity: 5 } }] }, 
+        { name: a.Ep, a: a.Fp, f: C.rarity.rare, d: "Gear_Combo_SniperDamageSMGDamage.png",
+        c: [{ attributes: { weaponDamageSMG: .04, weaponDamageSniper: .04 } }, { attributes: { weaponDamageSMG: .06, weaponDamageSniper: .06 } }, { attributes: { weaponDamageSMG: .08, weaponDamageSniper: .08 } }, { attributes: { weaponDamageSMG: .1, weaponDamageSniper: .1 } }, { attributes: { weaponDamageSMG: .12, weaponDamageSniper: .12 } }] },
+        { name: a.Vq, a: a.Wq, f: C.rarity.rare, d: "Gear_Combo_ShieldStrengthMeleeDamage.png",
+        c: [{ attributes: { meleeDamage: .04, shieldStrength: .06 } }, { attributes: { meleeDamage: .06, shieldStrength: .1 } }, { attributes: { meleeDamage: .08, shieldStrength: .14 } }, { attributes: { meleeDamage: .1, shieldStrength: .17 } }, { attributes: { meleeDamage: .12, shieldStrength: .2 } }] }, 
+        { name: a.Cs, a: a.Ds, f: C.rarity.rare, d: "Gear_Combo_MeleeDamageBioticDamage.png",
+        c: [{ attributes: { bioticDamage: .04, meleeDamage: .04 } }, { attributes: { bioticDamage: .06, meleeDamage: .06 } }, { attributes: { bioticDamage: .08, meleeDamage: .08 } }, { attributes: { bioticDamage: .1, meleeDamage: .1 } }, { attributes: { bioticDamage: .12, meleeDamage: .12 } }] },
+        { name: a.Es, a: a.Fs, f: C.rarity.rare, d: "Gear_MassMedigel.png",
+        c: [{ attributes: { radius: 10 } }, { attributes: { radius: 15 } }, { attributes: { radius: 20 } }, { attributes: { radius: 25 } }, { attributes: { radius: 30 } }] }, 
+        { name: a.Ct, a: a.Dt, f: C.rarity.rare, d: "Gear_Combo_TechDamagePowerCooldown.png",
+        c: [{ attributes: { globalRecharge: .04, techDamage: .04 } }, { attributes: { globalRecharge: .06, techDamage: .06 } }, { attributes: { globalRecharge: .08, techDamage: .08 } }, { attributes: { globalRecharge: .1, techDamage: .1 } }, { attributes: { globalRecharge: .12, techDamage: .12 } }] },
+        { name: a.Ft, a: a.Gt, f: C.rarity.rare, d: "Gear_Combo_SniperDamageTechDamage.png",
+        c: [{ attributes: { techDamage: .04, weaponDamageSniper: .04 } }, { attributes: { techDamage: .06, weaponDamageSniper: .06 } }, { attributes: { techDamage: .08, weaponDamageSniper: .08 } }, { attributes: { techDamage: .1, weaponDamageSniper: .1 } }, { attributes: { techDamage: .12, weaponDamageSniper: .12 } }] },
+        { name: a.Lv, a: a.Mv, f: C.rarity.rare, d: "Gear_MedigelCapacity.png",
+        c: [{ attributes: { medigelCapacity: 1, shieldRechargeRate: .04 } }, { attributes: { medigelCapacity: 1, shieldRechargeRate: .06 } }, { attributes: { medigelCapacity: 2, shieldRechargeRate: .08 } }, { attributes: { medigelCapacity: 2, shieldRechargeRate: .1 } }, { attributes: { medigelCapacity: 3, shieldRechargeRate: .12 } }] }, 
+        { name: a.wx, a: a.xx, f: C.rarity.rare, d: "Gear_Combo_ShotgunDamageGrenadeCap.png",
+        c: [{ attributes: { grenadeCapacity: 1, weaponDamageShotgun: .04 } }, { attributes: { grenadeCapacity: 1, weaponDamageShotgun: .06 } }, { attributes: { grenadeCapacity: 1, weaponDamageShotgun: .08 } }, 
+            { attributes: { grenadeCapacity: 2, weaponDamageShotgun: .1 } }, { attributes: { grenadeCapacity: 2, weaponDamageShotgun: .12 } }] }, 
+        { name: a.iz, a: a.jz, f: C.rarity.rare, d: "Gear_Combo_ShieldStrengthShieldRegen.png",
+        c: [{ attributes: { shieldRechargeRate: .04, shieldStrength: .06 } }, { attributes: { shieldRechargeRate: .06, shieldStrength: .1 } }, { attributes: { shieldRechargeRate: .08, shieldStrength: .14 } }, 
+            { attributes: { shieldRechargeRate: .1, shieldStrength: .17 } }, { attributes: { shieldRechargeRate: .12, shieldStrength: .2 } }] },
+        { name: a.zz, a: a.Az, f: C.rarity.rare, d: "Gear_SurvivalCapacity.png",
+        c: [{ attributes: { opsPackCapacity: 1, shieldStrength: .06 } }, { attributes: { opsPackCapacity: 1, shieldStrength: .1 } }, { attributes: { opsPackCapacity: 2, shieldStrength: .14 } }, 
+            { attributes: { opsPackCapacity: 2, shieldStrength: .17 } }, { attributes: { opsPackCapacity: 3, shieldStrength: .2 } }] }, 
+        { name: a.sC, a: a.tC, f: C.rarity.rare, d: "Gear_Combo_AssaultDamageGrenadeCap.png",
+        c: [{ attributes: { grenadeCapacity: 1, weaponDamageAssault: .04 } }, { attributes: { grenadeCapacity: 1, weaponDamageAssault: .06 } }, { attributes: { grenadeCapacity: 1, weaponDamageAssault: .08 } }, 
+            { attributes: { grenadeCapacity: 2, weaponDamageAssault: .1 } }, { attributes: { grenadeCapacity: 2, weaponDamageAssault: .12 } }] },
+        { name: "Vibration damper", a: a.vibration_damper_desc, f: C.rarity.uncommon, d: "Gear_WeaponStability.png",
+        c: [{ attributes: { stability: .15 }}, { attributes: { stability: .22 }}, { attributes: { stability: .28 }}, { attributes: { stability: .34 }}, { attributes: { stability: .40 }}] }
     ], [
-        { name: a.ek, a: a.fk, d: "WeaponDamageBonus_AssaultRifle.png", c: [{ attributes: { weaponDamageAssault: .1 } }, { attributes: { weaponDamageAssault: .2 } }, { attributes: { weaponDamageAssault: .3 } }] }, 
-        { name: a.pu, a: a.qu, d: "WeaponDamageBonus_Pistol.png", c: [{ attributes: { weaponDamagePistol: .1 } }, { attributes: { weaponDamagePistol: .2 } }, { attributes: { weaponDamagePistol: .3 } }] },
-        { name: a.Mx, a: a.Nx, d: "WeaponDamageBonus_Shotgun.png", c: [{ attributes: { weaponDamageShotgun: .1 } }, { attributes: { weaponDamageShotgun: .2 } }, { attributes: { weaponDamageShotgun: .3 } }] },
-        { name: a.bw, a: a.cw, d: "WeaponDamageBonus_SMG.png", c: [{ attributes: { weaponDamageSMG: .1 } }, { attributes: { weaponDamageSMG: .2 } }, { attributes: { weaponDamageSMG: .3 } }] },
-        { name: a.Cy, a: a.Dy, d: "WeaponDamageBonus_SniperRifle.png", c: [{ attributes: { weaponDamageSniper: .1 } }, { attributes: { weaponDamageSniper: .2 } }, { attributes: { weaponDamageSniper: .3 } }] },
-        { name: a.ez, a: a.fz, d: "MeleeDamage.png", c: [{ attributes: { meleeDamage: .1, ATTR_INT: 1 } }, { attributes: { meleeDamage: .2, ATTR_INT: 2 } }, { attributes: { meleeDamage: .3, ATTR_INT: 3 } }] },
-        { name: a.cA, a: a.dA, d: "HeadshotDamage.png", c: [{ attributes: { headshot: .15, ATTR_INT: 1 } }, { attributes: { headshot: .25, ATTR_INT: 2 } }, { attributes: { headshot: .35, ATTR_INT: 3 } }] }
+        { name: a.ek, a: a.fk, d: "WeaponDamageBonus_AssaultRifle.png",
+        c: [{ attributes: { weaponDamageAssault: .1 } }, { attributes: { weaponDamageAssault: .2 } }, { attributes: { weaponDamageAssault: .3 } }] }, 
+        { name: a.pu, a: a.qu, d: "WeaponDamageBonus_Pistol.png",
+        c: [{ attributes: { weaponDamagePistol: .1 } }, { attributes: { weaponDamagePistol: .2 } }, { attributes: { weaponDamagePistol: .3 } }] },
+        { name: a.Mx, a: a.Nx, d: "WeaponDamageBonus_Shotgun.png",
+        c: [{ attributes: { weaponDamageShotgun: .1 } }, { attributes: { weaponDamageShotgun: .2 } }, { attributes: { weaponDamageShotgun: .3 } }] },
+        { name: a.bw, a: a.cw, d: "WeaponDamageBonus_SMG.png",
+        c: [{ attributes: { weaponDamageSMG: .1 } }, { attributes: { weaponDamageSMG: .2 } }, { attributes: { weaponDamageSMG: .3 } }] },
+        { name: a.Cy, a: a.Dy, d: "WeaponDamageBonus_SniperRifle.png",
+        c: [{ attributes: { weaponDamageSniper: .1 } }, { attributes: { weaponDamageSniper: .2 } }, { attributes: { weaponDamageSniper: .3 } }] },
+        { name: a.ez, a: a.fz, d: "MeleeDamage.png",
+        c: [{ attributes: { meleeDamage: .1, ATTR_INT: 1 } }, { attributes: { meleeDamage: .2, ATTR_INT: 2 } }, { attributes: { meleeDamage: .3, ATTR_INT: 3 } }] },
+        { name: a.cA, a: a.dA, d: "HeadshotDamage.png",
+        c: [{ attributes: { headshot: .15, ATTR_INT: 1 } }, { attributes: { headshot: .25, ATTR_INT: 2 } }, { attributes: { headshot: .35, ATTR_INT: 3 } }] }
     ], [
-        { name: a.Fj, a: a.Gj, d: "AmmoPower_ArmorPiercing.png", c: [{ attributes: { ammoDamage: .1, penetration: .5, enemyArmorPenetration: .5 } }, { attributes: { ammoDamage: .2, penetration: .75, enemyArmorPenetration: .65 } }, { attributes: { ammoDamage: .3, penetration: 1, enemyArmorPenetration: .75 } }, { attributes: { ammoDamage: .5, penetration: 1.5, enemyArmorPenetration: .9 } }], i: { health: 1, armor: 1, barrier: 0, shield: 0 } }, 
-        { name: a.rm, a: a.sm, d: "AmmoPower_Cryo.png", c: [{ attributes: { enemyMovementSpeed: .15, ammoArmorWeakening: .25, AMMO_TIME: 3, AMMO_INT: 1 } }, { attributes: { enemyMovementSpeed: .25, ammoArmorWeakening: .35, AMMO_TIME: 4, AMMO_INT: 1.4 } }, { attributes: { enemyMovementSpeed: .35, ammoArmorWeakening: .5, AMMO_TIME: 5, AMMO_INT: 1.8 } }, { attributes: { enemyMovementSpeed: .35, ammoArmorWeakening: .65, AMMO_TIME: 5.5, AMMO_INT: 2.2 } }], i: { health: 0, armor: 0, barrier: 0, shield: 0 } },
-        { name: a.ln, a: a.mn, d: "AmmoPower_Disruptor.png", c: [{ attributes: { ammoDamage: .05, AMMO_INT: 1, AMMO_TIME: 3.5, ATTR_PCT: 1, ATTR_TIME: 8 } }, { attributes: { ammoDamage: .1, AMMO_INT: 1.4, AMMO_TIME: 3.5, ATTR_PCT: 1, ATTR_TIME: 8 } }, { attributes: { ammoDamage: .15, AMMO_INT: 1.8, AMMO_TIME: 3.5, ATTR_PCT: 1, ATTR_TIME: 8 } }, { attributes: { ammoDamage: .25, AMMO_INT: 2, AMMO_TIME: 5, ATTR_PCT: 1, ATTR_TIME: 8 } }], i: { health: 1, armor: 1, barrier: 4, shield: 4 } }, 
-        { name: a.tn, a: a.un, d: "AmmoPower_Eraser.png", c: [{ attributes: { ammoDamage: .1, penetration: 1, enemyArmorPenetration: .1 } }, { attributes: { ammoDamage: .2, penetration: 1.5, enemyArmorPenetration: .25 } }, { attributes: { ammoDamage: .3, penetration: 2.5, enemyArmorPenetration: .4 } }], i: { health: 1, armor: 1, barrier: 0, shield: 0 } }, 
-        { name: a.mo, a: a.no, d: "AmmoPower_Needler.png", c: [{ attributes: { AMMO_INT: 50, ammoDamage: .1, radius: 1.5 }, Zc: 50 }, { attributes: { AMMO_INT: 150, ammoDamage: .2, radius: 2 }, Zc: 150 }, { attributes: { AMMO_INT: 250, ammoDamage: .3, radius: 2.5 }, Zc: 250 }], i: { health: 1, armor: 1, barrier: 1, shield: 1 } },
-        { name: a.Fq, a: a.Gq, d: "AmmoPower_Incendiary.png", c: [{ attributes: { ammoDamage: .1, ATTR_INT: 10, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .2, ATTR_INT: 20, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .3, ATTR_INT: 30, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .5, ATTR_INT: 50, ATTR_TIME: 3 } }], i: { health: 1, armor: 1, barrier: 0, shield: 0 } }, 
-        { name: a.Wt, a: a.Xt, d: "AmmoPower_Phasic.png", c: [{ attributes: { ammoDamage: .05, ATTR_PCT: 1, ATTR_TIME: 15 } }, { attributes: { ammoDamage: .1, ATTR_PCT: 1, ATTR_TIME: 15 } }, { attributes: { ammoDamage: .15, ATTR_PCT: 1, ATTR_TIME: 15 } }], i: { health: 1, armor: 0, barrier: 10, shield: 10 } },
-        { name: a.AC, a: a.BC, d: "AmmoPower_Warp.png", c: [{ attributes: { ammoDamage: .15, ATTR_PCT: .25, ammoArmorWeakening: .25, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .25, ATTR_PCT: .5, ammoArmorWeakening: .35, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .35, ATTR_PCT: .75, ammoArmorWeakening: .5, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .6, ATTR_PCT: 1, ammoArmorWeakening: .65, ATTR_TIME: 4 } }], i: { health: 1, armor: 1, barrier: 2, shield: 0 } }
+        { name: a.Fj, a: a.Gj, d: "AmmoPower_ArmorPiercing.png",
+        c: [{ attributes: { ammoDamage: .1, penetration: .5, enemyArmorPenetration: .5 } }, { attributes: { ammoDamage: .2, penetration: .75, enemyArmorPenetration: .65 } }, { attributes: { ammoDamage: .3, penetration: 1, enemyArmorPenetration: .75 } }, { attributes: { ammoDamage: .5, penetration: 1.5, enemyArmorPenetration: .9 } }], i: { health: 1, armor: 1, barrier: 0, shield: 0 } }, 
+        { name: a.rm, a: a.sm, d: "AmmoPower_Cryo.png",
+        c: [{ attributes: { enemyMovementSpeed: .15, ammoArmorWeakening: .25, AMMO_TIME: 3, AMMO_INT: 1 } }, { attributes: { enemyMovementSpeed: .25, ammoArmorWeakening: .35, AMMO_TIME: 4, AMMO_INT: 1.4 } }, { attributes: { enemyMovementSpeed: .35, ammoArmorWeakening: .5, AMMO_TIME: 5, AMMO_INT: 1.8 } }, { attributes: { enemyMovementSpeed: .35, ammoArmorWeakening: .65, AMMO_TIME: 5.5, AMMO_INT: 2.2 } }], i: { health: 0, armor: 0, barrier: 0, shield: 0 } },
+        { name: a.ln, a: a.mn, d: "AmmoPower_Disruptor.png",
+        c: [{ attributes: { ammoDamage: .05, AMMO_INT: 1, AMMO_TIME: 3.5, ATTR_PCT: 1, ATTR_TIME: 8 } }, { attributes: { ammoDamage: .1, AMMO_INT: 1.4, AMMO_TIME: 3.5, ATTR_PCT: 1, ATTR_TIME: 8 } }, { attributes: { ammoDamage: .15, AMMO_INT: 1.8, AMMO_TIME: 3.5, ATTR_PCT: 1, ATTR_TIME: 8 } }, { attributes: { ammoDamage: .25, AMMO_INT: 2, AMMO_TIME: 5, ATTR_PCT: 1, ATTR_TIME: 8 } }], i: { health: 1, armor: 1, barrier: 4, shield: 4 } }, 
+        { name: a.tn, a: a.un, d: "AmmoPower_Eraser.png",
+        c: [{ attributes: { ammoDamage: .1, penetration: 1, enemyArmorPenetration: .1 } }, { attributes: { ammoDamage: .2, penetration: 1.5, enemyArmorPenetration: .25 } }, { attributes: { ammoDamage: .3, penetration: 2.5, enemyArmorPenetration: .4 } }], i: { health: 1, armor: 1, barrier: 0, shield: 0 } }, 
+        { name: a.mo, a: a.no, d: "AmmoPower_Needler.png",
+        c: [{ attributes: { AMMO_INT: 50, ammoDamage: .1, radius: 1.5 }, Zc: 50 }, { attributes: { AMMO_INT: 150, ammoDamage: .2, radius: 2 }, Zc: 150 }, { attributes: { AMMO_INT: 250, ammoDamage: .3, radius: 2.5 }, Zc: 250 }], i: { health: 1, armor: 1, barrier: 1, shield: 1 } },
+        { name: a.Fq, a: a.Gq, d: "AmmoPower_Incendiary.png",
+        c: [{ attributes: { ammoDamage: .1, ATTR_INT: 10, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .2, ATTR_INT: 20, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .3, ATTR_INT: 30, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .5, ATTR_INT: 50, ATTR_TIME: 3 } }], i: { health: 1, armor: 1, barrier: 0, shield: 0 } }, 
+        { name: a.Wt, a: a.Xt, d: "AmmoPower_Phasic.png",
+        c: [{ attributes: { ammoDamage: .05, ATTR_PCT: 1, ATTR_TIME: 15 } }, { attributes: { ammoDamage: .1, ATTR_PCT: 1, ATTR_TIME: 15 } }, { attributes: { ammoDamage: .15, ATTR_PCT: 1, ATTR_TIME: 15 } }], i: { health: 1, armor: 0, barrier: 10, shield: 10 } },
+        { name: a.AC, a: a.BC, d: "AmmoPower_Warp.png",
+        c: [{ attributes: { ammoDamage: .15, ATTR_PCT: .25, ammoArmorWeakening: .25, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .25, ATTR_PCT: .5, ammoArmorWeakening: .35, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .35, ATTR_PCT: .75, ammoArmorWeakening: .5, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .6, ATTR_PCT: 1, ammoArmorWeakening: .65, ATTR_TIME: 4 } }], i: { health: 1, armor: 1, barrier: 2, shield: 0 } }
     ]];
     /*
      Copyright 2013
@@ -2504,7 +2568,7 @@
             P(d, t, x, k); 
             f.Jf && P(f.Jf, t, x, k); 
             for (e = 0; e < X.length; e++)
-                -1 != X[e] && (d = gear[e][X[e]], q = K(d.c[ga[e]].attributes, x, k)) && (n = { type: "equipment", object: d, ia: ga[e] }, t.push(c.extend(q, n))); 
+                -1 != X[e] && (d = equipment[e][X[e]], q = K(d.c[ga[e]].attributes, x, k)) && (n = { type: "equipment", object: d, ia: ga[e] }, t.push(c.extend(q, n))); 
             return { data: k, C: t }
         }
         function P(x, d, f, k) { 
@@ -2631,7 +2695,7 @@
             if (2 != c.length) 
                 return !1; 
             var f = Hash.decode(c), k = f[0], f = f[1]; 
-            return k < gear[d].length && f < gear[d][k].c.length ? (X[d] = k, ga[d] = f, !0) : !1 
+            return k < equipment[d].length && f < equipment[d][k].c.length ? (X[d] = k, ga[d] = f, !0) : !1 
         } 
         function ja(d) {
             if (!d || 3 > d.length) return null; 
@@ -2775,7 +2839,7 @@
             } 
         } 
         var sa = h.Ya, 
-            gear = h.Ya.eg, 
+            equipment = h.Ya.eg, 
             power_types = h.b.type, 
             character = h.Cb.Re, 
             races = h.Cb.Tb, 
@@ -3026,7 +3090,7 @@
                         if (-1 == k) 
                             return 0; 
                         q = x * q.data.ammoDamage * (1 + q.data.enemyDamageTaken); 
-                        k = gear[d.Ab.Fa][k]; 
+                        k = equipment[d.Ab.Fa][k]; 
                         q *= k.i[m.ea]; 
                         g.burst && (q *= Math.floor(g.burst)); 
                         k.c[f].Zc && q > k.c[f].Zc && (q = k.c[f].Zc); 
@@ -3171,10 +3235,10 @@
                     } 
                 }; 
                 d.Jw = function (c, d, f) { 
-                    d < gear[c].length && f < gear[c][d].c.length && (X[c] = d, ga[c] = f, y()) 
+                    d < equipment[c].length && f < equipment[c][d].c.length && (X[c] = d, ga[c] = f, y()) 
                 }; 
                 d.Kw = function (c, d) {
-                    -1 != X[c] && d < gear[c][X[c]].c.length && (ga[c] = d, y())
+                    -1 != X[c] && d < equipment[c][X[c]].c.length && (ga[c] = d, y())
                 }; 
                 d.Lw = function (c, d) { 
                     da(c, d); 
@@ -3420,26 +3484,43 @@
     V = V || {}; jQuery191(function () { V.Ef.initialize() });
     (function (d, c) {
         function e() { var d = c(this); d.hasClass("ui-collapse-down") ? (c(".ui-collapsible", d.parent().parent()).slideUp("fast"), d.removeClass("ui-collapse-down")) : (c(".ui-collapsible").hide(), c(".ui-collapse-button").removeClass("ui-collapse-down"), c(".ui-collapsible", d.parent().parent()).slideDown("fast"), d.addClass("ui-collapse-down")) } function P() {
-            for (var d = [], e = 0; e < T[G.Fa].length; e++) {
-                for (var f = T[G.Fa][e], g = c("<ul>"), k = 0; k < f.c.length; k++) {
+            for (var d = [], e = 0; e < equipment[G.Fa].length; e++) {
+                for (var f = equipment[G.Fa][e], g = c("<ul>"), k = 0; k < f.c.length; k++) {
                     var m = c("<p>").text(f.name + " " + Y[k]), y = c("<li>").append(m).data("type",
                         G.Fa).data("equipment", e).data("rank", k).click(n), p = c("<div>").append(c("<h3>").text(f.name + " " + Y[k])).append(c("<p>").text(ia.Nb(f.a, f.c[k].attributes))); Q.ba(m, p); g.append(y)
                 } f = c("<div>").addClass("equipment-small rarity-small-" + U.rarity.common).append(aa.Lb(Core.mediaUrl + "images/consumables/" + f.d, 128, 96, "equipment")); g = c("<div>").addClass("equipment-cell").append(f).append(g); d.push(g)
             } d.push(c("<div>").addClass("clearfix")); return c("<div>").attr("id", "equipment-type-" + G.Fa).addClass("selector-group").data("type",
                 G.Fa).append(d)
         } function s() {
-            for (var d = [], e = 0; e < T[G.jb].length; e++) {
-                for (var f = T[G.jb][e], g = c("<ul>"), k = 0; k < f.c.length; k++) { var m = c("<p>").text(f.name + " " + Y[k]), y = c("<li>").append(m).data("type", G.jb).data("equipment", e).data("rank", k).click(n), p = c("<div>").append(c("<h3>").text(f.name + " " + Y[k])).append(c("<p>").text(ia.Nb(f.a, f.c[k].attributes))); Q.ba(m, p); g.append(y) } f = c("<div>").addClass("equipment-small rarity-small-" + U.rarity.common).append(aa.Lb(Core.mediaUrl + "images/consumables/" + f.d, 128, 96, "equipment"));
+            for (var d = [], e = 0; e < equipment[G.jb].length; e++) {
+                for (var f = equipment[G.jb][e], g = c("<ul>"), k = 0; k < f.c.length; k++) { var m = c("<p>").text(f.name + " " + Y[k]), y = c("<li>").append(m).data("type", G.jb).data("equipment", e).data("rank", k).click(n), p = c("<div>").append(c("<h3>").text(f.name + " " + Y[k])).append(c("<p>").text(ia.Nb(f.a, f.c[k].attributes))); Q.ba(m, p); g.append(y) } f = c("<div>").addClass("equipment-small rarity-small-" + U.rarity.common).append(aa.Lb(Core.mediaUrl + "images/consumables/" + f.d, 128, 96, "equipment"));
                 g = c("<div>").addClass("equipment-cell").append(f).append(g); d.push(g)
             } d.push(c("<div>").addClass("clearfix")); return c("<div>").attr("id", "equipment-type-" + G.jb).addClass("selector-group").data("type", G.jb).append(d)
         } function K() {
-            for (var d = c("<div>").addClass("ui-collapse-button").click(e), f = c("<div>").addClass("infobar ui-collapse-header"), g = c("<div>").addClass("ui-collapsible"), k = c("<div>").addClass("ui-collapsible"), m = 0; m < T[G.mb].length; m++) {
-                var y = T[G.mb][m], p = c("<div>").addClass("weapon-small rarity-small-" +
-                    y.f).append(aa.Lb(Core.mediaUrl + "images/gear/" + y.d, 128, 96, "gear")).append(c("<p>").text(y.name)).data("type", G.mb).data("equipment", m).click(n); y.f == U.rarity.uncommon ? g.append(p) : k.append(p)
-            } g = c("<div>").addClass("selector-group").append(f.clone().append(c("<p>").text(w.HB)).append(d.clone(!0).attr("id", "gear-button-" + U.rarity.uncommon))).append(g.append(c("<div>").addClass("clearfix")).hide()); d = c("<div>").addClass("selector-group").append(f.append(c("<p>").text(w.oB)).append(d.attr("id", "gear-button-" + U.rarity.rare))).append(k.append(c("<div>").addClass("clearfix")).hide());
+            for (var d = c("<div>").addClass("ui-collapse-button").click(e), 
+                     f = c("<div>").addClass("infobar ui-collapse-header"), 
+                     g = c("<div>").addClass("ui-collapsible"), 
+                     k = c("<div>").addClass("ui-collapsible"), 
+                     m = 0; m < equipment[G.mb].length; m++) {
+                var y = equipment[G.mb][m], p = c("<div>")
+                    .addClass("weapon-small rarity-small-" + y.f)
+                    .append(aa.Lb(Core.mediaUrl + "images/gear/" + y.d, 128, 96, "gear"))
+                    .append(c("<p>").text(y.name)).data("type", G.mb)
+                    .data("equipment", m)
+                    .click(n);
+                    y.f == U.rarity.uncommon ? g.append(p) : k.append(p)
+            } 
+            g = c("<div>").addClass("selector-group")
+                          .append(f.clone().append(c("<p>").text(w.HB)).append(d.clone(!0).attr("id", "gear-button-" + U.rarity.uncommon)))
+                          .append(g.append(c("<div>").addClass("clearfix")).hide()); 
+            d = c("<div>").addClass("selector-group")
+                          .append(f.append(c("<p>").text(w.oB)).append(d.attr("id", "gear-button-" + U.rarity.rare)))
+                          .append(k.append(c("<div>").addClass("clearfix")).hide());
             return c("<div>").attr("id", "equipment-type-" + G.mb).data("type", G.mb).append(g, d)
-        } function g() {
-            for (var d = c("<div>").addClass("selector-group").attr("id", "equipment-type-" + G.Hb).data("type", G.Hb), e = 0; e < T[G.Hb].length; e++) { var f = T[G.Hb][e], g = Core.mediaUrl + "images/consumables/" + f.d, f = c("<div>").addClass("weapon-small rarity-small-" + U.rarity.common).append(aa.Lb(g, 128, 96, "equipment")).append(c("<p>").text(f.name)).data("type", G.Hb).data("equipment", e).click(n); d.append(f) } d.append(c("<div>").addClass("clearfix"));
+        } 
+        
+        function g() {
+            for (var d = c("<div>").addClass("selector-group").attr("id", "equipment-type-" + G.Hb).data("type", G.Hb), e = 0; e < equipment[G.Hb].length; e++) { var f = equipment[G.Hb][e], g = Core.mediaUrl + "images/consumables/" + f.d, f = c("<div>").addClass("weapon-small rarity-small-" + U.rarity.common).append(aa.Lb(g, 128, 96, "equipment")).append(c("<p>").text(f.name)).data("type", G.Hb).data("equipment", e).click(n); d.append(f) } d.append(c("<div>").addClass("clearfix"));
             return d
         } function z() { 
             var e = S; 
@@ -3486,7 +3567,7 @@
         function L() {
             var d = c(this).data("slot"); 
             d != S && (c("#build-content").trigger("overlayShowing.View.Character", t), S = d, c("#equipment-empty-button").hide(), c("#equipment-selector .rank-selector").show(), c("#equipment-selector .item-rank").removeClass("rank-active").show(), c("#equipment-selector .ui-collapse-down").click(), c("#equipment-selector > .selector-group").hide(), c("#equipment-type-" + G.mb).hide(), c("#equipment-type-" + S).show(),
-                d = E.Dc(S), -1 != d && (c("#equipment-empty-button").show(), v = E.Fe(S), c("#equipment-rank-" + v).addClass("rank-active")), S == G.Fa ? (c("#equipment-slot").text(w.SA), c("#equipment-selector .rank-selector").hide()) : S == G.jb ? (c("#equipment-slot").text(w.TA), c("#equipment-selector .rank-selector").hide()) : (S == G.mb ? (c("#equipment-slot").text(w.UA), c("#equipment-selector .stat-id").text(w.YA + ": "), -1 == d ? (v = U.mh, c("#equipment-rank-" + v).addClass("rank-active"), c("#gear-button-" + U.rarity.rare).click()) : c("#gear-button-" + T[S][d].f).click()) :
+                d = E.Dc(S), -1 != d && (c("#equipment-empty-button").show(), v = E.Fe(S), c("#equipment-rank-" + v).addClass("rank-active")), S == G.Fa ? (c("#equipment-slot").text(w.SA), c("#equipment-selector .rank-selector").hide()) : S == G.jb ? (c("#equipment-slot").text(w.TA), c("#equipment-selector .rank-selector").hide()) : (S == G.mb ? (c("#equipment-slot").text(w.UA), c("#equipment-selector .stat-id").text(w.YA + ": "), -1 == d ? (v = U.mh, c("#equipment-rank-" + v).addClass("rank-active"), c("#gear-button-" + U.rarity.rare).click()) : c("#gear-button-" + equipment[S][d].f).click()) :
                     (c("#equipment-slot").text(w.VA), c("#equipment-selector .stat-id").text(w.JA + ": "), c("#equipment-selector #equipment-rank-3").hide(), c("#equipment-selector #equipment-rank-4").hide(), -1 == d && (v = 2, c("#equipment-rank-" + v).addClass("rank-active"))), na(c("#equipment-type-" + S))), t.fadeIn("fast"))
         } function da() {
             var d = c(this).parents(".weapon-panel").data("slot"); if (d != f || -1 != x) {
@@ -3496,22 +3577,22 @@
             }
         } function q() { var d = c(this).parents(".weapon-panel").data("slot"), e = c(this).data("mod-slot"); d == f && e == x || -1 == E.Qa(d).type || (c("#build-content").trigger("overlayShowing.View.Character", ya), f = d, x = e, ea(), ya.fadeIn("fast")) } function sa() { ma = !ma; LocalStorage.set("me3.ui.showResistanceDamage", ma.toString()); la(c("#primary-weapon"), E.Qa(B.ha)); var d = E.Qa(B.xa); -1 != d.type && la(c("#secondary-weapon"), d) } function oa(d, e) {
             var f = null, g = null, k = E.Dc(G.Fa), n = c("<div>").addClass("builder-tip weapon-dmg-tip");
-            n.append(c("<h3>").text(w.pi)); var m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)); W(f, d, {}); m.append(f); !1 !== e.Wa && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { type: "headshot" }), m.append(f)); -1 != k && (g = T[G.Fa][k], 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { type: "ammo" }), m.append(f))); n.append(c("<table>").append(m)); e.ob && (n.append(c("<h3>").text(w.wf)), m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)),
+            n.append(c("<h3>").text(w.pi)); var m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)); W(f, d, {}); m.append(f); !1 !== e.Wa && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { type: "headshot" }), m.append(f)); -1 != k && (g = equipment[G.Fa][k], 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { type: "ammo" }), m.append(f))); n.append(c("<table>").append(m)); e.ob && (n.append(c("<h3>").text(w.wf)), m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)),
                 W(f, d, { gb: !0 }), m.append(f), !1 !== e.Wa && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { gb: !0, type: "headshot" }), m.append(f)), -1 != k && 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { gb: !0, type: "ammo" }), m.append(f)), n.append(c("<table>").append(m))); f = ia.uf(e.i.organic); !1 !== f && n.append(c("<h3>").text(w.Af), f); f = c("<tbody>"); g = E.cp(d); for (k = 0; k < g.length; k++)m = g[k], "power" == m.type ? ia.Uc(f, m) : ia.Vc(f, m); 0 < g.length && (f = c("<table>").addClass("tip-bonus-table").append(f),
                     n.append(c("<h3>").text(w.Wc)).append(f)); return n
         } function W(d, e, f) { for (var g = ["health", "armor", "barrier", "shield"], k = 0; k < g.length; k++) { f.ea = g[k]; var m = E.Ec(e, f, "health" == g[k] ? !0 : !1); d.append(c("<td>").append(c("<span>").addClass(g[k]).text(m))) } } function va(d, e, f) {
             var g = X[d.type][d.ra], k = E.bp(d), m = null, n = E.Dc(G.Fa), y = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.eB + ":")).append(c("<td>").text(ia.va(k.GC, 0))); y.append(p); p = ia.va(k.EC, 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.IA +
                 ":")).append(c("<td>").text(0 == p ? w.dB : p)); y.append(p); p = ia.va(100 * E.Fc(d), 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.NB + ":")).append(c("<td>").text("-" + p + "%")); y.append(p); k = c("<div>").addClass("builder-tip weapon-tip"); p = c("<h3>").text(g.name + " " + Y[d.ia]).append(c("<span>").addClass("weapon-type").text(N[g.type])); k.append(p); k.append(c("<table>").append(y)); e && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, {}), e.append(p), !1 !== g.Wa && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)),
-                    W(p, d, { type: "headshot" }), e.append(p)), -1 != n && (m = T[G.Fa][n], 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, d, { type: "ammo" }), e.append(p))), k.append(c("<h3>").text(w.pi)), k.append(c("<table>").append(e)), g.ob && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, { gb: !0 }), e.append(p), !1 !== g.Wa && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, d, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)),
+                    W(p, d, { type: "headshot" }), e.append(p)), -1 != n && (m = equipment[G.Fa][n], 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, d, { type: "ammo" }), e.append(p))), k.append(c("<h3>").text(w.pi)), k.append(c("<table>").append(e)), g.ob && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, { gb: !0 }), e.append(p), !1 !== g.Wa && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, d, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)),
                         W(p, d, { gb: !0, type: "ammo" }), e.append(p)), k.append(c("<h3>").text(w.wf)), k.append(c("<table>").append(e))), !f || d.type == f.type && d.ra == f.ra || (d = X[f.type][f.ra], e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, f, {}), e.append(p), !1 !== d.Wa && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, f, { type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, f, { type: "ammo" }), e.append(p)), k.append(c("<h3>").text(d.name +
                             " " + w.l)), k.append(c("<table>").append(e)), d.ob && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, f, { gb: !0 }), e.append(p), !1 !== d.Wa && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, f, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, f, { gb: !0, type: "ammo" }), e.append(p)), k.append(c("<h3>").text(d.name + " " + w.wf)), k.append(c("<table>").append(e))))); k.append(c("<p>").text(g.a));
             return k
         } function ta(d) {
             var e = c(d); Q.Aa(c(".consumable > img", e)); c(".consumable > img", e).remove(); c(".consumable > p", e).show(); var f = c(".consumable", e).data("slot"); d = E.Dc(f); if (-1 != d) {
-                c(".consumable > p", e).hide(); var g = T[f][d]; d = c("<img>").attr("height", 60).attr("width", 80).attr("src", Core.mediaUrl + "images/" + (f == G.mb ? "gear/" : "consumables/") + g.d); d.data("ui-tooltip-options", { location: "topRight" }); c(".consumable", e).append(d); e = E.Fe(f); e = c("<div>").append(c("<h3>").text(g.name + " " + Y[e])).append(c("<p>").text(ia.Nb(g.a,
+                c(".consumable > p", e).hide(); var g = equipment[f][d]; d = c("<img>").attr("height", 60).attr("width", 80).attr("src", Core.mediaUrl + "images/" + (f == G.mb ? "gear/" : "consumables/") + g.d); d.data("ui-tooltip-options", { location: "topRight" }); c(".consumable", e).append(d); e = E.Fe(f); e = c("<div>").append(c("<h3>").text(g.name + " " + Y[e])).append(c("<p>").text(ia.Nb(g.a,
                     g.c[e].attributes))); Q.ba(d, e)
             }
-        } function na(d) { var e = d.data("type"); c(".weapon-small", d).each(function (d, f) { Q.Aa(c(f)); var g = c(f).data("equipment"), g = T[e][g], g = c("<div>").append(c("<h3>").text(g.name + " " + Y[v])).append(c("<p>").text(ia.Nb(g.a, g.c[v].attributes))); Q.ba(c(f), g, { location: "topLeft" }) }) } function la(d, e) {
+        } function na(d) { var e = d.data("type"); c(".weapon-small", d).each(function (d, f) { Q.Aa(c(f)); var g = c(f).data("equipment"), g = equipment[e][g], g = c("<div>").append(c("<h3>").text(g.name + " " + Y[v])).append(c("<p>").text(ia.Nb(g.a, g.c[v].attributes))); Q.ba(c(f), g, { location: "topLeft" }) }) } function la(d, e) {
             ma ? c(".weapon-dmg", d).empty().append(c("<span>").addClass("armor").text(E.Ec(e, { ea: "armor" }, !0)), "/", c("<span>").addClass("barrier").text(E.Ec(e, { ea: "barrier" }, !0)), "/", c("<span>").addClass("shield").text(E.Ec(e,
                 { ea: "shield" }))) : c(".weapon-dmg", d).text(E.Ec(e, null, !0))
         } function ka() { c("#weapon-selector .weapon-small").each(function (d, e) { e = c(e); Q.Aa(e); var g = E.Qa(f), k = c.extend({}, g), k = c.extend(k, { type: e.data("type"), ra: e.data("weapon"), ia: r }); if (g.type == e.data("type")) { var m = !0; g.ra == e.data("weapon") && (m = !1); Q.ba(e, va(k, m, g)) } else k = c.extend(k, { Ia: -1, Ja: -1 }), Q.ba(e, va(k)) }) } function M(d) {
@@ -3526,7 +3607,33 @@
                 c(".weapon-mod", e).each(function (d, e) { var g = c(this).data("mod-slot"), k = 0 == g ? f.Ia : f.Ja; if (-1 != k) { var m = ga[f.type][k], k = c("<img>").attr("height", 55).attr("width", 80).attr("src", Core.mediaUrl + "images/mods/" + m.d); k.data("ui-tooltip-options", { location: "bottomRight" }); c(e).addClass("rarity-xsmall-" + m.f).append(k); c(e).children("p").hide(); g = 0 == g ? f.hb : f.ib; g = c("<div>").append(c("<h3>").text(m.name + " " + Y[g])).append(c("<p>").text(ia.Nb(m.a, m.c[g].attributes))); Q.ba(k, g) } }); E.hh(d) && c(".weapon-equipped", e).show()
             } else c(".weapon",
                 e).removeClass().addClass("weapon"), c(".weapon > p", e).show(), c(".weapon-info > p", e).hide(), c(".weapon-mod > p", e).addClass("weapon-mod-disabled").attr("ui-tooltip-data", w.uB).show()
-        } var E = h.Xa, U = h.Ya, aa = R.Image, Q = R.Tc, ia = V.Xd, T = h.Ya.eg, G = h.Xa.Ab, w = a, Y = ia.Gd, X = h.Ya.Df, ga = h.Ya.nh, B = h.Xa.aa, N = ia.rC, ma = !1, v = 0, S = -1, pa = U.Qb, x = -1, r = U.xd, f = -1, k = [], t = null, xa = null, ya = null; d.initialize = function () {
+        } 
+        var E = h.Xa, 
+            U = h.Ya, 
+            aa = R.Image, 
+            Q = R.Tc, 
+            ia = V.Xd, 
+            equipment = h.Ya.eg, 
+            G = h.Xa.Ab, 
+            w = a, 
+            Y = ia.Gd, 
+            X = h.Ya.Df, 
+            ga = h.Ya.nh, 
+            B = h.Xa.aa, 
+            N = ia.rC, 
+            ma = !1, 
+            v = 0, 
+            S = -1, 
+            pa = U.Qb, 
+            x = -1, 
+            r = U.xd, 
+            f = -1, 
+            k = [], 
+            t = null, 
+            xa = null, 
+            ya = null; 
+            
+        d.initialize = function () {
             ma = "true" == LocalStorage.get("me3.ui.showResistanceDamage") ? !0 : !1; var f = [], n = [w.HA, w.bB, w.BB, w.sB, w.FB], q = c("<p>").attr("id",
                 "weapon-slot"), r = c("<div>").addClass("ui-button ui-button-primary").text(w.xf).click(m), v = c("<div>").addClass("ui-button ui-button-default").attr("id", "weapon-equip-button").text(w.RA).click(p), x = c("<div>").addClass("ui-button ui-button-default").attr("id", "weapon-empty-button").text(w.zf).click(fa), q = c("<div>").addClass("infobar").append(q, r, x, v); f.push(q); q = c("<p>").append(c("<span>").addClass("stat-id").text(w.MB + ":")); for (r = 0; r <= U.xd; r++)v = c("<span>").addClass("item-rank").text(Y[r]).attr("id",
                     "weapon-rank-" + r).data("rank", r).click(D), q.append(v); q = c("<div>").addClass("rank-selector").append(q); f.push(q); for (q = 0; q < X.length; q++) {
