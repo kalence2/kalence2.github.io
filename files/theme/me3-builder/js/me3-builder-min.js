@@ -2145,7 +2145,7 @@
         { id: "volus-merc", name: a.dC, d: "MP_VolusENG2.png", v: 150, Q: 500, r: .15, A: 0, w: 150, s: l, o: [h.b.jd, h.b.vc, h.b.Eb, h.b.Jd, h.b.Ga] },
         { id: "asari-valkyrie", name: a.Rj, d: "MP_AsariSEN.png", v: 500, qa: 500, r: .3, A: 150, w: 500, Ra: 4.5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.Gb, h.b.fb, h.b.bd, h.b.Hd, h.b.Ga] },
         { id: "krogan-warlord", name: a.kh, d: "MP_BloodSEN.png", v: 1E3, qa: 1250, r: .4, A: 360, w: 675, s: { health: 1, armor: 1, barrier: 1, shield: 1 }, o: [h.b.Gb, h.b.ie, h.b.ze, h.b.cv, h.b.Eo], Wb: [1, 2] }
-    ], [
+    ], [ 
         { id: "male-infiltrator", name: a.dc, V: a.sq, d: "InfiltratorHumanMale.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.Zb, h.b.Rc, h.b.ab, h.b.Za] },
         { id: "female-infiltrator", name: a.cc, V: a.mq, d: "InfiltratorHumanFemale.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.Zb, h.b.Rc, h.b.ab, h.b.Za] },
         { id: "salarian-inf", name: a.mf, V: a.qw, d: "MP_Salarian0.png", v: 500, Q: 600, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.lc, h.b.Ac, h.b.Ch, h.b.Ga] },
