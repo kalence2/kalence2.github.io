@@ -254,6 +254,7 @@
 .rarity-1 { background: url('../images/rarity.png') no-repeat -160px -160px; }
 .rarity-2 { background: url('../images/rarity.png') no-repeat -320px -160px; }
 .rarity-3 { background: url('../images/rarity.png') no-repeat -480px -160px; }
+.rarity-4 { background: url('../images/rarity.png') no-repeat -640px -160px; }
 
 .rarity-small-0 { background: url('../images/rarity.png') no-repeat 0 -128px; background-size: 640px 256px; }
 .rarity-small-1 { background: url('../images/rarity.png') no-repeat -128px -128px; background-size: 640px 256px; }

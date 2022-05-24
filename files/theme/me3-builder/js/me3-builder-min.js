@@ -1297,7 +1297,7 @@
     b.mo = "Explosive Rounds"; 
     b.no = "Apply explosive rounds for one mission. Rounds detonate after a short period rather than on impact.\nMax Explosion Damage: {AMMO_INT}\nExplosion Damage Per Shot: {ammoDamage}%\nExplosion Radius: {radius} meters";
     b.Fq = "Incendiary Rounds"; 
-    b.Gq = "Applies incendiary ammo for one mission.\nDamage Over Time: {ATTR_INT}% over {ATTR_TIME} seconds"; 
+    b.Gq = "Applies incendiary ammo for one mission.\nDamage: +{ammoDamage}% over {ATTR_TIME} seconds"; 
     b.Wt = "Phasic Rounds"; 
     b.Xt = "Apply phasic rounds for one mission to break through enemy shields, increasing damage.\nDamage: +{ammoDamage}%\nShield Regen Delay: +{ATTR_PCT}% for {ATTR_TIME} seconds"; 
     b.AC = "Warp Rounds"; 
@@ -1305,6 +1305,7 @@
     b.bf3infiname = "Battlefield 3 Infiltrator";
     b.vibration_damper_desc = "Decrease weapon kickback and improve firing stability by upgrading autotargeting electronics.\nWeapon Stability +{stability}%";
     b.polonium_desc = "Apply polonium rounds for one mission to add a damage-over-time effect to enemies you shoot.\nDamage: +{ammoDamage}% over {ATTR_TIME} seconds";
+    b.chakram_desc = "The fancifully named Chakram Launcher uses an internal fabricator to manufacture lightweight ammunition discs wrapped in holographic tracers. The discs explode on impact, sending shrapnel tearing through the enemy. Markings stamped on the gun's barrel are a shipping code created by its manufacturer, Ama-Lur Equipment. The code warns that the rifle must be assembled carefully, as it contains mixtures extremely volatile under pressure. This is why the Chakram Launcher requires thermal clips: without a way to dissipate the intense heat caused by its fabrication process, the rifle's circuitry would quickly destroy itself in a spectacularly lethal meltdown.";
     /*
      Copyright 2013
     
@@ -2303,7 +2304,8 @@
         { name: a.AC, a: a.BC, d: "AmmoPower_Warp.png",
         c: [{ attributes: { ammoDamage: .15, ATTR_PCT: .25, ammoArmorWeakening: .25, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .25, ATTR_PCT: .5, ammoArmorWeakening: .35, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .35, ATTR_PCT: .75, ammoArmorWeakening: .5, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .6, ATTR_PCT: 1, ammoArmorWeakening: .65, ATTR_TIME: 4 } }], i: { health: 1, armor: 1, barrier: 2, shield: 0 } },
         { name: "Polonium Rounds", a: a.polonium_desc, d: "AmmoPower_Polonium.png",
-        c: [{attributes: { ammoDamage: .2, ATTR_TIME: 10}}, {attributes: { ammoDamage: .3, ATTR_TIME: 9}}, {attributes: { ammoDamage: .4, ATTR_TIME: 8}}, {attributes: { ammoDamage: .45, ATTR_TIME: 5}}], i: { health: 1, armor: 1, barrier: 1, shield: 1 }}
+        c: [{attributes: { ammoDamage: .2, ATTR_TIME: 10}}, {attributes: { ammoDamage: .3, ATTR_TIME: 9}}, {attributes: { ammoDamage: .4, ATTR_TIME: 8}}, {attributes: { ammoDamage: .45, ATTR_TIME: 5}}], 
+        i: { health: 1, armor: 1, barrier: 1, shield: 1 }}
     ]];
     /*
      Copyright 2013
@@ -2354,7 +2356,9 @@
         { name: a.it, a: a.jt, ammo_capacity_L: 144, ammo_capacity_H: 180, damage_L: 119.9, damage_H: 149.9, magazine: 16, mode: H.I.yA, 
             burst: 2, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Valkyrie.png", type: H.D.assault, weight_L: 1.5, weight_H: 1.25, Vb: 3 }, 
         { name: a.Ot, a: a.Pt, ammo_capacity_L: 0, ammo_capacity_H: 125, damage_L: 19.2, damage_H: 25.8, magazine: 100, mode: H.I.sa, 
-            race: ua.Sb, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Prothean_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, ob: !0, rc: !0, Ib: 4, wi: !0 }
+            race: ua.Sb, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Prothean_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, ob: !0, rc: !0, Ib: 4, wi: !0 },
+        { name: "Chakram Launcher", a: a.chakram_desc, ammo_capacity_L: 40, ammo_capacity_H: 50, damage_L: 277.9, damage_H: 347.4, magazine: 4, mode: H.I.sa, 
+            f: H.rarity.unobtainable, i: J, d: "AssaultRifle_Chakram.png", type: H.D.assault, weight_L: 1.75, weight_H: 1, ob: 1, Ib: 3 , Wa: !1, ub: !1 }
     ], [
         { name: a.Sr, a: a.Tr, ammo_capacity_L: 90, ammo_capacity_H: 112, damage_L: 58.8, damage_H: 73.5, magazine: 15, mode: H.I.na, 
             f: H.rarity.common, i: J, d: "Pistol_Predator.png", type: H.D.pistol, weight_L: .5, weight_H: .2 }, 
