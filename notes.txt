@@ -13,3 +13,4 @@ The 'h' variable
 - h.Ya.nh: mod data (JSON matrix) [AR, P, SG, SMG, SR]
 - h.Xa: methods
 
+C.e = { wa: 0, X: 1, t: 2, ya: 3, TC: 4 };

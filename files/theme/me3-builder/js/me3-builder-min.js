@@ -2183,72 +2183,134 @@
     H.U = { eb: 0, kb: 1, dd: 2, yb: 3, ic: 4, Db: 5 };
     H.Df = [
     [
-        { name: a.hs, a: a.js, u: 210, F: 262, G: 38.6, K: 48.2, B: 30, mode: H.I.sa, f: H.e.wa, i: J, d: "AssaultRifle_Avenger.png", type: H.D.assault, H: 1, L: .5 }, 
-        { name: a.Ar, a: a.Br, u: 144, F: 180, G: 68.6, K: 85.8, B: 24, mode: H.I.Wd, za: 3, f: H.e.X, i: J, d: "AssaultRifle_Vindicator.png", type: H.D.assault, H: 1.25, L: .7 }, 
-        { name: a.os, a: a.ps, u: 96, F: 120, G: 103.6, K: 129.5, B: 16, mode: H.I.na, f: H.e.X, i: J, d: "AssaultRifle_Mattock.png", type: H.D.assault, H: 1.5, L: .9 }, 
-        { name: a.Qt, a: a.Rt, u: 350, F: 450, G: 41.9, K: 52.4, B: 50, mode: H.I.sa, f: H.e.X, i: J, d: "AssaultRifle_Cobra.png", type: H.D.assault, H: 1.35, L: .8 }, 
-        { name: a.Xi, a: a.Yi, u: 72, F: 96, G: 178.1, K: 222.6, B: 24, mode: H.I.sa, f: H.e.t, i: { organic: { health: 1, armor: 1, barrier: 2, shield: 2 } }, d: "AssaultRifle_Adas_MP.png", type: H.D.assault, H: 2, L: 1.4, Wa: !1, ub: !1 }, 
-        { name: a.Ql, a: a.Rl, u: 308, F: 392, G: 55.4, K: 69.2, B: 28, mode: H.I.sa, race: ua.Sb, f: H.e.t, i: J, d: "AssaultRifle_Collector.png", type: H.D.assault, H: 1.6, L: 1.2 }, 
-        { name: a.lp, a: a.mp, u: 480, F: 640, G: 28.8, K: 36, B: 100, mode: H.I.sa, race: ua.Ua, f: H.e.t, i: J, d: "AssaultRifle_Geth.png", type: H.D.assault, H: 1, L: .5, Vb: 3 }, 
-        { name: a.Qr, a: a.Rr, u: 18, F: 28, G: 279.2, K: 349, B: 4, mode: H.I.na, f: H.e.t, i: J, d: "AssaultRifle_Falcon.png", type: H.D.assault, H: 1.75, L: 1, Wa: !1, ub: !1 }, 
-        { name: a.Wr, a: a.Xr, u: 168, F: 210, G: 164.8, K: 206, B: 21, mode: H.I.Wd, za: 3, f: H.e.t, i: J, d: "AssaultRifle_Argus.png", type: H.D.assault, H: 2, L: 1.4 }, 
-        { name: a.bs, a: a.cs, u: 360, F: 480, G: 63.6, K: 79.5, B: 60, mode: H.I.sa, f: H.e.t, i: J, d: "AssaultRifle_Revenant.png", type: H.D.assault, H: 1.8, L: 1.25 }, 
-        { name: a.gz, a: a.hz, u: 60, F: 72, G: 144.7, K: 180.9, B: 12, mode: H.I.sa, f: H.e.t, i: J, d: "AssaultRifle_Krogan.png", type: H.D.assault, H: 2, L: 1.4, Wa: !1, ub: !1, wi: !0 }, 
-        { name: a.Gl, a: a.Hl, u: 80, F: 100, G: 106.2, K: 129.5, B: 20, mode: H.I.sa, f: H.e.ya, i: J, d: "AssaultRifle_Cerberus.png", type: H.D.assault, H: 1.75, L: 1.25 }, 
-        { name: a.pp, a: a.qp, u: 600, F: 750, G: 62.2, K: 77.8, B: 220, mode: H.I.sa, race: ua.Ua, f: H.e.ya, i: { organic: { health: 1, armor: 1, barrier: 1.75, shield: 1.75 } }, d: "AssaultRifle_Spitfire.png", type: H.D.assault, H: 3, L: 2.5 }, 
-        { name: a.fs, a: a.gs, u: 0, F: 57, G: 67.9, K: 84.8, B: 38, mode: H.I.sa, f: H.e.ya, i: J, d: "AssaultRifle_Lancer_MP.png", type: H.D.assault, H: 1.3, L: .8 }, 
-        { name: a.us, a: a.vs, u: 40, F: 56, G: 460, K: 575, B: 8, mode: H.I.na, f: H.e.ya, i: J, d: "AssaultRifle_Saber.png", type: H.D.assault, H: 1.7, L: 1.4 }, 
-        { name: a.et, a: a.ft, u: 400, F: 500, G: 44.4, K: 55.5, B: 100, mode: H.I.sa, f: H.e.ya, i: { organic: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 } }, d: "AssaultRifle_LMG.png", type: H.D.assault, H: 2.5, L: 2, ob: !0, rc: !0, Ib: 1.5, wi: !0 }, 
-        { name: a.it, a: a.jt, u: 144, F: 180, G: 119.9, K: 149.9, B: 16, mode: H.I.yA, za: 2, f: H.e.ya, i: J, d: "AssaultRifle_Valkyrie.png", type: H.D.assault, H: 1.5, L: 1.25, Vb: 3 }, 
-        { name: a.Ot, a: a.Pt, u: 0, F: 125, G: 19.2, K: 25.8, B: 100, mode: H.I.sa, race: ua.Sb, f: H.e.ya, i: J, d: "AssaultRifle_Prothean_MP.png", type: H.D.assault, H: 2, L: 1.4, ob: !0, rc: !0, Ib: 4, wi: !0 }
+        { name: a.hs, a: a.js, ammo_capacity_L: 210, ammo_capacity_H: 262, damage_L: 38.6, damage_H: 48.2, magazine: 30, mode: H.I.sa, 
+            f: H.e.wa, i: J, d: "AssaultRifle_Avenger.png", type: H.D.assault, H: 1, L: .5 }, 
+        { name: a.Ar, a: a.Br, ammo_capacity_L: 144, ammo_capacity_H: 180, damage_L: 68.6, damage_H: 85.8, magazine: 24, mode: H.I.Wd, 
+            burst: 3, f: H.e.X, i: J, d: "AssaultRifle_Vindicator.png", type: H.D.assault, H: 1.25, L: .7 }, 
+        { name: a.os, a: a.ps, ammo_capacity_L: 96, ammo_capacity_H: 120, damage_L: 103.6, damage_H: 129.5, magazine: 16, mode: H.I.na, 
+            f: H.e.X, i: J, d: "AssaultRifle_Mattock.png", type: H.D.assault, H: 1.5, L: .9 }, 
+        { name: a.Qt, a: a.Rt, ammo_capacity_L: 350, ammo_capacity_H: 450, damage_L: 41.9, damage_H: 52.4, magazine: 50, mode: H.I.sa, 
+            f: H.e.X, i: J, d: "AssaultRifle_Cobra.png", type: H.D.assault, H: 1.35, L: .8 }, 
+        { name: a.Xi, a: a.Yi, ammo_capacity_L: 72, ammo_capacity_H: 96, damage_L: 178.1, damage_H: 222.6, magazine: 24, mode: H.I.sa, 
+            f: H.e.t, i: { organic: { health: 1, armor: 1, barrier: 2, shield: 2 } }, d: "AssaultRifle_Adas_MP.png", type: H.D.assault, H: 2, L: 1.4, Wa: !1, ub: !1 }, 
+        { name: a.Ql, a: a.Rl, ammo_capacity_L: 308, ammo_capacity_H: 392, damage_L: 55.4, damage_H: 69.2, magazine: 28, mode: H.I.sa, 
+            race: ua.Sb, f: H.e.t, i: J, d: "AssaultRifle_Collector.png", type: H.D.assault, H: 1.6, L: 1.2 }, 
+        { name: a.lp, a: a.mp, ammo_capacity_L: 480, ammo_capacity_H: 640, damage_L: 28.8, damage_H: 36, magazine: 100, mode: H.I.sa, 
+            race: ua.Ua, f: H.e.t, i: J, d: "AssaultRifle_Geth.png", type: H.D.assault, H: 1, L: .5, Vb: 3 }, 
+        { name: a.Qr, a: a.Rr, ammo_capacity_L: 18, ammo_capacity_H: 28, damage_L: 279.2, damage_H: 349, magazine: 4, mode: H.I.na, 
+            f: H.e.t, i: J, d: "AssaultRifle_Falcon.png", type: H.D.assault, H: 1.75, L: 1, Wa: !1, ub: !1 }, 
+        { name: a.Wr, a: a.Xr, ammo_capacity_L: 168, ammo_capacity_H: 210, damage_L: 164.8, damage_H: 206, magazine: 21, mode: H.I.Wd, 
+            burst: 3, f: H.e.t, i: J, d: "AssaultRifle_Argus.png", type: H.D.assault, H: 2, L: 1.4 }, 
+        { name: a.bs, a: a.cs, ammo_capacity_L: 360, ammo_capacity_H: 480, damage_L: 63.6, damage_H: 79.5, magazine: 60, mode: H.I.sa, 
+            f: H.e.t, i: J, d: "AssaultRifle_Revenant.png", type: H.D.assault, H: 1.8, L: 1.25 }, 
+        { name: a.gz, a: a.hz, ammo_capacity_L: 60, ammo_capacity_H: 72, damage_L: 144.7, damage_H: 180.9, magazine: 12, mode: H.I.sa, 
+            f: H.e.t, i: J, d: "AssaultRifle_Krogan.png", type: H.D.assault, H: 2, L: 1.4, Wa: !1, ub: !1, wi: !0 }, 
+        { name: a.Gl, a: a.Hl, ammo_capacity_L: 80, ammo_capacity_H: 100, damage_L: 106.2, damage_H: 129.5, magazine: 20, mode: H.I.sa, 
+            f: H.e.ya, i: J, d: "AssaultRifle_Cerberus.png", type: H.D.assault, H: 1.75, L: 1.25 }, 
+        { name: a.pp, a: a.qp, ammo_capacity_L: 600, ammo_capacity_H: 750, damage_L: 62.2, damage_H: 77.8, magazine: 220, mode: H.I.sa, 
+            race: ua.Ua, f: H.e.ya, i: { organic: { health: 1, armor: 1, barrier: 1.75, shield: 1.75 } }, d: "AssaultRifle_Spitfire.png", type: H.D.assault, H: 3, L: 2.5 }, 
+        { name: a.fs, a: a.gs, ammo_capacity_L: 0, ammo_capacity_H: 57, damage_L: 67.9, damage_H: 84.8, magazine: 38, mode: H.I.sa, 
+            f: H.e.ya, i: J, d: "AssaultRifle_Lancer_MP.png", type: H.D.assault, H: 1.3, L: .8 }, 
+        { name: a.us, a: a.vs, ammo_capacity_L: 40, ammo_capacity_H: 56, damage_L: 460, damage_H: 575, magazine: 8, mode: H.I.na, 
+            f: H.e.ya, i: J, d: "AssaultRifle_Saber.png", type: H.D.assault, H: 1.7, L: 1.4 }, 
+        { name: a.et, a: a.ft, ammo_capacity_L: 400, ammo_capacity_H: 500, damage_L: 44.4, damage_H: 55.5, magazine: 100, mode: H.I.sa, 
+            f: H.e.ya, i: { organic: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 } }, d: "AssaultRifle_LMG.png", type: H.D.assault, H: 2.5, L: 2, ob: !0, rc: !0, Ib: 1.5, wi: !0 }, 
+        { name: a.it, a: a.jt, ammo_capacity_L: 144, ammo_capacity_H: 180, damage_L: 119.9, damage_H: 149.9, magazine: 16, mode: H.I.yA, 
+            burst: 2, f: H.e.ya, i: J, d: "AssaultRifle_Valkyrie.png", type: H.D.assault, H: 1.5, L: 1.25, Vb: 3 }, 
+        { name: a.Ot, a: a.Pt, ammo_capacity_L: 0, ammo_capacity_H: 125, damage_L: 19.2, damage_H: 25.8, magazine: 100, mode: H.I.sa, 
+            race: ua.Sb, f: H.e.ya, i: J, d: "AssaultRifle_Prothean_MP.png", type: H.D.assault, H: 2, L: 1.4, ob: !0, rc: !0, Ib: 4, wi: !0 }
     ], [
-        { name: a.Sr, a: a.Tr, u: 90, F: 112, G: 58.8, K: 73.5, B: 15, mode: H.I.na, f: H.e.wa, i: J, d: "Pistol_Predator.png", type: H.D.pistol, H: .5, L: .2 }, 
-        { name: a.Yr, a: a.Zr, u: 72, F: 90, G: 114.8, K: 143.5, B: 12, mode: H.I.na, f: H.e.X, i: J, d: "Pistol_Phalanx.png", type: H.D.pistol, H: .6, L: .25 }, 
-        { name: a.Si, a: a.Ti, u: 12, F: 24, G: 420.2, K: 490, B: 3, mode: H.I.na, f: H.e.t, i: { organic: { health: 1, armor: 1, barrier: 5, shield: 5 } }, d: "Pistol_Asari.png", type: H.D.pistol, H: .5, L: .2, Wa: !1, ub: !1 }, 
-        { name: a.vj, a: a.wj, u: 72, F: 90, G: 77.2, K: 96.5, B: 18, mode: H.I.na, f: H.e.t, i: J, d: "Pistol_Thor.png", type: H.D.pistol, H: 1.1, L: .6, ob: !0, rc: !0, Ib: 3, Yd: 3 }, 
-        { name: a.bo, a: a.co, u: 15, F: 25, G: 784.9, K: 981.1, B: 1, mode: H.I.mc, f: H.e.t, i: J, d: "Pistol_Bloodpack_MP.png", type: H.D.pistol, H: 1.2, L: .7 }, 
-        { name: a.sr, a: a.tr, u: 30, F: 40, G: 125.7, K: 157.1, B: 6, mode: H.I.na, f: H.e.t, i: J, d: "Pistol_Silencer_MP.png", type: H.D.pistol, H: 1.2, L: .7, Vb: 4 }, 
-        { name: a.$r, a: a.as, u: 30, F: 40, G: 276.1, K: 345.1, B: 6, mode: H.I.na, f: H.e.t, i: J, d: "Pistol_Carnifex.png", type: H.D.pistol, H: 1.2, L: .7 }, 
-        { name: a.Or, a: a.Pr, u: 24, F: 36, G: 93.7, K: 117.1, B: 4, mode: H.I.na, za: 6, f: H.e.ya, i: { organic: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 } }, d: "Pistol_Talon.png", type: H.D.pistol, H: .9, L: .6 }, 
-        { name: a.ds, a: a.es, u: 21, F: 33, G: 424.9, K: 531.1, B: 3, mode: H.I.na, f: H.e.ya, i: J, d: "Pistol_Ivory.png", type: H.D.pistol, H: 1, L: .7 }, 
-        { name: a.Zs, a: a.$s, u: 192, F: 240, G: 86.1, K: 107.7, B: 24, mode: H.I.sa, f: H.e.ya, i: J, d: "Pistol_Eagle.png", type: H.D.pistol, H: .45, L: .25 }, 
-        { name: a.vw, a: a.ww, u: 20, F: 30, G: 375.2, K: 469, B: 4, mode: H.I.na, f: H.e.ya, i: J, d: "Pistol_Scorpion.png", type: H.D.pistol, H: 1.1, L: .6, Wa: !1, ub: !1 }
+        { name: a.Sr, a: a.Tr, ammo_capacity_L: 90, ammo_capacity_H: 112, damage_L: 58.8, damage_H: 73.5, magazine: 15, mode: H.I.na, 
+            f: H.e.wa, i: J, d: "Pistol_Predator.png", type: H.D.pistol, H: .5, L: .2 }, 
+        { name: a.Yr, a: a.Zr, ammo_capacity_L: 72, ammo_capacity_H: 90, damage_L: 114.8, damage_H: 143.5, magazine: 12, mode: H.I.na, 
+            f: H.e.X, i: J, d: "Pistol_Phalanx.png", type: H.D.pistol, H: .6, L: .25 }, 
+        { name: a.Si, a: a.Ti, ammo_capacity_L: 12, ammo_capacity_H: 24, damage_L: 420.2, damage_H: 490, magazine: 3, mode: H.I.na, 
+            f: H.e.t, i: { organic: { health: 1, armor: 1, barrier: 5, shield: 5 } }, d: "Pistol_Asari.png", type: H.D.pistol, H: .5, L: .2, Wa: !1, ub: !1 }, 
+        { name: a.vj, a: a.wj, ammo_capacity_L: 72, ammo_capacity_H: 90, damage_L: 77.2, damage_H: 96.5, magazine: 18, mode: H.I.na, 
+            f: H.e.t, i: J, d: "Pistol_Thor.png", type: H.D.pistol, H: 1.1, L: .6, ob: !0, rc: !0, Ib: 3, Yd: 3 }, 
+        { name: a.bo, a: a.co, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 784.9, damage_H: 981.1, magazine: 1, mode: H.I.mc, 
+            f: H.e.t, i: J, d: "Pistol_Bloodpack_MP.png", type: H.D.pistol, H: 1.2, L: .7 }, 
+        { name: a.sr, a: a.tr, ammo_capacity_L: 30, ammo_capacity_H: 40, damage_L: 125.7, damage_H: 157.1, magazine: 6, mode: H.I.na, 
+            f: H.e.t, i: J, d: "Pistol_Silencer_MP.png", type: H.D.pistol, H: 1.2, L: .7, Vb: 4 }, 
+        { name: a.$r, a: a.as, ammo_capacity_L: 30, ammo_capacity_H: 40, damage_L: 276.1, damage_H: 345.1, magazine: 6, mode: H.I.na, 
+            f: H.e.t, i: J, d: "Pistol_Carnifex.png", type: H.D.pistol, H: 1.2, L: .7 }, 
+        { name: a.Or, a: a.Pr, ammo_capacity_L: 24, ammo_capacity_H: 36, damage_L: 93.7, damage_H: 117.1, magazine: 4, mode: H.I.na, 
+            burst: 6, f: H.e.ya, i: { organic: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 } }, d: "Pistol_Talon.png", type: H.D.pistol, H: .9, L: .6 }, 
+        { name: a.ds, a: a.es, ammo_capacity_L: 21, ammo_capacity_H: 33, damage_L: 424.9, damage_H: 531.1, magazine: 3, mode: H.I.na, 
+            f: H.e.ya, i: J, d: "Pistol_Ivory.png", type: H.D.pistol, H: 1, L: .7 }, 
+        { name: a.Zs, a: a.$s, ammo_capacity_L: 192, ammo_capacity_H: 240, damage_L: 86.1, damage_H: 107.7, magazine: 24, mode: H.I.sa, 
+            f: H.e.ya, i: J, d: "Pistol_Eagle.png", type: H.D.pistol, H: .45, L: .25 }, 
+        { name: a.vw, a: a.ww, ammo_capacity_L: 20, ammo_capacity_H: 30, damage_L: 375.2, damage_H: 469, magazine: 4, mode: H.I.na, 
+            f: H.e.ya, i: J, d: "Pistol_Scorpion.png", type: H.D.pistol, H: 1.1, L: .6, Wa: !1, ub: !1 }
     ], [
-        { name: a.Er, a: a.Fr, u: 15, F: 25, G: 48.1, K: 60.2, B: 5, mode: H.I.na, za: 8, f: H.e.wa, i: J, d: "Shotgun_Katana.png", type: H.D.shotgun, H: 1.5, L: .9 }, 
-        { name: a.Cr, a: a.Dr, u: 15, F: 25, G: 64.6, K: 80.7, B: 3, mode: H.I.na, za: 8, f: H.e.X, i: J, d: "Shotgun_Eviscerator.png", type: H.D.shotgun, H: 1.25, L: .7 }, 
-        { name: a.Ir, a: a.Jr, u: 24, F: 34, G: 35.4, K: 44.2, B: 8, mode: H.I.sa, za: 8, f: H.e.X, i: J, d: "Shotgun_Scimitar.png", type: H.D.shotgun, H: 1.15, L: .6 }, 
-        { name: a.Pi, a: a.Qi, u: 30, F: 40, G: 100, K: 125, B: 2, mode: H.I.na, za: 8, f: H.e.t, i: J, d: "Shotgun_Raider.png", type: H.D.shotgun, H: 2, L: 1.4 }, 
-        { name: a.jn, a: a.kn, u: 24, F: 34, G: 55.6, K: 69.5, B: 4, mode: H.I.na, za: 8, f: H.e.t, i: J, d: "Shotgun_Disciple.png", type: H.D.shotgun, H: 1, L: .5 }, 
-        { name: a.jp, a: a.kp, u: 15, F: 25, G: 714.2, K: 892.7, B: 5, mode: H.I.na, za: 1.6, race: ua.Ua, f: H.e.t, i: J, d: "Shotgun_Geth.png", type: H.D.shotgun, H: 2, L: 1.4, ri: .45, ob: !0, Wa: !1, ub: !1, Ib: 1 }, 
-        { name: a.yp, a: a.zp, u: 12, F: 22, G: 88, K: 110, B: 3, mode: H.I.na, za: 6, f: H.e.t, i: J, d: "Shotgun_Graal.png", type: H.D.shotgun, H: 2, L: 1.4, ob: !0, ub: !1, rc: !0, Ib: 2, Vb: 3 }, 
-        { name: a.Mr, a: a.Nr, u: 8, F: 18, G: 167.8, K: 206, B: 1, mode: H.I.mc, za: 8, f: H.e.t, i: J, d: "Shotgun_Claymore.png", type: H.D.shotgun, H: 2.5, L: 2 }, 
-        { name: a.ct, a: a.dt, u: 48, F: 64, G: 61.7, K: 77.1, B: 6, mode: H.I.sa, za: 8, f: H.e.t, i: J, d: "Shotgun_Assault.png", type: H.D.shotgun, H: 1.5, L: .9 }, 
-        { name: a.Av, a: a.Bv, u: 66, F: 88, G: 52.8, K: 66, B: 22, mode: H.I.sa, za: 8, f: H.e.t, i: { organic: { health: 1, armor: .5, barrier: 2, shield: 2 } }, d: "Shotgun_Quarian.png", type: H.D.shotgun, H: 1.75, L: 1.25 }, 
-        { name: a.ur, a: a.vr, u: 18, F: 28, G: 117.6, K: 147, B: 2, mode: H.I.na, za: 8, f: H.e.ya, i: J, d: "Shotgun_Striker.png", type: H.D.shotgun, H: 1.2, L: .9 }, 
-        { name: a.Ts, a: a.Us, u: 20, F: 30, G: 630.7, K: 788.4, B: 4, mode: H.I.na, f: H.e.ya, i: J, d: "Shotgun_Crusader.png", type: H.D.shotgun, H: 2.3, L: 2 }, 
-        { name: a.$B, a: a.aC, u: 12, F: 22, G: 636, K: 795, B: 4, mode: H.I.na, f: H.e.ya, i: J, d: "Shotgun_Salarian_MP.png", type: H.D.shotgun, H: 2, L: 1.4, ob: !0, Wa: !1, ub: !1, rc: !0, Ib: 1.25 / 3, Yd: 3, si: !0 }
+        { name: a.Er, a: a.Fr, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 48.1, damage_H: 60.2, magazine: 5, mode: H.I.na, 
+            burst: 8, f: H.e.wa, i: J, d: "Shotgun_Katana.png", type: H.D.shotgun, H: 1.5, L: .9 }, 
+        { name: a.Cr, a: a.Dr, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 64.6, damage_H: 80.7, magazine: 3, mode: H.I.na, 
+            burst: 8, f: H.e.X, i: J, d: "Shotgun_Eviscerator.png", type: H.D.shotgun, H: 1.25, L: .7 }, 
+        { name: a.Ir, a: a.Jr, ammo_capacity_L: 24, ammo_capacity_H: 34, damage_L: 35.4, damage_H: 44.2, magazine: 8, mode: H.I.sa, 
+            burst: 8, f: H.e.X, i: J, d: "Shotgun_Scimitar.png", type: H.D.shotgun, H: 1.15, L: .6 }, 
+        { name: a.Pi, a: a.Qi, ammo_capacity_L: 30, ammo_capacity_H: 40, damage_L: 100, damage_H: 125, magazine: 2, mode: H.I.na, 
+            burst: 8, f: H.e.t, i: J, d: "Shotgun_Raider.png", type: H.D.shotgun, H: 2, L: 1.4 }, 
+        { name: a.jn, a: a.kn, ammo_capacity_L: 24, ammo_capacity_H: 34, damage_L: 55.6, damage_H: 69.5, magazine: 4, mode: H.I.na, 
+            burst: 8, f: H.e.t, i: J, d: "Shotgun_Disciple.png", type: H.D.shotgun, H: 1, L: .5 }, 
+        { name: a.jp, a: a.kp, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 714.2, damage_H: 892.7, magazine: 5, mode: H.I.na, 
+            burst: 1.6, race: ua.Ua, f: H.e.t, i: J, d: "Shotgun_Geth.png", type: H.D.shotgun, H: 2, L: 1.4, ri: .45, ob: !0, Wa: !1, ub: !1, Ib: 1 }, 
+        { name: a.yp, a: a.zp, ammo_capacity_L: 12, ammo_capacity_H: 22, damage_L: 88, damage_H: 110, magazine: 3, mode: H.I.na, 
+            burst: 6, f: H.e.t, i: J, d: "Shotgun_Graal.png", type: H.D.shotgun, H: 2, L: 1.4, ob: !0, ub: !1, rc: !0, Ib: 2, Vb: 3 }, 
+        { name: a.Mr, a: a.Nr, ammo_capacity_L: 8, ammo_capacity_H: 18, damage_L: 167.8, damage_H: 206, magazine: 1, mode: H.I.mc, 
+            burst: 8, f: H.e.t, i: J, d: "Shotgun_Claymore.png", type: H.D.shotgun, H: 2.5, L: 2 }, 
+        { name: a.ct, a: a.dt, ammo_capacity_L: 48, ammo_capacity_H: 64, damage_L: 61.7, damage_H: 77.1, magazine: 6, mode: H.I.sa, 
+            burst: 8, f: H.e.t, i: J, d: "Shotgun_Assault.png", type: H.D.shotgun, H: 1.5, L: .9 }, 
+        { name: a.Av, a: a.Bv, ammo_capacity_L: 66, ammo_capacity_H: 88, damage_L: 52.8, damage_H: 66, magazine: 22, mode: H.I.sa, 
+            burst: 8, f: H.e.t, i: { organic: { health: 1, armor: .5, barrier: 2, shield: 2 } }, d: "Shotgun_Quarian.png", type: H.D.shotgun, H: 1.75, L: 1.25 }, 
+        { name: a.ur, a: a.vr, ammo_capacity_L: 18, ammo_capacity_H: 28, damage_L: 117.6, damage_H: 147, magazine: 2, mode: H.I.na, 
+            burst: 8, f: H.e.ya, i: J, d: "Shotgun_Striker.png", type: H.D.shotgun, H: 1.2, L: .9 }, 
+        { name: a.Ts, a: a.Us, ammo_capacity_L: 20, ammo_capacity_H: 30, damage_L: 630.7, damage_H: 788.4, magazine: 4, mode: H.I.na, 
+            f: H.e.ya, i: J, d: "Shotgun_Crusader.png", type: H.D.shotgun, H: 2.3, L: 2 }, 
+        { name: a.$B, a: a.aC, ammo_capacity_L: 12, ammo_capacity_H: 22, damage_L: 636, damage_H: 795, magazine: 4, mode: H.I.na, 
+            f: H.e.ya, i: J, d: "Shotgun_Salarian_MP.png", type: H.D.shotgun, H: 2, L: 1.4, ob: !0, Wa: !1, ub: !1, rc: !0, Ib: 1.25 / 3, Yd: 3, si: !0 }
     ], [
-        { name: a.Ur, a: a.Vr, u: 360, F: 468, G: 38.7, K: 48.3, B: 36, mode: H.I.gy, za: 6, f: H.e.wa, i: J, d: "SMG_Shuriken.png", type: H.D.smg, H: .45, L: .2 }, 
-        { name: a.wr, a: a.xr, u: 275, F: 350, G: 40.8, K: 51, B: 25, mode: H.I.sa, f: H.e.X, i: J, d: "SMG_Locust.png", type: H.D.smg, H: .65, L: .3, Vb: 3 }, 
-        { name: a.ws, a: a.xs, u: 400, F: 500, G: 47.5, K: 59.4, B: 50, mode: H.I.sa, f: H.e.X, i: J, d: "SMG_Tempest.png", type: H.D.smg, H: .65, L: .3 }, 
-        { name: a.hp, a: a.ip, u: 600, F: 800, G: 16.1, K: 20.1, B: 100, mode: H.I.sa, race: ua.Ua, f: H.e.t, i: J, d: "SMG_Geth.png", type: H.D.smg, H: .65, L: .3, ob: !0, rc: !0, Ib: 2.5 }, 
-        { name: a.Gr, a: a.Hr, u: 168, F: 216, G: 53.7, K: 67.2, B: 24, mode: H.I.Wd, za: 3, f: H.e.t, i: J, d: "SMG_Hornet.png", type: H.D.smg, H: .85, L: .45 }, 
-        { name: a.ol, a: a.pl, u: 320, F: 400, G: 40.1, K: 50.1, B: 40, mode: H.I.sa, f: H.e.ya, i: J, d: "SMG_Bloodpack_MP.png", type: H.D.smg, H: .85, L: .45 }, 
-        { name: a.Sl, a: a.Tl, u: 0, F: 40, G: 41.2, K: 51.5, B: 30, mode: H.I.sa, race: ua.Sb, f: H.e.ya, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SMG_Collector.png", type: H.D.smg, H: .85, L: .45 }, 
-        { name: a.at, a: a.bt, u: 280, F: 360, G: 102.5, K: 128.1, B: 40, mode: H.I.sa, f: H.e.ya, i: J, d: "SMG_Hurricane.png", type: H.D.smg, H: .85, L: .45 }
+        { name: a.Ur, a: a.Vr, ammo_capacity_L: 360, ammo_capacity_H: 468, damage_L: 38.7, damage_H: 48.3, magazine: 36, mode: H.I.gy, 
+            burst: 6, f: H.e.wa, i: J, d: "SMG_Shuriken.png", type: H.D.smg, H: .45, L: .2 }, 
+        { name: a.wr, a: a.xr, ammo_capacity_L: 275, ammo_capacity_H: 350, damage_L: 40.8, damage_H: 51, magazine: 25, mode: H.I.sa, 
+            f: H.e.X, i: J, d: "SMG_Locust.png", type: H.D.smg, H: .65, L: .3, Vb: 3 }, 
+        { name: a.ws, a: a.xs, ammo_capacity_L: 400, ammo_capacity_H: 500, damage_L: 47.5, damage_H: 59.4, magazine: 50, mode: H.I.sa, 
+            f: H.e.X, i: J, d: "SMG_Tempest.png", type: H.D.smg, H: .65, L: .3 }, 
+        { name: a.hp, a: a.ip, ammo_capacity_L: 600, ammo_capacity_H: 800, damage_L: 16.1, damage_H: 20.1, magazine: 100, mode: H.I.sa, 
+            race: ua.Ua, f: H.e.t, i: J, d: "SMG_Geth.png", type: H.D.smg, H: .65, L: .3, ob: !0, rc: !0, Ib: 2.5 }, 
+        { name: a.Gr, a: a.Hr, ammo_capacity_L: 168, ammo_capacity_H: 216, damage_L: 53.7, damage_H: 67.2, magazine: 24, mode: H.I.Wd, 
+            burst: 3, f: H.e.t, i: J, d: "SMG_Hornet.png", type: H.D.smg, H: .85, L: .45 }, 
+        { name: a.ol, a: a.pl, ammo_capacity_L: 320, ammo_capacity_H: 400, damage_L: 40.1, damage_H: 50.1, magazine: 40, mode: H.I.sa, 
+            f: H.e.ya, i: J, d: "SMG_Bloodpack_MP.png", type: H.D.smg, H: .85, L: .45 }, 
+        { name: a.Sl, a: a.Tl, ammo_capacity_L: 0, ammo_capacity_H: 40, damage_L: 41.2, damage_H: 51.5, magazine: 30, mode: H.I.sa, 
+            race: ua.Sb, f: H.e.ya, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SMG_Collector.png", type: H.D.smg, H: .85, L: .45 }, 
+        { name: a.at, a: a.bt, ammo_capacity_L: 280, ammo_capacity_H: 360, damage_L: 102.5, damage_H: 128.1, magazine: 40, mode: H.I.sa, 
+            f: H.e.ya, i: J, d: "SMG_Hurricane.png", type: H.D.smg, H: .85, L: .45 }
     ], [
-        { name: a.ms, a: a.ns, u: 9, F: 19, G: 738.7, K: 886.4, B: 1, mode: H.I.mc, f: H.e.wa, i: J, d: "SniperRifle_Mantis.png", type: H.D.sniper, H: 1.75, L: 1 }, 
-        { name: a.yr, a: a.zr, u: 105, F: 131, G: 86, K: 107.5, B: 15, mode: H.I.na, f: H.e.X, i: J, d: "SniperRifle_Raptor.png", type: H.D.sniper, H: 1, L: .7 }, 
-        { name: a.Kr, a: a.Lr, u: 120, F: 150, G: 98, K: 122.5, B: 15, mode: H.I.Wd, za: 3, f: H.e.X, i: J, d: "SniperRifle_Incisor.png", type: H.D.sniper, H: 1.5, L: .9 }, 
-        { name: a.qs, a: a.rs, u: 36, F: 46, G: 292.1, K: 365.2, B: 6, mode: H.I.na, f: H.e.X, i: J, d: "SniperRifle_Viper.png", type: H.D.sniper, H: 1.25, L: .7 }, 
-        { name: a.Ul, a: a.Vl, u: 0, F: 45, G: 73, K: 91.3, B: 35, mode: H.I.sa, race: ua.Sb, f: H.e.t, i: J, d: "SniperRifle_Collector.png", type: H.D.sniper, H: 2, L: 1.4 }, 
-        { name: a.Yq, a: a.Zq, u: 15, F: 25, G: 890.7, K: 1113.4, B: 1, mode: H.I.mc, f: H.e.t, i: J, d: "SniperRifle_Batarian.png", type: H.D.sniper, H: 2, L: 1.4, ob: !0, ub: !1, Ib: 1.75, Vb: 3, If: .6 }, 
-        { name: a.fr, a: a.gr, u: 9, F: 18, G: 493.4, K: 616.8, B: 3, mode: H.I.na, f: H.e.t, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SniperRifle_Turian.png", type: H.D.sniper, H: 2, L: 1.4, Wa: !1, ub: !1 }, 
-        { name: a.ss, a: a.ts, u: 7, F: 17, G: 997, K: 1246, B: 1, mode: H.I.mc, f: H.e.t, i: J, d: "SniperRifle_Widow.png", type: H.D.sniper, H: 2.5, L: 2 }, 
-        { name: a.gl, a: a.hl, u: 15, F: 25, G: 739, K: 923.8, B: 3, mode: H.I.na, f: H.e.ya, i: J, d: "SniperRifle_BlackWidow.png", type: H.D.sniper, H: 2.3, L: 2 }, 
-        { name: a.Tq, a: a.Uq, u: 5, F: 15, G: 1236, K: 1545.8, B: 1, mode: H.I.mc, race: ua.Ua, f: H.e.ya, i: J, d: "SniperRifle_Javelin.png", type: H.D.sniper, H: 2.7, L: 2.4 }, 
-        { name: a.ks, a: a.ls, u: 180, F: 225, G: 72.6, K: 92.2, B: 25, mode: H.I.sa, f: H.e.ya, i: J, d: "SniperRifle_Indra.png", type: H.D.sniper, H: 1, L: .7 }, 
-        { name: a.gt, a: a.ht, u: 30, F: 39, G: 396.2, K: 515.5, B: 3, mode: H.I.na, f: H.e.ya, i: J, d: "SniperRifle_Valiant.png", type: H.D.sniper, H: 1.75, L: 1 }
+        { name: a.ms, a: a.ns, ammo_capacity_L: 9, ammo_capacity_H: 19, damage_L: 738.7, damage_H: 886.4, magazine: 1, mode: H.I.mc, 
+            f: H.e.wa, i: J, d: "SniperRifle_Mantis.png", type: H.D.sniper, H: 1.75, L: 1 }, 
+        { name: a.yr, a: a.zr, ammo_capacity_L: 105, ammo_capacity_H: 131, damage_L: 86, damage_H: 107.5, magazine: 15, mode: H.I.na, 
+            f: H.e.X, i: J, d: "SniperRifle_Raptor.png", type: H.D.sniper, H: 1, L: .7 }, 
+        { name: a.Kr, a: a.Lr, ammo_capacity_L: 120, ammo_capacity_H: 150, damage_L: 98, damage_H: 122.5, magazine: 15, mode: H.I.Wd, 
+            burst: 3, f: H.e.X, i: J, d: "SniperRifle_Incisor.png", type: H.D.sniper, H: 1.5, L: .9 }, 
+        { name: a.qs, a: a.rs, ammo_capacity_L: 36, ammo_capacity_H: 46, damage_L: 292.1, damage_H: 365.2, magazine: 6, mode: H.I.na, 
+            f: H.e.X, i: J, d: "SniperRifle_Viper.png", type: H.D.sniper, H: 1.25, L: .7 }, 
+        { name: a.Ul, a: a.Vl, ammo_capacity_L: 0, ammo_capacity_H: 45, damage_L: 73, damage_H: 91.3, magazine: 35, mode: H.I.sa, 
+            race: ua.Sb, f: H.e.t, i: J, d: "SniperRifle_Collector.png", type: H.D.sniper, H: 2, L: 1.4 }, 
+        { name: a.Yq, a: a.Zq, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 890.7, damage_H: 1113.4, magazine: 1, mode: H.I.mc, 
+            f: H.e.t, i: J, d: "SniperRifle_Batarian.png", type: H.D.sniper, H: 2, L: 1.4, ob: !0, ub: !1, Ib: 1.75, Vb: 3, If: .6 }, 
+        { name: a.fr, a: a.gr, ammo_capacity_L: 9, ammo_capacity_H: 18, damage_L: 493.4, damage_H: 616.8, magazine: 3, mode: H.I.na, 
+            f: H.e.t, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SniperRifle_Turian.png", type: H.D.sniper, H: 2, L: 1.4, Wa: !1, ub: !1 }, 
+        { name: a.ss, a: a.ts, ammo_capacity_L: 7, ammo_capacity_H: 17, damage_L: 997, damage_H: 1246, magazine: 1, mode: H.I.mc, 
+            f: H.e.t, i: J, d: "SniperRifle_Widow.png", type: H.D.sniper, H: 2.5, L: 2 }, 
+        { name: a.gl, a: a.hl, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 739, damage_H: 923.8, magazine: 3, mode: H.I.na, 
+            f: H.e.ya, i: J, d: "SniperRifle_BlackWidow.png", type: H.D.sniper, H: 2.3, L: 2 }, 
+        { name: a.Tq, a: a.Uq, ammo_capacity_L: 5, ammo_capacity_H: 15, damage_L: 1236, damage_H: 1545.8, magazine: 1, mode: H.I.mc, 
+            race: ua.Ua, f: H.e.ya, i: J, d: "SniperRifle_Javelin.png", type: H.D.sniper, H: 2.7, L: 2.4 }, 
+        { name: a.ks, a: a.ls, ammo_capacity_L: 180, ammo_capacity_H: 225, damage_L: 72.6, damage_H: 92.2, magazine: 25, mode: H.I.sa, 
+            f: H.e.ya, i: J, d: "SniperRifle_Indra.png", type: H.D.sniper, H: 1, L: .7 }, 
+        { name: a.gt, a: a.ht, ammo_capacity_L: 30, ammo_capacity_H: 39, damage_L: 396.2, damage_H: 515.5, magazine: 3, mode: H.I.na, 
+            f: H.e.ya, i: J, d: "SniperRifle_Valiant.png", type: H.D.sniper, H: 1.75, L: 1 }
     ]
     ];
     H.nh = [[{ name: a.Bi, a: a.Ci, f: H.e.wa, R: H.U.ic, d: "AssaultRifleMagSize.png", c: [{ attributes: { magazineSize: .4 } }, { attributes: { magazineSize: .5 } }, { attributes: { magazineSize: .6 } }, { attributes: { magazineSize: .7 } }, { attributes: { magazineSize: .8 } }] }, { name: a.Hi, a: a.Ii, f: H.e.wa, R: H.U.Db, d: "AssaultRifleAccuracy.png", c: [{ attributes: { accuracy: .15 } }, { attributes: { accuracy: .2 } }, { attributes: { accuracy: .25 } }, { attributes: { accuracy: .3 } }, { attributes: { accuracy: .35 } }] }, {
@@ -2787,9 +2849,9 @@
                 }; 
                 d.bp = function (c) {
                     var d = e(["ammoCapacity", "magazineSize"], c), f = weapons[c.type][c.ra], k = 0; 
-                    0 != f.u && (k = f.u + (f.F - f.u) / 9 * c.ia, k *= 1 + d.data.ammoCapacity); 
-                    var m = f.B; 
-                    0 == f.u && (m = f.B + (f.F - f.B) / 9 * c.ia); 
+                    0 != f.ammo_capacity_L && (k = f.ammo_capacity_L + (f.ammo_capacity_H - f.ammo_capacity_L) / 9 * c.ia, k *= 1 + d.data.ammoCapacity); 
+                    var m = f.magazine; 
+                    0 == f.ammo_capacity_L && (m = f.magazine + (f.ammo_capacity_H - f.magazine) / 9 * c.ia); 
                     m *= 1 + d.data.magazineSize; 
                     return { EC: Math.floor(k), GC: Math.floor(m) }
                 }; 
@@ -2821,7 +2883,7 @@
                     q.data.ammoArmorWeakening && (I = 1 - q.data.ammoArmorWeakening); 
                     g.If && (ba = g.If); 
                     ra += q.data[n[g.type]]; 
-                    x = g.G + (g.K - g.G) / 9 * x.ia; 
+                    x = g.damage_L + (g.damage_H - g.damage_L) / 9 * x.ia; 
                     "ammo" != m.type && !m.gb && g.ri && (x *= g.ri); 
                     m.gb && g.ob && (n = g.Yd ? g.Yd : 1, "ammo" == m.type && g.si && n++, "ammo" != m.type || "ammo" == m.type && g.rc) && (x = x * g.Ib * n); 
                     x *= 1 + y; n = g.If ? x * (1 - ba) : 0; 
@@ -2833,7 +2895,7 @@
                         q = x * q.data.ammoDamage * (1 + q.data.enemyDamageTaken); 
                         k = gear[d.Ab.Fa][k]; 
                         q *= k.i[m.ea]; 
-                        g.za && (q *= Math.floor(g.za)); 
+                        g.burst && (q *= Math.floor(g.burst)); 
                         k.c[f].Zc && q > k.c[f].Zc && (q = k.c[f].Zc); 
                         return Math.round(q) 
                     } 
@@ -2842,7 +2904,7 @@
                     "headshot" == m.type && !1 !== g.Wa ? (ra *= 1 + F, q += sa) : ra = 1; 
                     F = x * ba * q * (ra + f); 
                     "armor" == m.ea && !1 !== g.ub && (k *= I, 0 > k && (k = 0), F -= armor_penalty[m.Hf] * k, 5 > F && (F = 5)); 
-                    F *= g.i[m.target][m.ea]; g.za && (F *= g.za); 
+                    F *= g.i[m.target][m.ea]; g.burst && (F *= g.burst); 
                     F += n * (ra + f); m.gb && g.si && (F += q * (g.Yd + 1)); 
                     return Math.round(F)
                 }; 
