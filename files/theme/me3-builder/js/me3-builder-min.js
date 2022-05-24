@@ -1302,6 +1302,7 @@
     b.Xt = "Apply phasic rounds for one mission to break through enemy shields, increasing damage.\nDamage: +{ammoDamage}%\nShield Regen Delay: +{ATTR_PCT}% for {ATTR_TIME} seconds"; 
     b.AC = "Warp Rounds"; 
     b.BC = "Applies warp ammo for one mission.\nDamage: +{ammoDamage}%\nBiotic Damage Bonus: +{ATTR_PCT}%\nArmor Weakening: +{ammoArmorWeakening}% for {ATTR_TIME} seconds";
+    b.bf3infiname = "Battlefield 3 Infiltrator";
     /*
      Copyright 2013
     
@@ -2156,7 +2157,7 @@
         { id: "drell-assassin", name: a.we, d: "MP_DrellINF.png", v: 500, Q: 250, r: .6, A: 225, w: 600, s: l, o: [h.b.bb, h.b.Gc, h.b.Kd, h.b.cf, h.b.Be] },
         { id: "asari-huntress", name: a.Oj, d: "MP_AsariINF.png", v: 500, Q: 500, r: .3, A: 150, w: 500, Ra: 4.5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.Uz, h.b.yc, h.b.fb, h.b.Hd, h.b.Ga] },
         { id: "alliance-inf", name: a.ij, d: "MP_FBotINF.png", v: 500, Q: 750, r: .3, A: 350, w: 650, s: l, o: [h.b.Sz, h.b.Qd, h.b.kf, h.b.kv, h.b.Co] },
-        { id: "bf3-infiltrator", name: a.ij, d: "MP_FBotINF.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.tb, h.b.Rc, h.b.ab, h.b.Za] }
+        { id: "bf3-infiltrator", name: a.Dk, V: a.bf3infiname, d: "MP_FBotINF.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.tb, h.b.Rc, h.b.ab, h.b.Za] }
     ], [
         { id: "male-vanguard", name: a.dc, V: a.vq, d: "VanguardHumanMale.png", v: 500, qa: 500, r: .3, A: 150, w: 500, s: l, o: [h.b.lb, h.b.Fb, h.b.Bd, h.b.ab, h.b.Za] },
         { id: "female-vanguard", name: a.cc, V: a.pq, d: "VanguardHumanFemale.png", v: 500, qa: 500, r: .3, A: 150, w: 500, s: l, o: [h.b.lb, h.b.Fb, h.b.Bd, h.b.ab, h.b.Za] },
