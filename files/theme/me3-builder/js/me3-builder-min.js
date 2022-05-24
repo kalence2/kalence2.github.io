@@ -1297,13 +1297,14 @@
     b.mo = "Explosive Rounds"; 
     b.no = "Apply explosive rounds for one mission. Rounds detonate after a short period rather than on impact.\nMax Explosion Damage: {AMMO_INT}\nExplosion Damage Per Shot: {ammoDamage}%\nExplosion Radius: {radius} meters";
     b.Fq = "Incendiary Rounds"; 
-    b.Gq = "Applies incendiary ammo for one mission.\nDamage: +{ammoDamage}%\nDamage Over Time: {ATTR_INT} over {ATTR_TIME} seconds"; 
+    b.Gq = "Applies incendiary ammo for one mission.\nDamage Over Time: {ATTR_INT}% over {ATTR_TIME} seconds"; 
     b.Wt = "Phasic Rounds"; 
     b.Xt = "Apply phasic rounds for one mission to break through enemy shields, increasing damage.\nDamage: +{ammoDamage}%\nShield Regen Delay: +{ATTR_PCT}% for {ATTR_TIME} seconds"; 
     b.AC = "Warp Rounds"; 
     b.BC = "Applies warp ammo for one mission.\nDamage: +{ammoDamage}%\nBiotic Damage Bonus: +{ATTR_PCT}%\nArmor Weakening: +{ammoArmorWeakening}% for {ATTR_TIME} seconds";
     b.bf3infiname = "Battlefield 3 Infiltrator";
     b.vibration_damper_desc = "Decrease weapon kickback and improve firing stability by upgrading autotargeting electronics.\nWeapon Stability +{stability}%";
+    b.polonium_desc = "Apply polonium rounds for one mission to add a damage-over-time effect to enemies you shoot.\nDamage: +{ammoDamage}% over {ATTR_TIME} seconds";
     /*
      Copyright 2013
     
@@ -2300,7 +2301,9 @@
         { name: a.Wt, a: a.Xt, d: "AmmoPower_Phasic.png",
         c: [{ attributes: { ammoDamage: .05, ATTR_PCT: 1, ATTR_TIME: 15 } }, { attributes: { ammoDamage: .1, ATTR_PCT: 1, ATTR_TIME: 15 } }, { attributes: { ammoDamage: .15, ATTR_PCT: 1, ATTR_TIME: 15 } }], i: { health: 1, armor: 0, barrier: 10, shield: 10 } },
         { name: a.AC, a: a.BC, d: "AmmoPower_Warp.png",
-        c: [{ attributes: { ammoDamage: .15, ATTR_PCT: .25, ammoArmorWeakening: .25, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .25, ATTR_PCT: .5, ammoArmorWeakening: .35, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .35, ATTR_PCT: .75, ammoArmorWeakening: .5, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .6, ATTR_PCT: 1, ammoArmorWeakening: .65, ATTR_TIME: 4 } }], i: { health: 1, armor: 1, barrier: 2, shield: 0 } }
+        c: [{ attributes: { ammoDamage: .15, ATTR_PCT: .25, ammoArmorWeakening: .25, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .25, ATTR_PCT: .5, ammoArmorWeakening: .35, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .35, ATTR_PCT: .75, ammoArmorWeakening: .5, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .6, ATTR_PCT: 1, ammoArmorWeakening: .65, ATTR_TIME: 4 } }], i: { health: 1, armor: 1, barrier: 2, shield: 0 } },
+        { name: "Polonium Rounds", a: a.polonium_desc, d: "AmmoPower_Polonium.png",
+        c: [{attributes: { ammoDamage: .2, ATTR_TIME: 10}}, {attributes: { ammoDamage: .3, ATTR_TIME: 9}}, {attributes: { ammoDamage: .4, ATTR_TIME: 8}}, {attributes: { ammoDamage: .45, ATTR_TIME: 5}}], i: { health: 1, armor: 1, barrier: 1, shield: 1 }}
     ]];
     /*
      Copyright 2013
