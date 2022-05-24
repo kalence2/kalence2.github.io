@@ -11,6 +11,6 @@ The 'h' variable
 - h.Ya.eg: gear data (JSON matrix) [armor, gear, weapon, ammo]
 - h.Ya.Df: weapon data (JSON matrix) [AR, P, SG, SMG, SR] { ja: 0, Na: 1, Ba: 2, Va: 3, Da: 4 }
 - h.Ya.nh: mod data (JSON matrix) [AR, P, SG, SMG, SR]
+- h.Ya.e.X: rarities [common, uncommon, rare, ultrarare, placeholder] C.e = { wa: 0, X: 1, t: 2, ya: 3, TC: 4 };
 - h.Xa: methods
 
-C.e = { wa: 0, X: 1, t: 2, ya: 3, TC: 4 };
