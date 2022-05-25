@@ -25,6 +25,7 @@ Corrected Incendiary ammo (theoretical damage)
 Todo:
 Boss headshots
 Incendiary glitch
+Inferno grenade glitch
 Weight glitch
 Melee radius and cap
 Sword Mastery
