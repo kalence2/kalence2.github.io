@@ -21,6 +21,8 @@ Added Vibration Damper
 Added Chakram Launcher
 Corrected Disruptor ammo
 Corrected Incendiary ammo (theoretical damage)
+Corrected Batarian Slasher shields
+Corrected "Quarian Female" descriptions
 
 Todo:
 Boss headshots

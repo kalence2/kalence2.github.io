@@ -31,7 +31,7 @@
     b.qh = "N7 Paladin";
     b.rh = "N7 Shadow";
     b.sh = "N7 Slayer";
-    b.Ze = "Quarian";
+    b.Ze = "Quarian Female";
     b.yh = "Quarian Male";
     b.Xu = "Quarian Marksman";
     b.mf = "Salarian";
@@ -71,8 +71,8 @@
     b.br = "Krogan Battlemaster";
     b.cr = "Krogan Sentinel";
     b.er = "Krogan Soldier";
-    b.Tu = "Quarian Engineer";
-    b.Uu = "Quarian Infiltrator";
+    b.Tu = "Quarian Female Engineer";
+    b.Uu = "Quarian Female Infiltrator";
     b.Vu = "Quarian Male Engineer";
     b.Wu = "Quarian Male Infiltrator";
     b.pw = "Salarian Engineer";
@@ -1313,7 +1313,18 @@
     */
     var h = h || {};
     (function (d) {
-        function c(c) { var d = {}, g; for (g in c) { var e = g; "arrowArmorWeakening" == g ? e = "enemyArmorWeakening" : "arrowCount" == g ? e = "arrows" : "arrowDamageTaken" == g && (e = "enemyDamageTaken"); d[e] = d[e] ? d[e] + c[g] : c[g] } return d } 
+        function c(c) { 
+            var d = {}, g; 
+            for (g in c) { 
+                var e = g; 
+                "arrowArmorWeakening" == g ? e = "enemyArmorWeakening" : 
+                "arrowCount" == g ? e = "arrows" : 
+                "arrowDamageTaken" == g && (e = "enemyDamageTaken"); 
+                d[e] = d[e] ? d[e] + c[g] : c[g] 
+            } 
+            return d 
+        
+        } 
         function e(c) { var d = {}, g; for (g in c) { var e = g; "globalPowerDamage" == g && (e = "armorPowerDamage"); d[e] = d[e] ? d[e] + c[g] : c[g] } return d } 
         function P(c) { var d = {}, g; for (g in c) { var e = g; "rageMeleeDamage" == g && (e = "meleeDamage"); d[e] = d[e] ? d[e] + c[g] : c[g] } return d } 
         
@@ -1326,36 +1337,43 @@
         };
 
         d.bd = { Z: { damage: a.cg }, h: ["baseRechargeSpeed", "dot", "duration", "radius", "damage"], g: !0, icon: "AnnihilationSphere", 
-        c: [{ name: a.bd, a: a.tj, attributes: { baseRechargeSpeed: 8, dot: 100, duration: 45, radius: 4, damage: 500 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
-            { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.ec, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.qe, a: a.qj, attributes: { enemyDamageTaken: .15 } }, 
-            { name: a.jc, a: a.rj, attributes: { movementSpeed: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .65 } }, { name: a.wg, a: a.sj, attributes: { powerDuration: 1, ATTR_PCT: 1 } }], 
+        c: [{ name: a.bd, a: a.tj, attributes: { baseRechargeSpeed: 8, dot: 100, duration: 45, radius: 4, damage: 500 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
+            { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.ec, a: a.ma, attributes: { radiusPct: .3 } }, 
+            { name: a.qe, a: a.qj, attributes: { enemyDamageTaken: .15 } }, { name: a.jc, a: a.rj, attributes: { movementSpeed: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .65 } }, 
+            { name: a.wg, a: a.sj, attributes: { powerDuration: 1, ATTR_PCT: 1 } }], 
             i: { health: 1, armor: 1.5, barrier: 1.5, shield: 1 }, type: d.type.biotic
         }; 
 
         d.uj = { h: ["damage", "radius"], g: !1, icon: "EMPGrenade", M: !0, 
         c: [{ name: a.Lf, a: a.Nf, attributes: { damage: 400, radius: 6 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, 
-            { name: a.ye, a: a.Mf, attributes: { powerDOT: .4, ATTR_TIME: 10 } }, { name: a.cd, a: a.Ic, attributes: { powerDamageArmor: .75 } }, { name: a.pf, a: a.qd, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }], 
-            i: { health: 1, armor: 1, barrier: 2, shield: 2 }, Oa: !0, type: d.type.tech
+            { name: a.ye, a: a.Mf, attributes: { powerDOT: .4, ATTR_TIME: 10 } }, { name: a.cd, a: a.Ic, attributes: { powerDamageArmor: .75 } }, 
+            { name: a.pf, a: a.qd, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }], 
+            i: { health: 1, armor: 1, barrier: 2, shield: 2 }, 
+            is_grenade_power: !0, type: d.type.tech
         }; 
 
         d.Of = { h: ["damage", "radius"], g: !1, icon: "EMPGrenade", M: !0, 
         c: [{ name: a.Lf, a: a.Nf, attributes: { damage: 400, radius: 8 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, 
-            { name: a.ye, a: a.Mf, attributes: { powerDOT: .4, ATTR_TIME: 10 } }, { name: a.cd, a: a.Ic, attributes: { powerDamageArmor: .75 } }, { name: a.pf, a: a.qd, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }], i: { health: 1, armor: 1, barrier: 2, shield: 2 }, Oa: !0, type: d.type.tech
+            { name: a.ye, a: a.Mf, attributes: { powerDOT: .4, ATTR_TIME: 10 } }, { name: a.cd, a: a.Ic, attributes: { powerDamageArmor: .75 } }, 
+            { name: a.pf, a: a.qd, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }], 
+            i: { health: 1, armor: 1, barrier: 2, shield: 2 }, is_grenade_power: !0, type: d.type.tech
         }; 
 
         d.ae = { h: ["bonusGrenade", "bow", "arrowCount"], g: !0, icon: "BowModalTwo", M: !0, 
-        c: [{ name: a.ae, a: a.Ej, attributes: { bonusGrenade: 1, bow: 75, arrowCount: 5, ATTR_INT: 3 } }, { name: a.sb, a: a.ka, attributes: { bonusGrenade: 1, grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
-            { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.sb, a: a.ka, attributes: { bonusGrenade: 1, grenadeCapacity: 1 } }, { name: a.Yx, a: a.Cj, attributes: { powerDOT: .5, ATTR_TIME: 5 } }, 
-            { name: a.Sa, a: a.Dj, attributes: { powerDamageArmor: .35, arrowArmorWeakening: .5, ATTR_TIME: 8 } }, { name: a.Pf, a: a.Sg, attributes: { arrowCount: 1 } }, { name: a.sb, a: a.ka, attributes: { bonusGrenade: 2, grenadeCapacity: 2 } }], 
-            i: { health: 1, armor: 1.5, barrier: 1, shield: 1 }, pb: c, Oa: !0, Wb: [1, 2]
+        c: [{ name: a.ae, a: a.Ej, attributes: { bonusGrenade: 1, bow: 75, arrowCount: 5, ATTR_INT: 3 } }, { name: a.sb, a: a.ka, attributes: { bonusGrenade: 1, grenadeCapacity: 1 } }, 
+            { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.sb, a: a.ka, attributes: { bonusGrenade: 1, grenadeCapacity: 1 } }, 
+            { name: a.Yx, a: a.Cj, attributes: { powerDOT: .5, ATTR_TIME: 5 } }, { name: a.Sa, a: a.Dj, attributes: { powerDamageArmor: .35, arrowArmorWeakening: .5, ATTR_TIME: 8 } }, 
+            { name: a.Pf, a: a.Sg, attributes: { arrowCount: 1 } }, { name: a.sb, a: a.ka, attributes: { bonusGrenade: 2, grenadeCapacity: 2 } }], 
+            i: { health: 1, armor: 1.5, barrier: 1, shield: 1 }, pb: c, is_grenade_power: !0, Wb: [1, 2]
         }; 
 
         d.fe = { h: ["baseRechargeSpeed", "damage", "duration", "radius"], g: !1, icon: "BatarianAttack", 
-                c: [{ name: a.fe, a: a.lk, attributes: { baseRechargeSpeed: 8, damage: 900, duration: 10, radius: 12 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
-                    { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.lm, a: a.hk, attributes: { ATTR_INT: 20 } }, { name: a.Range, a: a.ik, attributes: { rangePct: .5 } }, 
-                    { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.xm, a: a.jk, attributes: { powerDamage: .5, powerDuration: .5 } }, { name: a.ko, a: a.kk, attributes: { ATTR_TIME: 3, bladeDamage: 400 } }]
+                c: [{ name: a.fe, a: a.lk, attributes: { baseRechargeSpeed: 8, damage: 900, duration: 10, radius: 12 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
+                    { name: a.l, a: a.p, attributes: { powerDamage: .2 } },  { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.lm, a: a.hk, attributes: { ATTR_INT: 20 } }, 
+                    { name: a.Range, a: a.ik, attributes: { rangePct: .5 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.xm, a: a.jk, attributes: { powerDamage: .5, powerDuration: .5 } }, 
+                    { name: a.ko, a: a.kk, attributes: { ATTR_TIME: 3, bladeDamage: 400 } }]
         }; 
         
         d.rb = { Z: { armor: a.cg, radius: a.ml }, h: ["baseRechargeSpeed", "damageReduction", "armor", "radius"], g: !0, icon: "Barrier", 
@@ -1454,7 +1472,7 @@
         c: [{ name: a.le, a: a.Dl, attributes: { damage: 1200, radius: 5, ATTR_TIME: 1.5, ATTR_INT: 3 } }, { name: a.sb, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.fg, attributes: { radiusPct: .3 } }, { name: a.Sa, a: a.Cl, attributes: { powerDamageArmor: .5 } }, 
             { name: a.sb, a: a.ka, attributes: { grenadeCapacity: 2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .5 } }, { name: a.Y, a: a.fg, attributes: { radiusPct: .5 } }],
-            i: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, Oa: !0
+            i: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, is_grenade_power: !0
         }; 
         
         d.Xb = { h: ["baseRechargeSpeed", "damage", "radius"], g: !1, icon: "Carnage", 
@@ -1468,7 +1486,7 @@
         c: [{ name: a.Yb, a: a.Ol, attributes: { damage: 500, force: 1E3, radius: 4 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.ga, a: a.ua, attributes: { powerDamage: .2, powerForce: .2 } }, 
             { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .35 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, 
             { name: a.Bm, a: a.Ml, attributes: { ATTR_PCT: 1 } }, { name: a.Xx, a: a.Nl, attributes: { ATTR_INT: 1 } }, { name: a.ga, a: a.ua, attributes: { powerDamage: .5, powerForce: .5 } }],
-            i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, Oa: !0, type: d.type.biotic
+            i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, is_grenade_power: !0, type: d.type.biotic
         }; 
         
         d.vc = { Z: { damage: a.vn, petShield: a.wn }, h: ["baseRechargeSpeed", "damage", "petShield"], g: !1, icon: "CombatDrone", 
@@ -1485,7 +1503,7 @@
             { name: a.sb, a: a.ka, attributes: { bonusGrenade: 1, grenadeCapacity: 1 } }, { name: a.Oc, a: a.em, attributes: { powerDOT: 1, ATTR_TIME: 5 } }, 
             { name: a.ig, a: a.fm, attributes: { enemyMovementSpeed: -.1, ATTR_PCT: .05, arrowDamageTaken: .15, ATTR_TIME: 8, ATTR_INT: 3 } }, { name: a.Pf, a: a.Sg, attributes: { arrowCount: 1 } }, 
             { name: a.sb, a: a.ka, attributes: { bonusGrenade: 2, grenadeCapacity: 2 } }],
-            i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, pb: c, Oa: !0, Wb: [1, 2]
+            i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, pb: c, is_grenade_power: !0, Wb: [1, 2]
         }; 
         
         d.wc = { h: ["baseRechargeSpeed", "damage", "force"], g: !1, icon: "ConcussiveShot", 
@@ -1669,7 +1687,7 @@
         c: [{ name: a.Cc, a: a.Ro, attributes: { damage: 900, radius: 6.5 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, 
             { name: a.nl, a: a.Oo, attributes: { powerDOT: .5, ATTR_TIME: 5 } }, { name: a.cd, a: a.Po, attributes: { ATTR_PCT: .75, powerDamageArmor: .5 } },
-            { name: a.pf, a: a.Qo, attributes: { ATTR_PCT: .75, powerDamageShield: .5 } }], Oa: !0
+            { name: a.pf, a: a.Qo, attributes: { ATTR_PCT: .75, powerDamageShield: .5 } }], is_grenade_power: !0
         }; 
         
         d.od = { Z: { damage: a.ci, petShield: a.ei }, h: ["baseRechargeSpeed", "damage", "petShield", "turretRestore"], g: !1, icon: "GethTurret", 
@@ -1701,7 +1719,20 @@
         }; 
         
         d.Gc = { h: ["damage", "radius"], g: !0, icon: "HomingGrenade", M: !0, 
-        c: [{ name: a.Gc, a: a.jq, attributes: { damage: 800, radius: 2 } }, { name: a.fd, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.ec, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.fd, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.zg, a: a.gq, attributes: { powerDOT: .5, ATTR_TIME: 5 } }, { name: a.Sa, a: a.hq, attributes: { powerDamageArmor: .6, homingGrenadeArmor: .5, ATTR_TIME: 8 } }, { name: a.Py, a: a.iq, attributes: { ATTR_PCT: .6 } }], pb: function (c) { var d = {}, e; for (e in c) { var z = e; "homingGrenadeArmor" == e && (z = "enemyArmorWeakening"); d[z] = d[z] ? d[z] + c[e] : c[e] } return d }, Oa: !0, type: d.type.tech
+        c: [{ name: a.Gc, a: a.jq, attributes: { damage: 800, radius: 2 } }, { name: a.fd, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
+            { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.ec, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.fd, a: a.ka, attributes: { grenadeCapacity: 1 } }, 
+            { name: a.zg, a: a.gq, attributes: { powerDOT: .5, ATTR_TIME: 5 } }, { name: a.Sa, a: a.hq, attributes: { powerDamageArmor: .6, homingGrenadeArmor: .5, ATTR_TIME: 8 } }, 
+            { name: a.Py, a: a.iq, attributes: { ATTR_PCT: .6 } }], 
+            pb: function (c) { 
+                var d = {}, e; 
+                for (e in c) { 
+                    var z = e; 
+                    "homingGrenadeArmor" == e && (z = "enemyArmorWeakening"); 
+                    d[z] = d[z] ? d[z] + c[e] : c[e] 
+                } 
+                return d 
+            }, 
+            is_grenade_power: !0, type: d.type.tech
         }; 
         
         d.Hc = { Z: { radius: a.Yn }, h: ["baseRechargeSpeed", "radius", "globalDamage", "accuracy", "movementSpeed"], g: !0, icon: "Supercharge", 
@@ -1720,9 +1751,10 @@
         }; 
         
         d.td = { h: ["dot", "duration", "radius"], g: !1, icon: "InfernoGrenade", M: !0, 
-        c: [{ name: a.td, a: a.Pq, attributes: { dot: 150, duration: 8, radius: 5 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .4 } }, { name: a.Sa, a: a.Ic, attributes: { powerDamageArmor: .5 } }, { name: a.nv, a: a.Oq, attributes: { radiusPct: .5, ATTR_INT: 1 }
-            }],
-            i: { health: 1, armor: 1.5, barrier: 1, shield: 1 }, Oa: !0
+        c: [{ name: a.td, a: a.Pq, attributes: { dot: 150, duration: 8, radius: 5 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
+            { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, 
+            { name: a.l, a: a.p, attributes: { powerDamage: .4 } }, { name: a.Sa, a: a.Ic, attributes: { powerDamageArmor: .5 } }, { name: a.nv, a: a.Oq, attributes: { radiusPct: .5, ATTR_INT: 1 } }],
+            i: { health: 1, armor: 1.5, barrier: 1, shield: 1 }, is_grenade_power: !0
         }; 
         
         d.hc = { h: ["baseRechargeSpeed", "damage", "force"], g: !1, icon: "Lash", 
@@ -1732,7 +1764,7 @@
         d.wd = { h: ["damage", "radius", "duration"], g: !1, icon: "LiftGrenade", M: !0, 
         c: [{ name: a.wd, a: a.qr, attributes: { damage: 900, radius: 5, duration: 4 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } },
             { name: a.W, a: a.Ka, attributes: { powerDuration: .5 } }, { name: a.hy, a: a.or, attributes: { ATTR_TIME: 3 } }, { name: a.oe, a: a.pr, attributes: { powerDamage: .3, radiusPct: .3 } }],
-            i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, Oa: !0, type: d.type.biotic
+            i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, is_grenade_power: !0, type: d.type.biotic
         }; 
         
         d.yd = { h: ["baseRechargeSpeed", "duration", "weaponROF", "accuracy"], g: !0, icon: "Marksman", 
@@ -1740,17 +1772,18 @@
         }; 
         
         d.Te = { h: ["damage", "force", "radius"], g: !1, icon: "MultiFragGrenade", M: !0, 
-        c: [{ name: a.Te, a: a.Qs, attributes: { damage: 350, force: 1E3, radius: 4 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.ga, a: a.ua, attributes: { poweDamage: .2,
-                    powerForce: .2
-                } }, { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .2 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .35 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, { name: a.ga, a: a.ua, attributes: { powerDamage: .4, powerForce: .4 } }, { name: a.Cp, a: a.Ps, attributes: { ATTR_INT: 2 } }, { name: a.ga, a: a.ua, attributes: { powerDamage: .5, powerForce: .5 } }], Oa: !0
+        c: [{ name: a.Te, a: a.Qs, attributes: { damage: 350, force: 1E3, radius: 4 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.ga, a: a.ua, attributes: { poweDamage: .2, powerForce: .2 } }, 
+            { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .2 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .35 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, 
+            { name: a.ga, a: a.ua, attributes: { powerDamage: .4, powerForce: .4 } }, { name: a.Cp, a: a.Ps, attributes: { ATTR_INT: 2 } }, { name: a.ga, a: a.ua, attributes: { powerDamage: .5, powerForce: .5 } }], 
+            is_grenade_power: !0
         }; 
         
         d.Ue = { Z: { damage: a.ll, duration: a.Fd }, h: ["damage", "poison", "duration", "paralyze", "range"], g: !1, icon: "VenomTippedBlades", M: !0, 
-            c: [{ name: a.Ue, a: a.st, attributes: {
-                    damage: 1200,
-                    poison: 50, duration: 8, paralyze: 5, range: 15
-                } }, { name: a.fd, a: a.th, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2, poisonDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3, poisonDamage: .3 } }, { name: a.fd, a: a.th, attributes: { grenadeCapacity: 1 } }, { name: a.Range, a: a.gc, attributes: { rangePct: .5 } }, { name: a.Fd, a: a.pt, attributes: { paralyzeDuration: .4, powerDuration: .4 } }, { name: a.Wn, a: a.qt, attributes: { powerDamage: .4, poisonDamage: .6 } }, { name: a.ho, a: a.rt, attributes: { ATTR_TIME: 3, bladeDamage: 400 } }],
-            Oa: !0
+            c: [{ name: a.Ue, a: a.st, attributes: { damage: 1200, poison: 50, duration: 8, paralyze: 5, range: 15 } }, { name: a.fd, a: a.th, attributes: { grenadeCapacity: 1 } }, 
+                { name: a.l, a: a.p, attributes: { powerDamage: .2, poisonDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3, poisonDamage: .3 } }, { name: a.fd, a: a.th, attributes: { grenadeCapacity: 1 } }, 
+                { name: a.Range, a: a.gc, attributes: { rangePct: .5 } }, { name: a.Fd, a: a.pt, attributes: { paralyzeDuration: .4, powerDuration: .4 } }, 
+                { name: a.Wn, a: a.qt, attributes: { powerDamage: .4, poisonDamage: .6 } }, { name: a.ho, a: a.rt, attributes: { ATTR_TIME: 3, bladeDamage: 400 } }],
+            is_grenade_power: !0
         }; 
         
         d.Bd = { h: ["damage", "force", "radius"], g: !0, icon: "Discharge", 
@@ -1962,8 +1995,11 @@
         }; 
         
         d.kf = { h: ["repairMatrix", "duration", "damageReduction", "movementSpeed"], g: !1, icon: "RepairMatrix", M: !0, 
-        c: [{ name: a.kf, a: a.Hv, attributes: { repairMatrix: 75, duration: 8, damageReduction: .15, movementSpeed: .1 } }, { name: a.hg, a: a.Ih, attributes: { grenadeCapacity: 1 } }, { name: a.Rh, a: a.Jh, attributes: { repairShields: .2 } }, { name: a.xz, a: a.Ev, attributes: { damageReduction: .05, movementSpeed: .1 } },
-            { name: a.Rh, a: a.Jh, attributes: { repairShields: .3 } }, { name: a.hg, a: a.Ih, attributes: { grenadeCapacity: 1 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .5 } }, { name: a.nr, a: a.Fv, attributes: { damageReduction: .75, ATTR_TIME: 5 } }, { name: a.Xn, a: a.Gv, attributes: { repairShields: .35, damageReduction: .1 } }], Oa: !0
+        c: [{ name: a.kf, a: a.Hv, attributes: { repairMatrix: 75, duration: 8, damageReduction: .15, movementSpeed: .1 } }, { name: a.hg, a: a.Ih, attributes: { grenadeCapacity: 1 } }, 
+            { name: a.Rh, a: a.Jh, attributes: { repairShields: .2 } }, { name: a.xz, a: a.Ev, attributes: { damageReduction: .05, movementSpeed: .1 } },
+            { name: a.Rh, a: a.Jh, attributes: { repairShields: .3 } }, { name: a.hg, a: a.Ih, attributes: { grenadeCapacity: 1 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .5 } }, 
+            { name: a.nr, a: a.Fv, attributes: { damageReduction: .75, ATTR_TIME: 5 } }, { name: a.Xn, a: a.Gv, attributes: { repairShields: .35, damageReduction: .1 } }], 
+            is_grenade_power: !0
         }; 
         
         d.Nc = { Z: { duration: a.Gp, damage: a.Rf }, h: ["baseRechargeSpeed", "duration", "radius", "damage"], g: !0, icon: "Hacking", 
@@ -2029,18 +2065,31 @@
         }; 
         
         d.Rc = { h: ["damage", "radius"], g: !1, icon: "StickyGrenade", M: !0, 
-        c: [{ name: a.Rc, a: a.$y, attributes: { damage: 1100, radius: 2 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } },
-            { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, { name: a.cd, a: a.Vg, attributes: { powerDamageArmor: .5 } }, { name: a.l, a: a.p, attributes: { powerDamage: .4 } }, { name: a.Mu, a: a.Zy, attributes: { ATTR_TIME: 15, radiusPct: .5 } }], Oa: !0
+        c: [{ name: a.Rc, a: a.$y, attributes: { damage: 1100, radius: 2 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
+            { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, 
+            { name: a.cd, a: a.Vg, attributes: { powerDamageArmor: .5 } }, { name: a.l, a: a.p, attributes: { powerDamage: .4 } }, { name: a.Mu, a: a.Zy, attributes: { ATTR_TIME: 15, radiusPct: .5 } }], 
+            is_grenade_power: !0
         }; 
         
         d.Rd = { Z: { stimpackDamage: a.l }, h: ["stimpackShields", "stimpackDamage", "duration"], g: !0, icon: "StimPack", M: !0, 
-            c: [{ name: a.Rd, a: a.dz, attributes: { stimpackShields: 1200, stimpackDamage: .05, duration: 6 } }, { name: a.uh, a: a.Wh, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.Xh, attributes: { stimpackDamage: .025 } },
-            { name: a.l, a: a.Xh, attributes: { stimpackDamage: .05 } }, { name: a.zd, a: a.az, attributes: { stimpackShieldStrength: .4 } }, { name: a.uh, a: a.Wh, attributes: { grenadeCapacity: 1 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .5 } }, { name: a.n, a: a.bz, attributes: { stimpackWeaponDamage: .08 } }, { name: a.yz, a: a.cz, attributes: { stimpackShieldStrength: .6, stimpackMeleeDamage: .25 } }], pb: function (c) {
-                var d = {}, e; for (e in c) {
-                    var z = e; "stimpackDamage" == e ? z = "globalDamage" : "stimpackMeleeDamage" == e ? z = "meleeDamage" : "stimpackShields" == e ? z = "maxShield" :
-                        "stimpackShieldStrength" == e ? z = "maxShieldStrength" : "stimpackWeaponDamage" == e && (z = "weaponDamage"); d[z] = c[e]
-                } return d
-            }, Oa: !0
+            c: [{ name: a.Rd, a: a.dz, attributes: { stimpackShields: 1200, stimpackDamage: .05, duration: 6 } }, { name: a.uh, a: a.Wh, attributes: { grenadeCapacity: 1 } }, 
+                { name: a.l, a: a.Xh, attributes: { stimpackDamage: .025 } }, { name: a.l, a: a.Xh, attributes: { stimpackDamage: .05 } }, { name: a.zd, a: a.az, attributes: { stimpackShieldStrength: .4 } }, 
+                { name: a.uh, a: a.Wh, attributes: { grenadeCapacity: 1 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .5 } }, { name: a.n, a: a.bz, attributes: { stimpackWeaponDamage: .08 } }, 
+                { name: a.yz, a: a.cz, attributes: { stimpackShieldStrength: .6, stimpackMeleeDamage: .25 } }], 
+                pb: function (c) {
+                    var d = {}, e; 
+                    for (e in c) {
+                        var z = e; 
+                        "stimpackDamage" == e ? z = "globalDamage" : 
+                        "stimpackMeleeDamage" == e ? z = "meleeDamage" : 
+                        "stimpackShields" == e ? z = "maxShield" :
+                        "stimpackShieldStrength" == e ? z = "maxShieldStrength" : 
+                        "stimpackWeaponDamage" == e && (z = "weaponDamage"); 
+                        d[z] = c[e]
+                    } 
+                    return d
+            }, 
+            is_grenade_power: !0
         }; 
         
         d.Sd = { Z: { duration: a.Ap }, h: ["baseRechargeSpeed", "duration", "incapacitate", "damage"], g: !1, icon: "BatarianNet", 
@@ -2101,77 +2150,143 @@
     qa.Tb = { eb: 0, be: 1, ve: 2, OC: 3, vd: 4, Ze: 5, mf: 6, vf: 7, ge: 8, Ua: 9, Sb: 10, Cf: 11, Bf: 12, JC: 13 }; 
     qa.Oh = "adept soldier engineer sentinel infiltrator vanguard".split(" ");
     qa.Re = [[
-        { id: "male-adept", name: a.dc, V: a.qq, d: "AdeptHumanMale.png", v: 500, qa: 500, r: .3, A: 150, w: 500, Ra: 4.5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.Pc, h.b.fb, h.b.Fb, h.b.ab, h.b.Za] }, 
-        { id: "female-adept", name: a.cc, V: a.kq, d: "AdeptHumanFemale.png", v: 500, qa: 500, r: .3, A: 150, w: 500, Ra: 4.5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.Pc, h.b.fb, h.b.Fb, h.b.ab, h.b.Za] }, 
-        { id: "asari-adept", name: a.be, V: a.Kj, d: "MP_Asari0.png", v: 500, qa: 500, r: .3, A: 150, w: 500, Ra: 4.5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.Qc, h.b.fb, h.b.nc, h.b.Hd, h.b.Ga] },
-        { id: "drell-adept", name: a.ve, V: a.pn, d: "MP_Drell0.png", v: 500, qa: 250, r: .45, A: 225, w: 600, s: l, o: [h.b.tv, h.b.Mc, h.b.Yb, h.b.cf, h.b.Be] },
-        { id: "asari-justicar", name: a.ce, d: "MP_AsariComm.png", v: 500, qa: 600, r: .4, A: 150, w: 500, Ra: 4.5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.ke, h.b.sv, h.b.Mc, h.b.Zu, h.b.Ga] }, 
-        { id: "cerberus-adept", name: a.xg, V: a.$n, d: "MP_Cerberus.png", v: 500, qa: 500, r: .3, A: 400, w: 350, Ra: 6, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.Pc, h.b.Pd, h.b.hc, h.b.zh, h.b.Ga] },
-        { id: "n7-fury", name: a.ph, d: "MP_AllianceADP.png", v: 500, qa: 500, r: .3, A: 350, w: 350, Ra: 6, s: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 }, o: [h.b.bd, h.b.yc, h.b.nc, h.b.fv, h.b.Ga] },
-        { id: "volus-adept", name: a.Bf, V: a.bC, d: "MP_VolusADP.png", v: 150, qa: 500, r: .15, A: 0, w: 150, s: l, o: [h.b.Qc, h.b.ed, h.b.Eb, h.b.Jd, h.b.Ga] },
-        { id: "krogan-shaman", name: a.dr, d: "MP_KroganADP.png", v: 1E3, qa: 1E3, r: .3, A: 300, w: 700, s: l, o: [h.b.rb, h.b.fb, h.b.Fb, h.b.ef, h.b.kd] }, 
-        { id: "batarian-slasher", name: a.Bk, d: "MP_BatarianADP.png", v: 750, qa: 750, r: .3, A: 190, w: 1E3, s: l, o: [h.b.hc, h.b.fb, h.b.Yb, h.b.Id, h.b.ac] },
-        { id: "awakened-collector", name: a.gk, d: "MP_CollectADP.png", v: 500, qa: 750, r: .3, A: 450, Zd: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, w: 300, s: { health: 1, armor: 1, barrier: 1, shield: 1 }, race: qa.Tb.Sb, o: [h.b.re, h.b.nf, h.b.yc, h.b.lv, h.b.Bo] }
+        { id: "male-adept", name: a.dc, V: a.qq, d: "AdeptHumanMale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Pc, h.b.fb, h.b.Fb, h.b.ab, h.b.Za] }, 
+        { id: "female-adept", name: a.cc, V: a.kq, d: "AdeptHumanFemale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Pc, h.b.fb, h.b.Fb, h.b.ab, h.b.Za] }, 
+        { id: "asari-adept", name: a.be, V: a.Kj, d: "MP_Asari0.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Qc, h.b.fb, h.b.nc, h.b.Hd, h.b.Ga] },
+        { id: "drell-adept", name: a.ve, V: a.pn, d: "MP_Drell0.png", health: 500, barrier: 250, base_encumbrance: .45, light_melee_base_dmg: 225, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.tv, h.b.Mc, h.b.Yb, h.b.cf, h.b.Be] },
+        { id: "asari-justicar", name: a.ce, d: "MP_AsariComm.png", health: 500, barrier: 600, base_encumbrance: .4, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.ke, h.b.sv, h.b.Mc, h.b.Zu, h.b.Ga] }, 
+        { id: "cerberus-adept", name: a.xg, V: a.$n, d: "MP_Cerberus.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 400, 
+        heavy_melee_base_dmg: 350, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Pc, h.b.Pd, h.b.hc, h.b.zh, h.b.Ga] },
+        { id: "n7-fury", name: a.ph, d: "MP_AllianceADP.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 350, 
+        heavy_melee_base_dmg: 350, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 }, powers: [h.b.bd, h.b.yc, h.b.nc, h.b.fv, h.b.Ga] },
+        { id: "volus-adept", name: a.Bf, V: a.bC, d: "MP_VolusADP.png", health: 150, barrier: 500, base_encumbrance: .15, light_melee_base_dmg: 0, 
+        heavy_melee_base_dmg: 150, heavy_melee_modifiers: l, powers: [h.b.Qc, h.b.ed, h.b.Eb, h.b.Jd, h.b.Ga] },
+        { id: "krogan-shaman", name: a.dr, d: "MP_KroganADP.png", health: 1E3, barrier: 1E3, base_encumbrance: .3, light_melee_base_dmg: 300, 
+        heavy_melee_base_dmg: 700, heavy_melee_modifiers: l, powers: [h.b.rb, h.b.fb, h.b.Fb, h.b.ef, h.b.kd] }, 
+        { id: "batarian-slasher", name: a.Bk, d: "MP_BatarianADP.png", health: 750, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 190, 
+        heavy_melee_base_dmg: 1E3, heavy_melee_modifiers: l, powers: [h.b.hc, h.b.fb, h.b.Yb, h.b.Id, h.b.ac] },
+        { id: "awakened-collector", name: a.gk, d: "MP_CollectADP.png", health: 500, barrier: 750, base_encumbrance: .3, light_melee_base_dmg: 450, light_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, 
+        heavy_melee_base_dmg: 300, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, race: qa.Tb.Sb, powers: [h.b.re, h.b.nf, h.b.yc, h.b.lv, h.b.Bo] }
     ], [
-        { id: "male-soldier", name: a.dc, V: a.uq, d: "SoldierHumanMale.png", v: 500, Q: 500, r: .45, A: 150, w: 600, s: l, o: [h.b.sc, h.b.wc, h.b.Cc, h.b.ab, h.b.Za] },
-        { id: "female-soldier", name: a.cc, V: a.oq, d: "SoldierHumanFemale.png", v: 500, Q: 500, r: .45, A: 150, w: 600, s: l, o: [h.b.sc, h.b.wc, h.b.Cc, h.b.ab, h.b.Za] },
-        { id: "krogan-soldier", name: a.vd, V: a.er, d: "MP_Krogan0.png", v: 750, Q: 1E3, r: .6, A: 300, XC: "Krogan Headbutt", w: 700, s: l, o: [h.b.ld, h.b.Xb, h.b.td, h.b.ef, h.b.kd] },
-        { id: "turian-soldier", name: a.vf, V: a.vA, d: "MP_Turian0.png", v: 500, Q: 750, r: .65, A: 200, w: 675, s: l, o: [h.b.yd, h.b.wc, h.b.lc, h.b.ff, h.b.ac] },
-        { id: "bf3-soldier", name: a.Dk, V: a.Ek, d: "MP_BF_HMM0.png", v: 500, Q: 500, r: .45, A: 150, w: 600, s: l, o: [h.b.sc, h.b.Xb, h.b.Cc, h.b.ab, h.b.Za] },
-        { id: "batarian-soldier", name: a.ge, V: a.Ck, d: "MP_Batarian.png", v: 750, Q: 750, r: .3, A: 190, w: 1E3, s: l, o: [h.b.fe, h.b.tc, h.b.td, h.b.Id, h.b.ac] },
-        { id: "vorcha-soldier", name: a.Cf, V: a.nC, d: "MP_Vorcha.png", v: 750, Q: 250, r: .3, A: 250, w: 600, s: l, o: [h.b.uc, h.b.Bc, h.b.Xb, h.b.gf, h.b.bc] },
-        { id: "n7-destroyer", name: a.Ys, d: "MP_AllianceSOL.png", v: 500, Q: 1E3, r: .3, A: 450, w: 500, Ra: 6, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.ue, h.b.Ke, h.b.Te, h.b.ev, h.b.Fo] },
-        { id: "turian-havoc", name: a.sA, d: "MP_TurianSLD.png", v: 500, Q: 750, r: .3, A: 200, w: 600, s: l, o: [h.b.Je, h.b.Rd, h.b.Zb, h.b.bf, h.b.De] },
-        { id: "geth-trooper", name: a.rp, d: "MP_GethSLD.png", v: 250, Q: 1E3, r: .3, A: 200, w: 375, Ra: 5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, race: qa.Tb.Ua, o: [h.b.Bc, h.b.ld, h.b.Hc, h.b.df, h.b.Ce] },
-        { id: "quarian-marksman", name: a.Xu, d: "MP_QuarianMSLD.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.yd, h.b.Sc, h.b.Nc, h.b.jv, h.b.bc] },
-        { id: "geth-juggernaut", name: a.Lg, d: "MP_GethPSLD.png", v: 1E3, Q: 2E3, r: .75, A: 250, w: 60, s: { health: 1, armor: 1, barrier: 2, shield: 2 }, race: qa.Tb.Ua, o: [h.b.Le, h.b.rf, h.b.od, h.b.av, h.b.Do] }
+        { id: "male-soldier", name: a.dc, V: a.uq, d: "SoldierHumanMale.png", health: 500, shield: 500, base_encumbrance: .45, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.sc, h.b.wc, h.b.Cc, h.b.ab, h.b.Za] },
+        { id: "female-soldier", name: a.cc, V: a.oq, d: "SoldierHumanFemale.png", health: 500, shield: 500, base_encumbrance: .45, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.sc, h.b.wc, h.b.Cc, h.b.ab, h.b.Za] },
+        { id: "krogan-soldier", name: a.vd, V: a.er, d: "MP_Krogan0.png", health: 750, shield: 1E3, base_encumbrance: .6, light_melee_base_dmg: 300, XC: "Krogan Headbutt", 
+        heavy_melee_base_dmg: 700, heavy_melee_modifiers: l, powers: [h.b.ld, h.b.Xb, h.b.td, h.b.ef, h.b.kd] },
+        { id: "turian-soldier", name: a.vf, V: a.vA, d: "MP_Turian0.png", health: 500, shield: 750, base_encumbrance: .65, light_melee_base_dmg: 200, 
+        heavy_melee_base_dmg: 675, heavy_melee_modifiers: l, powers: [h.b.yd, h.b.wc, h.b.lc, h.b.ff, h.b.ac] },
+        { id: "bf3-soldier", name: a.Dk, V: a.Ek, d: "MP_BF_HMM0.png", health: 500, shield: 500, base_encumbrance: .45, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.sc, h.b.Xb, h.b.Cc, h.b.ab, h.b.Za] },
+        { id: "batarian-soldier", name: a.ge, V: a.Ck, d: "MP_Batarian.png", health: 750, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 190, 
+        heavy_melee_base_dmg: 1E3, heavy_melee_modifiers: l, powers: [h.b.fe, h.b.tc, h.b.td, h.b.Id, h.b.ac] },
+        { id: "vorcha-soldier", name: a.Cf, V: a.nC, d: "MP_Vorcha.png", health: 750, shield: 250, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.uc, h.b.Bc, h.b.Xb, h.b.gf, h.b.bc] },
+        { id: "n7-destroyer", name: a.Ys, d: "MP_AllianceSOL.png", health: 500, shield: 1E3, base_encumbrance: .3, light_melee_base_dmg: 450, 
+        heavy_melee_base_dmg: 500, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.ue, h.b.Ke, h.b.Te, h.b.ev, h.b.Fo] },
+        { id: "turian-havoc", name: a.sA, d: "MP_TurianSLD.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Je, h.b.Rd, h.b.Zb, h.b.bf, h.b.De] },
+        { id: "geth-trooper", name: a.rp, d: "MP_GethSLD.png", health: 250, shield: 1E3, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        heavy_melee_base_dmg: 375, Ra: 5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, race: qa.Tb.Ua, powers: [h.b.Bc, h.b.ld, h.b.Hc, h.b.df, h.b.Ce] },
+        { id: "quarian-marksman", name: a.Xu, d: "MP_QuarianMSLD.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.yd, h.b.Sc, h.b.Nc, h.b.jv, h.b.bc] },
+        { id: "geth-juggernaut", name: a.Lg, d: "MP_GethPSLD.png", health: 1E3, shield: 2E3, base_encumbrance: .75, light_melee_base_dmg: 250, 
+        heavy_melee_base_dmg: 60, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 2, shield: 2 }, race: qa.Tb.Ua, powers: [h.b.Le, h.b.rf, h.b.od, h.b.av, h.b.Do] }
     ], [   
-        { id: "male-engineer", name: a.dc, V: a.rq, d: "EngineerHumanMale.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.vc, h.b.tb, h.b.Rb, h.b.ab, h.b.Za] },
-        { id: "female-engineer", name: a.cc, V: a.lq, d: "EngineerHumanFemale.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.vc, h.b.tb, h.b.Rb, h.b.ab, h.b.Za] },
-        { id: "quarian-enginner", name: a.Ze, V: a.Tu, d: "MP_Quarian0.png", v: 500, Q: 600, r: .3, A: 150, w: 600, s: l, o: [h.b.Md, h.b.tb, h.b.Zb, h.b.Ah, h.b.Ga] },
-        { id: "salarian-enginner", name: a.mf, V: a.pw, d: "MP_Salarian0.png", v: 500, Q: 600, r: .3, A: 150, w: 600, s: l, o: [h.b.Ac, h.b.jd, h.b.tb, h.b.Ch, h.b.Ga] },
-        { id: "geth-enginner", name: a.Ua, V: a.dp, d: "MP_GethEngineer.png", v: 250, Q: 750, r: .3, A: 200, w: 375, Ra: 5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, race: qa.Tb.Ua, o: [h.b.od, h.b.Hc, h.b.Rb, h.b.df, h.b.Ce] },
-        { id: "quarian-male-enginner", name: a.yh, V: a.Vu, d: "MP_QuarianMale0.png", v: 500, Q: 600, r: .3, A: 150, w: 600, s: l, o: [h.b.Sc, h.b.tb, h.b.Of, h.b.Bh, h.b.bc] },
-        { id: "n7-demolisher", name: a.oh, d: "MP_AllianceENG.png", v: 500, Q: 600, r: .3, A: 300, w: 550, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.tf, h.b.uj, h.b.Gc, h.b.dv, h.b.Ga] },
-        { id: "volus-enginner", name: a.Bf, V: a.cC, d: "MP_VolusENG.png", v: 150, Q: 500, r: .15, A: 0, w: 150, s: l, o: [h.b.Kd, h.b.lc, h.b.Eb, h.b.Jd, h.b.Ga] },
-        { id: "turian-saboteur", name: a.tA, d: "MP_TurianENG.png", v: 500, Q: 750, r: .3, A: 200, w: 600, s: l, o: [h.b.Md, h.b.Nc, h.b.Gc, h.b.bf, h.b.De] },
-        { id: "vorcha-hunter", name: a.iC, d: "MP_VorchaENG.png", v: 750, Q: 250, r: .4, A: 250, w: 600, s: l, o: [h.b.Sd, h.b.tb, h.b.uc, h.b.gf, h.b.bc] },
-        { id: "talon-merc", name: a.bA, d: "MP_MercENG.png", v: 500, Q: 500, r: .3, A: 100, w: 100, s: { health: 1, armor: 1, barrier: 1, shield: 1 }, vi: 3, o: [h.b.le, h.b.me, h.b.ae, h.b.$u, h.b.Io], Wb: [1, 2] }
+        { id: "male-engineer", name: a.dc, V: a.rq, d: "EngineerHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.vc, h.b.tb, h.b.Rb, h.b.ab, h.b.Za] },
+        { id: "female-engineer", name: a.cc, V: a.lq, d: "EngineerHumanFemale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.vc, h.b.tb, h.b.Rb, h.b.ab, h.b.Za] },
+        { id: "quarian-enginner", name: a.Ze, V: a.Tu, d: "MP_Quarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Md, h.b.tb, h.b.Zb, h.b.Ah, h.b.Ga] },
+        { id: "salarian-enginner", name: a.mf, V: a.pw, d: "MP_Salarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Ac, h.b.jd, h.b.tb, h.b.Ch, h.b.Ga] },
+        { id: "geth-enginner", name: a.Ua, V: a.dp, d: "MP_GethEngineer.png", health: 250, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        heavy_melee_base_dmg: 375, Ra: 5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, race: qa.Tb.Ua, powers: [h.b.od, h.b.Hc, h.b.Rb, h.b.df, h.b.Ce] },
+        { id: "quarian-male-enginner", name: a.yh, V: a.Vu, d: "MP_QuarianMale0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Sc, h.b.tb, h.b.Of, h.b.Bh, h.b.bc] },
+        { id: "n7-demolisher", name: a.oh, d: "MP_AllianceENG.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 300, 
+        heavy_melee_base_dmg: 550, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.tf, h.b.uj, h.b.Gc, h.b.dv, h.b.Ga] },
+        { id: "volus-enginner", name: a.Bf, V: a.cC, d: "MP_VolusENG.png", health: 150, shield: 500, base_encumbrance: .15, light_melee_base_dmg: 0, 
+        heavy_melee_base_dmg: 150, heavy_melee_modifiers: l, powers: [h.b.Kd, h.b.lc, h.b.Eb, h.b.Jd, h.b.Ga] },
+        { id: "turian-saboteur", name: a.tA, d: "MP_TurianENG.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Md, h.b.Nc, h.b.Gc, h.b.bf, h.b.De] },
+        { id: "vorcha-hunter", name: a.iC, d: "MP_VorchaENG.png", health: 750, shield: 250, base_encumbrance: .4, light_melee_base_dmg: 250, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Sd, h.b.tb, h.b.uc, h.b.gf, h.b.bc] },
+        { id: "talon-merc", name: a.bA, d: "MP_MercENG.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 100, 
+        heavy_melee_base_dmg: 100, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, vi: 3, powers: [h.b.le, h.b.me, h.b.ae, h.b.$u, h.b.Io], Wb: [1, 2] }
     ], [
-        { id: "male-sentinel", name: a.dc, V: a.tq, d: "SentinelHumanMale.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.Gb, h.b.fb, h.b.nc, h.b.ab, h.b.Za] },
-        { id: "female-sentinel", name: a.cc, V: a.nq, d: "SentinelHumanFemale.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.Gb, h.b.fb, h.b.nc, h.b.ab, h.b.Za] },
-        { id: "turian-sentinel", name: a.vf, V: a.uA, d: "MP_Turian0.png", v: 500, Q: 750, r: .5, A: 200, w: 675, s: l, o: [h.b.Gb, h.b.fb, h.b.Rb, h.b.ff, h.b.ac] },
-        { id: "krogan-sentinel", name: a.vd, V: a.cr, d: "MP_Krogan0.png", v: 750, Q: 1E3, r: .6, A: 300, w: 700, s: l, o: [h.b.Gb, h.b.tb, h.b.wd, h.b.ef, h.b.kd] },
-        { id: "batarian-sentinel", name: a.ge, V: a.Ak, d: "MP_Batarian.png", v: 750, Q: 750, r: .45, A: 190, w: 1E3, s: l, o: [h.b.tc, h.b.Fb, h.b.Sd, h.b.Id, h.b.ac] },
-        { id: "vorcha-sentinel", name: a.Cf, V: a.mC, d: "MP_Vorcha.png", v: 750, Q: 250, r: .3, A: 250, w: 600, s: l, o: [h.b.uc, h.b.Bc, h.b.Yb, h.b.gf, h.b.bc] },
-        { id: "n7-paladin", name: a.qh, d: "MP_AllianceSEN.png", v: 500, Q: 750, r: .3, A: 400, Zd: { health: 2, armor: 1.75, barrier: 2, shield: 2 }, w: 400, s: { health: 1, armor: 1, barrier: 1, shield: 1 }, o: [h.b.Ac, h.b.tb, h.b.Qd, h.b.gv, h.b.Go] },
-        { id: "volus-merc", name: a.dC, d: "MP_VolusENG2.png", v: 150, Q: 500, r: .15, A: 0, w: 150, s: l, o: [h.b.jd, h.b.vc, h.b.Eb, h.b.Jd, h.b.Ga] },
-        { id: "asari-valkyrie", name: a.Rj, d: "MP_AsariSEN.png", v: 500, qa: 500, r: .3, A: 150, w: 500, Ra: 4.5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.Gb, h.b.fb, h.b.bd, h.b.Hd, h.b.Ga] },
-        { id: "krogan-warlord", name: a.kh, d: "MP_BloodSEN.png", v: 1E3, qa: 1250, r: .4, A: 360, w: 675, s: { health: 1, armor: 1, barrier: 1, shield: 1 }, o: [h.b.Gb, h.b.ie, h.b.ze, h.b.cv, h.b.Eo], Wb: [1, 2] }
+        { id: "male-sentinel", name: a.dc, V: a.tq, d: "SentinelHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Gb, h.b.fb, h.b.nc, h.b.ab, h.b.Za] },
+        { id: "female-sentinel", name: a.cc, V: a.nq, d: "SentinelHumanFemale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Gb, h.b.fb, h.b.nc, h.b.ab, h.b.Za] },
+        { id: "turian-sentinel", name: a.vf, V: a.uA, d: "MP_Turian0.png", health: 500, shield: 750, base_encumbrance: .5, light_melee_base_dmg: 200, 
+        heavy_melee_base_dmg: 675, heavy_melee_modifiers: l, powers: [h.b.Gb, h.b.fb, h.b.Rb, h.b.ff, h.b.ac] },
+        { id: "krogan-sentinel", name: a.vd, V: a.cr, d: "MP_Krogan0.png", health: 750, shield: 1E3, base_encumbrance: .6, light_melee_base_dmg: 300, 
+        heavy_melee_base_dmg: 700, heavy_melee_modifiers: l, powers: [h.b.Gb, h.b.tb, h.b.wd, h.b.ef, h.b.kd] },
+        { id: "batarian-sentinel", name: a.ge, V: a.Ak, d: "MP_Batarian.png", health: 750, shield: 750, base_encumbrance: .45, light_melee_base_dmg: 190, 
+        heavy_melee_base_dmg: 1E3, heavy_melee_modifiers: l, powers: [h.b.tc, h.b.Fb, h.b.Sd, h.b.Id, h.b.ac] },
+        { id: "vorcha-sentinel", name: a.Cf, V: a.mC, d: "MP_Vorcha.png", health: 750, shield: 250, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.uc, h.b.Bc, h.b.Yb, h.b.gf, h.b.bc] },
+        { id: "n7-paladin", name: a.qh, d: "MP_AllianceSEN.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 400, light_melee_modifiers: { health: 2, armor: 1.75, barrier: 2, shield: 2 }, 
+        heavy_melee_base_dmg: 400, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.Ac, h.b.tb, h.b.Qd, h.b.gv, h.b.Go] },
+        { id: "volus-merc", name: a.dC, d: "MP_VolusENG2.png", health: 150, shield: 500, base_encumbrance: .15, light_melee_base_dmg: 0, 
+        heavy_melee_base_dmg: 150, heavy_melee_modifiers: l, powers: [h.b.jd, h.b.vc, h.b.Eb, h.b.Jd, h.b.Ga] },
+        { id: "asari-valkyrie", name: a.Rj, d: "MP_AsariSEN.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Gb, h.b.fb, h.b.bd, h.b.Hd, h.b.Ga] },
+        { id: "krogan-warlord", name: a.kh, d: "MP_BloodSEN.png", health: 1E3, barrier: 1250, base_encumbrance: .4, light_melee_base_dmg: 360, 
+        heavy_melee_base_dmg: 675, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.Gb, h.b.ie, h.b.ze, h.b.cv, h.b.Eo], Wb: [1, 2] }
     ], [ 
-        { id: "male-infiltrator", name: a.dc, V: a.sq, d: "InfiltratorHumanMale.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.Zb, h.b.Rc, h.b.ab, h.b.Za] },
-        { id: "female-infiltrator", name: a.cc, V: a.mq, d: "InfiltratorHumanFemale.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.Zb, h.b.Rc, h.b.ab, h.b.Za] },
-        { id: "salarian-inf", name: a.mf, V: a.qw, d: "MP_Salarian0.png", v: 500, Q: 600, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.lc, h.b.Ac, h.b.Ch, h.b.Ga] },
-        { id: "quarian-inf", name: a.Ze, V: a.Uu, d: "MP_Quarian0.png", v: 500, Q: 600, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.Rc, h.b.Nc, h.b.Ah, h.b.Ga] },
-        { id: "geth-inf", name: a.Ua, V: a.ep, d: "MP_GethInfiltrator.png", v: 250, Q: 750, r: .3, A: 200, w: 375, Ra: 5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, race: qa.Tb.Ua, o: [h.b.bb, h.b.lc, h.b.Hc, h.b.df, h.b.Ce] },
-        { id: "quarian-male-inf", name: a.yh, V: a.Wu, d: "MP_QuarianMale0.png", v: 500, Q: 600, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.Sc, h.b.Of, h.b.Bh, h.b.bc] },
-        { id: "n7-shadow", name: a.rh, d: "MP_AllianceINF.png", v: 500, Q: 500, r: .3, A: 250, w: 700, Ra: 2, s: { health: 1, armor: 1, barrier: 1, shield: 1 }, o: [h.b.bb, h.b.xe, h.b.of, h.b.hv, h.b.Ho] },
-        { id: "turian-ghost", name: a.rA, d: "MP_TurianINF.png", v: 500, Q: 750, r: .3, A: 200, w: 600, s: l, o: [h.b.Tz, h.b.Rd, h.b.Rb, h.b.bf, h.b.De] },
-        { id: "drell-assassin", name: a.we, d: "MP_DrellINF.png", v: 500, Q: 250, r: .6, A: 225, w: 600, s: l, o: [h.b.bb, h.b.Gc, h.b.Kd, h.b.cf, h.b.Be] },
-        { id: "asari-huntress", name: a.Oj, d: "MP_AsariINF.png", v: 500, Q: 500, r: .3, A: 150, w: 500, Ra: 4.5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.Uz, h.b.yc, h.b.fb, h.b.Hd, h.b.Ga] },
-        { id: "alliance-inf", name: a.ij, d: "MP_FBotINF.png", v: 500, Q: 750, r: .3, A: 350, w: 650, s: l, o: [h.b.Sz, h.b.Qd, h.b.kf, h.b.kv, h.b.Co] },
-        { id: "bf3-infiltrator", name: a.Dk, V: a.bf3infiname, d: "MP_FBotINF.png", v: 500, Q: 500, r: .3, A: 150, w: 600, s: l, o: [h.b.bb, h.b.tb, h.b.Rc, h.b.ab, h.b.Za] }
+        { id: "male-infiltrator", name: a.dc, V: a.sq, d: "InfiltratorHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Zb, h.b.Rc, h.b.ab, h.b.Za] },
+        { id: "female-infiltrator", name: a.cc, V: a.mq, d: "InfiltratorHumanFemale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Zb, h.b.Rc, h.b.ab, h.b.Za] },
+        { id: "salarian-inf", name: a.mf, V: a.qw, d: "MP_Salarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.lc, h.b.Ac, h.b.Ch, h.b.Ga] },
+        { id: "quarian-inf", name: a.Ze, V: a.Uu, d: "MP_Quarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Rc, h.b.Nc, h.b.Ah, h.b.Ga] },
+        { id: "geth-inf", name: a.Ua, V: a.ep, d: "MP_GethInfiltrator.png", health: 250, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        heavy_melee_base_dmg: 375, Ra: 5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, race: qa.Tb.Ua, powers: [h.b.bb, h.b.lc, h.b.Hc, h.b.df, h.b.Ce] },
+        { id: "quarian-male-inf", name: a.yh, V: a.Wu, d: "MP_QuarianMale0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Sc, h.b.Of, h.b.Bh, h.b.bc] },
+        { id: "n7-shadow", name: a.rh, d: "MP_AllianceINF.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        heavy_melee_base_dmg: 700, Ra: 2, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.bb, h.b.xe, h.b.of, h.b.hv, h.b.Ho] },
+        { id: "turian-ghost", name: a.rA, d: "MP_TurianINF.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Tz, h.b.Rd, h.b.Rb, h.b.bf, h.b.De] },
+        { id: "drell-assassin", name: a.we, d: "MP_DrellINF.png", health: 500, shield: 250, base_encumbrance: .6, light_melee_base_dmg: 225, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Gc, h.b.Kd, h.b.cf, h.b.Be] },
+        { id: "asari-huntress", name: a.Oj, d: "MP_AsariINF.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Uz, h.b.yc, h.b.fb, h.b.Hd, h.b.Ga] },
+        { id: "alliance-inf", name: a.ij, d: "MP_FBotINF.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 350, 
+        heavy_melee_base_dmg: 650, heavy_melee_modifiers: l, powers: [h.b.Sz, h.b.Qd, h.b.kf, h.b.kv, h.b.Co] },
+        { id: "bf3-infiltrator", name: a.Dk, V: a.bf3infiname, d: "MP_FBotINF.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.tb, h.b.Rc, h.b.ab, h.b.Za] }
     ], [
-        { id: "male-vanguard", name: a.dc, V: a.vq, d: "VanguardHumanMale.png", v: 500, qa: 500, r: .3, A: 150, w: 500, s: l, o: [h.b.lb, h.b.Fb, h.b.Bd, h.b.ab, h.b.Za] },
-        { id: "female-vanguard", name: a.cc, V: a.pq, d: "VanguardHumanFemale.png", v: 500, qa: 500, r: .3, A: 150, w: 500, s: l, o: [h.b.lb, h.b.Fb, h.b.Bd, h.b.ab, h.b.Za] },
-        { id: "drell-vanguard", name: a.ve, V: a.sn, d: "MP_Drell0.png", v: 500, qa: 250, r: .6, A: 225, w: 600, s: l, o: [h.b.lb, h.b.Mc, h.b.Yb, h.b.cf, h.b.Be] },
-        { id: "asari-vanguard", name: a.be, V: a.Sj, d: "MP_Asari0.png", v: 500, qa: 500, r: .3, A: 150, w: 500, Ra: 4.5, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.lb, h.b.Qc, h.b.wd, h.b.Hd, h.b.Ga] },
-        { id: "krogan-battlemaster", name: a.vd, V: a.br, d: "MP_KroganBM.png", v: 1E3, qa: 1E3, r: .5, A: 300, w: 700, s: l, o: [h.b.Kk, h.b.Xb, h.b.rb, h.b.bv, h.b.kd] },
-        { id: "cerberus-vanguard", name: a.xg, V: a.ao, d: "MP_Cerberus.png", v: 500, qa: 500, r: .3, A: 400, w: 350, Ra: 6, s: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, o: [h.b.lb, h.b.Pd, h.b.hc, h.b.zh, h.b.Ga] },
-        { id: "n7-slayer", name: a.sh, d: "MP_AllianceVAN.png", v: 500, qa: 500, r: .3, A: 250, w: 700, Ra: 2.5, s: { health: 1, armor: 1, barrier: 1, shield: 1 }, o: [h.b.lb, h.b.We, h.b.je, h.b.iv, h.b.Ga] },
-        { id: "volus-protector", name: a.eC, d: "MP_VolusVAN.png", v: 150, qa: 500, r: .15, A: 0, w: 150, s: l, o: [h.b.lb, h.b.Eb, h.b.ed, h.b.Jd, h.b.Ga] },
-        { id: "batarian-brawler", name: a.sk, d: "MP_BatarianVAN.png", v: 750, qa: 750, r: .3, A: 190, w: 1E3, s: l, o: [h.b.lb, h.b.hc, h.b.tc, h.b.Id, h.b.ac] },
-        { id: "turian-cabal", name: a.Bl, V: a.qA, d: "MP_TurianVAN.png", v: 500, qa: 750, r: .3, A: 250, w: 700, s: { health: 1, armor: 1, barrier: 1, shield: 1 }, o: [h.b.Ye, h.b.Ue, h.b.he, h.b.ff, h.b.Jo] }
+        { id: "male-vanguard", name: a.dc, V: a.vq, d: "VanguardHumanMale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 500, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.Fb, h.b.Bd, h.b.ab, h.b.Za] },
+        { id: "female-vanguard", name: a.cc, V: a.pq, d: "VanguardHumanFemale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 500, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.Fb, h.b.Bd, h.b.ab, h.b.Za] },
+        { id: "drell-vanguard", name: a.ve, V: a.sn, d: "MP_Drell0.png", health: 500, barrier: 250, base_encumbrance: .6, light_melee_base_dmg: 225, 
+        heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.Mc, h.b.Yb, h.b.cf, h.b.Be] },
+        { id: "asari-vanguard", name: a.be, V: a.Sj, d: "MP_Asari0.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.lb, h.b.Qc, h.b.wd, h.b.Hd, h.b.Ga] },
+        { id: "krogan-battlemaster", name: a.vd, V: a.br, d: "MP_KroganBM.png", health: 1E3, barrier: 1E3, base_encumbrance: .5, light_melee_base_dmg: 300, 
+        heavy_melee_base_dmg: 700, heavy_melee_modifiers: l, powers: [h.b.Kk, h.b.Xb, h.b.rb, h.b.bv, h.b.kd] },
+        { id: "cerberus-vanguard", name: a.xg, V: a.ao, d: "MP_Cerberus.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 400, 
+        heavy_melee_base_dmg: 350, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.lb, h.b.Pd, h.b.hc, h.b.zh, h.b.Ga] },
+        { id: "n7-slayer", name: a.sh, d: "MP_AllianceVAN.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        heavy_melee_base_dmg: 700, Ra: 2.5, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.lb, h.b.We, h.b.je, h.b.iv, h.b.Ga] },
+        { id: "volus-protector", name: a.eC, d: "MP_VolusVAN.png", health: 150, barrier: 500, base_encumbrance: .15, light_melee_base_dmg: 0, 
+        heavy_melee_base_dmg: 150, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.Eb, h.b.ed, h.b.Jd, h.b.Ga] },
+        { id: "batarian-brawler", name: a.sk, d: "MP_BatarianVAN.png", health: 750, barrier: 750, base_encumbrance: .3, light_melee_base_dmg: 190, 
+        heavy_melee_base_dmg: 1E3, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.hc, h.b.tc, h.b.Id, h.b.ac] },
+        { id: "turian-cabal", name: a.Bl, V: a.qA, d: "MP_TurianVAN.png", health: 500, barrier: 750, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        heavy_melee_base_dmg: 700, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.Ye, h.b.Ue, h.b.he, h.b.ff, h.b.Jo] }
     ]];
     /*
      Copyright 2013
@@ -2570,7 +2685,7 @@
             for (var e = 0; e < x.length; e++)
                 k[x[e]] = 0; 
             for (var e = [3, 4, 0, 1, 2], m = [N[3], N[4], N[0], N[1], N[2]], I = 0; I < m.length; I++) { 
-                var F = B.o[e[I]], ba = T[e[I]]; 
+                var F = B.powers[e[I]], ba = T[e[I]]; 
                 if (m[I] && (F.M || ba)) 
                     for (var g = 0; g < m[I].length; g++) { 
                         var n = m[I][g]; 
@@ -2596,7 +2711,7 @@
             -1 != x.Ja && (t = mods[x.type][x.Ja], (e = K(t.c[x.ib].attributes, f, k)) && d.push(c.extend(e, { type: "mod", object: t, ia: x.ib }))) 
         } 
         function s(c) {
-            for (var d = {}, f = B.o[c], k = 0; k < f.c.length; k++) {
+            for (var d = {}, f = B.powers[c], k = 0; k < f.c.length; k++) {
                 var t = !1; N[c] && -1 != N[c].indexOf(k) && (t = !0); if (0 == k || t) for (var e in f.c[k].attributes) d[e] || (d[e] = {
                     value: 0,
                     C: []
@@ -2604,7 +2719,7 @@
             } return d
         } 
         function K(c, d, f) { var k = [], t; for (t in c) -1 != d.indexOf(t) && (f[t] += c[t], k.push({ attr: t, value: c[t] })); return 0 == k.length ? !1 : { attributes: k } } function g(c, d) { var f = 0, k = e(["globalPowerDamage"]), f = f + k.data.globalPowerDamage; return { value: d.Yc * (1 + f), C: [] } } function z(c) {
-            var d = [], f = s(c); c = f.durability.value - B.o[c].c[0].attributes.durability; d = f.durability.C; d.shift(); f.omniShieldHealth &&
+            var d = [], f = s(c); c = f.durability.value - B.powers[c].c[0].attributes.durability; d = f.durability.C; d.shift(); f.omniShieldHealth &&
                 (c += f.omniShieldHealth.value, d = d.concat(f.omniShieldHealth.C)); f = f.omniShield.value; return { value: f * (1 + c), C: d }
         } 
         function fa(d, r) {
@@ -2612,7 +2727,7 @@
             r = c.extend({ ea: "health" }, r); 
             var t = s(d); 
             t.powerDamage && (k += t.powerDamage.value, f = t.powerDamage.C); 
-            var m = B.o[d], g = m.i[r.ea]; 
+            var m = B.powers[d], g = m.i[r.ea]; 
             if (t.powerDamageBarrier) { 
                 if ("barrier" == r.ea || "shield" == r.ea) 
                     g = 5; 
@@ -2646,7 +2761,7 @@
             F.powerDamageArmor && ("armor" == t.ea && (I += F.powerDamageArmor.value), m = m.concat(F.powerDamageArmor.C)); 
             F.powerDamageBarrier && ("barrier" == t.ea && (I += F.powerDamageBarrier.value), m = m.concat(F.powerDamageBarrier.C)); 
             F.powerDamageShield && ("shield" == t.ea && (I += F.powerDamageShield.value), F.powerDamageBarrier && F.powerDamageBarrier.value == F.powerDamageShield.value || (m = m.concat(F.powerDamageShield.C))); 
-            f = B.o[d]; 
+            f = B.powers[d]; 
             f.i && (I *= f.i[t.ea]); 
             d = ["globalDamage", "globalPowerDamage", "enemyDamageTaken", "enemyPowerDamageTaken"];
             f.type == power_types.biotic ? d = d.concat("bioticDamage") : f.type == power_types.ta && (d = d.concat("techDamage")); 
@@ -2672,7 +2787,7 @@
             r = c.extend({ ea: "health" }, r); 
             var m = s(d); 
             m.powerDamage && (k += m.powerDamage.value, f = m.powerDamage.C); 
-            var g = B.o[d]; 
+            var g = B.powers[d]; 
             g.i && (t *= g.i[r.ea]); 
             g = e(["globalDamage", "globalPowerDamage", "meleeDamage", "modMeleeDamage", "techDamage"]); 
             f = f.concat(g.C); 
@@ -2700,7 +2815,7 @@
             if (c[0] < spec_patterns.length) { 
                 c = spec_patterns[c[0]].slice(0); 
                 for (var d = 0; d < c.length; d++)
-                if (!B.o[d].g && c[d]) 
+                if (!B.powers[d].g && c[d]) 
                     return !1; 
                 T = c; 
                 return !0 
@@ -2944,7 +3059,7 @@
                     ea() 
                 }; 
                 d.Ui = function (c) {
-                    if (-1 == Y || c >= B.o.length || T[c]) return []; 
+                    if (-1 == Y || c >= B.powers.length || T[c]) return []; 
                     var d = []; 
                     if (B.Wb && -1 != B.Wb.indexOf(c)) 
                         for (var f = 0; f < B.Wb.length; f++) { 
@@ -2956,7 +3071,7 @@
                     return d
                 }; 
                 d.Rm = function (c) { 
-                    -1 == Y || c >= B.o.length || (T[c] = !1, y()) 
+                    -1 == Y || c >= B.powers.length || (T[c] = !1, y()) 
                 }; 
                 d.$m = function () { 
                     Y = -1; 
@@ -2975,10 +3090,12 @@
                 }; 
                 d.Zn = function (c) { 
                     G = c 
-                }; 
-                d.Uo = function () { 
-                    return B.r 
-                }; 
+                };
+
+                d.get_base_encumbrance = function () { 
+                    return B.base_encumbrance 
+                };
+
                 d.Dc = function (c) { 
                     return X[c] 
                 }; 
@@ -2991,22 +3108,24 @@
                 }; 
                 d.Vo = function () { 
                     var c = e(["grenadeCapacity"]); 
-                    d.eh() && c.data.grenadeCapacity++; 
+                    d.evolved_grenade_power() && c.data.grenadeCapacity++; 
                     return { value: c.data.grenadeCapacity, C: c.C } 
                 }; 
                 d.Wo = function () { 
                     var c = e(["durability"]); 
-                    return { value: B.v * (1 + c.data.durability), C: c.C } 
-                }; 
+                    return { value: B.health * (1 + c.data.durability), C: c.C } 
+                };
+
                 d.Gg = function (d) {
                     d = c.extend({ ea: "health" }, d); 
-                    var r = e("enemyDamageTaken globalDamage meleeDamage meleeDamageArmor meleeDamageBarrier meleeDamageShield modMeleeDamage arrows meleeHeavyBase omniShieldFire sabotageMelee".split(" ")), f = B.s, k = r.data.enemyDamageTaken,
+                    var r = e("enemyDamageTaken globalDamage meleeDamage meleeDamageArmor meleeDamageBarrier meleeDamageShield modMeleeDamage arrows meleeHeavyBase omniShieldFire sabotageMelee".split(" ")), 
+                    f = B.heavy_melee_modifiers, k = r.data.enemyDamageTaken,
                         t = 0, m = r.data.globalDamage + r.data.meleeDamage, g = r.data.meleeHeavyBase, I = 1; 
                     "armor" == d.ea ? I += r.data.meleeDamageArmor : "barrier" == d.ea ? I += r.data.meleeDamageBarrier : "shield" == d.ea && (I += r.data.meleeDamageShield); 
-                    var F = B.A, F = F * (1 + m) * (1 + r.data.modMeleeDamage) * (1 + k); 
+                    var F = B.light_melee_base_dmg, F = F * (1 + m) * (1 + r.data.modMeleeDamage) * (1 + k); 
                     "armor" == d.ea && r.data.omniShieldFire && (t = F); 
-                    B.Zd && (F *= B.Zd[d.ea], f = B.Zd); 
-                    var ba = 0 != g ? g : B.w, n = B.s; 
+                    B.light_melee_modifiers && (F *= B.light_melee_modifiers[d.ea], f = B.light_melee_modifiers); 
+                    var ba = 0 != g ? g : B.heavy_melee_base_dmg, n = B.heavy_melee_modifiers; 
                     0 != g && (f = n = { health: 1, armor: .75, barrier: 1, shield: 1 }); 
                     var q = 1; 
                     B.vi && (q = r.data.arrows ? r.data.arrows : B.vi); 
@@ -3015,7 +3134,7 @@
                     0 == g && (ba = (ba + t) * q, ba *= 1 + r.data.sabotageMelee); 
                     return { ui: F * I + t, ti: ba, C: r.C, i: f }
                 }; 
-                d.Hg = function () { return B.V ? B.V : B.name }; d.nd = function (c) { return "undefined" !== typeof c && c < B.o.length ? B.o[c] : B.o }; d.Xo = function (c, d) {
+                d.Hg = function () { return B.V ? B.V : B.name }; d.nd = function (c) { return "undefined" !== typeof c && c < B.powers.length ? B.powers[c] : B.powers }; d.Xo = function (c, d) {
                     var f = {
                         baseRechargeSpeed: A, omniShield: z, shieldBoost: O, bloodlustHOT: function () { return u(c, d, "bloodlustHealthRegen") }, decoyShield: function () { return u(c, d, "decoyShieldStrength") }, duration: function () { return u(c, d, "powerDuration", ["globalDuration"]) }, force: function () {
                             return u(c,
@@ -3040,11 +3159,39 @@
                 }; 
                 d.get_evolution_cost = function (c) { 
                     return cost_of_evolution[c] 
+                };
+
+                d.Jg = function (c, e) { 
+                    var f = [], k = d.Ob(e); 
+                    if (!d.Ie(c, e)) 
+                        return []; 
+                    for (var m = e - 1; 0 <= m; m--) { 
+                        var g = d.Ob(m); 
+                        if (g != d.Pa.Jb) { 
+                            if (d.vb(c, m) || d.Pe(c, m)) 
+                                break; 
+                            f.push(k == d.Pa.Jb && g == d.Pa.ee ? m - 1 : m) 
+                        } 
+                    } 
+                    return f 
                 }; 
-                d.Jg = function (c, e) { var f = [], k = d.Ob(e); if (!d.Ie(c, e)) return []; for (var m = e - 1; 0 <= m; m--) { var g = d.Ob(m); if (g != d.Pa.Jb) { if (d.vb(c, m) || d.Pe(c, m)) break; f.push(k == d.Pa.Jb && g == d.Pa.ee ? m - 1 : m) } } return f }; d.MC = function (c) { return N[c] }; d.He = function () { return ma }; d.$o = function () {
-                    var c = e(["durability", "shieldStrength", "maxShield", "maxShieldStrength"]), d = B.qa ? B.qa : B.Q, d = d * (1 + c.data.durability +
-                        c.data.shieldStrength), d = d + c.data.maxShield * (1 + c.data.maxShieldStrength); return { value: d, C: c.C }
+                
+                d.MC = function (c) { 
+                    return N[c] 
                 }; 
+                
+                d.He = function () { 
+                    return ma 
+                }; 
+                
+                d.$o = function () {
+                    var c = e(["durability", "shieldStrength", "maxShield", "maxShieldStrength"]), 
+                        d = B.barrier ? B.barrier : B.shield, 
+                        d = d * (1 + c.data.durability + c.data.shieldStrength), 
+                        d = d + c.data.maxShield * (1 + c.data.maxShieldStrength); 
+                        return { value: d, C: c.C }
+                }; 
+
                 d.get_shield_recharge_rate = function () { 
                     var x; x = c.extend({ Hf: difficulty.gold }, x); x = base_shield_regen_delay[x.Hf]; 
                     var r = x - 1, f = e(["shieldRechargeRate"]); 
@@ -3154,9 +3301,19 @@
                     c.push(k[v[0].type]); 
                     -1 != v[1].type && (c.push(m[v[1].type]), c.push(f[v[1].type]), c.push(k[v[1].type]));
 
-                    var c = e(c, v[0], { Jf: v[1] }), g = 2 + B.r, g = g + c.data.encumbrance /
-                        100, q = d.Qa(0), n = d.Fc(q), n = n - c.data[f[q.type]], n = n * (1 - c.data[k[q.type]]), n = n - c.data.weaponWeight - c.data[m[q.type]], g = g - n, q = d.Qa(1); -1 != q.type && (n = d.Fc(q), n -= c.data[f[q.type]], n *= 1 - c.data[k[q.type]], n = n - c.data.weaponWeight - c.data[m[q.type]], g -= n); -2 > g ? g = -2 : 2 < g && (g = 2); 
-                        return { value: g, C: c.C }
+                    var c = e(c, v[0], { Jf: v[1] }), 
+                        g = 2 + B.base_encumbrance, 
+                        g = g + c.data.encumbrance / 100, 
+                        q = d.Qa(0), 
+                        n = d.Fc(q), 
+                        n = n - c.data[f[q.type]], 
+                        n = n * (1 - c.data[k[q.type]]), 
+                        n = n - c.data.weaponWeight - c.data[m[q.type]], 
+                        g = g - n, 
+                        q = d.Qa(1); 
+                    -1 != q.type && (n = d.Fc(q), n -= c.data[f[q.type]], n *= 1 - c.data[k[q.type]], n = n - c.data.weaponWeight - c.data[m[q.type]], g -= n); 
+                    -2 > g ? g = -2 : 2 < g && (g = 2); 
+                    return { value: g, C: c.C }
                 }; 
 
                 d.Ie = function (c, e) { 
@@ -3175,24 +3332,29 @@
                         "armor bow damage dot dsDOT hammer overload shadowstrike".split(" ").indexOf(c)
                 }; 
 
-                d.eh = function () { 
-                    for (var c = 0; c < B.o.length; c++)
-                        if (B.o[c].Oa && N[c]) 
+                d.evolved_grenade_power = function () { 
+                    for (var c = 0; c < B.powers.length; c++)
+                        if (B.powers[c].is_grenade_power && N[c]) 
                             return !0; 
                     return !1 
-                }; 
+                };
+
                 d.Oe = function () { 
                     return -1 != Y 
-                }; 
+                };
+
                 d.fh = function (c) { 
-                    return -1 == Y || c >= B.o.length ? !1 : T[c] 
-                }; 
+                    return -1 == Y || c >= B.powers.length ? !1 : T[c] 
+                };
+
                 d.vb = function (c, d) { 
                     return N[c] ? 0 <= N[c].indexOf(d) : !1 
                 }; 
+                
                 d.gh = function (c, e, f) { 
                     return !0 == f && d.Pe(c, e) ? !0 : d.Ie(c, e) 
                 }; 
+                
                 d.Pe = function (c, e) { 
                     var f = d.Ob(e); 
                     return d.vb(c, e) || f == d.Pa.eb ? !1 : d.vb(c, f == d.Pa.Jb ? e + 1 : e - 1) 
@@ -3293,10 +3455,11 @@
                 d.Qw = function (c, d) { 
                     v[c].ia = d; 
                     y() 
-                }; 
-                d.UB = function () {
-                    for (var c = 0; c < B.o.length; c++)
-                        if (!0 == B.o[c].Oa) 
+                };
+
+                d.has_grenade_power = function () {
+                    for (var c = 0; c < B.powers.length; c++)
+                        if (!0 == B.powers[c].is_grenade_power) 
                             return !0; 
                     return !1
                 }
@@ -3716,10 +3879,25 @@
                     g = c("<tbody>"); for (s = 0; s < d.C.length; s++)n = d.C[s], "power" == n.type ? m.Uc(g, n) : m.Vc(g, n); d = c("<table>").addClass("tip-bonus-table").append(g);
                     e.append(c("<h3>").text(O.Wc)).append(d)
                 } A.ba(c("#kit-melee .stat-tip"), e, { location: "bottomRight" })
-        } function z() {
-            var d = p.Kg(), e = 0 <= d.value ? "+" : "-", e = e + (m.va(Math.abs(100 * d.value), 0) + "%"); c("#power-recharge .stat-tip").text(e); var e = c("<div>").addClass("builder-tip character-tip"), g = c("<tbody>"), n = p.Uo(); g.append(s(n, m.va(100 * n, 0) + "%", p.Hg())); var n = p.Qa(D.ha), q = Z[n.type][n.ra], u = p.Fc(n); g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.Gd[n.ia])); n = p.Qa(D.xa); -1 != n.type && (q = Z[n.type][n.ra], u = p.Fc(n), g.append(s(-u,
-                m.va(100 * u, 0) + "%", q.name + " " + m.Gd[n.ia]))); for (n = 0; n < d.C.length; n++)q = d.C[n], "power" == q.type ? m.Uc(g, q) : m.Vc(g, q); d = c("<table>").addClass("tip-bonus-table").append(g); e.append(c("<h3>").text(O.Wc)).append(d); A.Aa(c("#power-recharge .stat-tip")); A.ba(c("#power-recharge .stat-tip"), e, { location: "bottomRight" })
-        } function fa() {
+        } 
+        
+        function z() {
+            var d = p.Kg(), e = 0 <= d.value ? "+" : "-", e = e + (m.va(Math.abs(100 * d.value), 0) + "%"); 
+            c("#power-recharge .stat-tip").text(e); 
+            var e = c("<div>").addClass("builder-tip character-tip"), g = c("<tbody>"), n = p.get_base_encumbrance(); 
+            g.append(s(n, m.va(100 * n, 0) + "%", p.Hg())); 
+            var n = p.Qa(D.ha), q = Z[n.type][n.ra], u = p.Fc(n); 
+            g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.Gd[n.ia])); 
+            n = p.Qa(D.xa); -1 != n.type && (q = Z[n.type][n.ra], u = p.Fc(n), g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.Gd[n.ia]))); 
+            for (n = 0; n < d.C.length; n++)
+                q = d.C[n], "power" == q.type ? m.Uc(g, q) : m.Vc(g, q); 
+            d = c("<table>").addClass("tip-bonus-table").append(g); 
+            e.append(c("<h3>").text(O.Wc)).append(d); 
+            A.Aa(c("#power-recharge .stat-tip")); 
+            A.ba(c("#power-recharge .stat-tip"), e, { location: "bottomRight" })
+        } 
+        
+        function fa() {
             var d = p.$o(), e = p.Zo(); c("#kit-shield .stat-id").text((e == n.rb ? O.hi : O.wB) + ":"); c("#kit-shield .stat-tip").removeClass("barrier shield").addClass(e == n.rb ? "barrier" : "shield").text(m.va(d.value,
                 0)); A.Aa(c("#kit-shield .stat-tip")); 0 < d.C.length ? A.ba(c("#kit-shield .stat-tip"), K(d.C), { location: "bottomRight" }) : A.ba(c("#kit-shield .stat-tip"), O.Xc, { location: "bottomRight" })
         } function u() { var d = p.get_shield_recharge_rate(); c("#shield-recharge .stat-tip").text(m.va(d.HC) + " sec"); var e = Core.format(O.yB, m.va(d.IC)), e = K(d.C).prepend(c("<p>").text(e)); A.Aa(c("#shield-recharge .stat-tip")); 0 < d.C.length ? A.ba(c("#shield-recharge .stat-tip"), e, { location: "bottomRight" }) : A.ba(c("#shield-recharge .stat-tip"), O.Xc, { location: "bottomRight" }) }
@@ -3735,8 +3913,8 @@
             fa(); 
             g(); 
             c("#grenade-count").hide(); 
-            if (p.UB()) {
-                var d = p.Vo(), e = p.eh(); 
+            if (p.has_grenade_power()) {
+                var d = p.Vo(), e = p.evolved_grenade_power(); 
                 c("#grenade-count .stat-tip").text(e ? d.value : 0); 
                 A.Aa(c("#grenade-count .stat-tip")); 
                 e && 0 < d.C.length ? A.ba(c("#grenade-count .stat-tip"), K(d.C), { location: "bottomRight" }) : A.ba(c("#grenade-count .stat-tip"), O.Xc, { location: "bottomRight" }); 
