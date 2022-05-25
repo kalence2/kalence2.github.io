@@ -14,3 +14,19 @@ The 'h' variable
 - h.Ya.e.X: rarities [common, uncommon, rare, ultrarare, placeholder] C.e = { wa: 0, X: 1, t: 2, ya: 3, TC: 4 };
 - h.Xa: methods
 
+Done:
+Added BF3 Infiltrator
+Added Polonium Ammo
+Added Vibration Damper
+Added Chakram Launcher
+Corrected Disruptor ammo
+Corrected Incendiary ammo (theoretical damage)
+
+Todo:
+Boss headshots
+Incendiary glitch
+Weight glitch
+Melee radius and cap
+Sword Mastery
+Armor weakening
+Power DoT

@@ -2298,13 +2298,19 @@
         { name: a.mo, a: a.no, d: "AmmoPower_Needler.png",
         c: [{ attributes: { AMMO_INT: 50, ammoDamage: .1, radius: 1.5 }, Zc: 50 }, { attributes: { AMMO_INT: 150, ammoDamage: .2, radius: 2 }, Zc: 150 }, { attributes: { AMMO_INT: 250, ammoDamage: .3, radius: 2.5 }, Zc: 250 }], i: { health: 1, armor: 1, barrier: 1, shield: 1 } },
         { name: a.Fq, a: a.Gq, d: "AmmoPower_Incendiary.png",
-        c: [{ attributes: { ammoDamage: .1, ATTR_INT: 10, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .2, ATTR_INT: 20, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .3, ATTR_INT: 30, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .5, ATTR_INT: 50, ATTR_TIME: 3 } }], i: { health: 1, armor: 1, barrier: 0, shield: 0 } }, 
+        c: [{ attributes: { ammoDamage: .1, ATTR_INT: 10, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .2, ATTR_INT: 20, ATTR_TIME: 3 } }, 
+            { attributes: { ammoDamage: .3, ATTR_INT: 30, ATTR_TIME: 3 } }, { attributes: { ammoDamage: .5, ATTR_INT: 50, ATTR_TIME: 3 } }], 
+            i: { health: 1, armor: 1, barrier: 0, shield: 0 } }, 
         { name: a.Wt, a: a.Xt, d: "AmmoPower_Phasic.png",
-        c: [{ attributes: { ammoDamage: .05, ATTR_PCT: 1, ATTR_TIME: 15 } }, { attributes: { ammoDamage: .1, ATTR_PCT: 1, ATTR_TIME: 15 } }, { attributes: { ammoDamage: .15, ATTR_PCT: 1, ATTR_TIME: 15 } }], i: { health: 1, armor: 0, barrier: 10, shield: 10 } },
+        c: [{ attributes: { ammoDamage: .05, ATTR_PCT: 1, ATTR_TIME: 15 } }, { attributes: { ammoDamage: .1, ATTR_PCT: 1, ATTR_TIME: 15 } }, 
+            { attributes: { ammoDamage: .15, ATTR_PCT: 1, ATTR_TIME: 15 } }], i: { health: 1, armor: 0, barrier: 10, shield: 10 } },
         { name: a.AC, a: a.BC, d: "AmmoPower_Warp.png",
-        c: [{ attributes: { ammoDamage: .15, ATTR_PCT: .25, ammoArmorWeakening: .25, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .25, ATTR_PCT: .5, ammoArmorWeakening: .35, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .35, ATTR_PCT: .75, ammoArmorWeakening: .5, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .6, ATTR_PCT: 1, ammoArmorWeakening: .65, ATTR_TIME: 4 } }], i: { health: 1, armor: 1, barrier: 2, shield: 0 } },
+        c: [{ attributes: { ammoDamage: .15, ATTR_PCT: .25, ammoArmorWeakening: .25, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .25, ATTR_PCT: .5, ammoArmorWeakening: .35, ATTR_TIME: 4 } }, 
+            { attributes: { ammoDamage: .35, ATTR_PCT: .75, ammoArmorWeakening: .5, ATTR_TIME: 4 } }, { attributes: { ammoDamage: .6, ATTR_PCT: 1, ammoArmorWeakening: .65, ATTR_TIME: 4 } }], 
+            i: { health: 1, armor: 1, barrier: 2, shield: 0 } },
         { name: "Polonium Rounds", a: a.polonium_desc, d: "AmmoPower_Polonium.png",
-        c: [{attributes: { ammoDamage: .2, ATTR_TIME: 10}}, {attributes: { ammoDamage: .3, ATTR_TIME: 9}}, {attributes: { ammoDamage: .4, ATTR_TIME: 8}}, {attributes: { ammoDamage: .45, ATTR_TIME: 5}}], 
+        c: [{attributes: { ammoDamage: .2, ATTR_TIME: 10}}, {attributes: { ammoDamage: .3, ATTR_TIME: 9}}, 
+            {attributes: { ammoDamage: .4, ATTR_TIME: 8}}, {attributes: { ammoDamage: .45, ATTR_TIME: 5}}], 
         i: { health: 1, armor: 1, barrier: 1, shield: 1 }}
     ]];
     /*
@@ -2330,19 +2336,19 @@
         { name: a.Qt, a: a.Rt, ammo_capacity_L: 350, ammo_capacity_H: 450, damage_L: 41.9, damage_H: 52.4, magazine: 50, mode: H.I.sa, 
             f: H.rarity.uncommon, i: J, d: "AssaultRifle_Cobra.png", type: H.D.assault, weight_L: 1.35, weight_H: .8 }, 
         { name: a.Xi, a: a.Yi, ammo_capacity_L: 72, ammo_capacity_H: 96, damage_L: 178.1, damage_H: 222.6, magazine: 24, mode: H.I.sa, 
-            f: H.rarity.rare, i: { organic: { health: 1, armor: 1, barrier: 2, shield: 2 } }, d: "AssaultRifle_Adas_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, Wa: !1, ub: !1 }, 
+            f: H.rarity.rare, i: { organic: { health: 1, armor: 1, barrier: 2, shield: 2 } }, d: "AssaultRifle_Adas_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, headshot_capable: !1, armor_penalty: !1 }, 
         { name: a.Ql, a: a.Rl, ammo_capacity_L: 308, ammo_capacity_H: 392, damage_L: 55.4, damage_H: 69.2, magazine: 28, mode: H.I.sa, 
             race: ua.Sb, f: H.rarity.rare, i: J, d: "AssaultRifle_Collector.png", type: H.D.assault, weight_L: 1.6, weight_H: 1.2 }, 
         { name: a.lp, a: a.mp, ammo_capacity_L: 480, ammo_capacity_H: 640, damage_L: 28.8, damage_H: 36, magazine: 100, mode: H.I.sa, 
-            race: ua.Ua, f: H.rarity.rare, i: J, d: "AssaultRifle_Geth.png", type: H.D.assault, weight_L: 1, weight_H: .5, Vb: 3 }, 
+            race: ua.Ua, f: H.rarity.rare, i: J, d: "AssaultRifle_Geth.png", type: H.D.assault, weight_L: 1, weight_H: .5, headshot_modifier: 3 }, 
         { name: a.Qr, a: a.Rr, ammo_capacity_L: 18, ammo_capacity_H: 28, damage_L: 279.2, damage_H: 349, magazine: 4, mode: H.I.na, 
-            f: H.rarity.rare, i: J, d: "AssaultRifle_Falcon.png", type: H.D.assault, weight_L: 1.75, weight_H: 1, Wa: !1, ub: !1 }, 
+            f: H.rarity.rare, i: J, d: "AssaultRifle_Falcon.png", type: H.D.assault, weight_L: 1.75, weight_H: 1, headshot_capable: !1, armor_penalty: !1 }, 
         { name: a.Wr, a: a.Xr, ammo_capacity_L: 168, ammo_capacity_H: 210, damage_L: 164.8, damage_H: 206, magazine: 21, mode: H.I.Wd, 
             burst: 3, f: H.rarity.rare, i: J, d: "AssaultRifle_Argus.png", type: H.D.assault, weight_L: 2, weight_H: 1.4 }, 
         { name: a.bs, a: a.cs, ammo_capacity_L: 360, ammo_capacity_H: 480, damage_L: 63.6, damage_H: 79.5, magazine: 60, mode: H.I.sa, 
             f: H.rarity.rare, i: J, d: "AssaultRifle_Revenant.png", type: H.D.assault, weight_L: 1.8, weight_H: 1.25 }, 
         { name: a.gz, a: a.hz, ammo_capacity_L: 60, ammo_capacity_H: 72, damage_L: 144.7, damage_H: 180.9, magazine: 12, mode: H.I.sa, 
-            f: H.rarity.rare, i: J, d: "AssaultRifle_Krogan.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, Wa: !1, ub: !1, wi: !0 }, 
+            f: H.rarity.rare, i: J, d: "AssaultRifle_Krogan.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, headshot_capable: !1, armor_penalty: !1}, 
         { name: a.Gl, a: a.Hl, ammo_capacity_L: 80, ammo_capacity_H: 100, damage_L: 106.2, damage_H: 129.5, magazine: 20, mode: H.I.sa, 
             f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Cerberus.png", type: H.D.assault, weight_L: 1.75, weight_H: 1.25 }, 
         { name: a.pp, a: a.qp, ammo_capacity_L: 600, ammo_capacity_H: 750, damage_L: 62.2, damage_H: 77.8, magazine: 220, mode: H.I.sa, 
@@ -2352,26 +2358,27 @@
         { name: a.us, a: a.vs, ammo_capacity_L: 40, ammo_capacity_H: 56, damage_L: 460, damage_H: 575, magazine: 8, mode: H.I.na, 
             f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Saber.png", type: H.D.assault, weight_L: 1.7, weight_H: 1.4 }, 
         { name: a.et, a: a.ft, ammo_capacity_L: 400, ammo_capacity_H: 500, damage_L: 44.4, damage_H: 55.5, magazine: 100, mode: H.I.sa, 
-            f: H.rarity.ultrarare, i: { organic: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 } }, d: "AssaultRifle_LMG.png", type: H.D.assault, weight_L: 2.5, weight_H: 2, ob: !0, rc: !0, Ib: 1.5, wi: !0 }, 
+            f: H.rarity.ultrarare, i: { organic: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 } }, d: "AssaultRifle_LMG.png", type: H.D.assault, weight_L: 2.5, weight_H: 2, 
+            charged: !0, charged_ammo: !0, charged_damage: 1.5}, 
         { name: a.it, a: a.jt, ammo_capacity_L: 144, ammo_capacity_H: 180, damage_L: 119.9, damage_H: 149.9, magazine: 16, mode: H.I.yA, 
-            burst: 2, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Valkyrie.png", type: H.D.assault, weight_L: 1.5, weight_H: 1.25, Vb: 3 }, 
+            burst: 2, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Valkyrie.png", type: H.D.assault, weight_L: 1.5, weight_H: 1.25, headshot_modifier: 3 }, 
         { name: a.Ot, a: a.Pt, ammo_capacity_L: 0, ammo_capacity_H: 125, damage_L: 19.2, damage_H: 25.8, magazine: 100, mode: H.I.sa, 
-            race: ua.Sb, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Prothean_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, ob: !0, rc: !0, Ib: 4, wi: !0 },
+            race: ua.Sb, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Prothean_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, charged: !0, charged_ammo: !0, charged_damage: 4},
         { name: "Chakram Launcher", a: a.chakram_desc, ammo_capacity_L: 40, ammo_capacity_H: 50, damage_L: 277.9, damage_H: 347.4, magazine: 4, mode: H.I.sa, 
-            f: H.rarity.unobtainable, i: J, d: "AssaultRifle_Chakram.png", type: H.D.assault, weight_L: 1.75, weight_H: 1, ob: 1, Ib: 3 , Wa: !1, ub: !1 }
+            f: H.rarity.unobtainable, i: J, d: "AssaultRifle_Chakram.png", type: H.D.assault, weight_L: 1.75, weight_H: 1, charged: 1, charged_damage: 3 , headshot_capable: !1, armor_penalty: !1 }
     ], [
         { name: a.Sr, a: a.Tr, ammo_capacity_L: 90, ammo_capacity_H: 112, damage_L: 58.8, damage_H: 73.5, magazine: 15, mode: H.I.na, 
             f: H.rarity.common, i: J, d: "Pistol_Predator.png", type: H.D.pistol, weight_L: .5, weight_H: .2 }, 
         { name: a.Yr, a: a.Zr, ammo_capacity_L: 72, ammo_capacity_H: 90, damage_L: 114.8, damage_H: 143.5, magazine: 12, mode: H.I.na, 
             f: H.rarity.uncommon, i: J, d: "Pistol_Phalanx.png", type: H.D.pistol, weight_L: .6, weight_H: .25 }, 
         { name: a.Si, a: a.Ti, ammo_capacity_L: 12, ammo_capacity_H: 24, damage_L: 420.2, damage_H: 490, magazine: 3, mode: H.I.na, 
-            f: H.rarity.rare, i: { organic: { health: 1, armor: 1, barrier: 5, shield: 5 } }, d: "Pistol_Asari.png", type: H.D.pistol, weight_L: .5, weight_H: .2, Wa: !1, ub: !1 }, 
+            f: H.rarity.rare, i: { organic: { health: 1, armor: 1, barrier: 5, shield: 5 } }, d: "Pistol_Asari.png", type: H.D.pistol, weight_L: .5, weight_H: .2, headshot_capable: !1, armor_penalty: !1 }, 
         { name: a.vj, a: a.wj, ammo_capacity_L: 72, ammo_capacity_H: 90, damage_L: 77.2, damage_H: 96.5, magazine: 18, mode: H.I.na, 
-            f: H.rarity.rare, i: J, d: "Pistol_Thor.png", type: H.D.pistol, weight_L: 1.1, weight_H: .6, ob: !0, rc: !0, Ib: 3, Yd: 3 }, 
+            f: H.rarity.rare, i: J, d: "Pistol_Thor.png", type: H.D.pistol, weight_L: 1.1, weight_H: .6, charged: !0, charged_ammo: !0, charged_damage: 3, charged_shots: 3 }, 
         { name: a.bo, a: a.co, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 784.9, damage_H: 981.1, magazine: 1, mode: H.I.mc, 
             f: H.rarity.rare, i: J, d: "Pistol_Bloodpack_MP.png", type: H.D.pistol, weight_L: 1.2, weight_H: .7 }, 
         { name: a.sr, a: a.tr, ammo_capacity_L: 30, ammo_capacity_H: 40, damage_L: 125.7, damage_H: 157.1, magazine: 6, mode: H.I.na, 
-            f: H.rarity.rare, i: J, d: "Pistol_Silencer_MP.png", type: H.D.pistol, weight_L: 1.2, weight_H: .7, Vb: 4 }, 
+            f: H.rarity.rare, i: J, d: "Pistol_Silencer_MP.png", type: H.D.pistol, weight_L: 1.2, weight_H: .7, headshot_modifier: 4 }, 
         { name: a.$r, a: a.as, ammo_capacity_L: 30, ammo_capacity_H: 40, damage_L: 276.1, damage_H: 345.1, magazine: 6, mode: H.I.na, 
             f: H.rarity.rare, i: J, d: "Pistol_Carnifex.png", type: H.D.pistol, weight_L: 1.2, weight_H: .7 }, 
         { name: a.Or, a: a.Pr, ammo_capacity_L: 24, ammo_capacity_H: 36, damage_L: 93.7, damage_H: 117.1, magazine: 4, mode: H.I.na, 
@@ -2381,7 +2388,7 @@
         { name: a.Zs, a: a.$s, ammo_capacity_L: 192, ammo_capacity_H: 240, damage_L: 86.1, damage_H: 107.7, magazine: 24, mode: H.I.sa, 
             f: H.rarity.ultrarare, i: J, d: "Pistol_Eagle.png", type: H.D.pistol, weight_L: .45, weight_H: .25 }, 
         { name: a.vw, a: a.ww, ammo_capacity_L: 20, ammo_capacity_H: 30, damage_L: 375.2, damage_H: 469, magazine: 4, mode: H.I.na, 
-            f: H.rarity.ultrarare, i: J, d: "Pistol_Scorpion.png", type: H.D.pistol, weight_L: 1.1, weight_H: .6, Wa: !1, ub: !1 }
+            f: H.rarity.ultrarare, i: J, d: "Pistol_Scorpion.png", type: H.D.pistol, weight_L: 1.1, weight_H: .6, headshot_capable: !1, armor_penalty: !1 }
     ], [
         { name: a.Er, a: a.Fr, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 48.1, damage_H: 60.2, magazine: 5, mode: H.I.na, 
             burst: 8, f: H.rarity.common, i: J, d: "Shotgun_Katana.png", type: H.D.shotgun, weight_L: 1.5, weight_H: .9 }, 
@@ -2394,9 +2401,10 @@
         { name: a.jn, a: a.kn, ammo_capacity_L: 24, ammo_capacity_H: 34, damage_L: 55.6, damage_H: 69.5, magazine: 4, mode: H.I.na, 
             burst: 8, f: H.rarity.rare, i: J, d: "Shotgun_Disciple.png", type: H.D.shotgun, weight_L: 1, weight_H: .5 }, 
         { name: a.jp, a: a.kp, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 714.2, damage_H: 892.7, magazine: 5, mode: H.I.na, 
-            burst: 1.6, race: ua.Ua, f: H.rarity.rare, i: J, d: "Shotgun_Geth.png", type: H.D.shotgun, weight_L: 2, weight_H: 1.4, ri: .45, ob: !0, Wa: !1, ub: !1, Ib: 1 }, 
+            burst: 1.6, race: ua.Ua, f: H.rarity.rare, i: J, d: "Shotgun_Geth.png", type: H.D.shotgun, weight_L: 2, weight_H: 1.4, 
+            uncharged_modifier: .45, charged: !0, headshot_capable: !1, armor_penalty: !1, charged_damage: 1 }, 
         { name: a.yp, a: a.zp, ammo_capacity_L: 12, ammo_capacity_H: 22, damage_L: 88, damage_H: 110, magazine: 3, mode: H.I.na, 
-            burst: 6, f: H.rarity.rare, i: J, d: "Shotgun_Graal.png", type: H.D.shotgun, weight_L: 2, weight_H: 1.4, ob: !0, ub: !1, rc: !0, Ib: 2, Vb: 3 }, 
+            burst: 6, f: H.rarity.rare, i: J, d: "Shotgun_Graal.png", type: H.D.shotgun, weight_L: 2, weight_H: 1.4, charged: !0, armor_penalty: !1, charged_ammo: !0, charged_damage: 2, headshot_modifier: 3 }, 
         { name: a.Mr, a: a.Nr, ammo_capacity_L: 8, ammo_capacity_H: 18, damage_L: 167.8, damage_H: 206, magazine: 1, mode: H.I.mc, 
             burst: 8, f: H.rarity.rare, i: J, d: "Shotgun_Claymore.png", type: H.D.shotgun, weight_L: 2.5, weight_H: 2 }, 
         { name: a.ct, a: a.dt, ammo_capacity_L: 48, ammo_capacity_H: 64, damage_L: 61.7, damage_H: 77.1, magazine: 6, mode: H.I.sa, 
@@ -2408,16 +2416,17 @@
         { name: a.Ts, a: a.Us, ammo_capacity_L: 20, ammo_capacity_H: 30, damage_L: 630.7, damage_H: 788.4, magazine: 4, mode: H.I.na, 
             f: H.rarity.ultrarare, i: J, d: "Shotgun_Crusader.png", type: H.D.shotgun, weight_L: 2.3, weight_H: 2 }, 
         { name: a.$B, a: a.aC, ammo_capacity_L: 12, ammo_capacity_H: 22, damage_L: 636, damage_H: 795, magazine: 4, mode: H.I.na, 
-            f: H.rarity.ultrarare, i: J, d: "Shotgun_Salarian_MP.png", type: H.D.shotgun, weight_L: 2, weight_H: 1.4, ob: !0, Wa: !1, ub: !1, rc: !0, Ib: 1.25 / 3, Yd: 3, si: !0 }
+            f: H.rarity.ultrarare, i: J, d: "Shotgun_Salarian_MP.png", type: H.D.shotgun, weight_L: 2, weight_H: 1.4, 
+            charged: !0, headshot_capable: !1, armor_penalty: !1, charged_ammo: !0, charged_damage: 1.25 / 3, charged_shots: 3, is_venom: !0 }
     ], [
         { name: a.Ur, a: a.Vr, ammo_capacity_L: 360, ammo_capacity_H: 468, damage_L: 38.7, damage_H: 48.3, magazine: 36, mode: H.I.gy, 
             burst: 6, f: H.rarity.common, i: J, d: "SMG_Shuriken.png", type: H.D.smg, weight_L: .45, weight_H: .2 }, 
         { name: a.wr, a: a.xr, ammo_capacity_L: 275, ammo_capacity_H: 350, damage_L: 40.8, damage_H: 51, magazine: 25, mode: H.I.sa, 
-            f: H.rarity.uncommon, i: J, d: "SMG_Locust.png", type: H.D.smg, weight_L: .65, weight_H: .3, Vb: 3 }, 
+            f: H.rarity.uncommon, i: J, d: "SMG_Locust.png", type: H.D.smg, weight_L: .65, weight_H: .3, headshot_modifier: 3 }, 
         { name: a.ws, a: a.xs, ammo_capacity_L: 400, ammo_capacity_H: 500, damage_L: 47.5, damage_H: 59.4, magazine: 50, mode: H.I.sa, 
             f: H.rarity.uncommon, i: J, d: "SMG_Tempest.png", type: H.D.smg, weight_L: .65, weight_H: .3 }, 
         { name: a.hp, a: a.ip, ammo_capacity_L: 600, ammo_capacity_H: 800, damage_L: 16.1, damage_H: 20.1, magazine: 100, mode: H.I.sa, 
-            race: ua.Ua, f: H.rarity.rare, i: J, d: "SMG_Geth.png", type: H.D.smg, weight_L: .65, weight_H: .3, ob: !0, rc: !0, Ib: 2.5 }, 
+            race: ua.Ua, f: H.rarity.rare, i: J, d: "SMG_Geth.png", type: H.D.smg, weight_L: .65, weight_H: .3, charged: !0, charged_ammo: !0, charged_damage: 2.5 }, 
         { name: a.Gr, a: a.Hr, ammo_capacity_L: 168, ammo_capacity_H: 216, damage_L: 53.7, damage_H: 67.2, magazine: 24, mode: H.I.Wd, 
             burst: 3, f: H.rarity.rare, i: J, d: "SMG_Hornet.png", type: H.D.smg, weight_L: .85, weight_H: .45 }, 
         { name: a.ol, a: a.pl, ammo_capacity_L: 320, ammo_capacity_H: 400, damage_L: 40.1, damage_H: 50.1, magazine: 40, mode: H.I.sa, 
@@ -2438,9 +2447,9 @@
         { name: a.Ul, a: a.Vl, ammo_capacity_L: 0, ammo_capacity_H: 45, damage_L: 73, damage_H: 91.3, magazine: 35, mode: H.I.sa, 
             race: ua.Sb, f: H.rarity.rare, i: J, d: "SniperRifle_Collector.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4 }, 
         { name: a.Yq, a: a.Zq, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 890.7, damage_H: 1113.4, magazine: 1, mode: H.I.mc, 
-            f: H.rarity.rare, i: J, d: "SniperRifle_Batarian.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4, ob: !0, ub: !1, Ib: 1.75, Vb: 3, If: .6 }, 
+            f: H.rarity.rare, i: J, d: "SniperRifle_Batarian.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4, charged: !0, armor_penalty: !1, charged_damage: 1.75, headshot_modifier: 3, upfront: .6 }, 
         { name: a.fr, a: a.gr, ammo_capacity_L: 9, ammo_capacity_H: 18, damage_L: 493.4, damage_H: 616.8, magazine: 3, mode: H.I.na, 
-            f: H.rarity.rare, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SniperRifle_Turian.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4, Wa: !1, ub: !1 }, 
+            f: H.rarity.rare, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SniperRifle_Turian.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4, headshot_capable: !1, armor_penalty: !1 }, 
         { name: a.ss, a: a.ts, ammo_capacity_L: 7, ammo_capacity_H: 17, damage_L: 997, damage_H: 1246, magazine: 1, mode: H.I.mc, 
             f: H.rarity.rare, i: J, d: "SniperRifle_Widow.png", type: H.D.sniper, weight_L: 2.5, weight_H: 2 }, 
         { name: a.gl, a: a.hl, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 739, damage_H: 923.8, magazine: 3, mode: H.I.na, 
@@ -3085,12 +3094,12 @@
                     q.data.tcDamageShotgun && (y += q.data.tcDamageShotgun); 
                     q.data.tcDamageSniper && (y += q.data.tcDamageSniper); 
                     q.data.ammoArmorWeakening && (I = 1 - q.data.ammoArmorWeakening); 
-                    g.If && (ba = g.If); 
+                    g.upfront && (ba = g.upfront); 
                     ra += q.data[n[g.type]]; 
                     x = g.damage_L + (g.damage_H - g.damage_L) / 9 * x.ia; 
-                    "ammo" != m.type && !m.gb && g.ri && (x *= g.ri); 
-                    m.gb && g.ob && (n = g.Yd ? g.Yd : 1, "ammo" == m.type && g.si && n++, "ammo" != m.type || "ammo" == m.type && g.rc) && (x = x * g.Ib * n); 
-                    x *= 1 + y; n = g.If ? x * (1 - ba) : 0; 
+                    "ammo" != m.type && !m.gb && g.uncharged_modifier && (x *= g.uncharged_modifier); 
+                    m.gb && g.charged && (n = g.charged_shots ? g.charged_shots : 1, "ammo" == m.type && g.is_venom && n++, "ammo" != m.type || "ammo" == m.type && g.charged_ammo) && (x = x * g.charged_damage * n); 
+                    x *= 1 + y; n = g.upfront ? x * (1 - ba) : 0; 
                     if ("ammo" == m.type) { 
                         k = d.Dc(d.Ab.Fa); 
                         f = d.Fe(d.Ab.Fa); 
@@ -3104,12 +3113,12 @@
                         return Math.round(q) 
                     } 
                     q = 1 + ra; 
-                    ra = g.Vb ? g.Vb : 2.5; 
-                    "headshot" == m.type && !1 !== g.Wa ? (ra *= 1 + F, q += sa) : ra = 1; 
+                    ra = g.headshot_modifier ? g.headshot_modifier : 2.5; 
+                    "headshot" == m.type && !1 !== g.headshot_capable ? (ra *= 1 + F, q += sa) : ra = 1; 
                     F = x * ba * q * (ra + f); 
-                    "armor" == m.ea && !1 !== g.ub && (k *= I, 0 > k && (k = 0), F -= armor_penalty[m.Hf] * k, 5 > F && (F = 5)); 
+                    "armor" == m.ea && !1 !== g.armor_penalty && (k *= I, 0 > k && (k = 0), F -= armor_penalty[m.Hf] * k, 5 > F && (F = 5)); 
                     F *= g.i[m.target][m.ea]; g.burst && (F *= g.burst); 
-                    F += n * (ra + f); m.gb && g.si && (F += q * (g.Yd + 1)); 
+                    F += n * (ra + f); m.gb && g.is_venom && (F += q * (g.charged_shots + 1)); 
                     return Math.round(F)
                 }; 
                 d.cp = function (c) { 
@@ -3603,15 +3612,15 @@
             }
         } function q() { var d = c(this).parents(".weapon-panel").data("slot"), e = c(this).data("mod-slot"); d == f && e == x || -1 == E.Qa(d).type || (c("#build-content").trigger("overlayShowing.View.Character", ya), f = d, x = e, ea(), ya.fadeIn("fast")) } function sa() { ma = !ma; LocalStorage.set("me3.ui.showResistanceDamage", ma.toString()); la(c("#primary-weapon"), E.Qa(B.ha)); var d = E.Qa(B.xa); -1 != d.type && la(c("#secondary-weapon"), d) } function oa(d, e) {
             var f = null, g = null, k = E.Dc(G.Fa), n = c("<div>").addClass("builder-tip weapon-dmg-tip");
-            n.append(c("<h3>").text(w.pi)); var m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)); W(f, d, {}); m.append(f); !1 !== e.Wa && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { type: "headshot" }), m.append(f)); -1 != k && (g = equipment[G.Fa][k], 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { type: "ammo" }), m.append(f))); n.append(c("<table>").append(m)); e.ob && (n.append(c("<h3>").text(w.wf)), m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)),
-                W(f, d, { gb: !0 }), m.append(f), !1 !== e.Wa && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { gb: !0, type: "headshot" }), m.append(f)), -1 != k && 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { gb: !0, type: "ammo" }), m.append(f)), n.append(c("<table>").append(m))); f = ia.uf(e.i.organic); !1 !== f && n.append(c("<h3>").text(w.Af), f); f = c("<tbody>"); g = E.cp(d); for (k = 0; k < g.length; k++)m = g[k], "power" == m.type ? ia.Uc(f, m) : ia.Vc(f, m); 0 < g.length && (f = c("<table>").addClass("tip-bonus-table").append(f),
+            n.append(c("<h3>").text(w.pi)); var m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)); W(f, d, {}); m.append(f); !1 !== e.headshot_capable && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { type: "headshot" }), m.append(f)); -1 != k && (g = equipment[G.Fa][k], 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { type: "ammo" }), m.append(f))); n.append(c("<table>").append(m)); e.charged && (n.append(c("<h3>").text(w.wf)), m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)),
+                W(f, d, { gb: !0 }), m.append(f), !1 !== e.headshot_capable && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { gb: !0, type: "headshot" }), m.append(f)), -1 != k && 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { gb: !0, type: "ammo" }), m.append(f)), n.append(c("<table>").append(m))); f = ia.uf(e.i.organic); !1 !== f && n.append(c("<h3>").text(w.Af), f); f = c("<tbody>"); g = E.cp(d); for (k = 0; k < g.length; k++)m = g[k], "power" == m.type ? ia.Uc(f, m) : ia.Vc(f, m); 0 < g.length && (f = c("<table>").addClass("tip-bonus-table").append(f),
                     n.append(c("<h3>").text(w.Wc)).append(f)); return n
         } function W(d, e, f) { for (var g = ["health", "armor", "barrier", "shield"], k = 0; k < g.length; k++) { f.ea = g[k]; var m = E.Ec(e, f, "health" == g[k] ? !0 : !1); d.append(c("<td>").append(c("<span>").addClass(g[k]).text(m))) } } function va(d, e, f) {
             var g = X[d.type][d.ra], k = E.bp(d), m = null, n = E.Dc(G.Fa), y = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.eB + ":")).append(c("<td>").text(ia.va(k.GC, 0))); y.append(p); p = ia.va(k.EC, 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.IA +
-                ":")).append(c("<td>").text(0 == p ? w.dB : p)); y.append(p); p = ia.va(100 * E.Fc(d), 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.NB + ":")).append(c("<td>").text("-" + p + "%")); y.append(p); k = c("<div>").addClass("builder-tip weapon-tip"); p = c("<h3>").text(g.name + " " + Y[d.ia]).append(c("<span>").addClass("weapon-type").text(N[g.type])); k.append(p); k.append(c("<table>").append(y)); e && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, {}), e.append(p), !1 !== g.Wa && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)),
-                    W(p, d, { type: "headshot" }), e.append(p)), -1 != n && (m = equipment[G.Fa][n], 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, d, { type: "ammo" }), e.append(p))), k.append(c("<h3>").text(w.pi)), k.append(c("<table>").append(e)), g.ob && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, { gb: !0 }), e.append(p), !1 !== g.Wa && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, d, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)),
-                        W(p, d, { gb: !0, type: "ammo" }), e.append(p)), k.append(c("<h3>").text(w.wf)), k.append(c("<table>").append(e))), !f || d.type == f.type && d.ra == f.ra || (d = X[f.type][f.ra], e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, f, {}), e.append(p), !1 !== d.Wa && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, f, { type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, f, { type: "ammo" }), e.append(p)), k.append(c("<h3>").text(d.name +
-                            " " + w.l)), k.append(c("<table>").append(e)), d.ob && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, f, { gb: !0 }), e.append(p), !1 !== d.Wa && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, f, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, f, { gb: !0, type: "ammo" }), e.append(p)), k.append(c("<h3>").text(d.name + " " + w.wf)), k.append(c("<table>").append(e))))); k.append(c("<p>").text(g.a));
+                ":")).append(c("<td>").text(0 == p ? w.dB : p)); y.append(p); p = ia.va(100 * E.Fc(d), 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.NB + ":")).append(c("<td>").text("-" + p + "%")); y.append(p); k = c("<div>").addClass("builder-tip weapon-tip"); p = c("<h3>").text(g.name + " " + Y[d.ia]).append(c("<span>").addClass("weapon-type").text(N[g.type])); k.append(p); k.append(c("<table>").append(y)); e && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, {}), e.append(p), !1 !== g.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)),
+                    W(p, d, { type: "headshot" }), e.append(p)), -1 != n && (m = equipment[G.Fa][n], 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, d, { type: "ammo" }), e.append(p))), k.append(c("<h3>").text(w.pi)), k.append(c("<table>").append(e)), g.charged && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, { gb: !0 }), e.append(p), !1 !== g.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, d, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)),
+                        W(p, d, { gb: !0, type: "ammo" }), e.append(p)), k.append(c("<h3>").text(w.wf)), k.append(c("<table>").append(e))), !f || d.type == f.type && d.ra == f.ra || (d = X[f.type][f.ra], e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, f, {}), e.append(p), !1 !== d.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, f, { type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, f, { type: "ammo" }), e.append(p)), k.append(c("<h3>").text(d.name +
+                            " " + w.l)), k.append(c("<table>").append(e)), d.charged && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, f, { gb: !0 }), e.append(p), !1 !== d.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, f, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, f, { gb: !0, type: "ammo" }), e.append(p)), k.append(c("<h3>").text(d.name + " " + w.wf)), k.append(c("<table>").append(e))))); k.append(c("<p>").text(g.a));
             return k
         } function ta(d) {
             var e = c(d); Q.Aa(c(".consumable > img", e)); c(".consumable > img", e).remove(); c(".consumable > p", e).show(); var f = c(".consumable", e).data("slot"); d = E.Dc(f); if (-1 != d) {
