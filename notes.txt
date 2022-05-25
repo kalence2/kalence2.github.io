@@ -33,3 +33,5 @@ Melee radius and cap
 Sword Mastery
 Armor weakening
 Power DoT
+
+[^a-zA-Z]
