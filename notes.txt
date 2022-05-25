@@ -23,11 +23,11 @@ Corrected Disruptor ammo
 Corrected Incendiary ammo (theoretical damage)
 Corrected Batarian Slasher shields
 Corrected "Quarian Female" descriptions
+Implemented the Inferno Grenade glitch
 
 Todo:
 Boss headshots
 Incendiary glitch
-Inferno grenade glitch
 Weight glitch
 Melee radius and cap
 Sword Mastery
