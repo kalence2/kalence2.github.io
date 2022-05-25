@@ -1754,7 +1754,7 @@
         c: [{ name: a.td, a: a.Pq, attributes: { dot: 150, duration: 8, radius: 5 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .4 } }, { name: a.Sa, a: a.Ic, attributes: { powerDamageArmor: .5 } }, { name: a.nv, a: a.Oq, attributes: { radiusPct: .5, ATTR_INT: 1 } }],
-            i: { health: 1, armor: 1.5, barrier: 1, shield: 1 }, is_grenade_power: !0
+            i: { health: 1, armor: 1.5, barrier: 1, shield: 1 }, is_grenade_power: !0, is_inferno_glitched: true
         }; 
         
         d.hc = { h: ["baseRechargeSpeed", "damage", "force"], g: !1, icon: "Lash", 
@@ -2712,14 +2712,20 @@
             } 
             -1 != x.Ja && (t = mods[x.type][x.Ja], (e = K(t.c[x.ib].attributes, f, k)) && d.push(c.extend(e, { type: "mod", object: t, ia: x.ib }))) 
         } 
+
         function s(c) {
             for (var d = {}, f = character.powers[c], k = 0; k < f.c.length; k++) {
-                var t = !1; N[c] && -1 != N[c].indexOf(k) && (t = !0); if (0 == k || t) for (var e in f.c[k].attributes) d[e] || (d[e] = {
-                    value: 0,
-                    C: []
-                }), d[e].value += f.c[k].attributes[e], d[e].C.push({ attributes: [{ attr: e, value: f.c[k].attributes[e] }], object: f, ia: k, type: "power" })
-            } return d
+                var t = !1; 
+                N[c] && -1 != N[c].indexOf(k) && (t = !0); 
+                if (0 == k || t) 
+                    for (var e in f.c[k].attributes) 
+                        d[e] || (d[e] = { value: 0, C: [] }), 
+                        d[e].value += f.c[k].attributes[e], 
+                        d[e].C.push({ attributes: [{ attr: e, value: f.c[k].attributes[e] }], object: f, ia: k, type: "power" })
+            } 
+            return d
         } 
+
         function K(c, d, f) { var k = [], t; for (t in c) -1 != d.indexOf(t) && (f[t] += c[t], k.push({ attr: t, value: c[t] })); return 0 == k.length ? !1 : { attributes: k } } function g(c, d) { var f = 0, k = e(["globalPowerDamage"]), f = f + k.data.globalPowerDamage; return { value: d.Yc * (1 + f), C: [] } } function z(c) {
             var d = [], f = s(c); c = f.durability.value - character.powers[c].c[0].attributes.durability; d = f.durability.C; d.shift(); f.omniShieldHealth &&
                 (c += f.omniShieldHealth.value, d = d.concat(f.omniShieldHealth.C)); f = f.omniShield.value; return { value: f * (1 + c), C: d }
@@ -2756,7 +2762,7 @@
             return { value: c[d].value * (1 + m), C: t } 
         } 
         function p(d, r, f, k, t) {
-            var m = [], g = 0, I = 1; 
+            var m = [], g = 0, I = 1, d0 = d;
             t = c.extend({ ea: "health" }, t); 
             var F = s(d); 
             F[f] && (g += F[f].value, m = F[f].C); 
@@ -2776,14 +2782,18 @@
             var ba = 0, ba = "undefined" !== typeof t.Yc ? t.Yc : F[r].value; 
             r = ba * (1 + g) * (1 + f) * I; 
             k && (r *= 1 + d.data.modMeleeDamage);
+            if (character.powers[d0].is_inferno_glitched && equipment_type[3] == 5)
+                r *= 8/3;
             return { value: r, C: m }
-        } 
+        }
+
         function A(c) { var r = [], f = 0; c = s(c); c.rechargeSpeed && (f += c.rechargeSpeed.value, r = c.rechargeSpeed.C); var k = !1, t = e(["globalRecharge", "bioticOrbs", "orbRecharge"]); 0 != t.data.globalRecharge && (f += t.data.globalRecharge, k = !0); 0 != t.data.bioticOrbs && (f += t.data.orbRecharge * t.data.bioticOrbs, k = !0); k && (r = r.concat(t.C)); k = d.Kg().value; c = c.baseRechargeSpeed.value; return { value: 0 <= f + k ? 1 / (1 + f + k) * c : c * (1 - (f + k)), C: r } } function m(c, d, f) {
             var k = [], t = s(c); c = 0; t[f] && (c += t[f].value, k = t[f].C); d = t[d].value; return {
                 value: d /
                     (1 + c), C: k
             }
         } 
+
         function ha(d, r) { 
             var f = [], k = 0, t = 1; 
             r = c.extend({ ea: "health" }, r); 
@@ -2798,15 +2808,28 @@
              k = m.shadowstrike.value * (1 + k) * t; 
              k *= 1 + g.data.modMeleeDamage; 
              return { value: k, C: f } 
-        } 
+        }
+
         function O(c) {
             var d = [], f = 0; 
             c = s(c); c.shieldBoostPower && (f += c.shieldBoostPower.value, d = c.shieldBoostPower.C); 
             var k = e(["globalPowerDamage", "shieldBoostPassive"]), f = f + (k.data.globalPowerDamage + k.data.shieldBoostPassive), d = d.concat(k.C); 
             c = c.shieldBoost.value; 
             return { value: c * (1 + f), C: d }
+        }
+
+        function n(c, d) { 
+            var f = 0, k = 0, t = s(c); 
+            t.powerDamage && (f += t.powerDamage.value, 0 < f && (f -= .2)); 
+            t = e(["globalPowerDamage", "enemyPowerDamageTaken"]); 
+            f += t.data.globalPowerDamage; 
+            k += t.data.enemyPowerDamageTaken; 
+            return { 
+                value: d.Yc * (1 + f) * (1 + k), C: [] 
+            } 
         } 
-        function n(c, d) { var f = 0, k = 0, t = s(c); t.powerDamage && (f += t.powerDamage.value, 0 < f && (f -= .2)); t = e(["globalPowerDamage", "enemyPowerDamageTaken"]); f += t.data.globalPowerDamage; k += t.data.enemyPowerDamageTaken; return { value: d.Yc * (1 + f) * (1 + k), C: [] } } function Z(c, d) {
+        
+        function Z(c, d) {
             var f = 0, k = s(c); k.powerDamage &&
                 (f += k.powerDamage.value, 0 < f && (f -= .3)); k = e(["globalPowerDamage"]); f += k.data.globalPowerDamage; return { value: d.Yc * (1 + f), C: [] }
         } 
@@ -3151,29 +3174,95 @@
                     0 == g && (ba = (ba + t) * q, ba *= 1 + r.data.sabotageMelee); 
                     return { ui: F * I + t, ti: ba, C: r.C, i: f }
                 }; 
-                d.Hg = function () { return character.V ? character.V : character.name }; d.nd = function (c) { return "undefined" !== typeof c && c < character.powers.length ? character.powers[c] : character.powers }; d.Xo = function (c, d) {
-                    var f = {
-                        baseRechargeSpeed: A, omniShield: z, shieldBoost: O, bloodlustHOT: function () { return u(c, d, "bloodlustHealthRegen") }, decoyShield: function () { return u(c, d, "decoyShieldStrength") }, duration: function () { return u(c, d, "powerDuration", ["globalDuration"]) }, force: function () {
-                            return u(c,
-                                d, "powerForce", ["globalPowerForce"])
-                        }, hexShield: function () { return u(c, d, "hexShieldStrength", ["durability"]) }, incapacitate: function () { return u(c, d, "incapacitateDuration") }, meleeDrain: function () { return u(c, d, "meleeRestore") }, paralyze: function () { return u(c, d, "paralyzeDuration") }, petShield: function () { return u(c, d, "petShieldStrength") }, poison: function () { return u(c, d, "poisonDamage", ["globalPowerDamage"]) }, radius: function () { return u(c, d, "radiusPct") }, rageHOT: function () { return u(c, d, "rageHealthRegen") }, range: function () {
-                            return u(c,
-                                d, "rangePct")
-                        }, repairMatrix: function () { return u(c, d, "repairShields") }, shieldBoostRegen: function () { return u(c, d, "shieldBoostPower", ["shieldBoostPassive"]) }, stimpackShields: function () { return u(c, d, "stimpackShieldStrength") }, turretRestore: function () { return u(c, d, "turretRestorePct") }, ammoResupply: function () { return m(c, d, "ammoFrequency") }, grenadeResupply: function () { return m(c, d, "grenadeFrequency") }, missileRefire: function () { return m(c, d, "missileFrequency") }
-                    }, k = {}; if (f[d]) k = f[d](c); else {
-                        for (var f = s(c), k =
-                            f[d].C, e = 0; e < k.length; e++)if (0 == k[e].ia) { k.splice(e, 1); break } k = { value: f[d].value, C: k }
-                    } return k
+
+                d.Hg = function () { 
+                    return character.V ? character.V : character.name 
                 }; 
+                
+                d.nd = function (c) { 
+                    return "undefined" !== typeof c && c < character.powers.length ? character.powers[c] : character.powers 
+                }; 
+                
+                d.Xo = function (c, d) {
+                    var f = {
+                        baseRechargeSpeed: A, 
+                        omniShield: z, 
+                        shieldBoost: O, 
+                        bloodlustHOT: function () { return u(c, d, "bloodlustHealthRegen") }, 
+                        decoyShield: function () { return u(c, d, "decoyShieldStrength") }, 
+                        duration: function () { 
+                            var res = u(c, d, "powerDuration", ["globalDuration"]);
+                            if (character.powers[c].is_inferno_glitched && (equipment_type[3] == 5))
+                                res.value *= 3/8;
+                            return res;
+                        }, 
+                        force: function () { return u(c, d, "powerForce", ["globalPowerForce"]) }, 
+                        hexShield: function () { return u(c, d, "hexShieldStrength", ["durability"]) }, 
+                        incapacitate: function () { return u(c, d, "incapacitateDuration") }, 
+                        meleeDrain: function () { return u(c, d, "meleeRestore") }, 
+                        paralyze: function () { return u(c, d, "paralyzeDuration") }, 
+                        petShield: function () { return u(c, d, "petShieldStrength") }, 
+                        poison: function () { return u(c, d, "poisonDamage", ["globalPowerDamage"]) }, 
+                        radius: function () { return u(c, d, "radiusPct") }, 
+                        rageHOT: function () { return u(c, d, "rageHealthRegen") }, 
+                        range: function () { return u(c, d, "rangePct") }, 
+                        repairMatrix: function () { return u(c, d, "repairShields") }, 
+                        shieldBoostRegen: function () { return u(c, d, "shieldBoostPower", ["shieldBoostPassive"]) }, 
+                        stimpackShields: function () { return u(c, d, "stimpackShieldStrength") }, 
+                        turretRestore: function () { return u(c, d, "turretRestorePct") }, 
+                        ammoResupply: function () { return m(c, d, "ammoFrequency") }, 
+                        grenadeResupply: function () { return m(c, d, "grenadeFrequency") }, 
+                        missileRefire: function () { return m(c, d, "missileFrequency") }
+                    }, k = {}; 
+                    if (f[d]) 
+                        k = f[d](c); 
+                    else {
+                        for (var f = s(c), k = f[d].C, e = 0; e < k.length; e++)
+                            if (0 == k[e].ia) { 
+                                k.splice(e, 1); 
+                                break 
+                            } 
+                        k = { value: f[d].value, C: k }
+                    } 
+                    return k
+                };
+
                 d.Ge = function (c, d, f) {
                     var k = {
-                        ATTR_DMG: function () { return p(c, null, "powerDamage", !1, f) }, armor: function () { return p(c, d, "powerDamage", !1, f) }, bow: function () { return p(c, d, "powerDamage", !0, f) }, damage: function () { return p(c, d, "powerDamage", !1, f) }, dot: function () { return p(c, d, "powerDamage", !1, f) }, dsDOT: function () { return p(c, d, "dotDamage", !1, f) }, hammer: function () { return p(c, d, "powerDamage", !0, f) }, bladeDamage: g, overload: fa,
-                        shadowstrike: ha, netAOE: Z, singularity: n
-                    }; return k[d] ? k[d](c, f) : null
-                }; 
+                        ATTR_DMG: function () { 
+                            return p(c, null, "powerDamage", !1, f) 
+                        }, 
+                        armor: function () { 
+                            return p(c, d, "powerDamage", !1, f) 
+                        }, 
+                        bow: function () { 
+                            return p(c, d, "powerDamage", !0, f) 
+                        }, 
+                        damage: function () { 
+                            return p(c, d, "powerDamage", !1, f) 
+                        }, 
+                        dot: function () { 
+                            return p(c, d, "powerDamage", !1, f) 
+                        }, 
+                        dsDOT: function () { 
+                            return p(c, d, "dotDamage", !1, f) 
+                        }, 
+                        hammer: function () { 
+                            return p(c, d, "powerDamage", !0, f) 
+                        }, 
+                        bladeDamage: g, 
+                        overload: fa,
+                        shadowstrike: ha, 
+                        netAOE: Z, 
+                        singularity: n
+                    }; 
+                    return k[d] ? k[d](c, f) : null
+                };
+
                 d.get_points_available = function () { 
                     return points_available 
-                }; 
+                };
+
                 d.get_evolution_cost = function (c) { 
                     return cost_of_evolution[c] 
                 };
@@ -3756,7 +3845,8 @@
             ha(); 
             d.Ea(); 
             c("#character-builder").trigger("weaponModSelected.View.WeaponSelector") 
-        } 
+        }
+
         function p() {
             E.Zn(f); c(this).hide(); f == B.ha ? (c("#primary-weapon .weapon-equipped").show(), c("#secondary-weapon .weapon-equipped").hide()) :
                 (c("#primary-weapon .weapon-equipped").hide(), c("#secondary-weapon .weapon-equipped").show()); c("#character-builder").trigger("equippedWeaponChanged.View.WeaponSelector")
