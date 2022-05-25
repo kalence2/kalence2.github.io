@@ -2366,7 +2366,7 @@
             race: ua.Sb, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Prothean_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, charged: !0, charged_ammo: !0, charged_damage: 4},
         { name: "Chakram Launcher", a: a.chakram_desc, ammo_capacity_L: 40, ammo_capacity_H: 50, damage_L: 277.9, damage_H: 347.4, magazine: 4, mode: H.I.sa, 
             f: H.rarity.unobtainable, i: J, d: "AssaultRifle_Chakram.png", type: H.D.assault, weight_L: 1.75, weight_H: 1, 
-            charged: 1, charged_damage: 3, charged_ammo: !0, headshot_capable: !1, armor_penalty: !1, is_chakram: true }
+            charged: 1, charged_damage: 3, charged_ammo: !0, headshot_capable: !1, armor_penalty: !1}
     ], [
         { name: a.Sr, a: a.Tr, ammo_capacity_L: 90, ammo_capacity_H: 112, damage_L: 58.8, damage_H: 73.5, magazine: 15, mode: H.I.na, 
             f: H.rarity.common, i: J, d: "Pistol_Predator.png", type: H.D.pistol, weight_L: .5, weight_H: .2 }, 
@@ -3112,8 +3112,6 @@
                         q *= k.i[m.ea]; 
                         g.burst && (q *= Math.floor(g.burst)); 
                         k.c[f].Zc && q > k.c[f].Zc && (q = k.c[f].Zc);
-                        if (g.is_chakram)
-                            q *= 4;
                         return Math.round(q) 
                     } 
                     q = 1 + ra; 
