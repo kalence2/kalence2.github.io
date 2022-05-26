@@ -1804,8 +1804,7 @@
         d.We = { h: ["damage", "radius"], g: !1, icon: "PalmBlaster", 
         c: [{ name: a.We, a: a.Vt, attributes: { damage: 400, radius: 4, ATTR_PCT: .4 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .5 } }, { name: a.$q, a: a.St, attributes: {} }, 
-            { name: a.An, a: a.Tt, attributes: { ATTR_PCT: .5 } }, { name: a.Sa, a: a.Ic, attributes: { powerDamageArmor: .75 } }, { name: a.Nd, a: a.Ut, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }], 
-            type: d.type.biotic
+            { name: a.An, a: a.Tt, attributes: { ATTR_PCT: .5 } }, { name: a.Sa, a: a.Ic, attributes: { powerDamageArmor: .75 } }, { name: a.Nd, a: a.Ut, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }]
         }; 
         
         d.Ye = { Z: { damage: a.bg, duration: a.Fd }, h: ["baseRechargeSpeed", "range", "damage", "poison", "duration"], g: !1, icon: "LineStrike", 
@@ -2702,8 +2701,8 @@
             d || (d = weapon_loadout[G]); 
             for (var e = 0; e < x.length; e++)
                 k[x[e]] = 0; 
-            for (var e = [3, 4, 0, 1, 2], m = [N[3], N[4], N[0], N[1], N[2]], I = 0; I < m.length; I++) { 
-                var F = character.powers[e[I]], ba = is_evolved[e[I]]; 
+            for (var e = [3, 4, 0, 1, 2], m = [build[3], build[4], build[0], build[1], build[2]], I = 0; I < m.length; I++) { 
+                var F = character.powers[e[I]], ba = is_toggled[e[I]]; 
                 if (m[I] && (F.M || ba)) 
                     for (var g = 0; g < m[I].length; g++) { 
                         var n = m[I][g]; 
@@ -2733,7 +2732,7 @@
         function s(c) {
             for (var d = {}, f = character.powers[c], k = 0; k < f.c.length; k++) {
                 var t = !1; 
-                N[c] && -1 != N[c].indexOf(k) && (t = !0); 
+                build[c] && -1 != build[c].indexOf(k) && (t = !0); 
                 if (0 == k || t) 
                     for (var e in f.c[k].attributes) 
                         d[e] || (d[e] = { value: 0, C: [] }), 
@@ -2741,7 +2740,14 @@
                         d[e].C.push({ attributes: [{ attr: e, value: f.c[k].attributes[e] }], object: f, ia: k, type: "power" })
             } 
             return d
-        } 
+        }
+
+        function has_biotic_primer_active() {
+            for (var i = 0; i < character.powers.length; ++i)
+                if (character.powers[i].is_biotic_primer && is_toggled[i])
+                    return true;
+            return false;
+        }
 
         function K(c, d, f) { var k = [], t; for (t in c) -1 != d.indexOf(t) && (f[t] += c[t], k.push({ attr: t, value: c[t] })); return 0 == k.length ? !1 : { attributes: k } } 
         
@@ -2749,6 +2755,7 @@
             var d = [], f = s(c); c = f.durability.value - character.powers[c].c[0].attributes.durability; d = f.durability.C; d.shift(); f.omniShieldHealth &&
                 (c += f.omniShieldHealth.value, d = d.concat(f.omniShieldHealth.C)); f = f.omniShield.value; return { value: f * (1 + c), C: d }
         } 
+
         function fa(d, r) {
             var f = [], k = 0; 
             r = c.extend({ ea: "health" }, r); 
@@ -2768,6 +2775,7 @@
             k = t.overload.value * (1 + k) * (1 + F); t.neuralShock && (I = k * m.i[r.ea]); 
             return { value: k * g + I, C: f }
         } 
+
         function u(c, d, f, k) { 
             var t = [], m = 0; 
             c = s(c); 
@@ -2780,6 +2788,7 @@
             } 
             return { value: c[d].value * (1 + m), C: t } 
         } 
+
         function p(d, r, f, k, t) {
             var m = [], g = 0, I = 1, d0 = d;
             t = c.extend({ ea: "health" }, t); 
@@ -2852,6 +2861,7 @@
             var f = 0, k = s(c); k.powerDamage &&
                 (f += k.powerDamage.value, 0 < f && (f -= .3)); k = e(["globalPowerDamage"]); f += k.data.globalPowerDamage; return { value: d.Yc * (1 + f), C: [] }
         } 
+
         function D(c) { 
             if (!c) 
                 return !0; 
@@ -2861,10 +2871,12 @@
                 for (var d = 0; d < c.length; d++)
                 if (!character.powers[d].g && c[d]) 
                     return !1; 
-                is_evolved = c; 
+                is_toggled = c; 
                 return !0 
-            } return !1 
+            } 
+            return !1 
         } 
+
         function ca(c, d) { 
             if (!c || ".." == c) 
                 return !0; 
@@ -2887,10 +2899,10 @@
 
         function y() {
             for (var c = Hash.encode([class_index, character_index_in_class]), d = "", f = 0; 5 > f; f++)
-                if (N[f]) {
+                if (build[f]) {
                     var k; 
                     a: {
-                    k = N[f]; 
+                    k = build[f]; 
                     for (var t = 0; t < evolution_paths.length; t++)
                         if (k.length == evolution_paths[t].length) {
                             for (var e = !0, m = 0; m < k.length; m++)
@@ -2909,8 +2921,8 @@
                 a: { 
                 for (f = 0; f < spec_patterns.length; f++) { 
                     k = !0; 
-                    for (t = 0; t < is_evolved.length; t++)
-                        if (is_evolved[t] != spec_patterns[f][t]) { 
+                    for (t = 0; t < is_toggled.length; t++)
+                        if (is_toggled[t] != spec_patterns[f][t]) { 
                             k = !1; 
                             break 
                         } 
@@ -2959,9 +2971,9 @@
                             k = f; 
                             e = Hash.decode(build_code[4][f])[0]; 
                             if (5 > k && e < evolution_paths.length) { 
-                                N[k] = evolution_paths[e].slice(0); 
-                                for (e = 0; e < N[k].length; e++)
-                                    points_available -= cost_of_evolution[N[k][e]]; 
+                                build[k] = evolution_paths[e].slice(0); 
+                                for (e = 0; e < build[k].length; e++)
+                                    points_available -= cost_of_evolution[build[k][e]]; 
                                 k = !0 
                             } 
                             else 
@@ -3084,6 +3096,7 @@
             ], 
             base_shield_regen_delay = [3.5, 4, 4, 4.5], 
             armor_penalty = [15, 30, 50, 50]; 
+
         difficulty = { bronze: 0, silver: 1, gold: 2, platinum: 3 }; 
         d.Ab = { jb: 0, mb: 1, Hb: 2, Fa: 3 }; 
         d.Pa = { eb: 0, Jb: 1, ee: 2 }; 
@@ -3091,7 +3104,7 @@
         d.lf = { rb: 0, Ww: 1 }; 
         d.aa = { ha: 0, xa: 1 };
 
-        var is_evolved = [!1, !1, !1, !1, !1], 
+        var is_toggled = [!1, !1, !1, !1, !1], 
             G = 0, 
             points_available = points_at_level[19],
             class_index = 0,
@@ -3099,7 +3112,7 @@
             equipment_type = [-1, -1, -1, -1], 
             equipment_level = [-1, -1, -1, -1], 
             character = null, 
-            N = [], 
+            build = [], 
             weapon_loadout = [{ type: -1, ra: -1, ia: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }, { type: -1, ra: -1, ia: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }], 
             S = [[], [], [], [], []], 
             pa = [[], [], [], [], []];
@@ -3110,20 +3123,20 @@
                 };
 
                 d.Ui = function (c) {
-                    if (-1 == character_index_in_class || c >= character.powers.length || is_evolved[c]) return []; 
+                    if (-1 == character_index_in_class || c >= character.powers.length || is_toggled[c]) return []; 
                     var d = []; 
                     if (character.mutually_exclusive && -1 != character.mutually_exclusive.indexOf(c)) 
                         for (var f = 0; f < character.mutually_exclusive.length; f++) { 
                             var k = character.mutually_exclusive[f]; 
-                            is_evolved[k] && (is_evolved[k] = !1, d.push(k)) 
+                            is_toggled[k] && (is_toggled[k] = !1, d.push(k)) 
                         } 
-                    is_evolved[c] = !0; 
+                    is_toggled[c] = !0; 
                     y(); 
                     return d
                 };
 
                 d.Rm = function (c) { 
-                    -1 == character_index_in_class || c >= character.powers.length || (is_evolved[c] = !1, y()) 
+                    -1 == character_index_in_class || c >= character.powers.length || (is_toggled[c] = !1, y()) 
                 };
 
                 d.$m = function () { 
@@ -3132,11 +3145,11 @@
                 };
                 
                 d.sg = function (c, d, f) { 
-                    if (N[c] && (d = N[c].indexOf(d), -1 != d)) { 
+                    if (build[c] && (d = build[c].indexOf(d), -1 != d)) { 
                         var k = 1; 
-                        !0 == f && (k = N[c].length - d); 
-                        d = N[c].splice(d, k); 
-                        0 == N[c].length && (N[c] = null); 
+                        !0 == f && (k = build[c].length - d); 
+                        d = build[c].splice(d, k); 
+                        0 == build[c].length && (build[c] = null); 
                         for (c = 0; c < d.length; c++)
                             points_available += cost_of_evolution[d[c]]; 
                         !0 == f && y() 
@@ -3302,7 +3315,7 @@
                 }; 
                 
                 d.MC = function (c) { 
-                    return N[c] 
+                    return build[c] 
                 }; 
                 
                 d.He = function () { 
@@ -3325,7 +3338,7 @@
                     return { IC: r, HC: x, C: f.C } 
                 };
 
-                d.Zo = function () { 
+                d.has_barrier = function () { 
                     return character.barrier ? d.lf.rb : d.lf.Ww 
                 };
 
@@ -3386,6 +3399,8 @@
                         q *= k.i[m.ea]; 
                         g.burst && (q *= Math.floor(g.burst)); 
                         k.c[f].Zc && q > k.c[f].Zc && (q = k.c[f].Zc);
+                        if (equipment_type[3] == 7 && has_biotic_primer_active())
+                            q *= 2;
                         return Math.round(q) 
                     } 
                     q = 1 + ra; 
@@ -3396,10 +3411,12 @@
                     F *= g.i[m.target][m.ea]; g.burst && (F *= g.burst); 
                     F += n * (ra + f); m.gb && g.is_venom && (F += q * (g.charged_shots + 1)); 
                     return Math.round(F)
-                }; 
+                };
+
                 d.cp = function (c) { 
                     return pa[c.type][c.ra] || [] 
-                }; 
+                };
+
                 d.Fc = function (c) { 
                     var d = weapons[c.type][c.ra]; 
                     return d.weight_L + (d.weight_H - d.weight_L) / 9 * c.ia 
@@ -3461,7 +3478,7 @@
 
                 d.evolved_grenade_power = function () { 
                     for (var c = 0; c < character.powers.length; c++)
-                        if (character.powers[c].is_grenade_power && N[c]) 
+                        if (character.powers[c].is_grenade_power && build[c]) 
                             return !0; 
                     return !1 
                 };
@@ -3471,11 +3488,11 @@
                 };
 
                 d.fh = function (c) { 
-                    return -1 == character_index_in_class || c >= character.powers.length ? !1 : is_evolved[c] 
+                    return -1 == character_index_in_class || c >= character.powers.length ? !1 : is_toggled[c] 
                 };
 
                 d.vb = function (c, d) { 
-                    return N[c] ? 0 <= N[c].indexOf(d) : !1 
+                    return build[c] ? 0 <= build[c].indexOf(d) : !1 
                 }; 
                 
                 d.gh = function (c, e, f) { 
@@ -3511,8 +3528,8 @@
                     y() 
                 }; 
                 d.Kh = function () { 
-                    is_evolved = [!1, !1, !1, !1, !1]; 
-                    N = []; 
+                    is_toggled = [!1, !1, !1, !1, !1]; 
+                    build = []; 
                     points_available = points_at_level[19]; 
                     y() 
                 }; 
@@ -3522,30 +3539,33 @@
                     G = 0; 
                     y()
                 }; 
+
                 d.Dw = function (c, e) { 
                     if (!d.vb(c, e) && d.gh(c, e)) { 
                         for (var f = d.Jg(c, e), k = f.length - 1; 0 <= k; k--)
-                            N[c] ? N[c].push(f[k]) : N[c] = [f[k]], points_available -= cost_of_evolution[f[k]]; 
-                        if (N[c]) 
-                            for (k = 0; k <= N[c].length; k++) { 
-                                if (k == N[c].length) { 
-                                    N[c].push(e); 
+                            build[c] ? build[c].push(f[k]) : build[c] = [f[k]], points_available -= cost_of_evolution[f[k]]; 
+                        if (build[c]) 
+                            for (k = 0; k <= build[c].length; k++) { 
+                                if (k == build[c].length) { 
+                                    build[c].push(e); 
                                     break 
                                 } 
-                                if (e < N[c][k]) { 
-                                    N[c].splice(k, 0, e); 
+                                if (e < build[c][k]) { 
+                                    build[c].splice(k, 0, e); 
                                     break 
                                 } 
                             } 
                         else 
-                            N[c] = [e]; 
+                            build[c] = [e]; 
                         points_available -= cost_of_evolution[e]; 
                         y() 
                     } 
                 }; 
-                d.Jw = function (c, d, f) { 
+
+                d.change_equipment = function (c, d, f) { 
                     d < equipment[c].length && f < equipment[c][d].c.length && (equipment_type[c] = d, equipment_level[c] = f, y()) 
                 }; 
+
                 d.Kw = function (c, d) {
                     -1 != equipment_type[c] && d < equipment[c][equipment_type[c]].c.length && (equipment_level[c] = d, y())
                 }; 
@@ -3622,7 +3642,28 @@
     */
     R = R || {}; jQuery191(function () { R.Tc.initialize() });
     (function (d, c) {
-        function e(d, e, g, n, p) { d = c(window).scrollTop(); var D = c(window).scrollLeft(), z = c(window).width(), u = c(window).height(), y = D - e, ea = e + n - (D + z); n > z ? e = 0 < y && 0 >= ea ? e + (y - (e + y + n - z - D)) : 0 < ea && 0 >= y ? D : y > ea ? D + z - n : D : 0 < y ? e += y : 0 < ea && (e -= ea); n = d - g; D = g + p - (d + u); p > u ? g = 0 < n && 0 >= D ? g + (n - (g + n + p - u - d)) : 0 < D && 0 >= n ? d : n > D ? d + u - p : d : 0 < n ? g += n : 0 < D && (g -= D); return { x: e, y: g } } function P() { var d = c(window).scrollLeft(), e = c(window).scrollTop(); p.css("left", d).css("top", e).hide() } function s(c, d) { p.css("left", c + "px").css("top", d + "px").show() }
+        function e(d, e, g, n, p) { 
+            d = c(window).scrollTop(); 
+            var D = c(window).scrollLeft(), 
+                z = c(window).width(), 
+                u = c(window).height(), 
+                y = D - e, 
+                ea = e + n - (D + z); 
+                n > z ? e = 0 < y && 0 >= ea ? e + (y - (e + y + n - z - D)) : 0 < ea && 0 >= y ? D : y > ea ? D + z - n : D : 0 < y ? e += y : 0 < ea && (e -= ea); n = d - g; 
+                D = g + p - (d + u); p > u ? g = 0 < n && 0 >= D ? g + (n - (g + n + p - u - d)) : 0 < D && 0 >= n ? d : n > D ? d + u - p : d : 0 < n ? g += n : 0 < D && (g -= D); 
+                return { x: e, y: g } 
+        } 
+        
+        function P() { 
+            var d = c(window).scrollLeft(), 
+                e = c(window).scrollTop(); 
+            p.css("left", d).css("top", e).hide() 
+        } 
+        
+        function s(c, d) { 
+            p.css("left", c + "px").css("top", d + "px").show() 
+        }
+
         function K() { var e = c(this), g = e.attr("ui-tooltip-data"), p = e.data("ui-tooltip-options"); g && d.Th(e, g, p) } function g() { var e = c(this), g = e.attr("ui-tooltip-data"), p = e.data("ui-tooltip-options"); g && d.Th(e, g, p) } function z(c, d, e) { "string" === typeof d ? A.html(d) : A.empty().append(d); d = p.outerWidth(); var g = p.outerHeight(); c = fa[e.location](c, d, g); "mouse" != e.location && s(c.x, c.y) } var fa = {
             bottomCenter: function (c, d, g) { var n = c.offset(), p = n.left + (c.outerWidth() / 2 - d / 2); c = n.top + c.outerHeight() + 5; return e(0, p, c, d, g) }, bottomLeft: function (c,
                 d, g) { var n = c.offset(), p = n.left - d; c = n.top + c.outerHeight(); return e(0, p, c, d, g) }, bottomRight: function (c, d, g) { var n = c.offset(), p = n.left + c.outerWidth(); c = n.top + c.outerHeight(); return e(0, p, c, d, g) }, leftCenter: function (c, d, g) { var n = c.offset(), p = n.left - d; c = n.top + c.outerHeight() / 2 - g / 2; return e(0, p, c, d, g) }, rightCenter: function (c, d, g) { var n = c.offset(), p = n.left + c.outerWidth(); c = n.top + c.outerHeight() / 2 - g / 2; return e(0, p, c, d, g) }, topLeft: function (c, d, g) { c = c.offset(); return e(0, c.left - d, c.top - g, d, g) }, topRight: function (c,
@@ -3876,7 +3917,8 @@
             e.stopPropagation() : (c("#equipment-selector .item-rank").removeClass("rank-active"), c(this).addClass("rank-active"), v = c(this).data("rank"), E.Kw(S, v), d.Ea(), S != G.Fa && S != G.jb && na(c("#equipment-type-" + S)), c("#character-builder").trigger(k[S]))
         } 
         
-        function n() { var e = S; if (S == G.Fa || S == G.jb) v = c(this).data("rank"); E.Jw(S, c(this).data("equipment"), v); Telemetry.trackEvent("ME3 Builder", "onEquipmentSelected", "slot: " + S); A(); d.Ea(); c("#character-builder").trigger(k[e]) } function Z() {
+        function n() { var e = S; if (S == G.Fa || S == G.jb) v = c(this).data("rank"); 
+        E.change_equipment(S, c(this).data("equipment"), v); Telemetry.trackEvent("ME3 Builder", "onEquipmentSelected", "slot: " + S); A(); d.Ea(); c("#character-builder").trigger(k[e]) } function Z() {
             var d = E.Qa(B.ha); la(c("#primary-weapon"),
                 d); Q.Aa(c("#primary-weapon .weapon-dmg")); Q.ba(c("#primary-weapon .weapon-dmg"), oa(d, X[d.type][d.ra])); Q.Aa(c("#primary-weapon .weapon img")); Q.ba(c("#primary-weapon .weapon img"), va(d)); d = E.Qa(B.xa); -1 != d.type && (la(c("#secondary-weapon"), d), Q.Aa(c("#secondary-weapon .weapon-dmg")), Q.ba(c("#secondary-weapon .weapon-dmg"), oa(d, X[d.type][d.ra])), Q.Aa(c("#secondary-weapon .weapon img")), Q.ba(c("#secondary-weapon .weapon img"), va(d)))
         } 
@@ -3909,12 +3951,44 @@
             }
         } 
         
-        function q() { var d = c(this).parents(".weapon-panel").data("slot"), e = c(this).data("mod-slot"); d == f && e == x || -1 == E.Qa(d).type || (c("#build-content").trigger("overlayShowing.View.Character", ya), f = d, x = e, ea(), ya.fadeIn("fast")) } function sa() { ma = !ma; LocalStorage.set("me3.ui.showResistanceDamage", ma.toString()); la(c("#primary-weapon"), E.Qa(B.ha)); var d = E.Qa(B.xa); -1 != d.type && la(c("#secondary-weapon"), d) } function oa(d, e) {
-            var f = null, g = null, k = E.equipment_type_at_index(G.Fa), n = c("<div>").addClass("builder-tip weapon-dmg-tip");
-            n.append(c("<h3>").text(w.pi)); var m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)); W(f, d, {}); m.append(f); !1 !== e.headshot_capable && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { type: "headshot" }), m.append(f)); -1 != k && (g = equipment[G.Fa][k], 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { type: "ammo" }), m.append(f))); n.append(c("<table>").append(m)); e.charged && (n.append(c("<h3>").text(w.wf)), m = c("<tbody>"), f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)),
-                W(f, d, { gb: !0 }), m.append(f), !1 !== e.headshot_capable && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { gb: !0, type: "headshot" }), m.append(f)), -1 != k && 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { gb: !0, type: "ammo" }), m.append(f)), n.append(c("<table>").append(m))); f = ia.uf(e.i.organic); !1 !== f && n.append(c("<h3>").text(w.Af), f); f = c("<tbody>"); g = E.cp(d); for (k = 0; k < g.length; k++)m = g[k], "power" == m.type ? ia.Uc(f, m) : ia.Vc(f, m); 0 < g.length && (f = c("<table>").addClass("tip-bonus-table").append(f),
+        function q() { 
+            var d = c(this).parents(".weapon-panel").data("slot"), 
+                e = c(this).data("mod-slot"); 
+            d == f && e == x || -1 == E.Qa(d).type || (c("#build-content").trigger("overlayShowing.View.Character", ya), f = d, x = e, ea(), ya.fadeIn("fast")) 
+        } 
+        
+        function sa() { 
+            ma = !ma; 
+            LocalStorage.set("me3.ui.showResistanceDamage", ma.toString()); 
+            la(c("#primary-weapon"), E.Qa(B.ha)); 
+            var d = E.Qa(B.xa); 
+            -1 != d.type && la(c("#secondary-weapon"), d) 
+        } 
+        
+        function oa(d, e) {
+            var f = null, 
+                g = null, 
+                k = E.equipment_type_at_index(G.Fa), 
+                n = c("<div>").addClass("builder-tip weapon-dmg-tip");
+            n.append(c("<h3>").text(w.pi)); 
+            var m = c("<tbody>"), 
+                f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)); 
+            W(f, d, {}); 
+            m.append(f); 
+            !1 !== e.headshot_capable && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { type: "headshot" }), m.append(f)); 
+            -1 != k && (g = equipment[G.Fa][k], 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { type: "ammo" }), m.append(f))); 
+            n.append(c("<table>").append(m)); 
+            e.charged && (n.append(c("<h3>").text(w.wf)), 
+                          m = c("<tbody>"), 
+                          f = c("<tr>").append(c("<td>")
+                                       .addClass("stat-id").text(w.qc)),
+                          W(f, d, { gb: !0 }), 
+                          m.append(f), 
+                          !1 !== e.headshot_capable && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(f, d, { gb: !0, type: "headshot" }), m.append(f)), -1 != k && 0 != g.i.health && (f = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(f, d, { gb: !0, type: "ammo" }), m.append(f)), n.append(c("<table>").append(m))); f = ia.uf(e.i.organic); !1 !== f && n.append(c("<h3>").text(w.Af), f); f = c("<tbody>"); g = E.cp(d); for (k = 0; k < g.length; k++)m = g[k], "power" == m.type ? ia.Uc(f, m) : ia.Vc(f, m); 0 < g.length && (f = c("<table>").addClass("tip-bonus-table").append(f),
                     n.append(c("<h3>").text(w.Wc)).append(f)); return n
-        } function W(d, e, f) { for (var g = ["health", "armor", "barrier", "shield"], k = 0; k < g.length; k++) { f.ea = g[k]; var m = E.Ec(e, f, "health" == g[k] ? !0 : !1); d.append(c("<td>").append(c("<span>").addClass(g[k]).text(m))) } } function va(d, e, f) {
+        } 
+        
+        function W(d, e, f) { for (var g = ["health", "armor", "barrier", "shield"], k = 0; k < g.length; k++) { f.ea = g[k]; var m = E.Ec(e, f, "health" == g[k] ? !0 : !1); d.append(c("<td>").append(c("<span>").addClass(g[k]).text(m))) } } function va(d, e, f) {
             var g = X[d.type][d.ra], k = E.bp(d), m = null, n = E.equipment_type_at_index(G.Fa), y = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.eB + ":")).append(c("<td>").text(ia.va(k.GC, 0))); y.append(p); p = ia.va(k.EC, 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.IA +
                 ":")).append(c("<td>").text(0 == p ? w.dB : p)); y.append(p); p = ia.va(100 * E.Fc(d), 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.NB + ":")).append(c("<td>").text("-" + p + "%")); y.append(p); k = c("<div>").addClass("builder-tip weapon-tip"); p = c("<h3>").text(g.name + " " + Y[d.ia]).append(c("<span>").addClass("weapon-type").text(N[g.type])); k.append(p); k.append(c("<table>").append(y)); e && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, {}), e.append(p), !1 !== g.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)),
                     W(p, d, { type: "headshot" }), e.append(p)), -1 != n && (m = equipment[G.Fa][n], 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, d, { type: "ammo" }), e.append(p))), k.append(c("<h3>").text(w.pi)), k.append(c("<table>").append(e)), g.charged && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, { gb: !0 }), e.append(p), !1 !== g.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, d, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)),
@@ -4091,7 +4165,7 @@
         } 
         
         function fa() {
-            var d = p.$o(), e = p.Zo(); 
+            var d = p.$o(), e = p.has_barrier(); 
             c("#kit-shield .stat-id").text((e == n.rb ? O.hi : O.wB) + ":"); 
             c("#kit-shield .stat-tip").removeClass("barrier shield").addClass(e == n.rb ? "barrier" : "shield").text(m.va(d.value, 0)); 
             A.Aa(c("#kit-shield .stat-tip")); 
