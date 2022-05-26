@@ -3400,7 +3400,7 @@
                         g.burst && (q *= Math.floor(g.burst)); 
                         k.c[f].Zc && q > k.c[f].Zc && (q = k.c[f].Zc);
                         if (equipment_type[3] == 7 && has_biotic_primer_active())
-                            q *= 2;
+                            q *= 1 + (equipment_level[3] + 1) * 0.25;
                         return Math.round(q) 
                     } 
                     q = 1 + ra; 

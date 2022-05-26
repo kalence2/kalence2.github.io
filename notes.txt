@@ -22,9 +22,11 @@ Added Chakram Launcher
 Corrected Disruptor ammo
 Corrected Incendiary ammo (theoretical damage)
 Corrected Batarian Slasher shields
+Corrected Phase Disruptor biotic damage
 Corrected "Quarian Female" descriptions
-Implemented the Inferno Grenade glitch
-Implemented the Blade Armor glitch
+Implemented Inferno Grenade glitch
+Implemented Blade Armor glitch
+Implemented Warp ammo biotic bonus
 
 Todo:
 Boss headshots
@@ -35,6 +37,5 @@ Sword Mastery
 Armor weakening
 Power DoT
 Add explanations (bugged evos, hidden features)
-Check Phase Disruptor
 
 [^a-zA-Z]
