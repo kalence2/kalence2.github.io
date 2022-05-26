@@ -292,7 +292,7 @@
     b.tc = "Blade Armor";
     b.il = "Increase damage returned to targets that melee you by {meleeReflect}%.";
     b.jl = "Increase damage protection by an additional {damageReduction}%.";
-    b.kl = "Reinforce armor with razor-sharp blades to damage enemies that melee.\n\nLess damage taken.\nMore melee damage dealt.\nSlows power use by {globalRecharge}%.\n\nThe presented damage return value refers to the Gold difficulty and is 1.44 times lower on Platinum.";
+    b.kl = "Reinforce armor with razor-sharp blades to damage enemies that melee.\n\nLess damage taken.\nMore melee damage dealt.\nSlows power use by {globalRecharge}%.";
     b.ll = "Blade Damage";
     b.cg = "Blast Damage";
     b.dg = "Blast Effect";
@@ -1341,7 +1341,7 @@
             { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.ec, a: a.ma, attributes: { radiusPct: .3 } }, 
             { name: a.qe, a: a.qj, attributes: { enemyDamageTaken: .15 } }, { name: a.jc, a: a.rj, attributes: { movementSpeed: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .65 } }, 
             { name: a.wg, a: a.sj, attributes: { powerDuration: 1, ATTR_PCT: 1 } }], 
-            i: { health: 1, armor: 1.5, barrier: 1.5, shield: 1 }, type: d.type.biotic
+            i: { health: 1, armor: 1.5, barrier: 1.5, shield: 1 }, type: d.type.biotic, is_biotic_primer: true
         }; 
 
         d.uj = { h: ["damage", "radius"], g: !1, icon: "EMPGrenade", M: !0, 
@@ -1425,9 +1425,11 @@
         }; 
         
         d.ke = { h: ["baseRechargeSpeed", "duration", "radius", "damageReduction", "enemyDamageTaken"], g: !0, icon: "BubbleShield", 
-        c: [{ name: a.ke, a: a.fl, attributes: { baseRechargeSpeed: 6, duration: 30, radius: 3, damageReduction: .2, enemyDamageTaken: .1 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .3 } }, 
-            { name: a.qx, a: a.$k, attributes: { shieldRechargeRate: .15 } }, { name: a.Y, a: a.al, attributes: { radiusPct: .3 } }, { name: a.xc, a: a.bl, attributes: { damageReduction: .1 } }, 
-            { name: a.Qn, a: a.cl, attributes: { enemyDamageTaken: .15 } }, { name: a.lj, a: a.dl, attributes: { damageReduction: .1, shieldRechargeRate: .1 } }, { name: a.zC, a: a.el, attributes: { ATTR_DMG: 50, enemyArmorWeakening: .25, ATTR_INT: 3 } }], type: d.type.biotic
+        c: [{ name: a.ke, a: a.fl, attributes: { baseRechargeSpeed: 6, duration: 30, radius: 3, damageReduction: .2, enemyDamageTaken: .1 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
+            { name: a.W, a: a.Ca, attributes: { powerDuration: .3 } },  { name: a.qx, a: a.$k, attributes: { shieldRechargeRate: .15 } }, { name: a.Y, a: a.al, attributes: { radiusPct: .3 } }, 
+            { name: a.xc, a: a.bl, attributes: { damageReduction: .1 } }, { name: a.Qn, a: a.cl, attributes: { enemyDamageTaken: .15 } }, { name: a.lj, a: a.dl, attributes: { damageReduction: .1, shieldRechargeRate: .1 } }, 
+            { name: a.zC, a: a.el, attributes: { ATTR_DMG: 50, enemyArmorWeakening: .25, ATTR_INT: 3 } }], 
+            type: d.type.biotic, is_biotic_primer: true
         }; 
         
         d.tc = { Z: { meleeReflect: a.Hs }, h: ["baseRechargeSpeed", "damageReduction", "meleeDamage", "meleeReflect"], g: !0, icon: "BatarianArmor", 
@@ -1522,21 +1524,21 @@
                     type: d.type.tech
         }; 
         
-        d.yc = { h: ["baseRechargeSpeed", "dot", "duration"], g: !1, icon: "DarkChannel", 
+        d.yc = { h: ["baseRechargeSpeed", "dot", "duration"], g: !0, icon: "DarkChannel", 
         c: [{ name: a.yc, a: a.Im, attributes: { baseRechargeSpeed: 8, dot: 75, duration: 30 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.W, a: a.Ka, attributes: { powerDuration: .4 } }, { name: a.sf, a: a.Gm, attributes: { enemyMovementSpeed: -.3 } }, 
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.l, a: a.p, attributes: { powerDamage: .5 } }, { name: a.Xe, a: a.Hm, attributes: { powerDamageArmor: .75, powerDamageBarrier: .75 } }],
-            i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic
+            i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic, is_biotic_primer: true
         }; 
         
-        d.re = { Z: { baseRechargeSpeed: a.bn, damage: a.an, duration: a.Cm, radius: a.tg }, h: ["baseRechargeSpeed", "damage", "radius", "dsDOT", "duration"], g: !1, icon: "DarkSingularity", 
+        d.re = { Z: { baseRechargeSpeed: a.bn, damage: a.an, duration: a.Cm, radius: a.tg }, h: ["baseRechargeSpeed", "damage", "radius", "dsDOT", "duration"], g: !0, icon: "DarkSingularity", 
             c: [{ name: a.re, a: a.Qm, attributes: { baseRechargeSpeed: 24, damage: 1E3, radius: 5, dsDOT: 250, duration: 5 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .15 } }, 
                 { name: a.l, a: a.Km, attributes: { poweDamage: .2,
                     dotDamage: .15
                 } }, { name: a.l, a: a.Lm, attributes: { powerDamage: .3, dotDamage: .2 } }, { name: a.tg, a: a.Mm, attributes: { radiusPct: .4 } }, { name: a.og, a: a.Nm, attributes: { dotDamage: .4, powerDuration: .4 } }, 
                 { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.Jm, a: a.Om, attributes: { powerDamage: 1, radiusPct: -.5 } }, 
                 { name: a.TB, a: a.Pm, attributes: { radiusPct: .4, dotDamage: .4, powerDuration: .4 } }], 
-                type: d.type.biotic
+                type: d.type.biotic, is_biotic_primer: true
         }; 
         
         d.jd = { h: ["baseRechargeSpeed", "duration", "decoyShield"], g: !1, icon: "Decoy", 
@@ -1667,7 +1669,7 @@
         c: [{ name: a.YB, a: a.ZB, attributes: { durability: .25, meleeDamage: .15, ATTR_PCT: .3, ATTR_TIME: 5 } }, { name: a.S, a: a.T, attributes: { durability: .15 } }, { name: a.P, a: a.da, attributes: { meleeDamage: .2 } }, { name: a.P, a: a.da, attributes: { meleeDamage: .3 } }, { name: a.S, a: a.T, attributes: { durability: .2 } }, { name: a.$a, a: a.cb, attributes: { meleeDamage: .75, ATTR_TIME: 30 } }, { name: a.Ha, a: a.Ma, attributes: { shieldRechargeRate: .15 } }, { name: a.wb, a: a.Bb, attributes: { meleeDamage: .3, weaponDamage: .25, ATTR_TIME: 20 } }, { name: a.Ta, a: a.T, attributes: { durability: .3 } }]
         }; 
         
-        d.Bc = { h: ["baseRechargeSpeed", "dot", "duration", "range"], g: !1, icon: "Flamer", 
+        d.Bc = { h: ["baseRechargeSpeed", "dot", "duration", "range"], g: !0, icon: "Flamer", 
         c: [{ name: a.Bc, a: a.Ko, attributes: { baseRechargeSpeed: 8, dot: 200, duration: 5, range: 10 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.jf, a: a.gc, attributes: { rangePct: .5 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .4 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .6 } }, { name: a.Sa, a: a.Ic, attributes: { powerDamageArmor: .5 } }, 
@@ -1741,24 +1743,25 @@
                 } }, { name: a.jc, a: a.Zg, attributes: { movementSpeed: .05 } }, { name: a.l, a: a.Jc, attributes: { globalDamage: .025 } }, { name: a.kc, a: a.wq, attributes: { globalRecharge: .2 } }, { name: a.qi, a: a.Nq, attributes: { accuracy: .15 } }, { name: a.J, a: a.xq, attributes: { globalPowerDamage: .15 } }, { name: a.hf, a: a.yq, attributes: { weaponROF: .15 } }, { name: a.My, a: a.zq, attributes: { movementSpeed: .1, radiusPct: .6 } }, { name: a.l, a: a.Jc, attributes: { globalDamage: .1 } }]
         }; 
         
-        d.tb = { h: ["baseRechargeSpeed",
-                "damage"], g: !1, icon: "Incinerate", 
-                c: [{ name: a.tb, a: a.Kq, attributes: { baseRechargeSpeed: 8, damage: 330 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.Pb, attributes: { radius: 1.5 } }, { name: a.Al, a: a.Iq, attributes: { powerDOT: .5, ATTR_TIME: 8 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.So, a: a.Jq, attributes: { freezeDamage: 1 } }, { name: a.Sa, a: a.Ug, attributes: { powerDamageArmor: .5 } }],
-                i: {
-                    health: 1, armor: 1.5,
-                    barrier: .5, shield: .5
-                }, type: d.type.tech
+        d.tb = { h: ["baseRechargeSpeed", "damage"], g: !0, icon: "Incinerate", 
+                c: [{ name: a.tb, a: a.Kq, attributes: { baseRechargeSpeed: 8, damage: 330 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
+                    { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.Pb, attributes: { radius: 1.5 } }, { name: a.Al, a: a.Iq, attributes: { powerDOT: .5, ATTR_TIME: 8 } }, 
+                    { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.So, a: a.Jq, attributes: { freezeDamage: 1 } }, { name: a.Sa, a: a.Ug, attributes: { powerDamageArmor: .5 } }],
+                i: { health: 1, armor: 1.5, barrier: .5, shield: .5 }, type: d.type.tech
         }; 
         
-        d.td = { h: ["dot", "duration", "radius"], g: !1, icon: "InfernoGrenade", M: !0, 
+        d.td = { h: ["dot", "duration", "radius"], g: !0, icon: "InfernoGrenade", M: !0, 
         c: [{ name: a.td, a: a.Pq, attributes: { dot: 150, duration: 8, radius: 5 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .4 } }, { name: a.Sa, a: a.Ic, attributes: { powerDamageArmor: .5 } }, { name: a.nv, a: a.Oq, attributes: { radiusPct: .5, ATTR_INT: 1 } }],
             i: { health: 1, armor: 1.5, barrier: 1, shield: 1 }, is_grenade_power: !0, is_inferno_glitched: true
         }; 
         
-        d.hc = { h: ["baseRechargeSpeed", "damage", "force"], g: !1, icon: "Lash", 
-        c: [{ name: a.hc, a: a.lr, attributes: { baseRechargeSpeed: 6, damage: 150, force: 1200 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.zb, a: a.rd, attributes: { comboDamage: .5, comboForce: .5 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.og, a: a.ir, attributes: { ATTR_PCT: 1, ATTR_TIME: 10 } }, { name: a.po, a: a.jr, attributes: { ATTR_PCT: .35, lashCombo: 1 } }, { name: a.lx, a: a.kr, attributes: {} }], type: d.type.biotic
+        d.hc = { h: ["baseRechargeSpeed", "damage", "force"], g: !0, icon: "Lash", 
+        c: [{ name: a.hc, a: a.lr, attributes: { baseRechargeSpeed: 6, damage: 150, force: 1200 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
+            { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.zb, a: a.rd, attributes: { comboDamage: .5, comboForce: .5 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, 
+            { name: a.og, a: a.ir, attributes: { ATTR_PCT: 1, ATTR_TIME: 10 } }, { name: a.po, a: a.jr, attributes: { ATTR_PCT: .35, lashCombo: 1 } }, { name: a.lx, a: a.kr, attributes: {} }], 
+            type: d.type.biotic, is_biotic_primer: true
         }; 
         
         d.wd = { h: ["damage", "radius", "duration"], g: !1, icon: "LiftGrenade", M: !0, 
@@ -1799,13 +1802,18 @@
         }; 
         
         d.We = { h: ["damage", "radius"], g: !1, icon: "PalmBlaster", 
-        c: [{ name: a.We, a: a.Vt, attributes: { damage: 400, radius: 4, ATTR_PCT: .4 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .5 } }, { name: a.$q, a: a.St, attributes: {} }, { name: a.An, a: a.Tt, attributes: { ATTR_PCT: .5 } }, { name: a.Sa, a: a.Ic, attributes: { powerDamageArmor: .75 } }, { name: a.Nd, a: a.Ut, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }], type: d.type.biotic
+        c: [{ name: a.We, a: a.Vt, attributes: { damage: 400, radius: 4, ATTR_PCT: .4 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, 
+            { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .5 } }, { name: a.$q, a: a.St, attributes: {} }, 
+            { name: a.An, a: a.Tt, attributes: { ATTR_PCT: .5 } }, { name: a.Sa, a: a.Ic, attributes: { powerDamageArmor: .75 } }, { name: a.Nd, a: a.Ut, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }], 
+            type: d.type.biotic
         }; 
         
         d.Ye = { Z: { damage: a.bg, duration: a.Fd }, h: ["baseRechargeSpeed", "range", "damage", "poison", "duration"], g: !1, icon: "LineStrike", 
-            c: [{ name: a.Ye, a: a.zu, attributes: { baseRechargeSpeed: 8, range: 12, damage: 500, poison: 75,
-                    duration: 5
-                } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2, poisonDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3, poisonDamage: .3 } }, { name: a.Range, a: a.gc, attributes: { rangePct: .4 } }, { name: a.Fd, a: a.wu, attributes: { powerDuration: .6 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.vu, a: a.xu, attributes: { poisonDamage: .5, ATTR_INT: 2, ATTR_TIME: 4 } }, { name: a.nn, a: a.yu, attributes: { rangePct: -.4 } }], type: d.type.biotic
+            c: [{ name: a.Ye, a: a.zu, attributes: { baseRechargeSpeed: 8, range: 12, damage: 500, poison: 75, duration: 5 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
+                { name: a.l, a: a.p, attributes: { powerDamage: .2, poisonDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3, poisonDamage: .3 } }, { name: a.Range, a: a.gc, attributes: { rangePct: .4 } }, 
+                { name: a.Fd, a: a.wu, attributes: { powerDuration: .6 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.vu, a: a.xu, attributes: { poisonDamage: .5, ATTR_INT: 2, ATTR_TIME: 4 } }, 
+                { name: a.nn, a: a.yu, attributes: { rangePct: -.4 } }], 
+                type: d.type.biotic
         }; 
         
         d.lc = { h: ["baseRechargeSpeed", "damage", "radius"],
@@ -1975,18 +1983,18 @@
                 } }, { name: a.ca, a: a.la, attributes: { headshot: .2 } }, { name: a.Wx, a: a.kC, attributes: { weaponWeightAssault: .25, weaponWeightShotgun: .25 } }, { name: a.n, a: a.q, attributes: { weaponDamage: .1 } }]
         }; 
         
-        d.sv = { h: ["baseRechargeSpeed", "dot", "duration", "damageReduction"], g: !1, icon: "Reave", 
+        d.sv = { h: ["baseRechargeSpeed", "dot", "duration", "damageReduction"], g: !0, icon: "Reave", 
         c: [{ name: a.Dh, a: a.Fh, attributes: { baseRechargeSpeed: 8, dot: 100, duration: 4, damageReduction: .15 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .35 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .4 } },
             { name: a.Y, a: a.Pb, attributes: { radius: 3 } }, { name: a.xc, a: a.fc, attributes: { damageReduction: .1 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.Vf, a: a.Ne, attributes: { powerDamageArmor: .75, powerDamageBarrier: .75 } }, { name: a.ne, a: a.Eh, attributes: { powerDamage: .3, powerDuration: .3, damageReduction: .15 } }],
-            i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic
+            i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic, is_biotic_primer: true
         }; 
         
-        d.tv = { h: ["baseRechargeSpeed", "dot", "duration", "damageReduction"], g: !1, icon: "Reave", 
+        d.tv = { h: ["baseRechargeSpeed", "dot", "duration", "damageReduction"], g: !0, icon: "Reave", 
         c: [{ name: a.Dh, a: a.Fh, attributes: { baseRechargeSpeed: 8, dot: 70, duration: 4,
                     damageReduction: .15
                 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .35 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .4 } }, { name: a.Y, a: a.Pb, attributes: { radius: 3 } }, { name: a.xc, a: a.fc, attributes: { damageReduction: .1 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.Vf, a: a.Ne, attributes: { powerDamageArmor: .75, powerDamageBarrier: .75 } }, { name: a.ne, a: a.Eh, attributes: { powerDamage: .3, powerDuration: .3, damageReduction: .15 } }],
             i: { health: 1, armor: 1.5, barrier: 2, shield: .5 },
-            type: d.type.biotic
+            type: d.type.biotic, is_biotic_primer: true
         }; 
         
         d.Kd = { Z: { radius: a.yg, range: a.uw }, h: ["baseRechargeSpeed", "damage", "radius", "range"], g: !0, icon: "ReconMine", 
@@ -2027,9 +2035,10 @@
                 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.Qh, a: a.Ph, attributes: { shieldBoostPower: .3 } }, { name: a.ec, a: a.ma, attributes: { radiusPct: .4 } }, { name: a.Qh, a: a.Ph, attributes: { shieldBoostPower: .4 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.Cv, a: a.Yw, attributes: { shieldRechargeRate: .2, ATTR_TIME: 12 } }, { name: a.W, a: a.Zw, attributes: { powerDuration: 1 } }, { name: a.Iu, a: a.$w, attributes: { shieldBoostPower: .5, damageReduction: .5, ATTR_TIME: 6, ATTR_PCT: .9 } }]
         }; 
         
-        d.Fb = { h: ["baseRechargeSpeed", "damage",
-                "force", "radius", "range"], g: !1, icon: "Shockwave", 
-                c: [{ name: a.Fb, a: a.Ax, attributes: { baseRechargeSpeed: 8, damage: 300, force: 700, radius: 2, range: 16 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.ga, a: a.ua, attributes: { powerDamage: .25, powerForce: .25 } }, { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, { name: a.zb, a: a.rd, attributes: { comboDamage: .65, comboForce: .65 } }, { name: a.jf, a: a.yx, attributes: { rangePct: .5 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .4 } },
+        d.Fb = { h: ["baseRechargeSpeed", "damage", "force", "radius", "range"], g: !1, icon: "Shockwave", 
+                c: [{ name: a.Fb, a: a.Ax, attributes: { baseRechargeSpeed: 8, damage: 300, force: 700, radius: 2, range: 16 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
+                    { name: a.ga, a: a.ua, attributes: { powerDamage: .25, powerForce: .25 } }, { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .3 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } }, 
+                    { name: a.zb, a: a.rd, attributes: { comboDamage: .65, comboForce: .65 } }, { name: a.jf, a: a.yx, attributes: { rangePct: .5 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .4 } },
                 { name: a.rr, a: a.zx, attributes: {} }],
                 i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, type: d.type.biotic
         }; 
@@ -2039,19 +2048,21 @@
             i: { health: 1, armor: 1.35, barrier: 1.35, shield: 1.35 }, type: d.type.tech
         }; 
         
-        d.Pc = { h: ["baseRechargeSpeed", "duration", "radius", "dot"], g: !1, icon: "Singularity", 
+        d.Pc = { h: ["baseRechargeSpeed", "duration", "radius", "dot"], g: !0, icon: "Singularity", 
         c: [{ name: a.Pc, a: a.fy, attributes: { baseRechargeSpeed: 8, duration: 8, radius: 1.5, dot: 100 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
-            { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: 1.5 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .35 } }, { name: a.lh, a: a.dy, attributes: { ATTR_DMG: 50 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.l, a: a.p, attributes: { powerDamage: .5 } }, { name: a.zb, a: a.ey, attributes: { ATTR_DMG: 500, ATTR_INT: 7 } }], type: d.type.biotic
+            { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: 1.5 } }, { name: a.Y, a: a.ma, attributes: { radiusPct: .35 } }, 
+            { name: a.lh, a: a.dy, attributes: { ATTR_DMG: 50 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.l, a: a.p, attributes: { powerDamage: .5 } }, 
+            { name: a.zb, a: a.ey, attributes: { ATTR_DMG: 500, ATTR_INT: 7 } }], type: d.type.biotic, is_biotic_primer: true
         }; 
         
-        d.Pd = { h: ["baseRechargeSpeed", "damage", "force", "radius"], g: !1, icon: "WhipSmash", 
+        d.Pd = { h: ["baseRechargeSpeed", "damage", "force", "radius"], g: !0, icon: "WhipSmash", 
         c: [{ name: a.Pd, a: a.ly, attributes: { baseRechargeSpeed: 8, damage: 550, force: 450, radius: 1.5,
                     range: 8
                 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.ga, a: a.Yg, attributes: { powerDamage: .2, powerForce: .2 } }, { name: a.ag, a: a.iy, attributes: { powerDamage: .3 } }, { name: a.ye, a: a.jy, attributes: { powerDOT: .5, ATTR_TIME: 7.5 } }, { name: a.ga, a: a.Yg, attributes: { powerDamage: .4, powerForce: .4 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .4 } }, { name: a.Sa, a: a.Ne, attributes: { powerDamageArmor: .75, powerDamageBarrier: .75 } }, { name: a.ec, a: a.ky, attributes: { radiusPct: .5, areaTargetBonus: 1 } }],
             i: {
                 health: 1, armor: 1.5, barrier: 1.5,
                 shield: 1.5
-            }, type: d.type.biotic
+            }, type: d.type.biotic, is_biotic_primer: true
         }; 
         
         d.Qd = { Z: { duration: a.Fg }, h: ["baseRechargeSpeed", "damage", "range", "duration", "enemyMovementSpeed"], g: !0, icon: "CryoCone", 
@@ -2060,8 +2071,10 @@
         }; 
         
         d.Qc = { h: ["baseRechargeSpeed", "duration"], g: !0, icon: "Stasis", 
-        c: [{ name: a.Qc, a: a.Xy, attributes: { duration: 6, baseRechargeSpeed: 10 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .3 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .4 } }, { name: a.Yy, a: a.Ty, attributes: { stasisStrength: 1.5 } },
-            { name: a.Kb, a: a.Uy, attributes: { ATTR_PCT: .3 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.zl, a: a.Vy, attributes: {} }, { name: a.oC, a: a.Wy, attributes: { enemyDamageTaken: .5, stasisStrength: .35 } }], type: d.type.biotic
+        c: [{ name: a.Qc, a: a.Xy, attributes: { duration: 6, baseRechargeSpeed: 10 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.W, a: a.Ca, attributes: { powerDuration: .3 } }, 
+            { name: a.W, a: a.Ca, attributes: { powerDuration: .4 } }, { name: a.Yy, a: a.Ty, attributes: { stasisStrength: 1.5 } }, { name: a.Kb, a: a.Uy, attributes: { ATTR_PCT: .3 } }, 
+            { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, { name: a.zl, a: a.Vy, attributes: {} }, { name: a.oC, a: a.Wy, attributes: { enemyDamageTaken: .5, stasisStrength: .35 } }], 
+            type: d.type.biotic, is_biotic_primer: true
         }; 
         
         d.Rc = { h: ["damage", "radius"], g: !1, icon: "StickyGrenade", M: !0, 
@@ -2129,15 +2142,19 @@
         }; 
         
         d.nc = { h: ["baseRechargeSpeed", "force"], g: !1, icon: "Throw", 
-        c: [{ name: a.nc, a: a.pA, attributes: { baseRechargeSpeed: 4, force: 600 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.Ee, a: a.Xg, attributes: { powerForce: .3 } }, { name: a.Ee, a: a.Xg, attributes: { powerForce: .4 } }, { name: a.Y, a: a.Pb, attributes: { radius: 2 } }, { name: a.zb, a: a.rd, attributes: { comboDamage: .5, comboForce: .5 } }, { name: a.vv, a: a.nA, attributes: {} }, { name: a.ga, a: a.oA, attributes: { powerForce: .5, ATTR_DMG: 200 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .6 } }], type: d.type.biotic
+        c: [{ name: a.nc, a: a.pA, attributes: { baseRechargeSpeed: 4, force: 600 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.Ee, a: a.Xg, attributes: { powerForce: .3 } }, 
+            { name: a.Ee, a: a.Xg, attributes: { powerForce: .4 } }, { name: a.Y, a: a.Pb, attributes: { radius: 2 } }, { name: a.zb, a: a.rd, attributes: { comboDamage: .5, comboForce: .5 } }, 
+            { name: a.vv, a: a.nA, attributes: {} }, { name: a.ga, a: a.oA, attributes: { powerForce: .5, ATTR_DMG: 200 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .6 } }], 
+            type: d.type.biotic
         }; 
         
         d.fb = { h: ["baseRechargeSpeed", "damage", "duration"], g: !0, icon: "Warp",
             
-        c: [{ name: a.fb, a: a.yC, attributes: { baseRechargeSpeed: 8, damage: 250, duration: 10, enemyArmorWeakening: .25 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.zb, a: a.vC, attributes: { comboDamage: .5, comboForce: .5, comboRadius: .5 } }, { name: a.mr, a: a.Tg, attributes: { powerDamage: .4, powerDuration: .6 } }, { name: a.Ae, a: a.wC, attributes: { enemyWeaponDamageTaken: .15, enemyPowerDamageTaken: .15, ATTR_TIME: 10 } }, { name: a.Xe, a: a.xC, attributes: { poweDamageArmor: .5,
-                    powerDamageBarrier: .5, enemyArmorWeakening: .25
-                } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }],
-            i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic
+        c: [{ name: a.fb, a: a.yC, attributes: { baseRechargeSpeed: 8, damage: 250, duration: 10, enemyArmorWeakening: .25 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
+            { name: a.l, a: a.p, attributes: { powerDamage: .2 } }, { name: a.l, a: a.p, attributes: { powerDamage: .3 } }, { name: a.zb, a: a.vC, attributes: { comboDamage: .5, comboForce: .5, comboRadius: .5 } }, 
+            { name: a.mr, a: a.Tg, attributes: { powerDamage: .4, powerDuration: .6 } }, { name: a.Ae, a: a.wC, attributes: { enemyWeaponDamageTaken: .15, enemyPowerDamageTaken: .15, ATTR_TIME: 10 } }, 
+            { name: a.Xe, a: a.xC, attributes: { poweDamageArmor: .5, powerDamageBarrier: .5, enemyArmorWeakening: .25 } }, { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }],
+            i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic, is_biotic_primer: true
         }
     })(h.b = h.b || {}, jQuery191);
     /*
@@ -3306,10 +3323,12 @@
                     x *= 1 - f.data.shieldRechargeRate; 
                     r *= 1 - f.data.shieldRechargeRate; 
                     return { IC: r, HC: x, C: f.C } 
-                }; 
+                };
+
                 d.Zo = function () { 
-                    return character.qa ? d.lf.rb : d.lf.Ww 
-                }; 
+                    return character.barrier ? d.lf.rb : d.lf.Ww 
+                };
+
                 d.ap = function () { 
                     return { d: "MP_" + classes[class_index] + ".png", index: character_index_in_class } 
                 }; 
@@ -4072,9 +4091,14 @@
         } 
         
         function fa() {
-            var d = p.$o(), e = p.Zo(); c("#kit-shield .stat-id").text((e == n.rb ? O.hi : O.wB) + ":"); c("#kit-shield .stat-tip").removeClass("barrier shield").addClass(e == n.rb ? "barrier" : "shield").text(m.va(d.value,
-                0)); A.Aa(c("#kit-shield .stat-tip")); 0 < d.C.length ? A.ba(c("#kit-shield .stat-tip"), K(d.C), { location: "bottomRight" }) : A.ba(c("#kit-shield .stat-tip"), O.Xc, { location: "bottomRight" })
-        } function u() { var d = p.get_shield_recharge_rate(); c("#shield-recharge .stat-tip").text(m.va(d.HC) + " sec"); var e = Core.format(O.yB, m.va(d.IC)), e = K(d.C).prepend(c("<p>").text(e)); A.Aa(c("#shield-recharge .stat-tip")); 0 < d.C.length ? A.ba(c("#shield-recharge .stat-tip"), e, { location: "bottomRight" }) : A.ba(c("#shield-recharge .stat-tip"), O.Xc, { location: "bottomRight" }) }
+            var d = p.$o(), e = p.Zo(); 
+            c("#kit-shield .stat-id").text((e == n.rb ? O.hi : O.wB) + ":"); 
+            c("#kit-shield .stat-tip").removeClass("barrier shield").addClass(e == n.rb ? "barrier" : "shield").text(m.va(d.value, 0)); 
+            A.Aa(c("#kit-shield .stat-tip")); 
+            0 < d.C.length ? A.ba(c("#kit-shield .stat-tip"), K(d.C), { location: "bottomRight" }) : A.ba(c("#kit-shield .stat-tip"), O.Xc, { location: "bottomRight" })
+        } 
+        
+        function u() { var d = p.get_shield_recharge_rate(); c("#shield-recharge .stat-tip").text(m.va(d.HC) + " sec"); var e = Core.format(O.yB, m.va(d.IC)), e = K(d.C).prepend(c("<p>").text(e)); A.Aa(c("#shield-recharge .stat-tip")); 0 < d.C.length ? A.ba(c("#shield-recharge .stat-tip"), e, { location: "bottomRight" }) : A.ba(c("#shield-recharge .stat-tip"), O.Xc, { location: "bottomRight" }) }
         var p = h.Xa, A = R.Tc, m = V.Xd, ha = h.Cb.Re, O = a, n = h.Xa.lf, Z = h.Ya.Df, D = h.Xa.aa, ca = null, ja = null; d.initialize = function () {
             ca = e(); c("#build-summary").append(ca); ja = V.Ef.mm(); c("#build-summary").append(ja); c("#character-builder").on("kitSelected.View.KitSelector", P); c("#character-builder").on("show.View.KitSelector", function () { c(this).trigger("closing.View.Character"); c(this).hide() }); c("#character-builder").on("weaponSelected.View.WeaponSelector", z); c("#character-builder").on("weaponModSelected.View.WeaponSelector",
                 function () { g(); z() }); c("#character-builder").on("armorEquipmentSelected.View.WeaponSelector", function () { z(); fa(); u() }); c("#character-builder").on("equippedWeaponChanged.View.WeaponSelector", g); c("#character-builder").on("gearEquipmentSelected.View.WeaponSelector", d.Ea); c("#character-builder").on("weaponEquipmentSelected.View.WeaponSelector", g); c("#character-builder").on("powerChanged.View.PowerSelector", d.Ea)

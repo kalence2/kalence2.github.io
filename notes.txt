@@ -35,5 +35,6 @@ Sword Mastery
 Armor weakening
 Power DoT
 Add explanations (bugged evos, hidden features)
+Check Phase Disruptor
 
 [^a-zA-Z]
