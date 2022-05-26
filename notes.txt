@@ -24,6 +24,7 @@ Corrected Incendiary ammo (theoretical damage)
 Corrected Batarian Slasher shields
 Corrected "Quarian Female" descriptions
 Implemented the Inferno Grenade glitch
+Implemented the Blade Armor glitch
 
 Todo:
 Boss headshots
@@ -33,5 +34,6 @@ Melee radius and cap
 Sword Mastery
 Armor weakening
 Power DoT
+Add explanations (bugged evos, hidden features)
 
 [^a-zA-Z]
