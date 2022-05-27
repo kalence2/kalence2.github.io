@@ -1770,10 +1770,8 @@
             i: { health: 1, armor: .5, barrier: 3, shield: 3 }, type: d.type.tech
         }; 
         
-        d.Bo = { Z: {
-                ascensionDamage: a.Tj,
-                ascensionRecharge: a.Qf, ascensionDR: a.Wj
-            }, h: ["durability", "meleeDamage", "ascensionDamage", "ascensionRecharge", "ascensionDR"], g: !0, icon: "MPMeleePassive", M: !0, 
+        d.Bo = { Z: { ascensionDamage: a.Tj, ascensionRecharge: a.Qf, ascensionDR: a.Wj }, 
+            h: ["durability", "meleeDamage", "ascensionDamage", "ascensionRecharge", "ascensionDR"], g: !0, icon: "MPMeleePassive", M: !0, 
             evolutions: [
             { name: a.oj, a: a.pj, attributes: { durability: .15, meleeDamage: .15, ascensionDamage: .1, ascensionRecharge: .05, ascensionDR: -.15, ascensionDuration: 45 } },
             { name: a.S, a: a.T, attributes: { durability: .1 } },
@@ -1927,10 +1925,9 @@
             { name: a.tm, a: a.jx, attributes: { enemyMovementSpeed: -.3, enemyArmorWeakening: .5, ATTR_TIME: 5 } }]
         }; 
         
-        d.Ho = { h: ["durability", "meleeDamage",
-                "movementSpeed"], g: !1, icon: "MPMeleePassive", M: !0, 
-                evolutions: [
-                { name: a.Dz, a: a.Iz, attributes: { durability: .2, meleeDamage: .15, movementSpeed: .1 } },
+        d.Ho = { h: ["durability", "meleeDamage", "movementSpeed"], g: !1, icon: "MPMeleePassive", M: !0, 
+            evolutions: [
+            { name: a.Dz, a: a.Iz, attributes: { durability: .2, meleeDamage: .15, movementSpeed: .1 } },
             { name: a.S, a: a.T, attributes: { durability: .15 } },
             { name: a.Yh, a: a.Zh, attributes: { meleeDamage: .2 } },
             { name: a.Yh, a: a.Zh, attributes: { meleeDamage: .3 } },
@@ -3108,7 +3105,7 @@
             { name: a.zb, a: a.vC, attributes: { comboDamage: .5, comboForce: .5, comboRadius: .5 } }, 
             { name: a.mr, a: a.Tg, attributes: { powerDamage: .4, powerDuration: .6 } },
             { name: a.Ae, a: a.wC, attributes: { enemyWeaponDamageTaken: .15, enemyPowerDamageTaken: .15, ATTR_TIME: 10 } }, 
-            { name: a.Xe, a: a.xC, attributes: { poweDamageArmor: .5, powerDamageBarrier: .5, enemyArmorWeakening: .25 } },
+            { name: a.Xe, a: a.xC, attributes: { powerDamageArmor: .5, powerDamageBarrier: .5, enemyArmorWeakening: .25 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }],
             i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic, is_biotic_primer: true
         }
@@ -3803,11 +3800,20 @@
             return { value: r, C: m }
         }
 
-        function A(c) { var r = [], f = 0; c = s(c); c.rechargeSpeed && (f += c.rechargeSpeed.value, r = c.rechargeSpeed.C); var k = !1, t = e(["globalRecharge", "bioticOrbs", "orbRecharge"]); 0 != t.data.globalRecharge && (f += t.data.globalRecharge, k = !0); 0 != t.data.bioticOrbs && (f += t.data.orbRecharge * t.data.bioticOrbs, k = !0); k && (r = r.concat(t.C)); k = d.Kg().value; c = c.baseRechargeSpeed.value; return { value: 0 <= f + k ? 1 / (1 + f + k) * c : c * (1 - (f + k)), C: r } } function m(c, d, f) {
-            var k = [], t = s(c); c = 0; t[f] && (c += t[f].value, k = t[f].C); d = t[d].value; return {
-                value: d /
-                    (1 + c), C: k
-            }
+        function A(c) { 
+            var r = [], f = 0; c = s(c); 
+            c.rechargeSpeed && (f += c.rechargeSpeed.value, r = c.rechargeSpeed.C); 
+            var k = !1, t = e(["globalRecharge", "bioticOrbs", "orbRecharge"]); 
+            0 != t.data.globalRecharge && (f += t.data.globalRecharge, k = !0); 
+            0 != t.data.bioticOrbs && (f += t.data.orbRecharge * t.data.bioticOrbs, k = !0); 
+            k && (r = r.concat(t.C)); k = d.Kg().value; c = c.baseRechargeSpeed.value; 
+            return { value: 0 <= f + k ? 1 / (1 + f + k) * c : c * (1 - (f + k)), C: r } 
+        } 
+        
+        function m(c, d, f) {
+            var k = [], t = s(c); c = 0; 
+            t[f] && (c += t[f].value, k = t[f].C); d = t[d].value; 
+            return { value: d / (1 + c), C: k }
         } 
 
         function ha(d, r) { 
@@ -3817,13 +3823,19 @@
             m.powerDamage && (k += m.powerDamage.value, f = m.powerDamage.C); 
             var g = character.powers[d]; 
             g.i && (t *= g.i[r.ea]); 
-            g = e(["globalDamage", "globalPowerDamage", "meleeDamage", "modMeleeDamage", "techDamage"]); 
+            g = e(["globalDamage", "globalPowerDamage", "meleeDamage", "modMeleeDamage", "techDamage"]) // , "meleeDamageArmor", "meleeDamageBarrier", "meleeDamageShield"]);
             f = f.concat(g.C); 
             k += 2 * g.data.globalDamage;
-             k += g.data.globalPowerDamage + g.data.meleeDamage + g.data.techDamage; 
-             k = m.shadowstrike.value * (1 + k) * t; 
-             k *= 1 + g.data.modMeleeDamage; 
-             return { value: k, C: f } 
+            k += g.data.globalPowerDamage + g.data.meleeDamage + g.data.techDamage; 
+            k = m.shadowstrike.value * (1 + k) * t; 
+            k *= 1 + g.data.modMeleeDamage;
+            // if (r.ea == "armor")
+            //     k *= 1 + g.data.meleeDamageArmor;
+            // else if (r.ea == "barrier")
+            //     k *= 1 + g.data.meleeDamageBarrier;
+            // else if (r.ea == "shield")
+            //     k *= 1 + g.data.meleeDamageShield;
+            return { value: k, C: f } 
         }
 
         function O(c) {
@@ -3847,7 +3859,9 @@
         
         function Z(c, d) {
             var f = 0, k = s(c); k.powerDamage &&
-                (f += k.powerDamage.value, 0 < f && (f -= .3)); k = e(["globalPowerDamage"]); f += k.data.globalPowerDamage; return { value: d.Yc * (1 + f), C: [] }
+                (f += k.powerDamage.value, 0 < f && (f -= .3)); k = e(["globalPowerDamage"]); 
+                f += k.data.globalPowerDamage; 
+                return { value: d.Yc * (1 + f), C: [] }
         } 
 
         function D(c) { 
@@ -3873,6 +3887,7 @@
             var f = Hash.decode(c), k = f[0], f = f[1]; 
             return k < equipment[d].length && f < equipment[d][k].evolutions.length ? (equipment_type[d] = k, equipment_level[d] = f, !0) : !1 
         } 
+
         function ja(d) {
             if (!d || 3 > d.length) 
                 return null; 
@@ -3971,6 +3986,7 @@
             } 
             c && y()
         } 
+        
         function equip_default_weapons(c) {
             switch (c) { 
                 case "adept": 
@@ -4005,6 +4021,7 @@
                     equip_default_weapons(classes[_class])
             }
         } 
+
         function equip_weapon(c, d, f, k, e, m) { 
             if (!(d >= weapons.length || f >= weapons[d].length || 10 <= k)) { 
                 if ("undefined" == typeof e || e >= mods[d].length) 
@@ -4018,6 +4035,7 @@
                 weapon_loadout[c].Ja = m 
             } 
         } 
+
         var sa = h.Ya, 
             equipment = h.Ya.eg, 
             power_types = h.b.type, 
@@ -4333,9 +4351,11 @@
                 d.ap = function () { 
                     return { d: "MP_" + classes[class_index] + ".png", index: character_index_in_class } 
                 }; 
+
                 d.Qa = function (d) { 
                     return c.extend({}, weapon_loadout[d]) 
                 }; 
+
                 d.bp = function (c) {
                     var d = e(["ammoCapacity", "magazineSize"], c), f = weapons[c.type][c.ra], k = 0; 
                     0 != f.ammo_capacity_L && (k = f.ammo_capacity_L + (f.ammo_capacity_H - f.ammo_capacity_L) / 9 * c.ia, k *= 1 + d.data.ammoCapacity); 
@@ -4420,6 +4440,7 @@
                     var d = weapons[c.type][c.ra]; 
                     return d.weight_L + (d.weight_H - d.weight_L) / 9 * c.ia 
                 }; 
+
                 d.Kg = function () {
                     var c = ["encumbrance", "weaponWeight"], m = []; 
                     m[weapon_type.assault] = "weaponWeightAssault"; 
@@ -4471,8 +4492,7 @@
                 };
 
                 d.dh = function (c) {
-                    return -1 !=
-                        "armor bow damage dot dsDOT hammer overload shadowstrike".split(" ").indexOf(c)
+                    return -1 != "armor bow damage dot dsDOT hammer overload shadowstrike".split(" ").indexOf(c)
                 }; 
 
                 d.evolved_grenade_power = function () { 
@@ -4482,7 +4502,7 @@
                     return !1 
                 };
 
-                d.Oe = function () { 
+                d.character_is_chosen = function () { 
                     return -1 != character_index_in_class 
                 };
 
@@ -4502,12 +4522,15 @@
                     var f = d.Ob(e); 
                     return d.vb(c, e) || f == d.Pa.eb ? !1 : d.vb(c, f == d.Pa.Jb ? e + 1 : e - 1) 
                 }; 
+
                 d.Sq = function (c, d) {
                     return -1 == weapon_loadout[c].type || d > mods[weapon_loadout[c].type].length ? !1 : weapon_loadout[c].Ia == d || weapon_loadout[c].Ja == d
                 }; 
+
                 d.PC = function (c, d) { 
                     return -1 == weapon_loadout[c].type ? !1 : -1 == (0 == d ? weapon_loadout[c].Ia : weapon_loadout[c].Ja) 
                 }; 
+
                 d.ud = function (c, d, f) { 
                     if (-1 == weapon_loadout[c].type || f > mods[weapon_loadout[c].type].length) 
                         return !1; 
@@ -4522,6 +4545,7 @@
                 d.Dv = function (c, d) { 
                     -1 != weapon_loadout[c].type && (0 == d ? (weapon_loadout[c].Ia = -1, weapon_loadout[c].hb = -1) : (weapon_loadout[c].Ja = -1, weapon_loadout[c].ib = -1), y()) 
                 }; 
+
                 d.Iv = function (c) { 
                     equipment_type[c] = -1; equipment_level[c] = -1; 
                     y() 
@@ -4532,6 +4556,7 @@
                     points_available = points_at_level[19]; 
                     y() 
                 }; 
+
                 d.Jv = function (e) {
                     e == 0 && (weapon_loadout[0] = c.extend({}, weapon_loadout[1])); 
                     weapon_loadout[1] = { ia: -1, type: -1, ra: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }; 
@@ -4568,24 +4593,29 @@
                 d.Kw = function (c, d) {
                     -1 != equipment_type[c] && d < equipment[c][equipment_type[c]].evolutions.length && (equipment_level[c] = d, y())
                 }; 
+
                 d.Lw = function (c, d) { 
                     da(c, d); 
                     y() 
                 }; 
+
                 d.Mw = function (c) { 
                     c < classes.length && (class_index = c); 
                     y() 
                 }; 
+
                 d.Nw = function (c, d, f, e) { 
                     var m = weapon_loadout[c].Ia, g = weapon_loadout[c].Ja; 
                     weapon_loadout[c].type != d && (g = m = -1); 
                     equip_weapon(c, d, f, e, m, g); 
                     y() 
                 }; 
+
                 d.Ow = function (c, e, f, k) { 
                     var m = weapon_loadout[c].type; 
                     -1 == m || f > mods[m].length || k > sa.Qb || d.ud(c, e, f) || (0 == e ? (weapon_loadout[c].Ia = f, weapon_loadout[c].hb = k) : (weapon_loadout[c].Ja = f, weapon_loadout[c].ib = k), y()) 
                 }; 
+
                 d.Pw = function (c, d, f) { 
                     if (!(-1 == weapon_loadout[c].type || f > sa.Qb)) { 
                         if (0 == d) { 
@@ -4600,6 +4630,7 @@
                         y() 
                     } 
                 }; 
+
                 d.Qw = function (c, d) { 
                     weapon_loadout[c].ia = d; 
                     y() 
@@ -4611,11 +4642,14 @@
                             return !0; 
                     return !1
                 }
+
     })(h.Xa = h.Xa || {}, jQuery191);
     /*
      Copyright 2013
     */
-    var R = R || {}; jQuery191(function () { R.Image.initialize({ src: Core.mediaUrl + "images/loading.png" }) });
+    var R = R || {}; 
+    jQuery191(function () { R.Image.initialize({ src: Core.mediaUrl + "images/loading.png" }) });
+    
     (function (d, c) {
         function e(d) { return !c(d).data("loaded") } function P() { for (var d = 0; d < this.ad.length; d++)c(this.ad[d].object).off(this.ad[d].FC); this.ad = []; for (d = 0; d < this.images.length; d++) { var z = this.images[d], K = z.attr("ui-image-src"); if (!K) return; z.removeAttr("ui-image-src").removeClass("ui-image-deferred"); z.attr("src", K).show(); z.data("loaded", !0) } this.images = c.grep(this.images, e) } var s = {}, K = {}; d.initialize = function (e) { K = c.extend({ src: "" }, e); d.kg("default") }; d.qb = function (d, e, K) {
             s[d] && (c(K).on(e,
@@ -4631,10 +4665,29 @@
     */
     R = R || {};
     (function (d, c) {
-        d.ba = function (e) { c(e).addClass("ui-tabs"); c("ol,ul", e).filter(":first").addClass("ui-tabs-nav"); c(e).children("div").addClass("ui-tabs-panel"); c(e).append(c("<div>").addClass("clearfix")); c(".ui-tabs-nav li > a").click(function () { if (c(this).parent().hasClass("ui-tabs-active")) return !1; var P = c(this).attr("href"); d.Cw(e, P); return !1 }); return e }; d.Cw = function (d, P) {
-            var s = c("ol,ul", d).filter(":first"); c("ol li,ul li", d).removeClass("ui-tabs-active"); c('a[href="' + P + '"]', s).parent().addClass("ui-tabs-active"); c(".ui-tabs-panel",
-                d).hide(); c(P, d).show().trigger("UI.Tabs.selected").trigger("UI.Tabs.paint")
+
+        d.ba = function (e) { 
+            c(e).addClass("ui-tabs"); 
+            c("ol,ul", e).filter(":first").addClass("ui-tabs-nav"); 
+            c(e).children("div").addClass("ui-tabs-panel"); 
+            c(e).append(c("<div>").addClass("clearfix")); 
+            c(".ui-tabs-nav li > a").click(function () { 
+                                                if (c(this).parent().hasClass("ui-tabs-active")) 
+                                                    return !1; 
+                                                var P = c(this).attr("href"); 
+                                                d.Cw(e, P); 
+                                                return !1 
+                                            }); 
+            return e 
+        }; 
+        
+        d.Cw = function (d, P) {
+            var s = c("ol,ul", d).filter(":first"); 
+            c("ol li,ul li", d).removeClass("ui-tabs-active"); 
+            c('a[href="' + P + '"]', s).parent().addClass("ui-tabs-active"); 
+            c(".ui-tabs-panel", d).hide(); c(P, d).show().trigger("UI.Tabs.selected").trigger("UI.Tabs.paint")
         }
+
     })(R.$h = R.$h || {}, jQuery191);
     /*
      Copyright 2013
@@ -4663,17 +4716,70 @@
             p.css("left", c + "px").css("top", d + "px").show() 
         }
 
-        function K() { var e = c(this), g = e.attr("ui-tooltip-data"), p = e.data("ui-tooltip-options"); g && d.Th(e, g, p) } function g() { var e = c(this), g = e.attr("ui-tooltip-data"), p = e.data("ui-tooltip-options"); g && d.Th(e, g, p) } function z(c, d, e) { "string" === typeof d ? A.html(d) : A.empty().append(d); d = p.outerWidth(); var g = p.outerHeight(); c = fa[e.location](c, d, g); "mouse" != e.location && s(c.x, c.y) } var fa = {
-            bottomCenter: function (c, d, g) { var n = c.offset(), p = n.left + (c.outerWidth() / 2 - d / 2); c = n.top + c.outerHeight() + 5; return e(0, p, c, d, g) }, bottomLeft: function (c,
-                d, g) { var n = c.offset(), p = n.left - d; c = n.top + c.outerHeight(); return e(0, p, c, d, g) }, bottomRight: function (c, d, g) { var n = c.offset(), p = n.left + c.outerWidth(); c = n.top + c.outerHeight(); return e(0, p, c, d, g) }, leftCenter: function (c, d, g) { var n = c.offset(), p = n.left - d; c = n.top + c.outerHeight() / 2 - g / 2; return e(0, p, c, d, g) }, rightCenter: function (c, d, g) { var n = c.offset(), p = n.left + c.outerWidth(); c = n.top + c.outerHeight() / 2 - g / 2; return e(0, p, c, d, g) }, topLeft: function (c, d, g) { c = c.offset(); return e(0, c.left - d, c.top - g, d, g) }, topRight: function (c,
-                    d, g) { var n = c.offset(); c = n.left + c.outerWidth(); return e(0, c, n.top - g, d, g) }, mouse: function (d, g, p) { d.off("mousemove.UI.Tooltip"); d.on("mousemove.UI.Tooltip", function (d) { d = e(c(this), d.pageX + 15, d.pageY + 15, g, p); s(d.x, d.y) }) }
-        }, u = Date.now(), p = null, A = null; d.initialize = function () {
-            p = c("<div>").addClass("ui-tooltip").hide().appendTo("body"); A = c("<div>").addClass("ui-tooltip-content").appendTo(p); p.mouseleave(function () { P() }); c(document).off("mouseover.UI.Tooltip", "[ui-tooltip-data]", K); c(document).on("mouseover.UI.Tooltip",
-                "[ui-tooltip-data]", K); c(document).off("touchend.UI.Tooltip", "[ui-tooltip-data]", g); c(document).on("touchend.UI.Tooltip", "[ui-tooltip-data]", g)
-        }; d.ba = function (d, e, g) { var n = (u++).toString(), n = n.substr(n.length - 6); d.attr("ui-tooltip-data", "#tooltip-" + n); g && d.data("ui-tooltip-options", g); "object" === typeof e ? d.after(c("<div>").attr("id", "tooltip-" + n).append(e).hide()) : d.after(c("<div>").attr("id", "tooltip-" + n).html(e).hide()) }; d.Aa = function (d) {
-            var e = d.attr("ui-tooltip-data"); "string" === typeof e && ("#" ==
-                e.substr(0, 1) && c(e).remove(), d.removeAttr("ui-tooltip-data")); d.off("mouseover.UI.Tooltip mousemove.UI.Tooltip")
-        }; d.Th = function (d, e, g) { d = c(d); g = c.extend({ location: "A" == d.prop("tagName") ? "mouse" : "bottomLeft" }, g); d.mouseout(function (d) { c.contains(p[0], d.relatedTarget) || P() }); "object" === typeof e ? z(d, e, g) : "string" === typeof e && ("#" == e.substr(0, 1) ? z(d, c(e).html(), g) : z(d, e, g)) }
+        function K() { 
+            var e = c(this), 
+                g = e.attr("ui-tooltip-data"), 
+                p = e.data("ui-tooltip-options"); 
+            g && d.Th(e, g, p) 
+        } 
+        
+        function g() { 
+            var e = c(this), 
+                g = e.attr("ui-tooltip-data"), 
+                p = e.data("ui-tooltip-options"); 
+            g && d.Th(e, g, p) 
+        } 
+        
+        function z(c, d, e) { 
+            "string" === typeof d ? A.html(d) : A.empty().append(d); 
+            d = p.outerWidth(); var g = p.outerHeight(); 
+            c = fa[e.location](c, d, g); 
+            "mouse" != e.location && s(c.x, c.y) 
+        } 
+        
+        var fa = {
+            bottomCenter: function (c, d, g) { var n = c.offset(), p = n.left + (c.outerWidth() / 2 - d / 2); c = n.top + c.outerHeight() + 5; return e(0, p, c, d, g) }, 
+            bottomLeft: function (c, d, g) { var n = c.offset(), p = n.left - d; c = n.top + c.outerHeight(); return e(0, p, c, d, g) }, 
+            bottomRight: function (c, d, g) { var n = c.offset(), p = n.left + c.outerWidth(); c = n.top + c.outerHeight(); return e(0, p, c, d, g) }, 
+            leftCenter: function (c, d, g) { var n = c.offset(), p = n.left - d; c = n.top + c.outerHeight() / 2 - g / 2; return e(0, p, c, d, g) }, 
+            rightCenter: function (c, d, g) { var n = c.offset(), p = n.left + c.outerWidth(); c = n.top + c.outerHeight() / 2 - g / 2; return e(0, p, c, d, g) }, 
+            topLeft: function (c, d, g) { c = c.offset(); return e(0, c.left - d, c.top - g, d, g) }, 
+            topRight: function (c, d, g) { var n = c.offset(); c = n.left + c.outerWidth(); return e(0, c, n.top - g, d, g) }, 
+            mouse: function (d, g, p) { d.off("mousemove.UI.Tooltip"); d.on("mousemove.UI.Tooltip", function (d) { d = e(c(this), d.pageX + 15, d.pageY + 15, g, p); s(d.x, d.y) }) }
+        }, 
+        u = Date.now(), 
+        p = null, 
+        A = null; 
+        
+        d.initialize = function () {
+            p = c("<div>").addClass("ui-tooltip").hide().appendTo("body"); 
+            A = c("<div>").addClass("ui-tooltip-content").appendTo(p); 
+            p.mouseleave(function () { P() }); 
+            c(document).off("mouseover.UI.Tooltip", "[ui-tooltip-data]", K); 
+            c(document).on("mouseover.UI.Tooltip", "[ui-tooltip-data]", K); 
+            c(document).off("touchend.UI.Tooltip", "[ui-tooltip-data]", g); 
+            c(document).on("touchend.UI.Tooltip", "[ui-tooltip-data]", g)
+        }; 
+        
+        d.ba = function (d, e, g) { 
+            var n = (u++).toString(), n = n.substr(n.length - 6); 
+            d.attr("ui-tooltip-data", "#tooltip-" + n); 
+            g && d.data("ui-tooltip-options", g); 
+            "object" === typeof e ? d.after(c("<div>").attr("id", "tooltip-" + n).append(e).hide()) : d.after(c("<div>").attr("id", "tooltip-" + n).html(e).hide()) 
+        }; 
+        
+        d.Aa = function (d) {
+            var e = d.attr("ui-tooltip-data"); "string" === typeof e && ("#" == e.substr(0, 1) && c(e).remove(), d.removeAttr("ui-tooltip-data")); 
+            d.off("mouseover.UI.Tooltip mousemove.UI.Tooltip")
+        }; 
+        
+        d.Th = function (d, e, g) { 
+            d = c(d); 
+            g = c.extend({ location: "A" == d.prop("tagName") ? "mouse" : "bottomLeft" }, g); 
+            d.mouseout(function (d) { c.contains(p[0], d.relatedTarget) || P() }); 
+            "object" === typeof e ? z(d, e, g) : "string" === typeof e && ("#" == e.substr(0, 1) ? z(d, c(e).html(), g) : z(d, e, g)) 
+        }
+        
     })(R.Tc = R.Tc || {}, jQuery191);
     /*
      Copyright 2013
@@ -4682,39 +4788,185 @@
     */
     var V = V || {};
     (function (d, c) {
-        function e(c) { return 100 * c } var P = { name: "[MISSING NAME]", j: "%", format: e }, s = {
-            ATTR_DMG: { name: "", j: "", $d: !0 }, ATTR_INT: { name: "", j: "" }, ATTR_PCT: { name: "", j: "%", format: e }, ATTR_TIME: { name: "", j: a.xb }, AMMO_INT: { name: "", j: "", precision: 1 }, AMMO_TIME: { name: "", j: a.xb, precision: 1 }, accuracy: { name: a.Kf, j: "%", format: e }, ammoArmorWeakening: { name: a.fi, j: "%", format: e }, ammoDamage: { name: a.CA, j: "%", format: e }, ammoResupply: { name: a.nj, j: a.xb }, areaTargetBonus: { name: "", j: "" }, armor: { name: "", j: "" }, arrows: { name: "", j: "" },
-            arrowCount: { name: a.Jj, j: "" }, ascensionDuration: { name: "", j: "" }, baseRechargeSpeed: { name: a.k, j: a.xb }, bioticDamage: { name: a.bg, j: "%", format: e }, bioticOrbs: { name: "", j: "" }, bladeDamage: { name: "", j: "", $d: !0 }, bloodlustHOT: { name: a.pd, j: "" }, bonusGrenade: { name: a.yl, j: "" }, bow: { name: a.l, j: "" }, cobraCapacity: { name: "", j: "" }, damage: { name: a.l, j: "" }, damageReduction: { name: a.xc, j: "%", format: e }, decoyShield: { name: a.Xm, j: "" }, dot: { name: a.pg, j: "" }, dsDOT: { name: a.pg, j: "" }, durability: { name: a.Zp, j: "%", format: e }, duration: {
-                name: a.W,
-                j: a.xb
-            }, encumbrance: { name: a.DC, j: "" }, enemyArmorPenetration: { name: a.EA, j: "%", format: e }, enemyArmorWeakening: { name: a.fi, j: "%", format: e }, enemyDamageTaken: { name: a.Fm, j: "%", format: e }, enemyMovementSpeed: { name: a.Pn, j: "%", format: e }, force: { name: a.Ee, j: a.IB }, globalDamage: { name: a.pe, j: "%", format: e }, globalDuration: { name: a.W, j: "%", format: e }, globalPowerDamage: { name: a.J, j: "%", format: e }, globalRecharge: { name: a.k, j: "%", format: e }, grenadeCapacity: { name: a.La, j: "" }, grenadeResupply: { name: a.Dp, j: a.xb }, hammer: { name: a.l, j: "" },
-            hammerCharges: { name: a.Cd, j: "" }, headshot: { name: a.ca, j: "%", format: e }, headshotMod: { name: a.ca, j: "%", format: e }, hexShield: { name: a.Od, j: "" }, incapacitate: { name: a.Eq, j: a.xb }, maxShield: { name: "", j: "" }, medigelCapacity: { name: "", j: "" }, meleeDamage: { name: a.P, j: "%", format: e }, meleeDrain: { name: a.Sh, j: "" }, meleeHeavyBase: { name: a.aB, j: "" }, missileRefire: { name: a.Ls, j: a.xb }, modMeleeDamage: { name: a.gB, j: "%", format: e }, modWeightAssault: { name: a.gi, j: "%", format: e }, modWeightPistol: { name: a.ii, j: "%", format: e }, modWeightShotgun: {
-                name: a.mi,
-                j: "%", format: e
-            }, modWeightSMG: { name: a.ki, j: "%", format: e }, modWeightSniper: { name: a.ni, j: "%", format: e }, modULMAssault: { name: a.gi, j: "%", format: e }, modULMPistol: { name: a.ii, j: "%", format: e }, modULMShotgun: { name: a.mi, j: "%", format: e }, modULMSMG: { name: a.ki, j: "%", format: e }, modULMSniper: { name: a.ni, j: "%", format: e }, movementSpeed: { name: a.jc, j: "%", format: e }, netAOE: { name: "", j: "", $d: !0 }, omniShield: { name: a.Et, j: "" }, opsPackCapacity: { name: "", j: "" }, overload: { name: a.l, j: "" }, paralyze: { name: a.Nt, j: a.xb }, penetration: {
-                name: "", j: "",
-                precision: 2
-            }, petShield: { name: "", j: "" }, poison: { name: a.uu, j: "" }, radius: { name: a.Y, j: a.oi }, range: { name: a.Range, j: a.oi }, rageDR: { name: a.pv, j: "%", format: e }, rageDuration: { name: "", j: "" }, rageHOT: { name: a.qv, j: "" }, rageMeleeDamage: { name: a.rv, j: "%", format: e }, repairMatrix: { name: a.Sh, j: "" }, seekerSwarm: { name: "", j: "" }, shadowstrike: { name: a.l, j: "" }, shieldBoost: { name: a.Qq, j: "" }, shieldBoostRegen: { name: a.vx, j: "" }, shieldRechargeRate: { name: a.Ha, j: "%", format: e }, shieldStrength: { name: a.Od, j: "%", format: e }, siegeCharge: {
-                name: a.Cd,
-                j: ""
-            }, singularity: { name: "", j: "", $d: !0 }, stability: { name: a.Ff, j: "%", format: e }, stimpackShields: { name: a.zd, j: "" }, techDamage: { name: a.jA, j: "%", format: e }, thermalCapacity: { name: "", j: "" }, turretRestore: { name: a.mj, j: "" }, weaponDamage: { name: a.n, j: "%", format: e }, weaponDamageAssault: { name: a.GA, j: "%", format: e }, weaponDamagePistol: { name: a.kB, j: "%", format: e }, weaponDamageShotgun: { name: a.AB, j: "%", format: e }, weaponDamageSMG: { name: a.rB, j: "%", format: e }, weaponDamageSniper: { name: a.EB, j: "%", format: e }, weaponROF: {
-                name: a.hf, j: "%",
-                format: e
-            }
-        }; d.Ed = "1 2 3 4A 4B 5A 5B 6A 6B".split(" "); d.Gd = "I II III IV V VI VII VIII IX X".split(" "); d.Yu = { health: a.MA, armor: a.KA, barrier: a.LA, shield: a.NA }; d.rC = [a.FA, a.jB, a.zB, a.qB, a.DB]; d.Nb = function (c, e, z) { z = z || {}; z.$c = !1; for (var s in e) { var u = e[s], p = d.md(s); p.$d ? z.$c = s : (p.format && (u = p.format(Math.abs(u))), c = p.precision ? c.replace("{" + s + "}", d.va(u, p.precision, !0)) : c.replace("{" + s + "}", d.va(u))) } return c }; d.md = function (c) { return s[c] ? s[c] : P }; d.va = function (c, d, e) {
-            if ("undefined" === typeof d || 0 > d) d =
-                2; "undefined" === typeof e && (e = !1); var s = Math.pow(10, d); c = Math.round(c * s) / s; return e || 0 != c % 1 ? c.toFixed(d) : "" + c
-        }; d.uf = function (e) { var g = !1, z = c("<tbody>"), s; for (s in e) { var u = e[s]; if (1 != u) { var g = !0, p = c("<td>").addClass("bonus-value"); 1 < u ? p.append(c("<span>").addClass("buff").text("+" + 100 * u + "%")) : p.append(c("<span>").addClass("debuff").text("-" + 100 * (1 - u) + "%")); z.append(c("<tr>").append(p, c("<td>").html(d.Yu[s]))) } } return g ? c("<table>").append(z) : !1 }; d.Uc = function (e, g) {
+        function percent_format(c) { 
+            return 100 * c 
+        } 
+
+        var default_format = { name: "[MISSING NAME]", j: "%", format: percent_format }, 
+        parameter_value_formats = {
+            ATTR_DMG: { name: "", j: "", $d: !0 }, 
+            ATTR_INT: { name: "", j: "" }, 
+            ATTR_PCT: { name: "", j: "%", format: percent_format }, 
+            ATTR_TIME: { name: "", j: a.xb }, 
+            AMMO_INT: { name: "", j: "", precision: 1 }, 
+            AMMO_TIME: { name: "", j: a.xb, precision: 1 }, 
+            accuracy: { name: a.Kf, j: "%", format: percent_format }, 
+            ammoArmorWeakening: { name: a.fi, j: "%", format: percent_format }, 
+            ammoDamage: { name: a.CA, j: "%", format: percent_format }, 
+            ammoResupply: { name: a.nj, j: a.xb }, 
+            areaTargetBonus: { name: "", j: "" }, 
+            armor: { name: "", j: "" }, 
+            arrows: { name: "", j: "" },
+            arrowCount: { name: a.Jj, j: "" }, 
+            ascensionDuration: { name: "", j: "" }, 
+            baseRechargeSpeed: { name: a.k, j: a.xb }, 
+            bioticDamage: { name: a.bg, j: "%", format: percent_format }, 
+            bioticOrbs: { name: "", j: "" }, 
+            bladeDamage: { name: "", j: "", $d: !0 }, 
+            bloodlustHOT: { name: a.pd, j: "" }, 
+            bonusGrenade: { name: a.yl, j: "" }, 
+            bow: { name: a.l, j: "" }, 
+            cobraCapacity: { name: "", j: "" }, 
+            damage: { name: a.l, j: "" }, 
+            damageReduction: { name: a.xc, j: "%", format: percent_format }, 
+            decoyShield: { name: a.Xm, j: "" }, 
+            dot: { name: a.pg, j: "" }, 
+            dsDOT: { name: a.pg, j: "" }, 
+            durability: { name: a.Zp, j: "%", format: percent_format }, 
+            duration: { name: a.W, j: a.xb }, 
+            encumbrance: { name: a.DC, j: "" }, 
+            enemyArmorPenetration: { name: a.EA, j: "%", format: percent_format }, 
+            enemyArmorWeakening: { name: a.fi, j: "%", format: percent_format }, 
+            enemyDamageTaken: { name: a.Fm, j: "%", format: percent_format }, 
+            enemyMovementSpeed: { name: a.Pn, j: "%", format: percent_format }, 
+            force: { name: a.Ee, j: a.IB }, 
+            globalDamage: { name: a.pe, j: "%", format: percent_format }, 
+            globalDuration: { name: a.W, j: "%", format: percent_format }, 
+            globalPowerDamage: { name: a.J, j: "%", format: percent_format }, 
+            globalRecharge: { name: a.k, j: "%", format: percent_format }, 
+            grenadeCapacity: { name: a.La, j: "" }, 
+            grenadeResupply: { name: a.Dp, j: a.xb }, 
+            hammer: { name: a.l, j: "" },
+            hammerCharges: { name: a.Cd, j: "" }, 
+            headshot: { name: a.ca, j: "%", format: percent_format }, 
+            headshotMod: { name: a.ca, j: "%", format: percent_format }, 
+            hexShield: { name: a.Od, j: "" }, 
+            incapacitate: { name: a.Eq, j: a.xb }, 
+            maxShield: { name: "", j: "" }, 
+            medigelCapacity: { name: "", j: "" }, 
+            meleeDamage: { name: a.P, j: "%", format: percent_format }, 
+            meleeDrain: { name: a.Sh, j: "" }, 
+            meleeHeavyBase: { name: a.aB, j: "" }, 
+            missileRefire: { name: a.Ls, j: a.xb }, 
+            modMeleeDamage: { name: a.gB, j: "%", format: percent_format }, 
+            modWeightAssault: { name: a.gi, j: "%", format: percent_format }, 
+            modWeightPistol: { name: a.ii, j: "%", format: percent_format }, 
+            modWeightShotgun: { name: a.mi, j: "%", format: percent_format }, 
+            modWeightSMG: { name: a.ki, j: "%", format: percent_format }, 
+            modWeightSniper: { name: a.ni, j: "%", format: percent_format }, 
+            modULMAssault: { name: a.gi, j: "%", format: percent_format }, 
+            modULMPistol: { name: a.ii, j: "%", format: percent_format }, 
+            modULMShotgun: { name: a.mi, j: "%", format: percent_format }, 
+            modULMSMG: { name: a.ki, j: "%", format: percent_format }, 
+            modULMSniper: { name: a.ni, j: "%", format: percent_format }, 
+            movementSpeed: { name: a.jc, j: "%", format: percent_format }, 
+            netAOE: { name: "", j: "", $d: !0 }, 
+            omniShield: { name: a.Et, j: "" }, 
+            opsPackCapacity: { name: "", j: "" }, 
+            overload: { name: a.l, j: "" }, 
+            paralyze: { name: a.Nt, j: a.xb }, 
+            penetration: { name: "", j: "", precision: 2 }, 
+            petShield: { name: "", j: "" }, 
+            poison: { name: a.uu, j: "" }, 
+            radius: { name: a.Y, j: a.oi }, 
+            range: { name: a.Range, j: a.oi }, 
+            rageDR: { name: a.pv, j: "%", format: percent_format }, 
+            rageDuration: { name: "", j: "" }, 
+            rageHOT: { name: a.qv, j: "" }, 
+            rageMeleeDamage: { name: a.rv, j: "%", format: percent_format }, 
+            repairMatrix: { name: a.Sh, j: "" }, 
+            seekerSwarm: { name: "", j: "" }, 
+            shadowstrike: { name: a.l, j: "" }, 
+            shieldBoost: { name: a.Qq, j: "" }, 
+            shieldBoostRegen: { name: a.vx, j: "" }, 
+            shieldRechargeRate: { name: a.Ha, j: "%", format: percent_format }, 
+            shieldStrength: { name: a.Od, j: "%", format: percent_format }, 
+            siegeCharge: { name: a.Cd, j: "" }, 
+            singularity: { name: "", j: "", $d: !0 }, 
+            stability: { name: a.Ff, j: "%", format: percent_format }, 
+            stimpackShields: { name: a.zd, j: "" }, 
+            techDamage: { name: a.jA, j: "%", format: percent_format }, 
+            thermalCapacity: { name: "", j: "" }, 
+            turretRestore: { name: a.mj, j: "" }, 
+            weaponDamage: { name: a.n, j: "%", format: percent_format }, 
+            weaponDamageAssault: { name: a.GA, j: "%", format: percent_format }, 
+            weaponDamagePistol: { name: a.kB, j: "%", format: percent_format }, 
+            weaponDamageShotgun: { name: a.AB, j: "%", format: percent_format }, 
+            weaponDamageSMG: { name: a.rB, j: "%", format: percent_format }, 
+            weaponDamageSniper: { name: a.EB, j: "%", format: percent_format }, 
+            weaponROF: { name: a.hf, j: "%", format: percent_format }
+        }; 
+        
+        d.evolution_codes = "1 2 3 4A 4B 5A 5B 6A 6B".split(" "); 
+        d.rank_codes = "I II III IV V VI VII VIII IX X".split(" "); 
+        d.Yu = { health: a.MA, armor: a.KA, barrier: a.LA, shield: a.NA }; 
+        d.rC = [a.FA, a.jB, a.zB, a.qB, a.DB]; 
+        
+        d.Nb = function (c, e, z) { 
+            z = z || {}; 
+            z.$c = !1; 
+            for (var s in e) {
+                 var u = e[s], p = d.get_parameter_value_format(s); 
+                 p.$d ? z.$c = s : (p.format && (u = p.format(Math.abs(u))), c = p.precision ? c.replace("{" + s + "}", d.va(u, p.precision, !0)) : c.replace("{" + s + "}", d.va(u))) 
+            } 
+            return c 
+        }; 
+        
+        d.get_parameter_value_format = function (c) { 
+            return parameter_value_formats[c] ? parameter_value_formats[c] : default_format 
+        }; 
+        
+        d.va = function (c, d, e) {
+            if ("undefined" === typeof d || 0 > d) d = 2; 
+            "undefined" === typeof e && (e = !1); 
+            var s = Math.pow(10, d); 
+            c = Math.round(c * s) / s; 
+            return e || 0 != c % 1 ? c.toFixed(d) : "" + c
+        }; 
+        
+        d.uf = function (e) { 
+            var g = !1, z = c("<tbody>"), s; 
+            for (s in e) { 
+                var u = e[s]; 
+                if (1 != u) { 
+                    var g = !0, p = c("<td>").addClass("bonus-value"); 
+                    1 < u ? p.append(c("<span>").addClass("buff").text("+" + 100 * u + "%")) : p.append(c("<span>").addClass("debuff").text("-" + 100 * (1 - u) + "%")); 
+                    z.append(c("<tr>").append(p, c("<td>").html(d.Yu[s]))) 
+                } 
+            } 
+            return g ? c("<table>").append(z) : !1 
+        }; 
+        
+        d.Uc = function (e, g) {
             for (var z = 0; z < g.attributes.length; z++) {
-                var s =
-                    c("<tr>"), u = c("<td>").addClass("bonus-value"), p = d.md(g.attributes[z].attr), A = g.attributes[z].value; p.format && (A = p.format(g.attributes[z].value)); A = d.va(Math.abs(A)) + p.j; 0 > g.attributes[z].value ? u.append(c("<span>").addClass("debuff").text("-" + A)) : u.append(c("<span>").addClass("buff").text("+" + A)); s.append(u); u = c("<td>").text(Core.format(0 == g.ia ? "{0} {1}" : "{0} {1} ({2})", g.object.evolutions[0].name, d.Ed[g.ia], g.object.evolutions[g.ia].name)); s.append(u); e.append(s)
+                var s = c("<tr>"), 
+                    u = c("<td>").addClass("bonus-value"), 
+                    p = d.get_parameter_value_format(g.attributes[z].attr), 
+                    A = g.attributes[z].value; p.format && (A = p.format(g.attributes[z].value)); 
+                A = d.va(Math.abs(A)) + p.j; 
+                0 > g.attributes[z].value ? u.append(c("<span>").addClass("debuff").text("-" + A)) : u.append(c("<span>").addClass("buff").text("+" + A)); s.append(u); 
+                u = c("<td>").text(Core.format(0 == g.ia ? "{0} {1}" : "{0} {1} ({2})", g.object.evolutions[0].name, d.evolution_codes[g.ia], g.object.evolutions[g.ia].name)); 
+                s.append(u); 
+                e.append(s)
             }
-        }; d.Vc = function (e, g) {
+        }; 
+        
+        d.Vc = function (e, g) {
             for (var s = 0; s < g.attributes.length; s++) {
-                var P =
-                    c("<tr>"), u = c("<td>").addClass("bonus-value"), p = d.md(g.attributes[s].attr), A = g.attributes[s].value; p.format && (A = p.format(g.attributes[s].value)); A = d.va(Math.abs(A)) + p.j; 0 > g.attributes[s].value ? u.append(c("<span>").addClass("debuff").text("-" + A)) : u.append(c("<span>").addClass("buff").text("+" + A)); P.append(u); u = c("<td>").text(Core.format("{0} {1} ({2})", g.object.name, d.Gd[g.ia], p.name)); P.append(u); e.append(P)
+                var P = c("<tr>"), 
+                    u = c("<td>").addClass("bonus-value"), 
+                    p = d.get_parameter_value_format(g.attributes[s].attr), 
+                    A = g.attributes[s].value; 
+                    p.format && (A = p.format(g.attributes[s].value)); 
+                A = d.va(Math.abs(A)) + p.j;
+                0 > g.attributes[s].value ? u.append(c("<span>").addClass("debuff").text("-" + A)) : u.append(c("<span>").addClass("buff").text("+" + A)); 
+                P.append(u); 
+                u = c("<td>").text(Core.format("{0} {1} ({2})", g.object.name, d.rank_codes[g.ia], p.name)); 
+                P.append(u); 
+                e.append(P)
             }
         }
+
     })(V.Xd = V.Xd || {}, jQuery191);
     /*
      Copyright 2013
@@ -4727,17 +4979,79 @@
     V = V || {}; jQuery191(function () { V.wh.initialize() });
     (function (d, c) {
         function e() {
-            var d = [], e = c("<p>").append(c("<span>").addClass("stat-id").text(ea.lB + ": ")).append(c("<span>").attr("id", "points-available").on("powerChanged.View.PowerSelector", ha)), e = c("<div>").addClass("infobar").append(e).append(c("<div>").addClass("power-reset").attr("ui-tooltip-data", ea.pB).click(u)); d.push(e); for (e = 0; 5 > e; e++) {
-                var n = c("<div>").addClass("power-label").data("power", e).append(c("<p>")); ca.Ll(n).change(m).hide(); c(".ui-check", n).attr("ui-tooltip-data", ea.zA); for (var n =
-                    c("<div>").addClass("power-tree").attr("id", "power-" + e).append(n), s = c("<div>").addClass("power-evo"), da = 0; da < y.Ed.length; da++) { var A = c("<div>").addClass("power-icon rank-" + y.Ed[da]).append(c("<img>")), A = c("<div>").addClass("power-frame").append(A); A.data("power", e).data("rank", da); A.hover(g, z).click(fa); A.on("powerChanged.View.PowerSelector", function (d) { d.stopPropagation(); p(c(this)) }); var L = D.Ob(da); L != D.Pa.eb ? (s.append(A), L == D.Pa.ee && (n.append(s), s = c("<div>").addClass("power-evo"))) : n.append(A) } s =
-                        c("<div>").addClass("stat-table power-attributes"); s.append(c("<table>").append(c("<tbody>"))); n.append(s); n.append(c("<div>").addClass("clearfix")); d.push(n)
-            } return c("<div>").attr("id", "power-selector").append(d)
-        } function P(d, e, g) { var n = D.nd(d), m = {}, p = y.Nb(n.evolutions[e].a, n.evolutions[e].attributes, m); m.$c && (d = D.Ge(d, m.$c, { Yc: n.evolutions[e].attributes[m.$c], ea: "health" }), p = p.replace("{" + m.$c + "}", '<span class="buff">' + y.va(d.value) + "</span>"), g && da.push(g)); return c("<div>").addClass("builder-tip power-tip").append(c("<h3>").text(n.evolutions[e].name)).append(c("<p>").html(p)) }
-        function s() { L.hide() } function K() { c(".power-frame").each(function () { c(this).trigger("powerChanged.View.PowerSelector") }); c("#points-available").trigger("powerChanged.View.PowerSelector"); n(); Z(); c("#character-builder").trigger("powerChanged.View.PowerSelector") } function g() { var d = c(this); if (!(d.hasClass("power-disabled") || d.hasClass("power-active") || d.hasClass("power-inactive"))) for (var e = d.data("power"), d = d.data("rank"), d = D.Jg(e, d), g = 0; g < d.length; g++)c(".rank-" + y.Ed[d[g]], c("#power-" + e)).parent().addClass("power-required") }
-        function z() { var d = c(this); d.hasClass("power-disabled") || d.hasClass("power-active") || d.hasClass("power-inactive") || c(".power-required").removeClass("power-required") } function fa() { var d = c(this); if (!d.hasClass("power-disabled")) { var e = d.data("power"), g = d.data("rank"); d.hasClass("power-active") ? (D.sg(e, g, !0), O(e), K()) : D.gh(e, g, !0) && (D.Pe(e, g) && D.sg(e, D.Ob(g) == D.Pa.Jb ? g + 1 : g - 1), D.Dw(e, g), O(e), K()) } } function u() {
-            D.Kh(); n(); Z(); c(".power-label > input").prop("checked", !1); c(".power-frame").removeClass("power-active power-inactive power-disabled");
+            var d = [], 
+                e = c("<p>").append(c("<span>").addClass("stat-id").text(ea.lB + ": "))
+                            .append(c("<span>").attr("id", "points-available").on("powerChanged.View.PowerSelector", ha)),
+                e = c("<div>").addClass("infobar").append(e).append(c("<div>").addClass("power-reset").attr("ui-tooltip-data", ea.pB).click(u)); 
+                d.push(e); 
+            for (e = 0; 5 > e; e++) {
+                var n = c("<div>").addClass("power-label").data("power", e).append(c("<p>")); 
+                ca.Ll(n).change(m).hide(); 
+                c(".ui-check", n).attr("ui-tooltip-data", ea.zA); 
+                for (var n = c("<div>").addClass("power-tree").attr("id", "power-" + e).append(n), s = c("<div>").addClass("power-evo"), da = 0; da < y.evolution_codes.length; da++) { 
+                    var A = c("<div>").addClass("power-icon rank-" + y.evolution_codes[da]).append(c("<img>")), A = c("<div>").addClass("power-frame").append(A); 
+                    A.data("power", e).data("rank", da); A.hover(g, z).click(fa); 
+                    A.on("powerChanged.View.PowerSelector", function (d) { d.stopPropagation(); p(c(this)) }); 
+                    var L = D.Ob(da); 
+                    L != D.Pa.eb ? (s.append(A), L == D.Pa.ee && (n.append(s), s = c("<div>").addClass("power-evo"))) : n.append(A) 
+                } 
+                s = c("<div>").addClass("stat-table power-attributes"); 
+                s.append(c("<table>").append(c("<tbody>"))); 
+                n.append(s); 
+                n.append(c("<div>").addClass("clearfix")); 
+                d.push(n)
+            } 
+            return c("<div>").attr("id", "power-selector").append(d)
+        } 
+
+        function P(d, e, g) { 
+            var n = D.nd(d), 
+                m = {}, 
+                p = y.Nb(n.evolutions[e].a, n.evolutions[e].attributes, m); 
+            m.$c && (d = D.Ge(d, m.$c, { Yc: n.evolutions[e].attributes[m.$c], ea: "health" }), p = p.replace("{" + m.$c + "}", '<span class="buff">' + y.va(d.value) + "</span>"), g && da.push(g)); 
+            return c("<div>").addClass("builder-tip power-tip").append(c("<h3>").text(n.evolutions[e].name)).append(c("<p>").html(p)) 
+        }
+
+        function s() { 
+            L.hide() 
+        } 
+        
+        function K() { 
+            c(".power-frame").each(function () { c(this).trigger("powerChanged.View.PowerSelector") }); 
+            c("#points-available").trigger("powerChanged.View.PowerSelector"); 
+            n(); 
+            Z(); 
+            c("#character-builder").trigger("powerChanged.View.PowerSelector") 
+        } 
+        
+        function g() { 
+            var d = c(this); 
+            if (!(d.hasClass("power-disabled") || d.hasClass("power-active") || d.hasClass("power-inactive"))) 
+                for (var e = d.data("power"), d = d.data("rank"), d = D.Jg(e, d), g = 0; g < d.length; g++)
+                    c(".rank-" + y.evolution_codes[d[g]], c("#power-" + e)).parent().addClass("power-required") 
+        }
+
+        function z() { 
+            var d = c(this); 
+            d.hasClass("power-disabled") || d.hasClass("power-active") || d.hasClass("power-inactive") || c(".power-required").removeClass("power-required") 
+        } 
+        
+        function fa() { 
+            var d = c(this); 
+            if (!d.hasClass("power-disabled")) { 
+                var e = d.data("power"), g = d.data("rank"); 
+                d.hasClass("power-active") ? (D.sg(e, g, !0), O(e), K()) : D.gh(e, g, !0) && (D.Pe(e, g) && D.sg(e, D.Ob(g) == D.Pa.Jb ? g + 1 : g - 1), D.Dw(e, g), O(e), K()) 
+            } 
+        } 
+        
+        function u() {
+            D.Kh(); 
+            n(); 
+            Z(); 
+            c(".power-label > input").prop("checked", !1); c(".power-frame").removeClass("power-active power-inactive power-disabled");
             c("#points-available").trigger("powerChanged.View.PowerSelector"); c("#character-builder").trigger("powerChanged.View.PowerSelector")
         } 
+        
         function p(c) { 
             var d = c.data("power"), e = c.data("rank"), g = D.Ob(e); 
             c.removeClass("power-required"); 
@@ -4768,21 +5082,54 @@
             n(); 
             Z(); 
             c("#character-builder").trigger("powerChanged.View.PowerSelector") 
-        } 
+        }
+
         function ha(d) { 
             d.stopPropagation(); 
             c(this).text(D.get_points_available()) 
         } 
+
         function O(d) {
             for (var e = c("#power-" + d), e = c(".stat-table tbody", e).empty(), g = D.nd(d), n = g.h, m = 0; m < n.length; m++) {
-                var p = n[m], s = y.md(p), u = {}, da = c("<tr>"), z = c("<td>").addClass("stat-id"), A =
-                    c("<td>"), E = c("<div>").addClass("builder-tip power-tip"); g.Z && g.Z[p] ? z.text(g.Z[p] + ":") : z.text(s.name + ":"); if (D.dh(p)) {
-                        for (var L = c("<tr>").append(c("<td>").addClass("stat-id").text(ea.OB)), ca = ["health", "armor", "barrier", "shield"], Z = 0; Z < ca.length; Z++)u = D.Ge(d, p, { ea: ca[Z] }), u = y.va(u.value, 0), L.append(c("<td>").append(c("<span>").addClass(ca[Z]).text(u))); u = c("<table>").append(c("<tbody>").append(L)); E.append(c("<h3>").text(ea.mB), u); u = D.Ge(d, p); g.i && (L = y.uf(g.i), !1 !== L && E.append(c("<h3>").text(ea.Af),
-                            L))
-                    } else u = D.Xo(d, p); L = u.value; s.format && (L = s.format(L)); L = y.va(L, 2) + s.j; A.append(c("<span>").addClass("stat-tip").text(L)); ja.Aa(c(".stat-tip", A)); if (0 < u.C.length) { s = E; L = u.C; ca = c("<tbody>"); for (Z = 0; Z < L.length; Z++) { var K = L[Z]; "power" == K.type ? y.Uc(ca, K) : y.Vc(ca, K) } 0 < L.length && (L = c("<table>").addClass("tip-bonus-table").append(ca), s.append(c("<h3>").text(ea.Wc)).append(L)) } D.dh(p) || 0 < u.C.length ? ja.ba(c(".stat-tip", A), E, { location: "bottomLeft" }) : ja.ba(c(".stat-tip", A), ea.Xc, { location: "bottomLeft" }); da.append(z,
-                        A); e.append(da)
+                var p = n[m], 
+                    s = y.get_parameter_value_format(p), 
+                    u = {}, 
+                    da = c("<tr>"), 
+                    z = c("<td>").addClass("stat-id"), 
+                    A = c("<td>"), 
+                    E = c("<div>").addClass("builder-tip power-tip"); 
+                g.Z && g.Z[p] ? z.text(g.Z[p] + ":") : z.text(s.name + ":"); 
+                if (D.dh(p)) {
+                    for (var L = c("<tr>").append(c("<td>").addClass("stat-id").text(ea.OB)), ca = ["health", "armor", "barrier", "shield"], Z = 0; Z < ca.length; Z++)
+                        u = D.Ge(d, p, { ea: ca[Z] }), 
+                        u = y.va(u.value, 0), 
+                        L.append(c("<td>").append(c("<span>").addClass(ca[Z]).text(u))); 
+                        u = c("<table>").append(c("<tbody>").append(L)); 
+                        E.append(c("<h3>").text(ea.mB), u); 
+                        u = D.Ge(d, p); 
+                        g.i && (L = y.uf(g.i), !1 !== L && E.append(c("<h3>").text(ea.Af), L))
+                } else u = D.Xo(d, p); 
+                L = u.value; 
+                s.format && (L = s.format(L)); 
+                L = y.va(L, 2) + s.j; 
+                A.append(c("<span>").addClass("stat-tip").text(L)); 
+                ja.Aa(c(".stat-tip", A)); 
+                if (0 < u.C.length) { 
+                    s = E; 
+                    L = u.C; 
+                    ca = c("<tbody>"); 
+                    for (Z = 0; Z < L.length; Z++) { 
+                        var K = L[Z]; 
+                        "power" == K.type ? y.Uc(ca, K) : y.Vc(ca, K) 
+                    } 
+                    0 < L.length && (L = c("<table>").addClass("tip-bonus-table").append(ca), s.append(c("<h3>").text(ea.Wc)).append(L)) 
+                } 
+                D.dh(p) || 0 < u.C.length ? ja.ba(c(".stat-tip", A), E, { location: "bottomLeft" }) : ja.ba(c(".stat-tip", A), ea.Xc, { location: "bottomLeft" }); 
+                da.append(z, A); 
+                e.append(da)
             }
         } 
+
         function n() { 
             for (var c = 0; c < da.length; c++) { 
                 var d = da[c], e = d.parent().data("power"), g = d.parent().data("rank"); 
@@ -4790,11 +5137,20 @@
                 ja.ba(d, P(e, g)) 
             } 
         } 
+
         function Z() { 
             for (var c = D.nd(), d = 0; d < c.length; d++)
                 O(d) 
         } 
-        var D = h.Xa, ca = R.bh, ja = R.Tc, y = V.Xd, ea = a, L = null, da = []; 
+
+        var D = h.Xa, 
+            ca = R.bh, 
+            ja = R.Tc, 
+            y = V.Xd, 
+            ea = a, 
+            L = null, 
+            da = []; 
+
         d.initialize = function () {
             L = e(); 
             c("#build-content").append(L); 
@@ -4806,6 +5162,7 @@
             c("#build-content").on("overlayShowing.View.Character", s); 
             c("#build-content").on("overlayHidden.View.Character", A)
         }; 
+        
         d.Ea = function () {
             da = []; 
             c("#points-available").text(D.get_points_available()); 
@@ -4849,7 +5206,9 @@
                 } f = c("<div>").addClass("equipment-small rarity-small-" + U.rarity.common).append(aa.Lb(Core.mediaUrl + "images/consumables/" + f.d, 128, 96, "equipment")); g = c("<div>").addClass("equipment-cell").append(f).append(g); d.push(g)
             } d.push(c("<div>").addClass("clearfix")); return c("<div>").attr("id", "equipment-type-" + G.Fa).addClass("selector-group").data("type",
                 G.Fa).append(d)
-        } function s() {
+        } 
+        
+        function s() {
             for (var d = [], e = 0; e < equipment[G.jb].length; e++) {
                 for (var f = equipment[G.jb][e], g = c("<ul>"), k = 0; k < f.evolutions.length; k++) { var m = c("<p>").text(f.name + " " + Y[k]), y = c("<li>").append(m).data("type", G.jb).data("equipment", e).data("rank", k).click(n), p = c("<div>").append(c("<h3>").text(f.name + " " + Y[k])).append(c("<p>").text(ia.Nb(f.a, f.evolutions[k].attributes))); Q.ba(m, p); g.append(y) } f = c("<div>").addClass("equipment-small rarity-small-" + U.rarity.common).append(aa.Lb(Core.mediaUrl + "images/consumables/" + f.d, 128, 96, "equipment"));
                 g = c("<div>").addClass("equipment-cell").append(f).append(g); d.push(g)
@@ -4911,7 +5270,14 @@
         function p() {
             E.Zn(f); c(this).hide(); f == B.ha ? (c("#primary-weapon .weapon-equipped").show(), c("#secondary-weapon .weapon-equipped").hide()) :
                 (c("#primary-weapon .weapon-equipped").hide(), c("#secondary-weapon .weapon-equipped").show()); c("#character-builder").trigger("equippedWeaponChanged.View.WeaponSelector")
-        } function A(d, e) { e != t && (S = -1, t.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function m(d, e) { e != xa && (f = -1, xa.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function ha(d, e) { e != ya && (x = f = -1, ya.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function O(e) {
+        } function A(d, e) { e != t && (S = -1, t.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } function m(d, e) { e != xa && (f = -1, xa.hide()); e || c("#build-content").trigger("overlayHidden.View.Character") } 
+        
+        function ha(d, e) {
+            e != ya && (x = f = -1, ya.hide()); 
+            e || c("#build-content").trigger("overlayHidden.View.Character") 
+        } 
+        
+        function O(e) {
             c(this).hasClass("rank-active") ?
             e.stopPropagation() : (c("#equipment-selector .item-rank").removeClass("rank-active"), c(this).addClass("rank-active"), v = c(this).data("rank"), E.Kw(S, v), d.Ea(), S != G.Fa && S != G.jb && na(c("#equipment-type-" + S)), c("#character-builder").trigger(k[S]))
         } 
@@ -5023,7 +5389,7 @@
             equipment = h.Ya.eg, 
             G = h.Xa.Ab, 
             w = a, 
-            Y = ia.Gd, 
+            Y = ia.rank_codes, 
             X = h.Ya.Df, 
             ga = h.Ya.nh, 
             B = h.Xa.aa, 
@@ -5153,8 +5519,8 @@
             var e = c("<div>").addClass("builder-tip character-tip"), g = c("<tbody>"), n = p.get_base_encumbrance(); 
             g.append(s(n, m.va(100 * n, 0) + "%", p.Hg())); 
             var n = p.Qa(D.ha), q = Z[n.type][n.ra], u = p.Fc(n); 
-            g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.Gd[n.ia])); 
-            n = p.Qa(D.xa); -1 != n.type && (q = Z[n.type][n.ra], u = p.Fc(n), g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.Gd[n.ia]))); 
+            g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.rank_codes[n.ia])); 
+            n = p.Qa(D.xa); -1 != n.type && (q = Z[n.type][n.ra], u = p.Fc(n), g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.rank_codes[n.ia]))); 
             for (n = 0; n < d.C.length; n++)
                 q = d.C[n], "power" == q.type ? m.Uc(g, q) : m.Vc(g, q); 
             d = c("<table>").addClass("tip-bonus-table").append(g); 
@@ -5219,7 +5585,7 @@
                 var e = c(d).children(), d = Math.floor(c(d).width() / c(d).children(":first").width()); c(".arrow", this).hide(); if (e.length <= d) c(e).each(function () { c(this).show() });
                 else { for (var g = null, m = 0; m < e.length; m++)null != g || m != e.length - d && !c(e[m]).hasClass("scroll-start") || (g = m), c(e[m]).hide(), null !== g && m < g + d && c(e[m]).show(); 0 != g && c(".arrow-left", this).show(); g + d < e.length && c(".arrow-right", this).show() }
             }
-        } function K() { for (var c = 0; c < ha.length; c++)if (this.id == ha[c]) { O = c; p.Mw(c); break } } function g(e) { e.preventDefault(); p.Oe() && (p.$m(), c("#character-builder").trigger("show.View.KitSelector"), c("#character-select").show(), u(), d.Ea()) } function z() {
+        } function K() { for (var c = 0; c < ha.length; c++)if (this.id == ha[c]) { O = c; p.Mw(c); break } } function g(e) { e.preventDefault(); p.character_is_chosen() && (p.$m(), c("#character-builder").trigger("show.View.KitSelector"), c("#character-select").show(), u(), d.Ea()) } function z() {
             for (var d = c(this).parent().siblings("ul"),
                 e = Math.floor(d.width() / d.children(":first").width()), g, m = null, d = d.children(), p = 0; p < d.length; p++)if (c(d[p]).is(":visible")) { g = p; m = p + e - 1; break } 0 < g && (g--, c(d[m]).hide(), c(d[g]).show().addClass("scroll-start"), c(d[g + 1]).removeClass("scroll-start"), c(this).parent().siblings(".scroll-right").children("a").show(), 0 == g && c(this).fadeOut("fast"))
         } function fa() {
@@ -5227,12 +5593,12 @@
                 g =
                 p; m = p + e - 1; break
             } m < d.length - 1 && (m++, c(d[g]).hide().removeClass("scroll-start"), c(d[g + 1]).addClass("scroll-start"), c(d[m]).show(), c(this).parent().siblings(".scroll-left").children("a").show(), m == d.length - 1 && c(this).fadeOut("fast"))
-        } function u() { c("#reset-kit").siblings().remove(); p.Oe() && c("#reset-kit").after(c("<span>").addClass("kit-name").text(p.Hg())).after(c("<span>").text(" > ")) } var p = h.Xa, A = R.Image, m = h.Cb.Re, ha = h.Cb.Oh, O = -1; d.initialize = function () {
+        } function u() { c("#reset-kit").siblings().remove(); p.character_is_chosen() && c("#reset-kit").after(c("<span>").addClass("kit-name").text(p.Hg())).after(c("<span>").text(" > ")) } var p = h.Xa, A = R.Image, m = h.Cb.Re, ha = h.Cb.Oh, O = -1; d.initialize = function () {
             var m = [a.AA, a.GB, a.QA, a.vB, a.cB, a.JB]; c("#reset-kit").text(a.tB).click(g);
             if (Core.isIE(6) || Core.isIE(7) || Core.isIE(8)) { var p = c("<div>").addClass("error-panel").append(c("<p>").addClass("error").text(a.PA)).append(c("<p>").text(a.OA)); c("#character-select").before(p); c("#reset-kit").hide() } else p = e(), c("#character-select > ul").after(p), c("#character-select > ul a").each(function (d, e) { for (var g = 0; g < ha.length; g++)if (c(e).attr("href") == "#" + ha[g]) { c(e).attr("id", "spec-" + g); c(e).text(m[g]); break } }), c(window).on("resize", function () { c(".scroll-panel:visible").each(function () { c(this).trigger("UI.Tabs.paint") }) }),
                 R.$h.ba(c("#character-select")).addClass("ui-tabs-vertical"), c(".ui-tabs-panel").on("UI.Tabs.selected", K), c(".ui-tabs-panel").on("UI.Tabs.paint", s), A.qb("kit", "loadImages.View.KitSelector", c("#character-select")), A.qb("kit", "mouseenter", c("#reset-kit")), c("#character-select").show(), d.Ea()
         }; d.Ea = function () {
-            p.Oe() ? (u(), c("#character-select").hide(), c("#character-builder").trigger("kitSelected.View.KitSelector")) : (c("#character-select").trigger("loadImages.View.KitSelector"), O != p.He() && (O = p.He(), c(".scroll-panel").hide(),
+            p.character_is_chosen() ? (u(), c("#character-select").hide(), c("#character-builder").trigger("kitSelected.View.KitSelector")) : (c("#character-select").trigger("loadImages.View.KitSelector"), O != p.He() && (O = p.He(), c(".scroll-panel").hide(),
                 c("#spec-" + O).click()))
         }
     })(V.ih = V.ih || {}, jQuery191);
