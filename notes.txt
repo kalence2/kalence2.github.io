@@ -39,3 +39,5 @@ Power DoT
 Add explanations (bugged evos, hidden features)
 
 [^a-zA-Z]
+},
+            { name:
