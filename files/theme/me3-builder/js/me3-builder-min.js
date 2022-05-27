@@ -3714,7 +3714,7 @@
 
         function has_fire_dot_active() {
             for (var i = 0; i < 3; ++i)
-                if (is_toggled[i]) {
+                if (is_toggled[i] && build[i]) {
                     var path = build[i];
                     for (var j = 0; j < path.length; ++j)
                         if (character.powers[i].evolutions[build[i][j]].attributes.fireDoT)

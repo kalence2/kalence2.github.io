@@ -27,16 +27,17 @@ Corrected "Quarian Female" descriptions
 Implemented Inferno Grenade glitch
 Implemented Blade Armor glitch
 Implemented Warp ammo biotic bonus
+Implemented Incendiary glitch
 
 Todo:
 Boss headshots
-Incendiary glitch
 Weight glitch
 Melee radius and cap
 Sword Mastery
 Armor weakening
 Power DoT
 Add explanations (bugged evos, hidden features)
+Synthetic damage
 
 [^a-zA-Z]
 },
