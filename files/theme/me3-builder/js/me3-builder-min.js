@@ -756,9 +756,9 @@
     b.Hh = "Refire Time";
     b.Cv = "Regeneration";
     b.kf = "Repair Matrix";
-    b.Ev = "Decrease damage taken by {damageReduction}%.\nIncrease movement speed by {movementSpeed}%.";
-    b.Fv = "When getting back up from a downed state, take {damageReduction}% less damage for {ATTR_TIME} seconds.";
-    b.Gv = "Increase the amount of shields restored by {repairShields}%.\nReduce damage taken by {damageReduction}%.";
+    b.Ev = "Decrease damage taken by 5%.\nIncrease movement speed by {movementSpeed}%.";
+    b.Fv = "When getting back up from a downed state, take 75% less damage for {ATTR_TIME} seconds.";
+    b.Gv = "Increase the amount of shields restored by {repairShields}%.\nReduce damage taken by 10%.";
     b.Ih = "Increase the maximum number of charges that can be carried by {grenadeCapacity}.";
     b.Hv = "Reinforce armor with metal-repelling Foucault currents to increase movement speed, decrease damage taken, and to regenerate shields for a short duration. When activated, the fallen caster instantly gets back on their feet. This can only occur once, and a limited number of charges can be carried for this power.";
     b.Jh = "Increase the amount of shields restored by {repairShields}%.";
@@ -1326,13 +1326,27 @@
         
         } 
         function e(c) { var d = {}, g; for (g in c) { var e = g; "globalPowerDamage" == g && (e = "armorPowerDamage"); d[e] = d[e] ? d[e] + c[g] : c[g] } return d } 
-        function P(c) { var d = {}, g; for (g in c) { var e = g; "rageMeleeDamage" == g && (e = "meleeDamage"); d[e] = d[e] ? d[e] + c[g] : c[g] } return d } 
+
+        function P(c) { 
+            var d = {}, g; 
+            for (g in c) { 
+                var e = g; 
+                if (g == "rageMeleeDamage") 
+                    e = "meleeDamage";
+                if (g == "rageDR")
+                    e = "damageReduction";
+                if (g == "RMDR")
+                    e = "damageReduction";
+                d[e] = d[e] ? d[e] + c[g] : c[g] 
+            } 
+            return d 
+        } 
         
         d.type = { none: 0, biotic: 1, tech: 2 }; 
 
-        d.sc = { h: ["baseRechargeSpeed", "duration", "weaponDamage"], g: !0, icon: "AdrenalineRush", 
+        d.sc = { h: ["baseRechargeSpeed", "duration", "weaponDamage", "damageReduction"], g: !0, icon: "AdrenalineRush", 
         evolutions: [
-            { name: a.sc, a: a.fj, attributes: { baseRechargeSpeed: 6, duration: 4, weaponDamage: .5 } },
+            { name: a.sc, a: a.fj, attributes: { baseRechargeSpeed: 6, duration: 4, weaponDamage: .5, damageReduction: 0 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.W, a: a.Ka, attributes: { powerDuration: .3 } }, 
             { name: a.Op, a: a.aj, attributes: { damageReduction: .4 } },
@@ -1397,7 +1411,8 @@
             { name: a.Sa, a: a.Dj, attributes: { powerDamageArmor: .35, arrowArmorWeakening: .5, ATTR_TIME: 8 } }, 
             { name: a.Pf, a: a.Sg, attributes: { arrowCount: 1 } },
             { name: a.sb, a: a.ka, attributes: { bonusGrenade: 2, grenadeCapacity: 2 } }], 
-            i: { health: 1, armor: 1.5, barrier: 1, shield: 1 }, pb: c, is_grenade_power: !0, mutually_exclusive: [1, 2]
+            i: { health: 1, armor: 1.5, barrier: 1, shield: 1 }, 
+            pb: c, is_grenade_power: !0, mutually_exclusive: [1, 2]
         }; 
 
         d.fe = { h: ["baseRechargeSpeed", "damage", "duration", "radius"], g: !1, icon: "BatarianAttack", 
@@ -1414,7 +1429,7 @@
         
         d.rb = { Z: { armor: a.cg, radius: a.ml }, h: ["baseRechargeSpeed", "damageReduction", "armor", "radius"], g: !0, icon: "Barrier", 
             evolutions: [
-            { name: a.rb, a: a.rk, attributes: { baseRechargeSpeed: 6, damageReduction: .25, armor: 500, radius: 3, globalRecharge: -.5 } },
+            { name: a.rb, a: a.rk, attributes: { baseRechargeSpeed: 6, damageReduction: .25, armor: 500, radius: 3, globalRecharge: -.5} },
             { name: a.uv, a: a.ok, attributes: { rechargeSpeed: .25, powerDamage: .3, powerForce: .3, radiusPct: .3 } },
             { name: a.dg, a: a.Sf, attributes: { powerDamage: .2, powerForce: .2, radiusPct: .2 } }, 
             { name: a.dg, a: a.Sf, attributes: { powerDamage: .3, powerForce: .3, radiusPct: .3 } },
@@ -1423,12 +1438,13 @@
             { name: a.Lc, a: a.qk, attributes: { globalPowerDamage: .3, globalPowerForce: .3 } },
             { name: a.kc, a: a.Ld, attributes: { globalRecharge: .3 } },
             { name: a.Uf, a: a.fc, attributes: { damageReduction: .1 } }], 
-                i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, pb: e, type: d.type.biotic
+            i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, 
+            pb: e, type: d.type.biotic
         }; 
         
-        d.lb = { Z: { barrierRestored: a.Tf }, h: ["baseRechargeSpeed", "damage", "force", "barrierRestored"], g: !0, icon: "BioticCharge", 
+        d.lb = { Z: { barrierRestored: a.Tf }, h: ["baseRechargeSpeed", "damage", "force", "barrierRestored", "damageReduction"], g: !0, icon: "BioticCharge", 
             evolutions: [
-            { name: a.lb, a: a.Zf, attributes: { barrierRestored: .5, damage: 400, force: 650, baseRechargeSpeed: 10 } },
+            { name: a.lb, a: a.Zf, attributes: { barrierRestored: .5, damage: 400, force: 650, baseRechargeSpeed: 10, damageReduction: .5 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .3 } }, 
             { name: a.ga, a: a.ua, attributes: { powerDamage: .4, powerForce: .4 } },
@@ -1440,9 +1456,9 @@
             i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, type: d.type.biotic
         }; 
         
-        d.Kk = { Z: { barrierRestored: a.Tf }, h: ["baseRechargeSpeed", "damage", "force", "barrierRestored"], g: !0, icon: "KroganBioticCharge", 
+        d.Kk = { Z: { barrierRestored: a.Tf }, h: ["baseRechargeSpeed", "damage", "force", "barrierRestored", "damageReduction"], g: !0, icon: "KroganBioticCharge", 
             evolutions: [
-            { name: a.lb, a: a.Zf, attributes: { barrierRestored: .5, baseRechargeSpeed: 14, damage: 500, force: 750 } },
+            { name: a.lb, a: a.Zf, attributes: { barrierRestored: .5, baseRechargeSpeed: 14, damage: 500, force: 750, damageReduction: .5  } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .3 } }, 
             { name: a.ga, a: a.ua, attributes: { powerDamage: .4, powerForce: .4 } },
@@ -1754,10 +1770,10 @@
             i: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 }, type: d.type.tech
         }; 
         
-        d.Ac = { Z: { shieldRestored: a.sx }, h: ["baseRechargeSpeed", "damage", "radius", "shieldRestored"], g: !1, icon: "EnergyDrain", 
+        d.Ac = { Z: { shieldRestored: a.sx }, h: ["baseRechargeSpeed", "damage", "radius", "shieldRestored", "damageReduction"], g: !0, icon: "EnergyDrain", 
             evolutions: [
             { name: a.Ac, a: a.Tn, attributes: { baseRechargeSpeed: 8, damage: 220,
-                    radius: 1.5, shieldRestored: .5
+                    radius: 1.5, shieldRestored: .5, damageReduction: 0
                 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .2 } },
@@ -1781,7 +1797,20 @@
             { name: a.Qf, a: a.Zj, attributes: { ascensionRecharge: .1 } },
             { name: a.Ha, a: a.Ma, attributes: { shieldRechargeRate: .15 } },
             { name: a.Xj, a: a.Yj, attributes: { ascensionDamage: .1, ascensionRecharge: .1, ascensionDR: -.1 } },
-            { name: a.Ta, a: a.T, attributes: { durability: .25 } }], pb: function (c) { var d = {}, g; for (g in c) { var e = g; "ascensionDamage" == g ? e = "globalDamage" : "ascensionDR" == g ? e = "damageReduction" : "ascensionRecharge" == g && (e = "globalRecharge"); d[e] = d[e] ? d[e] + c[g] : c[g] } return d }
+            { name: a.Ta, a: a.T, attributes: { durability: .25 } }], 
+            pb: function (c) { 
+                var d = {}, g; 
+                for (g in c) { 
+                    var e = g; 
+                    "ascensionDamage" == g ? 
+                        e = "globalDamage" : 
+                        "ascensionDR" == g ? 
+                            e = "damageReduction" : 
+                            "ascensionRecharge" == g && (e = "globalRecharge"); 
+                    d[e] = d[e] ? d[e] + c[g] : c[g] 
+                } 
+                return d 
+            }
         }; 
         
         d.Be = { h: ["durability", "meleeDamage", "movementSpeed"], g: !1, icon: "MPMeleePassive",
@@ -2766,18 +2795,18 @@
             { name: a.Rq, a: a.yv, attributes: { enemyDamageTaken: .25, enemyMovementSpeed: -.3 } }], type: d.type.tech
         }; 
         
-        d.kf = { h: ["repairMatrix", "duration", "damageReduction", "movementSpeed"], g: !1, icon: "RepairMatrix", M: !0, 
+        d.kf = { h: ["repairMatrix", "duration", "RMDR", "movementSpeed"], g: !0, icon: "RepairMatrix", M: !0, 
         evolutions: [
-            { name: a.kf, a: a.Hv, attributes: { repairMatrix: 75, duration: 8, damageReduction: .15, movementSpeed: .1 } },
+            { name: a.kf, a: a.Hv, attributes: { repairMatrix: 75, duration: 8, RMDR: .15, movementSpeed: .1 } },
             { name: a.hg, a: a.Ih, attributes: { grenadeCapacity: 1 } }, 
             { name: a.Rh, a: a.Jh, attributes: { repairShields: .2 } },
-            { name: a.xz, a: a.Ev, attributes: { damageReduction: .05, movementSpeed: .1 } },
+            { name: a.xz, a: a.Ev, attributes: { RMDR: .05, movementSpeed: .1 } },
             { name: a.Rh, a: a.Jh, attributes: { repairShields: .3 } },
             { name: a.hg, a: a.Ih, attributes: { grenadeCapacity: 1 } },
             { name: a.W, a: a.Ca, attributes: { powerDuration: .5 } }, 
-            { name: a.nr, a: a.Fv, attributes: { damageReduction: .75, ATTR_TIME: 5 } },
-            { name: a.Xn, a: a.Gv, attributes: { repairShields: .35, damageReduction: .1 } }], 
-            is_grenade_power: !0
+            { name: a.nr, a: a.Fv, attributes: { ATTR_TIME: 5 } },
+            { name: a.Xn, a: a.Gv, attributes: { repairShields: .35, RMDR: .1 } }], 
+            is_grenade_power: !0, pb: P
         }; 
         
         d.Nc = { Z: { duration: a.Gp, damage: a.Rf }, h: ["baseRechargeSpeed", "duration", "radius", "damage"], g: !0, icon: "Hacking", 
@@ -2794,17 +2823,16 @@
             i: { health: 1, armor: 1, barrier: 1, shield: 2 }, type: d.type.tech
         }; 
         
-        d.nf = { Z: { duration: a.Ns }, h: ["baseRechargeSpeed", "damage",
-                "enemyMovementSpeed", "duration"], g: !1, icon: "SeekerSwarm", 
-                evolutions: [
-                { name: a.nf, a: a.Bw, attributes: { baseRechargeSpeed: 24, damage: 150, enemyMovementSpeed: -.1, duration: 4, seekerSwarm: 3 } },
+        d.nf = { Z: { duration: a.Ns }, h: ["baseRechargeSpeed", "damage", "enemyMovementSpeed", "duration", "seekerSwarmDR"], g: !0, icon: "SeekerSwarm", 
+            evolutions: [
+            { name: a.nf, a: a.Bw, attributes: { baseRechargeSpeed: 24, damage: 150, enemyMovementSpeed: -.1, duration: 4, seekerSwarm: 3, seekerSwarmDR: 0 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .15 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .2 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.sf, a: a.xw, attributes: { enemyMovementSpeed: -.1, powerDuration: .4 } },
-            { name: a.xc, a: a.yw, attributes: { seekerSwarmDR: .1 } },
+            { name: a.xc, a: a.yw, attributes: { seekerSwarmDR: .3 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .4 } },
-            { name: a.Cz, a: a.zw, attributes: { seekerSwarm: 1 } },
+            { name: a.Cz, a: a.zw, attributes: { seekerSwarm: 1, seekerSwarmDR: .1 } },
             { name: a.ng, a: a.Aw, attributes: { powerDamage: .5, enemyMovementSpeed: -.15, powerDuration: .2 } }], type: d.type.biotic
         }; 
         
@@ -2821,9 +2849,9 @@
             { name: a.Dg, a: a.di, attributes: { ATTR_DMG: 65 } }], type: d.type.tech
         }; 
         
-        d.of = { h: ["baseRechargeSpeed", "shadowstrike"], g: !1, icon: "ShadowStrike", 
+        d.of = { h: ["baseRechargeSpeed", "shadowstrike", "damageReduction"], g: !0, icon: "ShadowStrike", 
         evolutions: [
-            { name: a.of, a: a.Uw, attributes: { baseRechargeSpeed: 8, shadowstrike: 600 } },
+            { name: a.of, a: a.Uw, attributes: { baseRechargeSpeed: 8, shadowstrike: 600, damageReduction: 0 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .2 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } },
@@ -2834,9 +2862,9 @@
             { name: a.dx, a: a.Tw, attributes: { movementSpeed: .15, ATTR_TIME: 4 } }], type: d.type.tech
         }; 
         
-        d.Eb = { Z: { duration: a.Nv }, h: ["baseRechargeSpeed", "radius", "shieldBoost", "shieldBoostRegen", "duration"], g: !0, icon: "ShieldBoost", 
+        d.Eb = { Z: { duration: a.Nv }, h: ["baseRechargeSpeed", "radius", "shieldBoost", "shieldBoostRegen", "duration", "damageReduction"], g: !0, icon: "ShieldBoost", 
             evolutions: [
-            { name: a.Eb, a: a.ax, attributes: { baseRechargeSpeed: 12, radius: 5, shieldBoost: 400, shieldBoostRegen: 100, duration: 3, ATTR_TIME: 3
+            { name: a.Eb, a: a.ax, attributes: { baseRechargeSpeed: 12, radius: 5, shieldBoost: 400, shieldBoostRegen: 100, duration: 3, ATTR_TIME: 3, damageReduction: 0
                 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.Qh, a: a.Ph, attributes: { shieldBoostPower: .3 } },
@@ -2862,16 +2890,16 @@
                 i: { health: 1, armor: 1, barrier: 1.5, shield: 1 }, type: d.type.biotic
         }; 
         
-        d.rf = { Z: { knockdown: a.ar }, h: ["baseRechargeSpeed", "damage", "radius", "knockdown", "siegeCharge"], g: !1, icon: "SiegePulse", 
+        d.rf = { Z: { knockdown: a.ar }, h: ["baseRechargeSpeed", "damage", "radius", "knockdown", "siegeCharge", "siegeDR"], g: !0, icon: "SiegePulse", 
             evolutions: [
-            { name: a.rf, a: a.cy, attributes: { baseRechargeSpeed: 24, damage: 600, radius: 1.5, knockdown: .35, siegeCharge: 3 } },
+            { name: a.rf, a: a.cy, attributes: { baseRechargeSpeed: 24, damage: 600, radius: 1.5, knockdown: .35, siegeCharge: 3, siegeDR: 0 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .2 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } },
             { name: a.Y, a: a.ma, attributes: { radiusPct: .6 } },
-            { name: a.qg, a: a.$x, attributes: { siegeDR: .1 } },
+            { name: a.qg, a: a.$x, attributes: { siegeDR: .3 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .4 } },
-            { name: a.yt, a: a.ay, attributes: { siegeCharge: 1, knockdown: .15 } },
+            { name: a.yt, a: a.ay, attributes: { siegeCharge: 1, knockdown: .15, siegeDR: .1 } },
             { name: a.Kv, a: a.by, attributes: { ATTR_PCT: .6, powerDamageArmor: .4, powerDamageBarrier: .4, powerDamageShield: .4 } }],
             i: { health: 1, armor: 1.35, barrier: 1.35, shield: 1.35 }, type: d.type.tech
         }; 
@@ -3652,11 +3680,11 @@
     h = h || {}; jQuery191(function () { h.Xa.initialize() });
     (function (d, c) {
 
-        // x - list of bonuses
+        // x - list of parameters to figure out
         // d - weapon
         // f - other weapon
         function e(x, d, f) {
-            var k = {}, t = []; 
+            var k = {}, sources = []; 
             f = c.extend({ Jf: null }, f); 
             d || (d = weapon_loadout[G]); 
             for (var e = 0; e < x.length; e++)
@@ -3670,30 +3698,33 @@
                             var q = F.evolutions[n].attributes; 
                             ba && F.pb && (q = F.pb(q)); 
                             if (q = K(q, x, k)) 
-                                n = { type: "power", object: F, ia: n }, t.push(c.extend(q, n)) 
+                                n = { type: "power", object: F, ia: n }, sources.push(c.extend(q, n)) 
                         } 
                     } 
             } 
-            P(d, t, x, k); 
-            f.Jf && P(f.Jf, t, x, k); 
+            P(d, sources, x, k); 
+            f.Jf && P(f.Jf, sources, x, k); 
             for (e = 0; e < equipment_type.length; e++)
                 -1 != equipment_type[e] && (
                     d = equipment[e][equipment_type[e]], 
                     q = K(d.evolutions[equipment_level[e]].attributes, x, k)
-                ) && (n = { type: "equipment", object: d, ia: equipment_level[e] }, t.push(c.extend(q, n))); 
-            return { data: k, C: t }
+                ) && (n = { type: "equipment", object: d, ia: equipment_level[e] }, sources.push(c.extend(q, n))); 
+            return { data: k, C: sources }
         }
 
-        // f - list of bonuses
-        function P(x, d, f, k) { 
-            if (-1 != x.mod_1_type) { 
-                var t = mods[x.type][x.mod_1_type], e = K(t.evolutions[x.mod_1_level].attributes, f, k); 
-                e && d.push(c.extend(e, { type: "mod", object: t, ia: x.mod_1_level })) 
+
+        // f - list of parameters to figure out
+        function P(weapon, sources, f, k) { 
+            if (-1 != weapon.mod_1_type) { 
+                var t = mods[weapon.type][weapon.mod_1_type], 
+                e = K(t.evolutions[weapon.mod_1_level].attributes, f, k); 
+                e && sources.push(c.extend(e, { type: "mod", object: t, ia: weapon.mod_1_level })) 
             } 
-            -1 != x.mod_2_type && (
-                t = mods[x.type][x.mod_2_type], (e = K(t.evolutions[x.mod_2_level].attributes, f, k)) && 
-                d.push(c.extend(e, { type: "mod", object: t, ia: x.mod_2_level }))
-            ) 
+            if (-1 != weapon.mod_2_type) {
+                t = mods[weapon.type][weapon.mod_2_type], 
+                (e = K(t.evolutions[weapon.mod_2_level].attributes, f, k)) && 
+                sources.push(c.extend(e, { type: "mod", object: t, ia: weapon.mod_2_level }))
+            }
         } 
 
         function s(c) {
@@ -3727,14 +3758,17 @@
             return -1;
         }
 
-        // d - list of bonuses
+        // c - list of attributes of something
+        // d - list of parameters to figure out
         function K(c, d, f) { 
             var k = [], t; 
             for (t in c) 
-                -1 != d.indexOf(t) && 
-                    (f[t] += c[t], k.push({ attr: t, value: c[t] })); 
+                -1 != d.indexOf(t) &&  (
+                    f[t] += c[t], 
+                    k.push({ attr: t, value: c[t] })
+                ); 
             return 0 == k.length ? !1 : { attributes: k } 
-        } 
+        }
         
         function g(c, d) { 
             var f = 0, k = e(["globalPowerDamage"]), f = f + k.data.globalPowerDamage; 
@@ -3824,7 +3858,17 @@
             var k = [], t = s(c); c = 0; 
             t[f] && (c += t[f].value, k = t[f].C); d = t[d].value; 
             return { value: d / (1 + c), C: k }
-        } 
+        }
+
+        function get_special_DR(c, name) {
+            var x = s(c)[name]
+            x.C.shift();
+            if (x.value < .3) {
+                x.C.shift();
+                x.value = 0;
+            }
+            return x;
+        }
 
         function ha(d, r) { 
             var f = [], k = 0, t = 1; 
@@ -4198,6 +4242,25 @@
                     var c = e(["grenadeCapacity"]); 
                     d.evolved_grenade_power() && c.data.grenadeCapacity++; 
                     return { value: c.data.grenadeCapacity, C: c.C } 
+                };
+
+                d.get_damage_reduction = function () { 
+                    var value = 0, C = [];
+                    var c = e(["damageReduction"]);
+                    value = c.data.damageReduction, C = c.C;
+                    if (is_toggled[1]) {
+                        if (character.powers[1] == h.b.rf) {
+                            var d = get_special_DR(1, "siegeDR");
+                            value += d.value;
+                            C = C.concat(d.C);
+                        }
+                        if (character.powers[1] == h.b.nf) {
+                            d = get_special_DR(1, "seekerSwarmDR");
+                            value += d.value;
+                            C = C.concat(d.C);
+                        }
+                    }
+                    return { value: value, C: C } 
                 }; 
 
                 d.Wo = function () { 
@@ -4261,7 +4324,14 @@
                         turretRestore: function () { return u(c, d, "turretRestorePct") }, 
                         ammoResupply: function () { return m(c, d, "ammoFrequency") }, 
                         grenadeResupply: function () { return m(c, d, "grenadeFrequency") }, 
-                        missileRefire: function () { return m(c, d, "missileFrequency") }
+                        missileRefire: function () { return m(c, d, "missileFrequency") },
+                        siegeDR: function() { return get_special_DR(c, "siegeDR"); },
+                        seekerSwarmDR: function() { return get_special_DR(c, "seekerSwarmDR"); }
+                        // function m(c, d, f) {
+                        //     var k = [], t = s(c); c = 0; 
+                        //     t[f] && (c += t[f].value, k = t[f].C); d = t[d].value; 
+                        //     return { value: d / (1 + c), C: k }
+                        // } 
                     }, k = {}; 
                     if (f[d]) 
                         k = f[d](c); 
@@ -4304,6 +4374,9 @@
                         shadowstrike: ha, 
                         netAOE: Z, 
                         singularity: n
+                        // , siegeDR: function() {
+                        //     return 2137;
+                        // }
                     }; 
                     return k[d] ? k[d](c, f) : null
                 };
@@ -4671,6 +4744,16 @@
                     return !1
                 }
 
+                d.has_DR_power = function () {
+                    for (var c = 0; c < character.powers.length; c++)
+                        if (character.powers[c].h.indexOf("damageReduction") != -1
+                            || character.powers[c].h.indexOf("siegeDR") != -1
+                            || character.powers[c].h.indexOf("seekerSwarmDR") != -1
+                            || character.powers[c].h.indexOf("RMDR") != -1)
+                            return true;
+                    return false;
+                }
+
     })(h.Xa = h.Xa || {}, jQuery191);
     /*
      Copyright 2013
@@ -4898,18 +4981,21 @@
             poison: { name: a.uu, j: "" }, 
             radius: { name: a.Y, j: a.oi }, 
             range: { name: a.Range, j: a.oi }, 
-            rageDR: { name: a.pv, j: "%", format: percent_format }, 
+            rageDR: { name: a.pv, j: "%", format: percent_format },
+            RMDR: { name: "Damage Reduction", j: "%", format: percent_format },
             rageDuration: { name: "", j: "" }, 
             rageHOT: { name: a.qv, j: "" }, 
             rageMeleeDamage: { name: a.rv, j: "%", format: percent_format }, 
             repairMatrix: { name: a.Sh, j: "" }, 
             seekerSwarm: { name: "", j: "" }, 
+            seekerSwarmDR: { name: a.xc, j: "%", format: percent_format },
             shadowstrike: { name: a.l, j: "" }, 
             shieldBoost: { name: a.Qq, j: "" }, 
             shieldBoostRegen: { name: a.vx, j: "" }, 
             shieldRechargeRate: { name: a.Ha, j: "%", format: percent_format }, 
             shieldStrength: { name: a.Od, j: "%", format: percent_format }, 
-            siegeCharge: { name: a.Cd, j: "" }, 
+            siegeCharge: { name: a.Cd, j: "" },
+            siegeDR: { name: a.xc, j: "%", format: percent_format },
             singularity: { name: "", j: "", $d: !0 }, 
             stability: { name: a.Ff, j: "%", format: percent_format }, 
             stimpackShields: { name: a.zd, j: "" }, 
@@ -5575,12 +5661,39 @@
     V = V || {}; jQuery191(function () { V.Xa.initialize() });
     (function (d, c) {
         function e() {
-            var d = c.extend({}, { "kit-health": O.$A, "kit-shield": O.hi, "kit-melee": O.fB, "grenade-count": O.ZA, "shield-recharge": O.xB, "power-recharge": O.nB }), e = c("<tbody>"), g; for (g in d) e.append(c("<tr>").attr("id", g).append(c("<td>").addClass("stat-id").text(d[g] + ":")).append(c("<td>").append(c("<span>").addClass("stat-tip" + ("kit-health" == g ? " health" : ""))))); d = c("<div>").addClass("character-toolbar"); e = c("<div>").addClass("character-stats").append(c("<div>").addClass("stat-table").append(c("<table>").append(e))).append(d); d =
-                c("<div>").addClass("character-image").append(c("<img>").attr("height", 280)); g = c("<div>").addClass("character-profile"); g.append(d, e); return g
-        } function P() { d.Ea(); c("#character-builder").fadeIn("fast") } function s(d, e, g) { var n = c("<tr>"), m = c("<td>").addClass("bonus-value"); 0 > d ? m.append(c("<span>").addClass("debuff").text("-" + e)) : m.append(c("<span>").addClass("buff").text("+" + e)); n.append(m); n.append(c("<td>").text(g)); return n } function K(d) {
-            for (var e = c("<div>").addClass("builder-tip character-tip"),
-                g = c("<tbody>"), n = 0; n < d.length; n++) { var p = d[n]; "power" == p.type ? m.Uc(g, p) : m.Vc(g, p) } 0 < d.length && (d = c("<table>").addClass("tip-bonus-table").append(g), e.append(c("<h3>").text(O.Wc)).append(d)); return e
-        } function g() {
+            var d = c.extend({}, { "kit-health": O.$A, "kit-shield": O.hi, "kit-melee": O.fB, "grenade-count": O.ZA, "shield-recharge": O.xB, "power-recharge": O.nB, "damage-reduction": "Damage Reduction" }), 
+            e = c("<tbody>"), g; 
+            for (g in d) 
+                e.append(c("<tr>").attr("id", g).append(c("<td>").addClass("stat-id").text(d[g] + ":")).append(c("<td>").append(c("<span>").addClass("stat-tip" + ("kit-health" == g ? " health" : ""))))); 
+            d = c("<div>").addClass("character-toolbar"); 
+            e = c("<div>").addClass("character-stats").append(c("<div>").addClass("stat-table").append(c("<table>").append(e))).append(d); 
+            d = c("<div>").addClass("character-image").append(c("<img>").attr("height", 280)); 
+            g = c("<div>").addClass("character-profile"); 
+            g.append(d, e); 
+            return g
+        } 
+        
+        function P() { 
+            d.Ea(); 
+            c("#character-builder").fadeIn("fast") 
+        } 
+        
+        function s(d, e, g) { 
+            var n = c("<tr>"), m = c("<td>").addClass("bonus-value"); 
+            0 > d ? m.append(c("<span>").addClass("debuff").text("-" + e)) : m.append(c("<span>").addClass("buff").text("+" + e)); n.append(m); 
+            n.append(c("<td>").text(g)); return n 
+        } 
+        
+        function K(d) {
+            for (var e = c("<div>").addClass("builder-tip character-tip"), g = c("<tbody>"), n = 0; n < d.length; n++) { 
+                var p = d[n]; 
+                "power" == p.type ? m.Uc(g, p) : m.Vc(g, p) 
+            } 
+            0 < d.length && (d = c("<table>").addClass("tip-bonus-table").append(g), e.append(c("<h3>").text(O.Wc)).append(d)); 
+            return e
+        } 
+        
+        function g() {
             var d = p.Gg(), e = Core.format("{0}/{1}", m.va(d.ui, 0), m.va(d.ti, 0)); c("#kit-melee .stat-tip").text(e); A.Aa(c("#kit-melee .stat-tip")); for (var e = c("<div>").addClass("builder-tip character-tip"), g = ["health", "armor", "barrier", "shield"], n = c("<tr>").append(c("<td>").addClass("stat-id").text("Light")),
                 q = c("<tr>").append(c("<td>").addClass("stat-id").text("Heavy")), s = 0; s < g.length; s++) { var u = p.Gg({ ea: g[s] }); n.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ui, 0)))); q.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ti, 0)))) } s = c("<table>").append(c("<tbody>").append(n, q)); e.append(c("<h3>").text(O.P), s); s = m.uf(d.i); !1 !== s && e.append(c("<h3>").text(O.Af), s); if (0 < d.C.length) {
                     g = c("<tbody>"); for (s = 0; s < d.C.length; s++)n = d.C[s], "power" == n.type ? m.Uc(g, n) : m.Vc(g, n); d = c("<table>").addClass("tip-bonus-table").append(g);
@@ -5612,9 +5725,33 @@
             0 < d.C.length ? A.ba(c("#kit-shield .stat-tip"), K(d.C), { location: "bottomRight" }) : A.ba(c("#kit-shield .stat-tip"), O.Xc, { location: "bottomRight" })
         } 
         
-        function u() { var d = p.get_shield_recharge_rate(); c("#shield-recharge .stat-tip").text(m.va(d.HC) + " sec"); var e = Core.format(O.yB, m.va(d.IC)), e = K(d.C).prepend(c("<p>").text(e)); A.Aa(c("#shield-recharge .stat-tip")); 0 < d.C.length ? A.ba(c("#shield-recharge .stat-tip"), e, { location: "bottomRight" }) : A.ba(c("#shield-recharge .stat-tip"), O.Xc, { location: "bottomRight" }) }
-        var p = h.Xa, A = R.Tc, m = V.Xd, ha = h.Cb.Re, O = a, n = h.Xa.lf, Z = h.Ya.Df, D = h.Xa.aa, ca = null, ja = null; d.initialize = function () {
-            ca = e(); c("#build-summary").append(ca); ja = V.Ef.mm(); c("#build-summary").append(ja); c("#character-builder").on("kitSelected.View.KitSelector", P); c("#character-builder").on("show.View.KitSelector", function () { c(this).trigger("closing.View.Character"); c(this).hide() }); c("#character-builder").on("weaponSelected.View.WeaponSelector", z); c("#character-builder").on("weaponModSelected.View.WeaponSelector",
+        function u() { 
+            var d = p.get_shield_recharge_rate(); 
+            c("#shield-recharge .stat-tip").text(m.va(d.HC) + " sec"); 
+            var e = Core.format(O.yB, m.va(d.IC)), 
+                e = K(d.C).prepend(c("<p>").text(e)); 
+            A.Aa(c("#shield-recharge .stat-tip")); 
+            0 < d.C.length ? A.ba(c("#shield-recharge .stat-tip"), e, { location: "bottomRight" }) : A.ba(c("#shield-recharge .stat-tip"), O.Xc, { location: "bottomRight" }) 
+        }
+
+        var p = h.Xa, 
+            A = R.Tc, 
+            m = V.Xd, 
+            ha = h.Cb.Re, 
+            O = a, 
+            n = h.Xa.lf, 
+            Z = h.Ya.Df, 
+            D = h.Xa.aa, 
+            ca = null, 
+            ja = null; 
+            
+        d.initialize = function () {
+            ca = e(); 
+            c("#build-summary").append(ca); 
+            ja = V.Ef.mm(); 
+            c("#build-summary").append(ja); 
+            c("#character-builder").on("kitSelected.View.KitSelector", P); 
+            c("#character-builder").on("show.View.KitSelector", function () { c(this).trigger("closing.View.Character"); c(this).hide() }); c("#character-builder").on("weaponSelected.View.WeaponSelector", z); c("#character-builder").on("weaponModSelected.View.WeaponSelector",
                 function () { g(); z() }); c("#character-builder").on("armorEquipmentSelected.View.WeaponSelector", function () { z(); fa(); u() }); c("#character-builder").on("equippedWeaponChanged.View.WeaponSelector", g); c("#character-builder").on("gearEquipmentSelected.View.WeaponSelector", d.Ea); c("#character-builder").on("weaponEquipmentSelected.View.WeaponSelector", g); c("#character-builder").on("powerChanged.View.PowerSelector", d.Ea)
         }; 
         
@@ -5634,7 +5771,15 @@
                 A.Aa(c("#grenade-count .stat-tip")); 
                 e && 0 < d.C.length ? A.ba(c("#grenade-count .stat-tip"), K(d.C), { location: "bottomRight" }) : A.ba(c("#grenade-count .stat-tip"), O.Xc, { location: "bottomRight" }); 
                 c("#grenade-count").show()
-            } 
+            }
+            c("#damage-reduction").hide();
+            if (p.has_DR_power()) {
+                var d = p.get_damage_reduction();
+                c("#damage-reduction .stat-tip").text(Math.round(d.value*100*5/7)+"%");
+                A.Aa(c("#damage-reduction .stat-tip"));
+                0 < d.C.length ? A.ba(c("#damage-reduction .stat-tip"), K(d.C).append(c("<tr>").text("Out-of-cover penalty applied.")), { location: "bottomRight" }) : A.ba(c("#damage-reduction .stat-tip"), O.Xc, { location: "bottomRight" });
+                c("#damage-reduction").show();
+            }
             u(); 
             z()
         }
