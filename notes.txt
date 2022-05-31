@@ -8,6 +8,7 @@ Corrected Incendiary ammo (theoretical damage)
 Corrected Batarian Slasher shields
 Corrected Phase Disruptor biotic damage
 Corrected "Quarian Female" descriptions
+Fixed armor weakening
 Implemented Inferno Grenade glitch
 Implemented Blade Armor glitch
 Implemented Warp ammo biotic bonus
@@ -18,7 +19,6 @@ Boss headshots
 Weight glitch
 Melee radius and cap
 Sword Mastery
-Armor weakening
 Power DoT
 Synthetic damage
 Damage reduction
