@@ -3189,7 +3189,7 @@
         { id: "vorcha-hunter", name: a.iC, d: "MP_VorchaENG.png", health: 750, shield: 250, base_encumbrance: .4, light_melee_base_dmg: 250, 
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Sd, h.b.tb, h.b.uc, h.b.gf, h.b.bc] },
         { id: "talon-merc", name: a.bA, d: "MP_MercENG.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 100, 
-        heavy_melee_base_dmg: 100, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, vi: 3, powers: [h.b.le, h.b.me, h.b.ae, h.b.$u, h.b.Io], mutually_exclusive: [1, 2] }
+        heavy_melee_base_dmg: 100, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, arrows: 3, powers: [h.b.le, h.b.me, h.b.ae, h.b.$u, h.b.Io], mutually_exclusive: [1, 2] }
     ], [
         { id: "male-sentinel", name: a.dc, V: a.tq, d: "SentinelHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Gb, h.b.fb, h.b.nc, h.b.ab, h.b.Za] },
@@ -3548,18 +3548,18 @@
             f: H.rarity.ultrarare, i: J, d: "SniperRifle_Valiant.png", type: H.D.sniper, weight_L: 1.75, weight_H: 1 }
     ]
     ];
-    H.nh = [[
-        { name: a.Bi, a: a.Ci, f: H.rarity.common, R: H.U.ic, d: "AssaultRifleMagSize.png", evolutions: [{ attributes: { magazineSize: .4 } }, { attributes: { magazineSize: .5 } }, { attributes: { magazineSize: .6 } }, { attributes: { magazineSize: .7 } }, { attributes: { magazineSize: .8 } }] },
-            { name: a.Hi, a: a.Ii, f: H.rarity.common, R: H.U.Db, d: "AssaultRifleAccuracy.png", evolutions: [{ attributes: { accuracy: .15 } }, { attributes: { accuracy: .2 } }, { attributes: { accuracy: .25 } }, { attributes: { accuracy: .3 } }, { attributes: { accuracy: .35 } }] }, {
-        name: a.Ji, a: a.Ki, f: H.rarity.common, R: H.U.eb, d: "AssaultRifleStability.png",
-        evolutions: [{ attributes: { stability: .3 } }, { attributes: { stability: .4 } }, { attributes: { stability: .5 } }, { attributes: { stability: .6 } }, { attributes: { stability: .7 } }]
-    },
-            { name: a.xi, a: a.yi, f: H.rarity.uncommon, R: H.U.kb, d: "AssaultRifleDamage.png", evolutions: [{ attributes: { weaponDamageAssault: .15 } }, { attributes: { weaponDamageAssault: .175 } }, { attributes: { weaponDamageAssault: .2 } }, { attributes: { weaponDamageAssault: .225 } }, { attributes: { weaponDamageAssault: .25 } }] }, {
-        name: a.Fi, a: a.Gi, f: H.rarity.uncommon, R: H.U.yb, d: "AssaultRifleForce.png", evolutions: [{
-            attributes: {
-                enemyArmorPenetration: .25,
-                penetration: .5, pierceDamage: .6
-            }
+    H.nh = [
+        [
+        { name: a.Bi, a: a.Ci, f: H.rarity.common, R: H.U.ic, d: "AssaultRifleMagSize.png", 
+        evolutions: [{ attributes: { magazineSize: .4 } }, { attributes: { magazineSize: .5 } }, { attributes: { magazineSize: .6 } }, { attributes: { magazineSize: .7 } }, { attributes: { magazineSize: .8 } }] },
+        { name: a.Hi, a: a.Ii, f: H.rarity.common, R: H.U.Db, d: "AssaultRifleAccuracy.png", 
+        evolutions: [{ attributes: { accuracy: .15 } }, { attributes: { accuracy: .2 } }, { attributes: { accuracy: .25 } }, { attributes: { accuracy: .3 } }, { attributes: { accuracy: .35 } }] }, 
+        { name: a.Ji, a: a.Ki, f: H.rarity.common, R: H.U.eb, d: "AssaultRifleStability.png",
+        evolutions: [{ attributes: { stability: .3 } }, { attributes: { stability: .4 } }, { attributes: { stability: .5 } }, { attributes: { stability: .6 } }, { attributes: { stability: .7 } }] },
+        { name: a.xi, a: a.yi, f: H.rarity.uncommon, R: H.U.kb, d: "AssaultRifleDamage.png", 
+        evolutions: [{ attributes: { weaponDamageAssault: .15 } }, { attributes: { weaponDamageAssault: .175 } }, { attributes: { weaponDamageAssault: .2 } }, 
+            { attributes: { weaponDamageAssault: .225 } }, { attributes: { weaponDamageAssault: .25 } }] }, 
+        { name: a.Fi, a: a.Gi, f: H.rarity.uncommon, R: H.U.yb, d: "AssaultRifleForce.png", evolutions: [{ attributes: { enemyArmorPenetration: .25, penetration: .5, pierceDamage: .6 }
         }, { attributes: { enemyArmorPenetration: .35, penetration: .65, pierceDamage: .55 } }, { attributes: { enemyArmorPenetration: .45, penetration: .8, pierceDamage: .5 } }, { attributes: { enemyArmorPenetration: .55, penetration: .95, pierceDamage: .45 } }, { attributes: { enemyArmorPenetration: .65, penetration: 1.1, pierceDamage: .4 } }]
     }, {
         name: a.zi, a: a.Ai, f: H.rarity.rare, R: H.U.kb, d: "AssaultRifleSuperPen.png", evolutions: [{ attributes: { enemyArmorPenetration: .5, penetration: .75, pierceDamage: .6, modWeightAssault: -.5 } }, {
@@ -3652,12 +3652,15 @@
     h = h || {}; jQuery191(function () { h.Xa.initialize() });
     (function (d, c) {
 
+        // x - list of bonuses
+        // d - weapon
+        // f - other weapon
         function e(x, d, f) {
             var k = {}, t = []; 
             f = c.extend({ Jf: null }, f); 
             d || (d = weapon_loadout[G]); 
             for (var e = 0; e < x.length; e++)
-                k[x[e]] = 0; 
+                k[x[e]] = 0;
             for (var e = [3, 4, 0, 1, 2], m = [build[3], build[4], build[0], build[1], build[2]], I = 0; I < m.length; I++) { 
                 var F = character.powers[e[I]], ba = is_toggled[e[I]]; 
                 if (m[I] && (F.M || ba)) 
@@ -3681,12 +3684,16 @@
             return { data: k, C: t }
         }
 
+        // f - list of bonuses
         function P(x, d, f, k) { 
-            if (-1 != x.Ia) { 
-                var t = mods[x.type][x.Ia], e = K(t.evolutions[x.hb].attributes, f, k); 
-                e && d.push(c.extend(e, { type: "mod", object: t, ia: x.hb })) 
+            if (-1 != x.mod_1_type) { 
+                var t = mods[x.type][x.mod_1_type], e = K(t.evolutions[x.mod_1_level].attributes, f, k); 
+                e && d.push(c.extend(e, { type: "mod", object: t, ia: x.mod_1_level })) 
             } 
-            -1 != x.Ja && (t = mods[x.type][x.Ja], (e = K(t.evolutions[x.ib].attributes, f, k)) && d.push(c.extend(e, { type: "mod", object: t, ia: x.ib }))) 
+            -1 != x.mod_2_type && (
+                t = mods[x.type][x.mod_2_type], (e = K(t.evolutions[x.mod_2_level].attributes, f, k)) && 
+                d.push(c.extend(e, { type: "mod", object: t, ia: x.mod_2_level }))
+            ) 
         } 
 
         function s(c) {
@@ -3720,9 +3727,12 @@
             return -1;
         }
 
+        // d - list of bonuses
         function K(c, d, f) { 
             var k = [], t; 
-            for (t in c) -1 != d.indexOf(t) && (f[t] += c[t], k.push({ attr: t, value: c[t] })); 
+            for (t in c) 
+                -1 != d.indexOf(t) && 
+                    (f[t] += c[t], k.push({ attr: t, value: c[t] })); 
             return 0 == k.length ? !1 : { attributes: k } 
         } 
         
@@ -3892,11 +3902,11 @@
             if (!d || 3 > d.length) 
                 return null; 
             d = Hash.decode(d);
-            var r = c.extend({}, { type: d[0], ra: d[1], ia: d[2], Ia: -1, hb: -1, Ja: -1, ib: -1 }); 
-            if (r.type >= weapons.length || r.ra >= weapons[r.type].length || r.ia > sa.xd) 
+            var r = c.extend({}, { type: d[0], index: d[1], ia: d[2], mod_1_type: -1, mod_1_level: -1, mod_2_type: -1, mod_2_level: -1 }); 
+            if (r.type >= weapons.length || r.index >= weapons[r.type].length || r.ia > sa.xd) 
                 return null; 
-            null != d[3] && d[3] < mods[r.type].length && null != d[4] && d[4] <= sa.Qb && (r.Ia = d[3], r.hb = d[4]); 
-            null != d[5] && d[5] < mods[r.type].length && null != d[6] && d[6] <= sa.Qb && (r.Ja = d[5], r.ib = d[6]); 
+            null != d[3] && d[3] < mods[r.type].length && null != d[4] && d[4] <= sa.Qb && (r.mod_1_type = d[3], r.mod_1_level = d[4]); 
+            null != d[5] && d[5] < mods[r.type].length && null != d[6] && d[6] <= sa.Qb && (r.mod_2_type = d[5], r.mod_2_level = d[6]); 
             return r
         }
 
@@ -3938,7 +3948,7 @@
                 f = Hash.delimiter; 
                 k = ""; 
                 for (t = 0; t < weapon_loadout.length; t++)
-                    e = weapon_loadout[t], e = Hash.encode([e.type, e.ra, e.ia, e.Ia, e.hb, e.Ja, e.ib], !0), k = "" != e ? k + (e + Hash.delimiter) : k + Hash.delimiter; 
+                    e = weapon_loadout[t], e = Hash.encode([e.type, e.index, e.ia, e.mod_1_type, e.mod_1_level, e.mod_2_type, e.mod_2_level], !0), k = "" != e ? k + (e + Hash.delimiter) : k + Hash.delimiter; 
                     t = Hash.encode([equipment_type[0], equipment_level[0], equipment_type[1], equipment_level[1], equipment_type[2], equipment_level[2], equipment_type[3], equipment_level[3]], !0); 
                     "" != t && (k += t); 
                     c += f + k + Hash.delimiter + d; 
@@ -4029,10 +4039,10 @@
                 if ("undefined" == typeof m || m >= mods[d].length) 
                     m = -1; 
                 weapon_loadout[c].type = d; 
-                weapon_loadout[c].ra = f; 
+                weapon_loadout[c].index = f; 
                 weapon_loadout[c].ia = k; 
-                weapon_loadout[c].Ia = e; 
-                weapon_loadout[c].Ja = m 
+                weapon_loadout[c].mod_1_type = e; 
+                weapon_loadout[c].mod_2_type = m 
             } 
         } 
 
@@ -4119,7 +4129,8 @@
             equipment_level = [-1, -1, -1, -1], 
             character = null, 
             build = [], 
-            weapon_loadout = [{ type: -1, ra: -1, ia: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }, { type: -1, ra: -1, ia: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }], 
+            weapon_loadout = [{ type: -1, index: -1, ia: -1, mod_1_type: -1, mod_1_level: -1, mod_2_type: -1, mod_2_level: -1 }, 
+                              { type: -1, index: -1, ia: -1, mod_1_type: -1, mod_1_level: -1, mod_2_type: -1, mod_2_level: -1 }], 
             S = [[], [], [], [], []], 
             pa = [[], [], [], [], []];
 
@@ -4206,7 +4217,7 @@
                     var ba = 0 != g ? g : character.heavy_melee_base_dmg, n = character.heavy_melee_modifiers; 
                     0 != g && (f = n = { health: 1, armor: .75, barrier: 1, shield: 1 }); 
                     var q = 1; 
-                    character.vi && (q = r.data.arrows ? r.data.arrows : character.vi); 
+                    character.arrows && (q = r.data.arrows ? r.data.arrows : character.arrows); 
                     ba = ba * (1 + m) * (1 + r.data.modMeleeDamage) * (1 + k);
                     ba = ba * n[d.ea] * I; 
                     0 == g && (ba = (ba + t) * q, ba *= 1 + r.data.sabotageMelee); 
@@ -4357,7 +4368,7 @@
                 }; 
 
                 d.bp = function (c) {
-                    var d = e(["ammoCapacity", "magazineSize"], c), f = weapons[c.type][c.ra], k = 0; 
+                    var d = e(["ammoCapacity", "magazineSize"], c), f = weapons[c.type][c.index], k = 0; 
                     0 != f.ammo_capacity_L && (k = f.ammo_capacity_L + (f.ammo_capacity_H - f.ammo_capacity_L) / 9 * c.ia, k *= 1 + d.data.ammoCapacity); 
                     var m = f.magazine; 
                     0 == f.ammo_capacity_L && (m = f.magazine + (f.ammo_capacity_H - f.magazine) / 9 * c.ia); 
@@ -4365,9 +4376,13 @@
                     return { EC: Math.floor(k), GC: Math.floor(m) }
                 };
 
+                // x - weapon
                 d.Ec = function (x, m, f) {
-                    var k = "ammoArmorWeakening ammoDamage enemyArmorPenetration enemyArmorWeakening enemyDamageTaken enemyWeaponDamageTaken globalDamage headshot headshotMod weaponDamage".split(" "), 
-                    g = weapons[x.type][x.ra], n = []; 
+                    // k - list of relevant bonuses
+                    var k = "ammoArmorWeakening ammoDamage enemyArmorPenetration enemyArmorWeakening enemyDamageTaken enemyWeaponDamageTaken globalDamage headshot headshotMod weaponDamage".split(" "),
+                    // g - weapon data
+                    g = weapons[x.type][x.index], n = []; 
+                    // preparing k
                     n[weapon_type.assault] = "weaponDamageAssault"; 
                     n[weapon_type.pistol] = "weaponDamagePistol"; 
                     n[weapon_type.shotgun] = "weaponDamageShotgun"; 
@@ -4379,18 +4394,22 @@
                     g.type == weapon_type.assault && k.push("tcDamageAssault"); 
                     g.type == weapon_type.shotgun && k.push("tcDamageShotgun"); 
                     g.type == weapon_type.sniper && k.push("tcDamageSniper"); 
+                    // 
                     var q = null; 
-                    !S[x.type][x.ra] || f ? (q = e(k, x), S[x.type][x.ra] = q, pa[x.type][x.ra] = q.C) : q = S[x.type][x.ra]; 
+                    !S[x.type][x.index] || f ? (q = e(k, x), S[x.type][x.index] = q, pa[x.type][x.index] = q.C) : q = S[x.type][x.index]; 
+
                     m = c.extend({ gb: !1, Hf: difficulty.gold, ea: "health", target: "organic", type: "normal" }, m); 
                     var k = 1 - q.data.enemyArmorPenetration, I = 1 - q.data.enemyArmorWeakening;
                     f = q.data.enemyDamageTaken + q.data.enemyWeaponDamageTaken; 
                     var F = q.data.headshotMod, ba = 1, ra = q.data.weaponDamage + q.data.globalDamage, y = 0, sa = q.data.headshot; 
+
                     q.data.gethWeaponDamage && (y += q.data.gethWeaponDamage); 
                     q.data.protheanWeaponDamage && (y += q.data.protheanWeaponDamage); 
                     q.data.tcDamageAssault && (y += q.data.tcDamageAssault); 
                     q.data.tcDamageShotgun && (y += q.data.tcDamageShotgun); 
                     q.data.tcDamageSniper && (y += q.data.tcDamageSniper); 
-                    q.data.ammoArmorWeakening && (I = 1 - q.data.ammoArmorWeakening); 
+                    q.data.ammoArmorWeakening && (I *= 1 - q.data.ammoArmorWeakening); 
+
                     g.upfront && (ba = g.upfront); 
                     ra += q.data[n[g.type]]; 
                     x = g.damage_L + (g.damage_H - g.damage_L) / 9 * x.ia; 
@@ -4426,18 +4445,27 @@
                     ra = g.headshot_modifier ? g.headshot_modifier : 2.5; 
                     "headshot" == m.type && !1 !== g.headshot_capable ? (ra *= 1 + F, q += sa) : ra = 1; 
                     F = x * ba * q * (ra + f); 
-                    "armor" == m.ea && !1 !== g.armor_penalty && (k *= I, 0 > k && (k = 0), F -= armor_penalty[m.Hf] * k, 5 > F && (F = 5)); 
-                    F *= g.i[m.target][m.ea]; g.burst && (F *= g.burst); 
-                    F += n * (ra + f); m.gb && g.is_venom && (F += q * (g.charged_shots + 1)); 
+                    "armor" == m.ea && !1 !== g.armor_penalty && (
+                        k *= I, 
+                        0 > k && 
+                            (k = 0), 
+                        F -= armor_penalty[m.Hf] * k, 
+                        5 > F && 
+                        (F = 5)
+                    ); 
+                    F *= g.i[m.target][m.ea]; 
+                    g.burst && (F *= g.burst); 
+                    F += n * (ra + f); 
+                    m.gb && g.is_venom && (F += q * (g.charged_shots + 1)); 
                     return Math.round(F)
                 };
 
                 d.cp = function (c) { 
-                    return pa[c.type][c.ra] || [] 
+                    return pa[c.type][c.index] || [] 
                 };
 
                 d.Fc = function (c) { 
-                    var d = weapons[c.type][c.ra]; 
+                    var d = weapons[c.type][c.index]; 
                     return d.weight_L + (d.weight_H - d.weight_L) / 9 * c.ia 
                 }; 
 
@@ -4524,17 +4552,17 @@
                 }; 
 
                 d.Sq = function (c, d) {
-                    return -1 == weapon_loadout[c].type || d > mods[weapon_loadout[c].type].length ? !1 : weapon_loadout[c].Ia == d || weapon_loadout[c].Ja == d
+                    return -1 == weapon_loadout[c].type || d > mods[weapon_loadout[c].type].length ? !1 : weapon_loadout[c].mod_1_type == d || weapon_loadout[c].mod_2_type == d
                 }; 
 
                 d.PC = function (c, d) { 
-                    return -1 == weapon_loadout[c].type ? !1 : -1 == (0 == d ? weapon_loadout[c].Ia : weapon_loadout[c].Ja) 
+                    return -1 == weapon_loadout[c].type ? !1 : -1 == (0 == d ? weapon_loadout[c].mod_1_type : weapon_loadout[c].mod_2_type) 
                 }; 
 
                 d.ud = function (c, d, f) { 
                     if (-1 == weapon_loadout[c].type || f > mods[weapon_loadout[c].type].length) 
                         return !1; 
-                    d = 0 == d ? weapon_loadout[c].Ja : weapon_loadout[c].Ia; 
+                    d = 0 == d ? weapon_loadout[c].mod_2_type : weapon_loadout[c].mod_1_type; 
                     return -1 == d ? !1 : mods[weapon_loadout[c].type][f].R == mods[weapon_loadout[c].type][d].R ? !0 : !1 
                 };
 
@@ -4543,7 +4571,7 @@
                 };
 
                 d.Dv = function (c, d) { 
-                    -1 != weapon_loadout[c].type && (0 == d ? (weapon_loadout[c].Ia = -1, weapon_loadout[c].hb = -1) : (weapon_loadout[c].Ja = -1, weapon_loadout[c].ib = -1), y()) 
+                    -1 != weapon_loadout[c].type && (0 == d ? (weapon_loadout[c].mod_1_type = -1, weapon_loadout[c].mod_1_level = -1) : (weapon_loadout[c].mod_2_type = -1, weapon_loadout[c].mod_2_level = -1), y()) 
                 }; 
 
                 d.Iv = function (c) { 
@@ -4559,7 +4587,7 @@
 
                 d.Jv = function (e) {
                     e == 0 && (weapon_loadout[0] = c.extend({}, weapon_loadout[1])); 
-                    weapon_loadout[1] = { ia: -1, type: -1, ra: -1, Ia: -1, hb: -1, Ja: -1, ib: -1 }; 
+                    weapon_loadout[1] = { ia: -1, type: -1, index: -1, mod_1_type: -1, mod_1_level: -1, mod_2_type: -1, mod_2_level: -1 }; 
                     G = 0; 
                     y()
                 }; 
@@ -4605,7 +4633,7 @@
                 }; 
 
                 d.Nw = function (c, d, f, e) { 
-                    var m = weapon_loadout[c].Ia, g = weapon_loadout[c].Ja; 
+                    var m = weapon_loadout[c].mod_1_type, g = weapon_loadout[c].mod_2_type; 
                     weapon_loadout[c].type != d && (g = m = -1); 
                     equip_weapon(c, d, f, e, m, g); 
                     y() 
@@ -4613,19 +4641,19 @@
 
                 d.Ow = function (c, e, f, k) { 
                     var m = weapon_loadout[c].type; 
-                    -1 == m || f > mods[m].length || k > sa.Qb || d.ud(c, e, f) || (0 == e ? (weapon_loadout[c].Ia = f, weapon_loadout[c].hb = k) : (weapon_loadout[c].Ja = f, weapon_loadout[c].ib = k), y()) 
+                    -1 == m || f > mods[m].length || k > sa.Qb || d.ud(c, e, f) || (0 == e ? (weapon_loadout[c].mod_1_type = f, weapon_loadout[c].mod_1_level = k) : (weapon_loadout[c].mod_2_type = f, weapon_loadout[c].mod_2_level = k), y()) 
                 }; 
 
                 d.Pw = function (c, d, f) { 
                     if (!(-1 == weapon_loadout[c].type || f > sa.Qb)) { 
                         if (0 == d) { 
-                            if (-1 == weapon_loadout[c].Ia) 
+                            if (-1 == weapon_loadout[c].mod_1_type) 
                                 return; 
-                            weapon_loadout[c].hb = f 
+                            weapon_loadout[c].mod_1_level = f 
                         } else { 
-                            if (-1 == weapon_loadout[c].Ja) 
+                            if (-1 == weapon_loadout[c].mod_2_type) 
                                 return; 
-                            weapon_loadout[c].ib = f 
+                            weapon_loadout[c].mod_2_level = f 
                         } 
                         y() 
                     } 
@@ -5285,7 +5313,8 @@
         function n() { var e = S; if (S == G.Fa || S == G.jb) v = c(this).data("rank"); 
         E.change_equipment(S, c(this).data("equipment"), v); Telemetry.trackEvent("ME3 Builder", "onEquipmentSelected", "slot: " + S); A(); d.Ea(); c("#character-builder").trigger(k[e]) } function Z() {
             var d = E.Qa(B.ha); la(c("#primary-weapon"),
-                d); Q.Aa(c("#primary-weapon .weapon-dmg")); Q.ba(c("#primary-weapon .weapon-dmg"), oa(d, X[d.type][d.ra])); Q.Aa(c("#primary-weapon .weapon img")); Q.ba(c("#primary-weapon .weapon img"), va(d)); d = E.Qa(B.xa); -1 != d.type && (la(c("#secondary-weapon"), d), Q.Aa(c("#secondary-weapon .weapon-dmg")), Q.ba(c("#secondary-weapon .weapon-dmg"), oa(d, X[d.type][d.ra])), Q.Aa(c("#secondary-weapon .weapon img")), Q.ba(c("#secondary-weapon .weapon img"), va(d)))
+                d); Q.Aa(c("#primary-weapon .weapon-dmg")); Q.ba(c("#primary-weapon .weapon-dmg"), oa(d, X[d.type][d.index])); Q.Aa(c("#primary-weapon .weapon img")); Q.ba(c("#primary-weapon .weapon img"), va(d)); 
+                d = E.Qa(B.xa); -1 != d.type && (la(c("#secondary-weapon"), d), Q.Aa(c("#secondary-weapon .weapon-dmg")), Q.ba(c("#secondary-weapon .weapon-dmg"), oa(d, X[d.type][d.index])), Q.Aa(c("#secondary-weapon .weapon img")), Q.ba(c("#secondary-weapon .weapon img"), va(d)))
         } 
         
         function D(e) {
@@ -5294,9 +5323,21 @@
         } function ca() { E.Nw(f, c(this).data("type"), c(this).data("weapon"), r); Telemetry.trackEvent("ME3 Builder", "onWeaponSelected", "type: " + c(this).data("type")); m(); d.Ea(); c("#character-builder").trigger("weaponSelected.View.WeaponSelector") } function ja(e) {
             c(this).hasClass("rank-active") ? e.stopPropagation() :
             (c("#mod-selector .item-rank").removeClass("rank-active"), c(this).addClass("rank-active"), pa = c(this).data("rank"), E.Pw(f, x, pa), d.Ea(), e = E.Qa(f), M(c("#mod-type-" + e.type)), c("#character-builder").trigger("weaponModSelected.View.WeaponSelector"))
-        } function y(e) { E.ud(f, x, c(this).data("mod")) ? e.stopPropagation() : (E.Ow(f, x, c(this).data("mod"), pa), Telemetry.trackEvent("ME3 Builder", "onWeaponModSelected"), ha(), d.Ea(), c("#character-builder").trigger("weaponModSelected.View.WeaponSelector")) } function ea() {
+        } function y(e) { E.ud(f, x, c(this).data("mod")) ? e.stopPropagation() : (E.Ow(f, x, c(this).data("mod"), pa), Telemetry.trackEvent("ME3 Builder", "onWeaponModSelected"), ha(), d.Ea(), c("#character-builder").trigger("weaponModSelected.View.WeaponSelector")) } 
+        
+        function ea() {
             c("#mod-empty-button").hide();
-            c("#mod-selector .item-rank").removeClass("rank-active"); c("#mod-selector .selector-group").hide(); c("#mod-selector .weapon-small").removeClass("mod-inuse").show(); var d = f == B.ha ? w.ji : w.li; c("#mod-slot").text(d + ": " + (0 == x ? w.hB : w.iB)); d = E.Qa(f); -1 != (0 == x ? d.Ia : d.Ja) ? (pa = 0 == x ? d.hb : d.ib, c("#mod-empty-button").show()) : pa = U.Qb; c("#mod-rank-" + pa).addClass("rank-active"); c("#mod-type-" + d.type).show(); M(c("#mod-type-" + d.type)); c("#mod-type-" + d.type + " .weapon-small").each(function (d, e) {
+            c("#mod-selector .item-rank").removeClass("rank-active"); 
+            c("#mod-selector .selector-group").hide(); 
+            c("#mod-selector .weapon-small").removeClass("mod-inuse").show(); 
+            var d = f == B.ha ? w.ji : w.li; c("#mod-slot").text(d + ": " + (0 == x ? w.hB : w.iB)); 
+            d = E.Qa(f); 
+            -1 != (0 == x ? d.mod_1_type : d.mod_2_type) ? 
+                (pa = 0 == x ? 
+                    d.mod_1_level : 
+                    d.mod_2_level, c("#mod-empty-button").show()) 
+                : pa = U.Qb; 
+            c("#mod-rank-" + pa).addClass("rank-active"); c("#mod-type-" + d.type).show(); M(c("#mod-type-" + d.type)); c("#mod-type-" + d.type + " .weapon-small").each(function (d, e) {
                 E.Sq(f, c(e).data("mod")) &&
                 c(e).hide(); E.ud(f, x, c(e).data("mod")) && c(e).addClass("mod-inuse")
             })
@@ -5354,10 +5395,10 @@
         } 
         
         function W(d, e, f) { for (var g = ["health", "armor", "barrier", "shield"], k = 0; k < g.length; k++) { f.ea = g[k]; var m = E.Ec(e, f, "health" == g[k] ? !0 : !1); d.append(c("<td>").append(c("<span>").addClass(g[k]).text(m))) } } function va(d, e, f) {
-            var g = X[d.type][d.ra], k = E.bp(d), m = null, n = E.equipment_type_at_index(G.Fa), y = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.eB + ":")).append(c("<td>").text(ia.va(k.GC, 0))); y.append(p); p = ia.va(k.EC, 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.IA +
+            var g = X[d.type][d.index], k = E.bp(d), m = null, n = E.equipment_type_at_index(G.Fa), y = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.eB + ":")).append(c("<td>").text(ia.va(k.GC, 0))); y.append(p); p = ia.va(k.EC, 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.IA +
                 ":")).append(c("<td>").text(0 == p ? w.dB : p)); y.append(p); p = ia.va(100 * E.Fc(d), 0); p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.NB + ":")).append(c("<td>").text("-" + p + "%")); y.append(p); k = c("<div>").addClass("builder-tip weapon-tip"); p = c("<h3>").text(g.name + " " + Y[d.ia]).append(c("<span>").addClass("weapon-type").text(N[g.type])); k.append(p); k.append(c("<table>").append(y)); e && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, {}), e.append(p), !1 !== g.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)),
                     W(p, d, { type: "headshot" }), e.append(p)), -1 != n && (m = equipment[G.Fa][n], 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, d, { type: "ammo" }), e.append(p))), k.append(c("<h3>").text(w.pi)), k.append(c("<table>").append(e)), g.charged && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, d, { gb: !0 }), e.append(p), !1 !== g.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, d, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)),
-                        W(p, d, { gb: !0, type: "ammo" }), e.append(p)), k.append(c("<h3>").text(w.wf)), k.append(c("<table>").append(e))), !f || d.type == f.type && d.ra == f.ra || (d = X[f.type][f.ra], e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, f, {}), e.append(p), !1 !== d.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, f, { type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, f, { type: "ammo" }), e.append(p)), k.append(c("<h3>").text(d.name +
+                        W(p, d, { gb: !0, type: "ammo" }), e.append(p)), k.append(c("<h3>").text(w.wf)), k.append(c("<table>").append(e))), !f || d.type == f.type && d.index == f.index || (d = X[f.type][f.index], e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, f, {}), e.append(p), !1 !== d.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, f, { type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, f, { type: "ammo" }), e.append(p)), k.append(c("<h3>").text(d.name +
                             " " + w.l)), k.append(c("<table>").append(e)), d.charged && (e = c("<tbody>"), p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.qc)), W(p, f, { gb: !0 }), e.append(p), !1 !== d.headshot_capable && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.pc)), W(p, f, { gb: !0, type: "headshot" }), e.append(p)), -1 != n && 0 != m.i.health && (p = c("<tr>").append(c("<td>").addClass("stat-id").text(w.oc)), W(p, f, { gb: !0, type: "ammo" }), e.append(p)), k.append(c("<h3>").text(d.name + " " + w.wf)), k.append(c("<table>").append(e))))); k.append(c("<p>").text(g.a));
             return k
         } function ta(d) {
@@ -5368,18 +5409,52 @@
         } function na(d) { var e = d.data("type"); c(".weapon-small", d).each(function (d, f) { Q.Aa(c(f)); var g = c(f).data("equipment"), g = equipment[e][g], g = c("<div>").append(c("<h3>").text(g.name + " " + Y[v])).append(c("<p>").text(ia.Nb(g.a, g.evolutions[v].attributes))); Q.ba(c(f), g, { location: "topLeft" }) }) } function la(d, e) {
             ma ? c(".weapon-dmg", d).empty().append(c("<span>").addClass("armor").text(E.Ec(e, { ea: "armor" }, !0)), "/", c("<span>").addClass("barrier").text(E.Ec(e, { ea: "barrier" }, !0)), "/", c("<span>").addClass("shield").text(E.Ec(e,
                 { ea: "shield" }))) : c(".weapon-dmg", d).text(E.Ec(e, null, !0))
-        } function ka() { c("#weapon-selector .weapon-small").each(function (d, e) { e = c(e); Q.Aa(e); var g = E.Qa(f), k = c.extend({}, g), k = c.extend(k, { type: e.data("type"), ra: e.data("weapon"), ia: r }); if (g.type == e.data("type")) { var m = !0; g.ra == e.data("weapon") && (m = !1); Q.ba(e, va(k, m, g)) } else k = c.extend(k, { Ia: -1, Ja: -1 }), Q.ba(e, va(k)) }) } function M(d) {
+        } 
+        
+        function ka() { 
+            c("#weapon-selector .weapon-small").each(function (d, e) { 
+                                                        e = c(e); 
+                                                        Q.Aa(e); 
+                                                        var g = E.Qa(f), 
+                                                            k = c.extend({}, g), 
+                                                            k = c.extend(k, { type: e.data("type"), index: e.data("weapon"), ia: r }); 
+                                                        if (g.type == e.data("type")) { 
+                                                            var m = !0; 
+                                                            g.index == e.data("weapon") && (m = !1); 
+                                                            Q.ba(e, va(k, m, g)) 
+                                                        } else k = c.extend(k, { mod_1_type: -1, mod_2_type: -1 }), Q.ba(e, va(k)) 
+                                                    }) 
+        } 
+        
+        function M(d) {
             var e = d.data("type"); c(".weapon-small", d).each(function (d, g) {
                 Q.Aa(c(g)); var k = c(g).data("mod"), m = ga[e][k], m = c("<div>").append(c("<h3>").text(m.name +
                     " " + Y[pa])).append(c("<p>").text(ia.Nb(m.a, m.evolutions[pa].attributes))); E.ud(f, x, k) && m.append(c("<p>").addClass("error").text(w.CB)); Q.ba(c(g), m, { location: "topLeft" })
             })
-        } function wa(d) {
+        } 
+        
+        function wa(d) {
             var e = c(d); d = "#primary-weapon" == d ? B.ha : B.xa; Q.Aa(c(".weapon > img", e)); c(".weapon > img", e).remove(); Q.Aa(c(".weapon-dmg", e)); c(".weapon-equipped", e).hide(); c(".weapon-mod", e).removeClass().addClass("weapon-mod"); c(".weapon-mod > p", e).show(); c(".weapon-mod > img", e).each(function () { Q.Aa(c(this)); c(this).remove() }); var f = E.Qa(d);
             if (-1 != f.type) {
-                var g = X[f.type][f.ra], k = c(".weapon", e).removeClass().addClass("weapon rarity-" + g.f), m = c("<img>").attr("height", 120).attr("width", 160).attr("src", Core.mediaUrl + "images/guns/" + g.d); m.data("ui-tooltip-options", { location: "mouse" }); c(".weapon", e).prepend(k.append(m)); c(".weapon > p", e).hide(); Q.ba(m, va(f)); c(".weapon-name", e).text(g.name + " " + Y[f.ia]); la(e, f); Q.ba(c(".weapon-dmg", e), oa(f, g)); c(".weapon-info > p", e).show(); c(".weapon-mod > p", e).removeClass("weapon-mod-disabled").removeAttr("ui-tooltip-data");
-                c(".weapon-mod", e).each(function (d, e) { var g = c(this).data("mod-slot"), k = 0 == g ? f.Ia : f.Ja; if (-1 != k) { var m = ga[f.type][k], k = c("<img>").attr("height", 55).attr("width", 80).attr("src", Core.mediaUrl + "images/mods/" + m.d); k.data("ui-tooltip-options", { location: "bottomRight" }); c(e).addClass("rarity-xsmall-" + m.f).append(k); c(e).children("p").hide(); g = 0 == g ? f.hb : f.ib; g = c("<div>").append(c("<h3>").text(m.name + " " + Y[g])).append(c("<p>").text(ia.Nb(m.a, m.evolutions[g].attributes))); Q.ba(k, g) } }); E.hh(d) && c(".weapon-equipped", e).show()
-            } else c(".weapon",
-                e).removeClass().addClass("weapon"), c(".weapon > p", e).show(), c(".weapon-info > p", e).hide(), c(".weapon-mod > p", e).addClass("weapon-mod-disabled").attr("ui-tooltip-data", w.uB).show()
+                var g = X[f.type][f.index], k = c(".weapon", e).removeClass().addClass("weapon rarity-" + g.f), m = c("<img>").attr("height", 120).attr("width", 160).attr("src", Core.mediaUrl + "images/guns/" + g.d); m.data("ui-tooltip-options", { location: "mouse" }); c(".weapon", e).prepend(k.append(m)); c(".weapon > p", e).hide(); Q.ba(m, va(f)); c(".weapon-name", e).text(g.name + " " + Y[f.ia]); la(e, f); Q.ba(c(".weapon-dmg", e), oa(f, g)); c(".weapon-info > p", e).show(); c(".weapon-mod > p", e).removeClass("weapon-mod-disabled").removeAttr("ui-tooltip-data");
+                c(".weapon-mod", e).each(function (d, e) { 
+                                            var g = c(this).data("mod-slot"), 
+                                            k = 0 == g ? f.mod_1_type : f.mod_2_type; 
+                                            if (-1 != k) { 
+                                                var m = ga[f.type][k], 
+                                                k = c("<img>").attr("height", 55).attr("width", 80).attr("src", Core.mediaUrl + "images/mods/" + m.d); 
+                                                k.data("ui-tooltip-options", { location: "bottomRight" }); 
+                                                c(e).addClass("rarity-xsmall-" + m.f).append(k); 
+                                                c(e).children("p").hide(); 
+                                                g = 0 == g ? f.mod_1_level : f.mod_2_level; 
+                                                g = c("<div>").append(c("<h3>").text(m.name + " " + Y[g])).append(c("<p>").text(ia.Nb(m.a, m.evolutions[g].attributes))); 
+                                                Q.ba(k, g) } 
+                                            }); 
+                E.hh(d) && c(".weapon-equipped", e).show()
+            } else c(".weapon", e).removeClass().addClass("weapon"), 
+                   c(".weapon > p", e).show(), 
+                   c(".weapon-info > p", e).hide(), 
+                   c(".weapon-mod > p", e).addClass("weapon-mod-disabled").attr("ui-tooltip-data", w.uB).show()
         } 
         var E = h.Xa, 
             U = h.Ya, 
@@ -5518,9 +5593,9 @@
             c("#power-recharge .stat-tip").text(e); 
             var e = c("<div>").addClass("builder-tip character-tip"), g = c("<tbody>"), n = p.get_base_encumbrance(); 
             g.append(s(n, m.va(100 * n, 0) + "%", p.Hg())); 
-            var n = p.Qa(D.ha), q = Z[n.type][n.ra], u = p.Fc(n); 
+            var n = p.Qa(D.ha), q = Z[n.type][n.index], u = p.Fc(n); 
             g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.rank_codes[n.ia])); 
-            n = p.Qa(D.xa); -1 != n.type && (q = Z[n.type][n.ra], u = p.Fc(n), g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.rank_codes[n.ia]))); 
+            n = p.Qa(D.xa); -1 != n.type && (q = Z[n.type][n.index], u = p.Fc(n), g.append(s(-u, m.va(100 * u, 0) + "%", q.name + " " + m.rank_codes[n.ia]))); 
             for (n = 0; n < d.C.length; n++)
                 q = d.C[n], "power" == q.type ? m.Uc(g, q) : m.Vc(g, q); 
             d = c("<table>").addClass("tip-bonus-table").append(g); 
