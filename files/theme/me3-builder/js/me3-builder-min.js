@@ -781,7 +781,7 @@
     b.uw = "Scan Radius";
     b.nf = "Seeker Swarm";
     b.xw = "Decrease target movement speed by an additional {enemyMovementSpeed}%.\nIncrease the duration of the slowdown by {powerDuration}%.";
-    b.yw = "Upgrade the Seeker Swarm field for {seekerSwarmDR}% damage protection for each active swarm.";
+    b.yw = "Upgrade the Seeker Swarm field for 10% damage protection for each active swarm.";
     b.zw = "Increase the number of Seeker Swarms by {seekerSwarm}.";
     b.Aw = "Increase damage by {powerDamage}%.\nDecrease target movement speed by an additional {enemyMovementSpeed}%.\nIncrease the duration of the slowdown by {powerDuration}%.";
     b.Bw = "Summon {seekerSwarm} Seeker Swarms to cloud around you. Use the power again to launch a swarm at your target that deals damage and slows movement.";
@@ -840,7 +840,7 @@
     b.Yx = "Shred";
     b.Zx = "Shredder";
     b.rf = "Siege Pulse";
-    b.$x = "Each stored charge on your platform reduces all damage taken by {siegeDR}%.";
+    b.$x = "Each stored charge on your platform reduces all damage taken by 10%.";
     b.ay = "Increase the number of shots fired by {siegeCharge}, and increase the chance of knocking down enemies by {knockdown}%.";
     b.by = "Increase damage done to armor, shields, and barriers by {ATTR_PCT}%.";
     b.cy = "Generate {siegeCharge} electric charges that are stored in your platform's batteries. Use the power again to consume a charge to launch a long-range pulse that blasts a massive area. Each shot has a chance of incapacitating unarmored enemies.\n\nHighly effective against armor, shields, and barriers.";
@@ -5777,7 +5777,7 @@
                 var d = p.get_damage_reduction();
                 c("#damage-reduction .stat-tip").text(Math.round(d.value*100*5/7)+"%");
                 A.Aa(c("#damage-reduction .stat-tip"));
-                0 < d.C.length ? A.ba(c("#damage-reduction .stat-tip"), K(d.C).append(c("<tr>").text("Out-of-cover penalty applied.")), { location: "bottomRight" }) : A.ba(c("#damage-reduction .stat-tip"), O.Xc, { location: "bottomRight" });
+                0 < d.C.length ? A.ba(c("#damage-reduction .stat-tip"), K(d.C).append(c("<tr>").text("Out-of-cover modifier applied.")), { location: "bottomRight" }) : A.ba(c("#damage-reduction .stat-tip"), O.Xc, { location: "bottomRight" });
                 c("#damage-reduction").show();
             }
             u(); 

@@ -13,6 +13,7 @@ Implemented Inferno Grenade glitch
 Implemented Blade Armor glitch
 Implemented Warp ammo biotic bonus
 Implemented Incendiary glitch
+Presented damage reduction
 
 Todo:
 Boss headshots
@@ -21,7 +22,6 @@ Melee radius and cap
 Sword Mastery
 Power DoT
 Synthetic damage
-Damage reduction
 Piercing damage
 
 
