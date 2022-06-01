@@ -1664,7 +1664,7 @@
             { name: a.ga, a: a.ua, attributes: { powerDamage: .2, powerForce: .2 } },
             { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .3 } }, 
             { name: a.Y, a: a.Pb, attributes: { radius: 1.5 } },
-            { name: a.Vw, a: a.hm, attributes: { ATTR_PCT: 1 } },
+            { name: a.Vw, a: a.hm, attributes: { ATTR_PCT: 1, freezeDamage: 1 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
             { name: a.Ip, a: a.im, attributes: { powerDamage: .5, radius: 1 } },
             { name: a.Zx, a: a.jm, attributes: { powerDOT: 2, ATTR_INT: 10, powerForce: .5 } }],
@@ -1682,7 +1682,7 @@
             { name: a.lg, a: a.Wg, attributes: { enemyDamageTaken: .1 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: 1 } },
                 { name: a.To, a: a.pm, attributes: { enemyDamageTaken: .15, enemyArmorWeakening: .25 } }], 
-                    type: d.type.tech
+                    type: d.type.tech, cryo: true
         }; 
         
         d.yc = { h: ["baseRechargeSpeed", "dot", "duration"], g: !0, icon: "DarkChannel", 
@@ -2944,7 +2944,8 @@
             { name: a.zn, a: a.my, attributes: { poweDuration: .5, enemyMovementSpeed: -.2 } },
             { name: a.lg, a: a.Wg, attributes: { enemyDamageTaken: .1 } },
             { name: a.Am, a: a.ny, attributes: { powerDamage: .4, enemyArmorWeakening: .25 } },
-            { name: a.iA, a: a.oy, attributes: { techCombo: 1 } }], type: d.type.tech
+            { name: a.iA, a: a.oy, attributes: { techCombo: 1 } }], 
+            type: d.type.tech, cryo: true
         }; 
         
         d.Qc = { h: ["baseRechargeSpeed", "duration"], g: !0, icon: "Stasis", 
@@ -3742,7 +3743,7 @@
 
         function has_biotic_primer_active() {
             for (var i = 0; i < character.powers.length; ++i)
-                if (character.powers[i].is_biotic_primer && is_toggled[i])
+                if (character.powers[i].is_biotic_primer && is_toggled[i] && build[i] && build[i].length > 0)
                     return true;
             return false;
         }
@@ -3806,7 +3807,7 @@
         } 
 
         function u(c, d, f, k) { 
-            var t = [], m = 0; 
+            var t = [], m = 0, c0 = c; 
             c = s(c); 
             c[f] && (m += c[f].value, t = c[f].C); 
             if (k) { 
@@ -3814,7 +3815,9 @@
                 for (var g in f.data) 
                     m += f.data[g]; 
                 0 < f.C.length && (t = t.concat(f.C)) 
-            } 
+            }
+            if (has_cryo_active())
+                c[d].value *= get_cryo_bonus(c0);
             return { value: c[d].value * (1 + m), C: t } 
         } 
 
@@ -3845,6 +3848,8 @@
                 r *= 1 + F.powerDOT.value
                 m = m.concat(F.powerDOT.C)
             }
+            if (has_cryo_active())
+                r *= get_cryo_bonus(d0);
             return { value: r, C: m }
         }
 
@@ -4756,6 +4761,24 @@
                             || character.powers[c].h.indexOf("RMDR") != -1)
                             return true;
                     return false;
+                }
+
+                function has_cryo_active() {
+                    if (equipment_type[3] == 1)
+                        return true;
+                    for (var i = 0; i < 3; ++i)
+                        if (is_toggled[i] && build[i] && build[i].length > 0 && character.powers[i].cryo)
+                            return true;
+                    return false;
+                }
+
+                function get_cryo_bonus(i) {
+                    if (build[i])
+                        for (var j = 0; j < build[i].length; ++j)
+                            if (character.powers[i].evolutions[build[i][j]].attributes.freezeDamage)
+                                // return 2;
+                                return 1 + character.powers[i].evolutions[build[i][j]].attributes.freezeDamage;
+                    return 1;
                 }
 
     })(h.Xa = h.Xa || {}, jQuery191);

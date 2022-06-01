@@ -14,6 +14,7 @@ Implemented Blade Armor glitch
 Implemented Warp ammo biotic bonus
 Implemented Incendiary glitch
 Implemented power DoT
+Implemented cryo buff to Incinerate and Concussive Shot
 Presented damage reduction
 
 Todo:
@@ -23,8 +24,6 @@ Melee radius and cap
 Sword Mastery
 Synthetic damage
 Piercing damage
-cryo buff to Incinerate
-
-Shadow Strike: d.Ho
+fix images
 
 [^a-zA-Z]
