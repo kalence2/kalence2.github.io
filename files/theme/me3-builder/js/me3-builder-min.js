@@ -2208,7 +2208,7 @@
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } },
             { name: a.zb, a: a.rd, attributes: { comboDamage: .5, comboForce: .5 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, 
-            { name: a.og, a: a.ir, attributes: { ATTR_PCT: 1, ATTR_TIME: 10 } },
+            { name: a.og, a: a.ir, attributes: { ATTR_PCT: 1, ATTR_TIME: 10, powerDOT: 1 } },
             { name: a.po, a: a.jr, attributes: { ATTR_PCT: .35, lashCombo: 1 } },
             { name: a.lx, a: a.kr, attributes: {} }], 
             type: d.type.biotic, is_biotic_primer: true
