@@ -13,6 +13,7 @@ Implemented Inferno Grenade glitch
 Implemented Blade Armor glitch
 Implemented Warp ammo biotic bonus
 Implemented Incendiary glitch
+Implemented power DoT
 Presented damage reduction
 
 Todo:
@@ -20,10 +21,9 @@ Boss headshots
 Weight glitch
 Melee radius and cap
 Sword Mastery
-Power DoT
 Synthetic damage
 Piercing damage
-
+cryo buff to Incinerate
 
 Shadow Strike: d.Ho
 

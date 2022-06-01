@@ -3841,6 +3841,10 @@
             k && (r *= 1 + d.data.modMeleeDamage);
             if (character.powers[d0].is_inferno_glitched && equipment_type[3] == 5)
                 r *= 8/3;
+            if (F["powerDOT"]) {
+                r *= 1 + F.powerDOT.value
+                m = m.concat(F.powerDOT.C)
+            }
             return { value: r, C: m }
         }
 
