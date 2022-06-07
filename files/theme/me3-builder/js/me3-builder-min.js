@@ -3588,10 +3588,10 @@
         { name: a.xi, a: a.yi, f: H.rarity.uncommon, R: H.U.kb, d: "AssaultRifleDamage.png", 
         evolutions: [{ attributes: { weaponDamageAssault: .15 } }, { attributes: { weaponDamageAssault: .175 } }, { attributes: { weaponDamageAssault: .2 } }, 
             { attributes: { weaponDamageAssault: .225 } }, { attributes: { weaponDamageAssault: .25 } }] }, 
-        { name: a.Fi, a: a.Gi, f: H.rarity.uncommon, R: H.U.yb, d: "AssaultRifleForce.png", evolutions: [{ attributes: { enemyArmorPenetration: .25, penetration: .5, pierceDamage: .6 }
+        { name: a.Fi, a: a.Gi, f: H.rarity.uncommon, R: H.U.yb, d: "AssaultRifleForce.png", heavy: true, evolutions: [{ attributes: { enemyArmorPenetration: .25, penetration: .5, pierceDamage: .6 }
         }, { attributes: { enemyArmorPenetration: .35, penetration: .65, pierceDamage: .55 } }, { attributes: { enemyArmorPenetration: .45, penetration: .8, pierceDamage: .5 } }, { attributes: { enemyArmorPenetration: .55, penetration: .95, pierceDamage: .45 } }, { attributes: { enemyArmorPenetration: .65, penetration: 1.1, pierceDamage: .4 } }]
     }, {
-        name: a.zi, a: a.Ai, f: H.rarity.rare, R: H.U.kb, d: "AssaultRifleSuperPen.png", evolutions: [{ attributes: { enemyArmorPenetration: .5, penetration: .75, pierceDamage: .6, modWeightAssault: -.5 } }, {
+        name: a.zi, a: a.Ai, f: H.rarity.rare, R: H.U.kb, d: "AssaultRifleSuperPen.png", heavy: true, evolutions: [{ attributes: { enemyArmorPenetration: .5, penetration: .75, pierceDamage: .6, modWeightAssault: -.5 } }, {
             attributes: {
                 enemyArmorPenetration: .6,
                 penetration: .9, pierceDamage: .55, modWeightAssault: -.5
@@ -3600,20 +3600,21 @@
     }, {
         name: a.Di, a: a.Ei, f: H.rarity.rare, R: H.U.dd, d: "AssaultRifleMelee.png", evolutions: [{ attributes: { modMeleeDamage: .15 } }, { attributes: { modMeleeDamage: .175 } }, { attributes: { modMeleeDamage: .2 } },
         { attributes: { modMeleeDamage: .225 } }, { attributes: { modMeleeDamage: .25 } }]
-    }, { name: a.Li, a: a.Mi, f: H.rarity.rare, R: H.U.Db, d: "AssaultRifleSuperScope.png", evolutions: [{ attributes: { accuracy: .15, modWeightAssault: -.5 } }, { attributes: { accuracy: .2, modWeightAssault: -.5 } }, { attributes: { accuracy: .25, modWeightAssault: -.5 } }, { attributes: { accuracy: .3, modWeightAssault: -.5 } }, { attributes: { accuracy: .35, modWeightAssault: -.5 } }] }, {
-        name: a.Ni, a: a.Oi, f: H.rarity.rare, R: H.U.yb, d: "AssaultRifleUltraLight_MP5.png", evolutions: [{ attributes: { modULMAssault: .08 } }, { attributes: { modULMAssault: .1 } },
+    }, { name: a.Li, a: a.Mi, f: H.rarity.rare, R: H.U.Db, d: "AssaultRifleSuperScope.png", heavy: true, evolutions: [{ attributes: { accuracy: .15, modWeightAssault: -.5 } }, { attributes: { accuracy: .2, modWeightAssault: -.5 } }, { attributes: { accuracy: .25, modWeightAssault: -.5 } }, { attributes: { accuracy: .3, modWeightAssault: -.5 } }, { attributes: { accuracy: .35, modWeightAssault: -.5 } }] }, {
+        name: a.Ni, a: a.Oi, f: H.rarity.rare, R: H.U.yb, d: "AssaultRifleUltraLight_MP5.png", light: true, evolutions: [{ attributes: { modULMAssault: .08 } }, { attributes: { modULMAssault: .1 } },
         { attributes: { modULMAssault: .12 } }, { attributes: { modULMAssault: .14 } }, { attributes: { modULMAssault: .15 } }]
     }], [{ name: a.fu, a: a.gu, f: H.rarity.common, R: H.U.kb, d: "PistolDamage.png", evolutions: [{ attributes: { weaponDamagePistol: .15 } }, { attributes: { weaponDamagePistol: .175 } }, { attributes: { weaponDamagePistol: .2 } }, { attributes: { weaponDamagePistol: .225 } }, { attributes: { weaponDamagePistol: .25 } }] }, {
         name: a.hu, a: a.iu, f: H.rarity.common, R: H.U.ic, d: "PistolMagSize.png", evolutions: [{ attributes: { magazineSize: .4 } }, { attributes: { magazineSize: .5 } }, { attributes: { magazineSize: .6 } },
         { attributes: { magazineSize: .7 } }, { attributes: { magazineSize: .8 } }]
-    }, { name: a.ru, a: a.su, f: H.rarity.common, R: H.U.Db, d: "PistolAccuracy.png", evolutions: [{ attributes: { accuracy: .15 } }, { attributes: { accuracy: .2 } }, { attributes: { accuracy: .25 } }, { attributes: { accuracy: .3 } }, { attributes: { accuracy: .35 } }] }, { name: a.ju, a: a.ku, f: H.rarity.uncommon, R: H.U.dd, d: "PistolStability.png", evolutions: [{ attributes: { modMeleeDamage: .15 } }, { attributes: { modMeleeDamage: .175 } }, { attributes: { modMeleeDamage: .2 } }, { attributes: { modMeleeDamage: .225 } }, { attributes: { modMeleeDamage: .25 } }] },
+    }, { name: a.ru, a: a.su, f: H.rarity.common, R: H.U.Db, d: "PistolAccuracy.png", evolutions: [{ attributes: { accuracy: .15 } }, { attributes: { accuracy: .2 } }, { attributes: { accuracy: .25 } }, { attributes: { accuracy: .3 } }, { attributes: { accuracy: .35 } }] }, 
+    { name: a.ju, a: a.ku, f: H.rarity.uncommon, R: H.U.dd, d: "PistolStability.png", evolutions: [{ attributes: { modMeleeDamage: .15 } }, { attributes: { modMeleeDamage: .175 } }, { attributes: { modMeleeDamage: .2 } }, { attributes: { modMeleeDamage: .225 } }, { attributes: { modMeleeDamage: .25 } }] },
     { name: a.lu, a: a.mu, f: H.rarity.uncommon, R: H.U.yb, d: "PistolReloadSpeed.png", evolutions: [{ attributes: { enemyArmorPenetration: .25, penetration: .5, pierceDamage: .6 } }, { attributes: { enemyArmorPenetration: .35, penetration: .65, pierceDamage: .55 } }, { attributes: { enemyArmorPenetration: .45, penetration: .8, pierceDamage: .5 } }, { attributes: { enemyArmorPenetration: .55, penetration: .95, pierceDamage: .45 } }, { attributes: { enemyArmorPenetration: .65, penetration: 1.1, pierceDamage: .4 } }] }, {
         name: a.bu, a: a.cu, f: H.rarity.rare, R: H.U.kb, d: "PistolHeadShot.png", evolutions: [{ attributes: { headshotMod: .2 } },
         { attributes: { headshotMod: .25 } }, { attributes: { headshotMod: .3 } }, { attributes: { headshotMod: .35 } }, { attributes: { headshotMod: .4 } }]
-    }, { name: a.du, a: a.eu, f: H.rarity.rare, R: H.U.kb, d: "PistolSuperDamage.png", evolutions: [{ attributes: { weaponDamagePistol: .2, modWeightPistol: -.5 } }, { attributes: { weaponDamagePistol: .25, modWeightPistol: -.5 } }, { attributes: { weaponDamagePistol: .3, modWeightPistol: -.5 } }, { attributes: { weaponDamagePistol: .35, modWeightPistol: -.5 } }, { attributes: { weaponDamagePistol: .4, modWeightPistol: -.5 } }] }, {
+    }, { name: a.du, a: a.eu, f: H.rarity.rare, R: H.U.kb, d: "PistolSuperDamage.png", heavy: true, evolutions: [{ attributes: { weaponDamagePistol: .2, modWeightPistol: -.5 } }, { attributes: { weaponDamagePistol: .25, modWeightPistol: -.5 } }, { attributes: { weaponDamagePistol: .3, modWeightPistol: -.5 } }, { attributes: { weaponDamagePistol: .35, modWeightPistol: -.5 } }, { attributes: { weaponDamagePistol: .4, modWeightPistol: -.5 } }] }, {
         name: a.nu, a: a.ou, f: H.rarity.rare,
         R: H.U.Db, d: "PistolPowerDamage_MP5.png", evolutions: [{ attributes: { globalPowerDamage: .1 } }, { attributes: { globalPowerDamage: .15 } }, { attributes: { globalPowerDamage: .2 } }, { attributes: { globalPowerDamage: .25 } }, { attributes: { globalPowerDamage: .3 } }]
-    }, { name: a.PB, a: a.QB, f: H.rarity.rare, R: H.U.ic, d: "PistolUltraLight.png", evolutions: [{ attributes: { modULMPistol: .3 } }, { attributes: { modULMPistol: .35 } }, { attributes: { modULMPistol: .4 } }, { attributes: { modULMPistol: .45 } }, { attributes: { modULMPistol: .5 } }] }], [{
+    }, { name: a.PB, a: a.QB, f: H.rarity.rare, R: H.U.ic, d: "PistolUltraLight.png", light: true, evolutions: [{ attributes: { modULMPistol: .3 } }, { attributes: { modULMPistol: .35 } }, { attributes: { modULMPistol: .4 } }, { attributes: { modULMPistol: .45 } }, { attributes: { modULMPistol: .5 } }] }], [{
         name: a.Dx, a: a.Ex, f: H.rarity.common, R: H.U.dd, d: "ShotgunMeleeDamage.png",
         evolutions: [{ attributes: { modMeleeDamage: .15 } }, { attributes: { modMeleeDamage: .175 } }, { attributes: { modMeleeDamage: .2 } }, { attributes: { modMeleeDamage: .225 } }, { attributes: { modMeleeDamage: .25 } }]
     }, { name: a.Gx, a: a.Hx, f: H.rarity.common, R: H.U.kb, d: "ShotgunDamage.png", evolutions: [{ attributes: { weaponDamageShotgun: .15 } }, { attributes: { weaponDamageShotgun: .175 } }, { attributes: { weaponDamageShotgun: .2 } }, { attributes: { weaponDamageShotgun: .225 } }, { attributes: { weaponDamageShotgun: .25 } }] }, {
@@ -3627,22 +3628,23 @@
             }
         }]
     }, { name: a.Sx, a: a.Tx, f: H.rarity.uncommon, R: H.U.ic, d: "ShotgunStability.png", evolutions: [{ attributes: { ammoCapacity: .5 } }, { attributes: { ammoCapacity: .6 } }, { attributes: { ammoCapacity: .7 } }, { attributes: { ammoCapacity: .8 } }, { attributes: { ammoCapacity: .9 } }] }, {
-        name: a.Ix, a: a.Jx, f: H.rarity.rare, R: H.U.kb, d: "ShotgunDamageAndPen.png", evolutions: [{ attributes: { enemyArmorPenetration: .25, penetration: .25, pierceDamage: .5, weaponDamageShotgun: .15, modWeightShotgun: -.5 } }, {
+        name: a.Ix, a: a.Jx, f: H.rarity.rare, R: H.U.kb, d: "ShotgunDamageAndPen.png", heavy: true, evolutions: [{ attributes: { enemyArmorPenetration: .25, penetration: .25, pierceDamage: .5, weaponDamageShotgun: .15, modWeightShotgun: -.5 } }, {
             attributes: {
                 enemyArmorPenetration: .35, penetration: .35, pierceDamage: .45,
                 weaponDamageShotgun: .175, modWeightShotgun: -.5
             }
         }, { attributes: { enemyArmorPenetration: .45, penetration: .45, pierceDamage: .4, weaponDamageShotgun: .2, modWeightShotgun: -.5 } }, { attributes: { enemyArmorPenetration: .55, penetration: .55, pierceDamage: .35, weaponDamageShotgun: .225, modWeightShotgun: -.5 } }, { attributes: { enemyArmorPenetration: .65, penetration: .65, pierceDamage: .3, weaponDamageShotgun: .25, modWeightShotgun: -.5 } }]
     }, {
-        name: a.Kx, a: a.Lx, f: H.rarity.rare, R: H.U.dd, d: "ShotgunSuperMelee.png", evolutions: [{ attributes: { modMeleeDamage: .3, modWeightShotgun: -.5 } },
+        name: a.Kx, a: a.Lx, f: H.rarity.rare, R: H.U.dd, d: "ShotgunSuperMelee.png", heavy: true, evolutions: [{ attributes: { modMeleeDamage: .3, modWeightShotgun: -.5 } },
         { attributes: { modMeleeDamage: .35, modWeightShotgun: -.5 } }, { attributes: { modMeleeDamage: .4, modWeightShotgun: -.5 } }, { attributes: { modMeleeDamage: .45, modWeightShotgun: -.5 } }, { attributes: { modMeleeDamage: .5, modWeightShotgun: -.5 } }]
-    }, { name: a.Ux, a: a.Vx, f: H.rarity.rare, R: H.U.yb, d: "ShotgunUltraLight_MP5.png", evolutions: [{ attributes: { modULMShotgun: .08 } }, { attributes: { modULMShotgun: .1 } }, { attributes: { modULMShotgun: .12 } }, { attributes: { modULMShotgun: .14 } }, { attributes: { modULMShotgun: .15 } }] }], [{
+    }, { name: a.Ux, a: a.Vx, f: H.rarity.rare, R: H.U.yb, d: "ShotgunUltraLight_MP5.png", light: true, evolutions: [{ attributes: { modULMShotgun: .08 } }, { attributes: { modULMShotgun: .1 } }, { attributes: { modULMShotgun: .12 } }, { attributes: { modULMShotgun: .14 } }, { attributes: { modULMShotgun: .15 } }] }], [{
         name: a.Sv, a: a.Tv, f: H.rarity.common, R: H.U.eb, d: "SMGConstraintDamage.png",
         evolutions: [{ attributes: { heatSink: .25 } }, { attributes: { heatSink: .3 } }, { attributes: { heatSink: .35 } }, { attributes: { heatSink: .4 } }, { attributes: { heatSink: .45 } }]
     }, { name: a.Yv, a: a.Zv, f: H.rarity.common, R: H.U.ic, d: "SMGMagSize.png", evolutions: [{ attributes: { magazineSize: .4 } }, { attributes: { magazineSize: .5 } }, { attributes: { magazineSize: .6 } }, { attributes: { magazineSize: .7 } }, { attributes: { magazineSize: .8 } }] }, {
         name: a.fw, a: a.gw, f: H.rarity.common, R: H.U.Db, d: "SMGAccuracy.png", evolutions: [{ attributes: { accuracy: .15 } }, { attributes: { accuracy: .2 } }, { attributes: { accuracy: .25 } }, { attributes: { accuracy: .3 } },
         { attributes: { accuracy: .35 } }]
-    }, { name: a.Uv, a: a.Vv, f: H.rarity.uncommon, R: H.U.kb, d: "SMGDamage.png", evolutions: [{ attributes: { weaponDamageSMG: .15 } }, { attributes: { weaponDamageSMG: .175 } }, { attributes: { weaponDamageSMG: .2 } }, { attributes: { weaponDamageSMG: .225 } }, { attributes: { weaponDamageSMG: .25 } }] }, { name: a.hw, a: a.iw, f: H.rarity.uncommon, R: H.U.yb, d: "SMGStability.png", evolutions: [{ attributes: { modULMSMG: .5 } }, { attributes: { modULMSMG: .6 } }, { attributes: { modULMSMG: .7 } }, { attributes: { modULMSMG: .8 } }, { attributes: { modULMSMG: .9 } }] }, {
+    }, { name: a.Uv, a: a.Vv, f: H.rarity.uncommon, R: H.U.kb, d: "SMGDamage.png", evolutions: [{ attributes: { weaponDamageSMG: .15 } }, { attributes: { weaponDamageSMG: .175 } }, { attributes: { weaponDamageSMG: .2 } }, { attributes: { weaponDamageSMG: .225 } }, { attributes: { weaponDamageSMG: .25 } }] }, 
+    { name: a.hw, a: a.iw, f: H.rarity.uncommon, R: H.U.yb, d: "SMGStability.png", light: true, evolutions: [{ attributes: { modULMSMG: .5 } }, { attributes: { modULMSMG: .6 } }, { attributes: { modULMSMG: .7 } }, { attributes: { modULMSMG: .8 } }, { attributes: { modULMSMG: .9 } }] }, {
         name: a.Wv, a: a.Xv, f: H.rarity.rare, R: H.U.kb, d: "SMGPenetration.png",
         evolutions: [{ attributes: { enemyArmorPenetration: .5, penetration: .25, pierceDamage: .6 } }, { attributes: { enemyArmorPenetration: .6, penetration: .35, pierceDamage: .55 } }, { attributes: { enemyArmorPenetration: .7, penetration: .45, pierceDamage: .5 } }, { attributes: { enemyArmorPenetration: .8, penetration: .55, pierceDamage: .45 } }, { attributes: { enemyArmorPenetration: .9, penetration: .65, pierceDamage: .4 } }]
     }, {
@@ -3651,11 +3653,12 @@
     }, { name: a.dw, a: a.ew, f: H.rarity.rare, R: H.U.yb, d: "SMGStabilization.png", evolutions: [{ attributes: { stability: .3 } }, { attributes: { stability: .4 } }, { attributes: { stability: .5 } }, { attributes: { stability: .6 } }, { attributes: { stability: .7 } }] }], [{
         name: a.Ey, a: a.Fy, f: H.rarity.common, R: H.U.ic, d: "SniperRifleReloadSpeed.png", evolutions: [{ attributes: { ammoCapacity: .5 } }, { attributes: { ammoCapacity: .6 } }, { attributes: { ammoCapacity: .7 } }, { attributes: { ammoCapacity: .8 } },
         { attributes: { ammoCapacity: .9 } }]
-    }, { name: a.uy, a: a.vy, f: H.rarity.uncommon, R: H.U.Db, d: "SniperRifleAccuracy.png", evolutions: [{ attributes: { accuracy: .15 } }, { attributes: { accuracy: .2 } }, { attributes: { accuracy: .25 } }, { attributes: { accuracy: .3 } }, { attributes: { accuracy: .35 } }] }, { name: a.wy, a: a.xy, f: H.rarity.uncommon, R: H.U.kb, d: "SniperRifleDamage.png", evolutions: [{ attributes: { weaponDamageSniper: .15 } }, { attributes: { weaponDamageSniper: .175 } }, { attributes: { weaponDamageSniper: .2 } }, { attributes: { weaponDamageSniper: .225 } }, { attributes: { weaponDamageSniper: .25 } }] }, {
+    }, { name: a.uy, a: a.vy, f: H.rarity.uncommon, R: H.U.Db, d: "SniperRifleAccuracy.png", evolutions: [{ attributes: { accuracy: .15 } }, { attributes: { accuracy: .2 } }, { attributes: { accuracy: .25 } }, { attributes: { accuracy: .3 } }, { attributes: { accuracy: .35 } }] }, 
+    { name: a.wy, a: a.xy, f: H.rarity.uncommon, R: H.U.kb, d: "SniperRifleDamage.png", evolutions: [{ attributes: { weaponDamageSniper: .15 } }, { attributes: { weaponDamageSniper: .175 } }, { attributes: { weaponDamageSniper: .2 } }, { attributes: { weaponDamageSniper: .225 } }, { attributes: { weaponDamageSniper: .25 } }] }, {
         name: a.Ay,
         a: a.By, f: H.rarity.uncommon, R: H.U.yb, d: "SniperRifleConstraintDamage.png", evolutions: [{ attributes: { enemyArmorPenetration: .25, penetration: .75, pierceDamage: .5 } }, { attributes: { enemyArmorPenetration: .35, penetration: .9, pierceDamage: .45 } }, { attributes: { enemyArmorPenetration: .45, penetration: 1.05, pierceDamage: .4 } }, { attributes: { enemyArmorPenetration: .55, penetration: 1.2, pierceDamage: .35 } }, { attributes: { enemyArmorPenetration: .65, penetration: 1.35, pierceDamage: .3 } }]
     }, {
-        name: a.yy, a: a.zy, f: H.rarity.rare, R: H.U.kb, d: "SniperRifleDamageAndPen.png", evolutions: [{
+        name: a.yy, a: a.zy, f: H.rarity.rare, R: H.U.kb, d: "SniperRifleDamageAndPen.png", heavy: true, evolutions: [{
             attributes: {
                 enemyArmorPenetration: .25,
                 penetration: .5, pierceDamage: .5, weaponDamageSniper: .15, modWeightSniper: -.5
@@ -3666,8 +3669,8 @@
                 modWeightSniper: -.5
             }
         }]
-    }, { name: a.Gy, a: a.Hy, f: H.rarity.rare, R: H.U.Db, d: "SniperRifleSuperScope.png", evolutions: [{ attributes: { accuracy: .15, modWeightSniper: -.5 } }, { attributes: { accuracy: .2, modWeightSniper: -.5 } }, { attributes: { accuracy: .25, modWeightSniper: -.5 } }, { attributes: { accuracy: .3, modWeightSniper: -.5 } }, { attributes: { accuracy: .35, modWeightSniper: -.5 } }] }, {
-        name: a.Iy, a: a.Jy, f: H.rarity.rare, R: H.U.eb, d: "SniperRifleUltraLight_MP5.png", evolutions: [{ attributes: { modULMSniper: .08 } }, { attributes: { modULMSniper: .1 } }, { attributes: { modULMSniper: .12 } }, { attributes: { modULMSniper: .14 } },
+    }, { name: a.Gy, a: a.Hy, f: H.rarity.rare, R: H.U.Db, d: "SniperRifleSuperScope.png", heavy: true, evolutions: [{ attributes: { accuracy: .15, modWeightSniper: -.5 } }, { attributes: { accuracy: .2, modWeightSniper: -.5 } }, { attributes: { accuracy: .25, modWeightSniper: -.5 } }, { attributes: { accuracy: .3, modWeightSniper: -.5 } }, { attributes: { accuracy: .35, modWeightSniper: -.5 } }] }, {
+        name: a.Iy, a: a.Jy, f: H.rarity.rare, R: H.U.eb, d: "SniperRifleUltraLight_MP5.png", light: true, evolutions: [{ attributes: { modULMSniper: .08 } }, { attributes: { modULMSniper: .1 } }, { attributes: { modULMSniper: .12 } }, { attributes: { modULMSniper: .14 } },
         { attributes: { modULMSniper: .15 } }]
     }]];
     /*
@@ -4551,19 +4554,83 @@
                     return d.weight_L + (d.weight_H - d.weight_L) / 9 * c.ia 
                 }; 
 
+                // https://files.catbox.moe/5cb869.jpg
                 var weight_glitch_matrix = [
                     [false, false, false, true, false, false, true, true],
+                    [false, false, true,  true, false, false, true, true],
                     [false, false, false, true, false, false, true, true],
-                    [false, false, true, true, false, false, true, true],
+                    [false, false, true,  true, false, false, true, true],
                     [false, false, false, true, false, false, true, true],
-                    [false, false, true, true, false, false, true, true],
-                    [false, false, false, true, false, false, true, true],
-                    [false, false, true, true, false, false, true, true],
-                    [true, true, true, true, true, true, true, true],
-                    [false, false, true, true, false, false, true, true]
+                    [false, false, true,  true, false, false, true, true],
+                    [true,  true,  true,  true, true,  true,  true, true],
+                    [false, false, true,  true, false, false, true, true],
+                    [false, false, false, true, false, false, true, true]
                 ];
 
+                function get_weapon_type_priority(weapon) {
+                    return 0;
+                    switch (weapon.type) {
+                        case -1: return -1;
+                        case 0: return 4;
+                        case 1: return 0;
+                        case 2: return 3;
+                        case 3: return 1;
+                        case 4: return 2;
+                    }
+                }
+
+                function is_dlc(weapon) {
+                    if (weapons[weapon.type][weapon.index].dlc)
+                        return true;
+                    return false;
+                }
+
+                function has_heavy_mod(weapon) {
+                    if (weapon.mod_1_type != -1)
+                        if (mods[weapon.type][weapon.mod_1_type].heavy)
+                        return true
+                    if (weapon.mod_2_type != -1)
+                        if (mods[weapon.type][weapon.mod_2_type].heavy)
+                            return true;
+                    return false;
+                }
+
+                function has_light_mod(weapon) {
+                    if (weapon.mod_1_type != -1)
+                        if (mods[weapon.type][weapon.mod_1_type].light)
+                        return true
+                    if (weapon.mod_2_type != -1)
+                        if (mods[weapon.type][weapon.mod_2_type].light)
+                            return true;
+                    return false;
+                }
+
+                function get_mod_loadout_class(weapon) {
+                    // return 0;
+                    if (weapon.type == -1)
+                        return 8;
+                    var res = 0;
+                    if (is_dlc(weapon))
+                        res += 4;
+                    if (has_heavy_mod(weapon))
+                        res += 2;
+                    if (has_light_mod(weapon))
+                        res += 1;
+                    return res;
+                }
+
+                function get_weight_glitch() {
+                    var primary = weapon_loadout[0], secondary = weapon_loadout[1];
+                    if (get_weapon_type_priority(primary) > get_weapon_type_priority(secondary)) {
+                        var temp = primary;
+                        primary = secondary;
+                        secondary = temp;
+                    }
+                    return weight_glitch_matrix[get_mod_loadout_class(secondary)][get_mod_loadout_class(primary)];
+                }
+
                 d.Kg = function () {
+                    var weight_applying = get_weight_glitch();
                     var c = ["encumbrance", "weaponWeight"], m = []; 
                     m[weapon_type.assault] = "weaponWeightAssault"; 
                     m[weapon_type.pistol] = "weaponWeightPistol"; 
@@ -4589,14 +4656,15 @@
                     -1 != weapon_loadout[1].type && (c.push(m[weapon_loadout[1].type]), c.push(f[weapon_loadout[1].type]), c.push(k[weapon_loadout[1].type]));
 
                     var c = e(c, weapon_loadout[0], { Jf: weapon_loadout[1] }), 
-                        g = 2 + character.base_encumbrance, 
-                        g = g + c.data.encumbrance / 100, 
-                        q = d.Qa(0), 
-                        n = d.Fc(q), 
-                        n = n - c.data[f[q.type]], 
-                        n = n * (1 - c.data[k[q.type]]), 
-                        n = n - c.data.weaponWeight - c.data[m[q.type]], 
-                        g = g - n, 
+                        g = 2 + character.base_encumbrance;
+                        g = g + c.data.encumbrance / 100;
+                    var q = d.Qa(0), 
+                        n = d.Fc(q);
+                    if (weight_applying)     
+                        n = n - c.data[f[q.type]];
+                        n = n * (1 - c.data[k[q.type]]);
+                        n = n - c.data.weaponWeight - c.data[m[q.type]];
+                        g = g - n;
                         q = d.Qa(1); 
                     -1 != q.type && (n = d.Fc(q), n -= c.data[f[q.type]], n *= 1 - c.data[k[q.type]], n = n - c.data.weaponWeight - c.data[m[q.type]], g -= n); 
                     -2 > g ? g = -2 : 2 < g && (g = 2); 
