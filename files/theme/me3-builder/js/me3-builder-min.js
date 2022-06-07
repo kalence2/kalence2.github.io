@@ -4666,7 +4666,12 @@
                         n = n - c.data.weaponWeight - c.data[m[q.type]];
                         g = g - n;
                         q = d.Qa(1); 
-                    -1 != q.type && (n = d.Fc(q), n -= c.data[f[q.type]], n *= 1 - c.data[k[q.type]], n = n - c.data.weaponWeight - c.data[m[q.type]], g -= n); 
+                    if (-1 != q.type) {
+                        n = d.Fc(q); 
+                        if (weight_applying) n -= c.data[f[q.type]];
+                        n *= 1 - c.data[k[q.type]];
+                        n = n - c.data.weaponWeight - c.data[m[q.type]], g -= n
+                    }
                     -2 > g ? g = -2 : 2 < g && (g = 2); 
                     return { value: g, C: c.C }
                 }; 
