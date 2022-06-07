@@ -3450,9 +3450,9 @@
         { name: a.Qt, a: a.Rt, ammo_capacity_L: 350, ammo_capacity_H: 450, damage_L: 41.9, damage_H: 52.4, magazine: 50, mode: H.I.sa, 
             f: H.rarity.uncommon, i: J, d: "AssaultRifle_Cobra.png", type: H.D.assault, weight_L: 1.35, weight_H: .8 }, 
         { name: a.Xi, a: a.Yi, ammo_capacity_L: 72, ammo_capacity_H: 96, damage_L: 178.1, damage_H: 222.6, magazine: 24, mode: H.I.sa, 
-            f: H.rarity.rare, i: { organic: { health: 1, armor: 1, barrier: 2, shield: 2 } }, d: "AssaultRifle_Adas_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, headshot_capable: !1, armor_penalty: !1 }, 
+            f: H.rarity.rare, i: { organic: { health: 1, armor: 1, barrier: 2, shield: 2 } }, d: "AssaultRifle_Adas_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, headshot_capable: !1, armor_penalty: !1, dlc: true }, 
         { name: a.Ql, a: a.Rl, ammo_capacity_L: 308, ammo_capacity_H: 392, damage_L: 55.4, damage_H: 69.2, magazine: 28, mode: H.I.sa, 
-            race: ua.Sb, f: H.rarity.rare, i: J, d: "AssaultRifle_Collector.png", type: H.D.assault, weight_L: 1.6, weight_H: 1.2 }, 
+            race: ua.Sb, f: H.rarity.rare, i: J, d: "AssaultRifle_Collector.png", type: H.D.assault, weight_L: 1.6, weight_H: 1.2, dlc: true }, 
         { name: a.lp, a: a.mp, ammo_capacity_L: 480, ammo_capacity_H: 640, damage_L: 28.8, damage_H: 36, magazine: 100, mode: H.I.sa, 
             race: ua.Ua, f: H.rarity.rare, i: J, d: "AssaultRifle_Geth.png", type: H.D.assault, weight_L: 1, weight_H: .5, headshot_modifier: 3 }, 
         { name: a.Qr, a: a.Rr, ammo_capacity_L: 18, ammo_capacity_H: 28, damage_L: 279.2, damage_H: 349, magazine: 4, mode: H.I.na, 
@@ -3462,22 +3462,22 @@
         { name: a.bs, a: a.cs, ammo_capacity_L: 360, ammo_capacity_H: 480, damage_L: 63.6, damage_H: 79.5, magazine: 60, mode: H.I.sa, 
             f: H.rarity.rare, i: J, d: "AssaultRifle_Revenant.png", type: H.D.assault, weight_L: 1.8, weight_H: 1.25 }, 
         { name: a.gz, a: a.hz, ammo_capacity_L: 60, ammo_capacity_H: 72, damage_L: 144.7, damage_H: 180.9, magazine: 12, mode: H.I.sa, 
-            f: H.rarity.rare, i: J, d: "AssaultRifle_Krogan.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, headshot_capable: !1, armor_penalty: !1}, 
+            f: H.rarity.rare, i: J, d: "AssaultRifle_Krogan.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, headshot_capable: !1, armor_penalty: !1, dlc: true }, 
         { name: a.Gl, a: a.Hl, ammo_capacity_L: 80, ammo_capacity_H: 100, damage_L: 106.2, damage_H: 129.5, magazine: 20, mode: H.I.sa, 
-            f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Cerberus.png", type: H.D.assault, weight_L: 1.75, weight_H: 1.25 }, 
+            f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Cerberus.png", type: H.D.assault, weight_L: 1.75, weight_H: 1.25, dlc: true }, 
         { name: a.pp, a: a.qp, ammo_capacity_L: 600, ammo_capacity_H: 750, damage_L: 62.2, damage_H: 77.8, magazine: 220, mode: H.I.sa, 
-            race: ua.Ua, f: H.rarity.ultrarare, i: { organic: { health: 1, armor: 1, barrier: 1.75, shield: 1.75 } }, d: "AssaultRifle_Spitfire.png", type: H.D.assault, weight_L: 3, weight_H: 2.5 }, 
+            race: ua.Ua, f: H.rarity.ultrarare, i: { organic: { health: 1, armor: 1, barrier: 1.75, shield: 1.75 } }, d: "AssaultRifle_Spitfire.png", type: H.D.assault, weight_L: 3, weight_H: 2.5, dlc: true }, 
         { name: a.fs, a: a.gs, ammo_capacity_L: 0, ammo_capacity_H: 57, damage_L: 67.9, damage_H: 84.8, magazine: 38, mode: H.I.sa, 
-            f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Lancer_MP.png", type: H.D.assault, weight_L: 1.3, weight_H: .8 }, 
+            f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Lancer_MP.png", type: H.D.assault, weight_L: 1.3, weight_H: .8, dlc: true }, 
         { name: a.us, a: a.vs, ammo_capacity_L: 40, ammo_capacity_H: 56, damage_L: 460, damage_H: 575, magazine: 8, mode: H.I.na, 
             f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Saber.png", type: H.D.assault, weight_L: 1.7, weight_H: 1.4 }, 
         { name: a.et, a: a.ft, ammo_capacity_L: 400, ammo_capacity_H: 500, damage_L: 44.4, damage_H: 55.5, magazine: 100, mode: H.I.sa, 
             f: H.rarity.ultrarare, i: { organic: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 } }, d: "AssaultRifle_LMG.png", type: H.D.assault, weight_L: 2.5, weight_H: 2, 
-            charged: !0, charged_ammo: !0, charged_damage: 1.5}, 
+            charged: !0, charged_ammo: !0, charged_damage: 1.5, dlc: true }, 
         { name: a.it, a: a.jt, ammo_capacity_L: 144, ammo_capacity_H: 180, damage_L: 119.9, damage_H: 149.9, magazine: 16, mode: H.I.yA, 
             burst: 2, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Valkyrie.png", type: H.D.assault, weight_L: 1.5, weight_H: 1.25, headshot_modifier: 3 }, 
         { name: a.Ot, a: a.Pt, ammo_capacity_L: 0, ammo_capacity_H: 125, damage_L: 19.2, damage_H: 25.8, magazine: 100, mode: H.I.sa, 
-            race: ua.Sb, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Prothean_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, charged: !0, charged_ammo: !0, charged_damage: 4},
+            race: ua.Sb, f: H.rarity.ultrarare, i: J, d: "AssaultRifle_Prothean_MP.png", type: H.D.assault, weight_L: 2, weight_H: 1.4, charged: !0, charged_ammo: !0, charged_damage: 4, dlc: true },
         { name: "Chakram Launcher", a: a.chakram_desc, ammo_capacity_L: 40, ammo_capacity_H: 50, damage_L: 277.9, damage_H: 347.4, magazine: 4, mode: H.I.sa, 
             f: H.rarity.unobtainable, i: J, d: "AssaultRifle_Chakram.png", type: H.D.assault, weight_L: 1.75, weight_H: 1, 
             charged: 1, charged_damage: 3, charged_ammo: !0, headshot_capable: !1, armor_penalty: !1}
@@ -3487,11 +3487,11 @@
         { name: a.Yr, a: a.Zr, ammo_capacity_L: 72, ammo_capacity_H: 90, damage_L: 114.8, damage_H: 143.5, magazine: 12, mode: H.I.na, 
             f: H.rarity.uncommon, i: J, d: "Pistol_Phalanx.png", type: H.D.pistol, weight_L: .6, weight_H: .25 }, 
         { name: a.Si, a: a.Ti, ammo_capacity_L: 12, ammo_capacity_H: 24, damage_L: 420.2, damage_H: 490, magazine: 3, mode: H.I.na, 
-            f: H.rarity.rare, i: { organic: { health: 1, armor: 1, barrier: 5, shield: 5 } }, d: "Pistol_Asari.png", type: H.D.pistol, weight_L: .5, weight_H: .2, headshot_capable: !1, armor_penalty: !1 }, 
+            f: H.rarity.rare, i: { organic: { health: 1, armor: 1, barrier: 5, shield: 5 } }, d: "Pistol_Asari.png", type: H.D.pistol, weight_L: .5, weight_H: .2, headshot_capable: !1, armor_penalty: !1, dlc: true }, 
         { name: a.vj, a: a.wj, ammo_capacity_L: 72, ammo_capacity_H: 90, damage_L: 77.2, damage_H: 96.5, magazine: 18, mode: H.I.na, 
             f: H.rarity.rare, i: J, d: "Pistol_Thor.png", type: H.D.pistol, weight_L: 1.1, weight_H: .6, charged: !0, charged_ammo: !0, charged_damage: 3, charged_shots: 3 }, 
         { name: a.bo, a: a.co, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 784.9, damage_H: 981.1, magazine: 1, mode: H.I.mc, 
-            f: H.rarity.rare, i: J, d: "Pistol_Bloodpack_MP.png", type: H.D.pistol, weight_L: 1.2, weight_H: .7 }, 
+            f: H.rarity.rare, i: J, d: "Pistol_Bloodpack_MP.png", type: H.D.pistol, weight_L: 1.2, weight_H: .7, dlc: true }, 
         { name: a.sr, a: a.tr, ammo_capacity_L: 30, ammo_capacity_H: 40, damage_L: 125.7, damage_H: 157.1, magazine: 6, mode: H.I.na, 
             f: H.rarity.rare, i: J, d: "Pistol_Silencer_MP.png", type: H.D.pistol, weight_L: 1.2, weight_H: .7, headshot_modifier: 4 }, 
         { name: a.$r, a: a.as, ammo_capacity_L: 30, ammo_capacity_H: 40, damage_L: 276.1, damage_H: 345.1, magazine: 6, mode: H.I.na, 
@@ -3499,7 +3499,7 @@
         { name: a.Or, a: a.Pr, ammo_capacity_L: 24, ammo_capacity_H: 36, damage_L: 93.7, damage_H: 117.1, magazine: 4, mode: H.I.na, 
             burst: 6, f: H.rarity.ultrarare, i: { organic: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 } }, d: "Pistol_Talon.png", type: H.D.pistol, weight_L: .9, weight_H: .6 }, 
         { name: a.ds, a: a.es, ammo_capacity_L: 21, ammo_capacity_H: 33, damage_L: 424.9, damage_H: 531.1, magazine: 3, mode: H.I.na, 
-            f: H.rarity.ultrarare, i: J, d: "Pistol_Ivory.png", type: H.D.pistol, weight_L: 1, weight_H: .7 }, 
+            f: H.rarity.ultrarare, i: J, d: "Pistol_Ivory.png", type: H.D.pistol, weight_L: 1, weight_H: .7, dlc: true }, 
         { name: a.Zs, a: a.$s, ammo_capacity_L: 192, ammo_capacity_H: 240, damage_L: 86.1, damage_H: 107.7, magazine: 24, mode: H.I.sa, 
             f: H.rarity.ultrarare, i: J, d: "Pistol_Eagle.png", type: H.D.pistol, weight_L: .45, weight_H: .25 }, 
         { name: a.vw, a: a.ww, ammo_capacity_L: 20, ammo_capacity_H: 30, damage_L: 375.2, damage_H: 469, magazine: 4, mode: H.I.na, 
@@ -3523,16 +3523,16 @@
         { name: a.Mr, a: a.Nr, ammo_capacity_L: 8, ammo_capacity_H: 18, damage_L: 167.8, damage_H: 206, magazine: 1, mode: H.I.mc, 
             burst: 8, f: H.rarity.rare, i: J, d: "Shotgun_Claymore.png", type: H.D.shotgun, weight_L: 2.5, weight_H: 2 }, 
         { name: a.ct, a: a.dt, ammo_capacity_L: 48, ammo_capacity_H: 64, damage_L: 61.7, damage_H: 77.1, magazine: 6, mode: H.I.sa, 
-            burst: 8, f: H.rarity.rare, i: J, d: "Shotgun_Assault.png", type: H.D.shotgun, weight_L: 1.5, weight_H: .9 }, 
+            burst: 8, f: H.rarity.rare, i: J, d: "Shotgun_Assault.png", type: H.D.shotgun, weight_L: 1.5, weight_H: .9, dlc: true }, 
         { name: a.Av, a: a.Bv, ammo_capacity_L: 66, ammo_capacity_H: 88, damage_L: 52.8, damage_H: 66, magazine: 22, mode: H.I.sa, 
-            burst: 8, f: H.rarity.rare, i: { organic: { health: 1, armor: .5, barrier: 2, shield: 2 } }, d: "Shotgun_Quarian.png", type: H.D.shotgun, weight_L: 1.75, weight_H: 1.25 }, 
+            burst: 8, f: H.rarity.rare, i: { organic: { health: 1, armor: .5, barrier: 2, shield: 2 } }, d: "Shotgun_Quarian.png", type: H.D.shotgun, weight_L: 1.75, weight_H: 1.25, dlc: true }, 
         { name: a.ur, a: a.vr, ammo_capacity_L: 18, ammo_capacity_H: 28, damage_L: 117.6, damage_H: 147, magazine: 2, mode: H.I.na, 
             burst: 8, f: H.rarity.ultrarare, i: J, d: "Shotgun_Striker.png", type: H.D.shotgun, weight_L: 1.2, weight_H: .9 }, 
         { name: a.Ts, a: a.Us, ammo_capacity_L: 20, ammo_capacity_H: 30, damage_L: 630.7, damage_H: 788.4, magazine: 4, mode: H.I.na, 
             f: H.rarity.ultrarare, i: J, d: "Shotgun_Crusader.png", type: H.D.shotgun, weight_L: 2.3, weight_H: 2 }, 
         { name: a.$B, a: a.aC, ammo_capacity_L: 12, ammo_capacity_H: 22, damage_L: 636, damage_H: 795, magazine: 4, mode: H.I.na, 
             f: H.rarity.ultrarare, i: J, d: "Shotgun_Salarian_MP.png", type: H.D.shotgun, weight_L: 2, weight_H: 1.4, 
-            charged: !0, headshot_capable: !1, armor_penalty: !1, charged_ammo: !0, charged_damage: 1.25 / 3, charged_shots: 3, is_venom: !0 }
+            charged: !0, headshot_capable: !1, armor_penalty: !1, charged_ammo: !0, charged_damage: 1.25 / 3, charged_shots: 3, is_venom: !0, dlc: true }
     ], [
         { name: a.Ur, a: a.Vr, ammo_capacity_L: 360, ammo_capacity_H: 468, damage_L: 38.7, damage_H: 48.3, magazine: 36, mode: H.I.gy, 
             burst: 6, f: H.rarity.common, i: J, d: "SMG_Shuriken.png", type: H.D.smg, weight_L: .45, weight_H: .2 }, 
@@ -3541,13 +3541,13 @@
         { name: a.ws, a: a.xs, ammo_capacity_L: 400, ammo_capacity_H: 500, damage_L: 47.5, damage_H: 59.4, magazine: 50, mode: H.I.sa, 
             f: H.rarity.uncommon, i: J, d: "SMG_Tempest.png", type: H.D.smg, weight_L: .65, weight_H: .3 }, 
         { name: a.hp, a: a.ip, ammo_capacity_L: 600, ammo_capacity_H: 800, damage_L: 16.1, damage_H: 20.1, magazine: 100, mode: H.I.sa, 
-            race: ua.Ua, f: H.rarity.rare, i: J, d: "SMG_Geth.png", type: H.D.smg, weight_L: .65, weight_H: .3, charged: !0, charged_ammo: !0, charged_damage: 2.5 }, 
+            race: ua.Ua, f: H.rarity.rare, i: J, d: "SMG_Geth.png", type: H.D.smg, weight_L: .65, weight_H: .3, charged: !0, charged_ammo: !0, charged_damage: 2.5, dlc: true }, 
         { name: a.Gr, a: a.Hr, ammo_capacity_L: 168, ammo_capacity_H: 216, damage_L: 53.7, damage_H: 67.2, magazine: 24, mode: H.I.Wd, 
             burst: 3, f: H.rarity.rare, i: J, d: "SMG_Hornet.png", type: H.D.smg, weight_L: .85, weight_H: .45 }, 
         { name: a.ol, a: a.pl, ammo_capacity_L: 320, ammo_capacity_H: 400, damage_L: 40.1, damage_H: 50.1, magazine: 40, mode: H.I.sa, 
-            f: H.rarity.ultrarare, i: J, d: "SMG_Bloodpack_MP.png", type: H.D.smg, weight_L: .85, weight_H: .45 }, 
+            f: H.rarity.ultrarare, i: J, d: "SMG_Bloodpack_MP.png", type: H.D.smg, weight_L: .85, weight_H: .45, dlc: true }, 
         { name: a.Sl, a: a.Tl, ammo_capacity_L: 0, ammo_capacity_H: 40, damage_L: 41.2, damage_H: 51.5, magazine: 30, mode: H.I.sa, 
-            race: ua.Sb, f: H.rarity.ultrarare, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SMG_Collector.png", type: H.D.smg, weight_L: .85, weight_H: .45 }, 
+            race: ua.Sb, f: H.rarity.ultrarare, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SMG_Collector.png", type: H.D.smg, weight_L: .85, weight_H: .45, dlc: true }, 
         { name: a.at, a: a.bt, ammo_capacity_L: 280, ammo_capacity_H: 360, damage_L: 102.5, damage_H: 128.1, magazine: 40, mode: H.I.sa, 
             f: H.rarity.ultrarare, i: J, d: "SMG_Hurricane.png", type: H.D.smg, weight_L: .85, weight_H: .45 }
     ], [
@@ -3560,11 +3560,11 @@
         { name: a.qs, a: a.rs, ammo_capacity_L: 36, ammo_capacity_H: 46, damage_L: 292.1, damage_H: 365.2, magazine: 6, mode: H.I.na, 
             f: H.rarity.uncommon, i: J, d: "SniperRifle_Viper.png", type: H.D.sniper, weight_L: 1.25, weight_H: .7 }, 
         { name: a.Ul, a: a.Vl, ammo_capacity_L: 0, ammo_capacity_H: 45, damage_L: 73, damage_H: 91.3, magazine: 35, mode: H.I.sa, 
-            race: ua.Sb, f: H.rarity.rare, i: J, d: "SniperRifle_Collector.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4 }, 
+            race: ua.Sb, f: H.rarity.rare, i: J, d: "SniperRifle_Collector.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4, dlc: true }, 
         { name: a.Yq, a: a.Zq, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 890.7, damage_H: 1113.4, magazine: 1, mode: H.I.mc, 
-            f: H.rarity.rare, i: J, d: "SniperRifle_Batarian.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4, charged: !0, armor_penalty: !1, charged_damage: 1.75, headshot_modifier: 3, upfront: .6 }, 
+            f: H.rarity.rare, i: J, d: "SniperRifle_Batarian.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4, charged: !0, armor_penalty: !1, charged_damage: 1.75, headshot_modifier: 3, upfront: .6, dlc: true }, 
         { name: a.fr, a: a.gr, ammo_capacity_L: 9, ammo_capacity_H: 18, damage_L: 493.4, damage_H: 616.8, magazine: 3, mode: H.I.na, 
-            f: H.rarity.rare, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SniperRifle_Turian.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4, headshot_capable: !1, armor_penalty: !1 }, 
+            f: H.rarity.rare, i: { organic: { health: 1, armor: 1.5, barrier: 1, shield: 1 } }, d: "SniperRifle_Turian.png", type: H.D.sniper, weight_L: 2, weight_H: 1.4, headshot_capable: !1, armor_penalty: !1, dlc: true }, 
         { name: a.ss, a: a.ts, ammo_capacity_L: 7, ammo_capacity_H: 17, damage_L: 997, damage_H: 1246, magazine: 1, mode: H.I.mc, 
             f: H.rarity.rare, i: J, d: "SniperRifle_Widow.png", type: H.D.sniper, weight_L: 2.5, weight_H: 2 }, 
         { name: a.gl, a: a.hl, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 739, damage_H: 923.8, magazine: 3, mode: H.I.na, 
@@ -4551,6 +4551,18 @@
                     return d.weight_L + (d.weight_H - d.weight_L) / 9 * c.ia 
                 }; 
 
+                var weight_glitch_matrix = [
+                    [false, false, false, true, false, false, true, true],
+                    [false, false, false, true, false, false, true, true],
+                    [false, false, true, true, false, false, true, true],
+                    [false, false, false, true, false, false, true, true],
+                    [false, false, true, true, false, false, true, true],
+                    [false, false, false, true, false, false, true, true],
+                    [false, false, true, true, false, false, true, true],
+                    [true, true, true, true, true, true, true, true],
+                    [false, false, true, true, false, false, true, true]
+                ];
+
                 d.Kg = function () {
                     var c = ["encumbrance", "weaponWeight"], m = []; 
                     m[weapon_type.assault] = "weaponWeightAssault"; 
@@ -4572,7 +4584,8 @@
                     k[weapon_type.sniper] = "modULMSniper"; 
                     c.push(m[weapon_loadout[0].type]); 
                     c.push(f[weapon_loadout[0].type]); 
-                    c.push(k[weapon_loadout[0].type]); 
+                    c.push(k[weapon_loadout[0].type]);
+                    console.log(weapon_loadout[0].type);
                     -1 != weapon_loadout[1].type && (c.push(m[weapon_loadout[1].type]), c.push(f[weapon_loadout[1].type]), c.push(k[weapon_loadout[1].type]));
 
                     var c = e(c, weapon_loadout[0], { Jf: weapon_loadout[1] }), 
