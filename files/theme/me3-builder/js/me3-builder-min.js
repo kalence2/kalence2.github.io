@@ -4556,19 +4556,19 @@
 
                 // https://files.catbox.moe/5cb869.jpg
                 var weight_glitch_matrix = [
+                    [true,  true,  false, true, true,  true,  true, true],
+                    [true,  true,  true,  true, true,  true,  true, true],
                     [false, false, false, true, false, false, true, true],
                     [false, false, true,  true, false, false, true, true],
-                    [false, false, false, true, false, false, true, true],
-                    [false, false, true,  true, false, false, true, true],
-                    [false, false, false, true, false, false, true, true],
-                    [false, false, true,  true, false, false, true, true],
+                    [true,  true,  false, true, true,  true,  true, true],
+                    [true,  true,  true,  true, true,  true,  true, true],
                     [true,  true,  true,  true, true,  true,  true, true],
                     [false, false, true,  true, false, false, true, true],
-                    [false, false, false, true, false, false, true, true]
+                    [true,  true,  false, true, true,  true,  true, true]
                 ];
 
+                // d.get_weapon_type_priority = function(weapon) {
                 function get_weapon_type_priority(weapon) {
-                    return 0;
                     switch (weapon.type) {
                         case -1: return -1;
                         case 0: return 4;
@@ -4579,12 +4579,14 @@
                     }
                 }
 
+                // d.is_dlc = function(weapon) {
                 function is_dlc(weapon) {
                     if (weapons[weapon.type][weapon.index].dlc)
                         return true;
                     return false;
                 }
 
+                // d.has_heavy_mod = function(weapon) {
                 function has_heavy_mod(weapon) {
                     if (weapon.mod_1_type != -1)
                         if (mods[weapon.type][weapon.mod_1_type].heavy)
@@ -4595,6 +4597,7 @@
                     return false;
                 }
 
+                // d.has_light_mod = function(weapon) {
                 function has_light_mod(weapon) {
                     if (weapon.mod_1_type != -1)
                         if (mods[weapon.type][weapon.mod_1_type].light)
@@ -4605,6 +4608,7 @@
                     return false;
                 }
 
+                // d.get_mod_loadout_class = function(weapon) {
                 function get_mod_loadout_class(weapon) {
                     // return 0;
                     if (weapon.type == -1)
@@ -4619,14 +4623,22 @@
                     return res;
                 }
 
+                // d.get_weight_glitch = function() {
                 function get_weight_glitch() {
                     var primary = weapon_loadout[0], secondary = weapon_loadout[1];
-                    if (get_weapon_type_priority(primary) > get_weapon_type_priority(secondary)) {
+                    if (get_weapon_type_priority(primary) < get_weapon_type_priority(secondary)) {
                         var temp = primary;
                         primary = secondary;
                         secondary = temp;
                     }
+                    // console.log("sec:" + get_mod_loadout_class(secondary))
+                    // console.log("prim:" + get_mod_loadout_class(primary))
+                    // console.log(weight_glitch_matrix[get_mod_loadout_class(secondary)][get_mod_loadout_class(primary)])
                     return weight_glitch_matrix[get_mod_loadout_class(secondary)][get_mod_loadout_class(primary)];
+                }
+
+                d.www = function() {
+                    return get_weight_glitch();
                 }
 
                 d.Kg = function () {
@@ -5808,7 +5820,8 @@
         
         function g() {
             var d = p.Gg(), e = Core.format("{0}/{1}", m.va(d.ui, 0), m.va(d.ti, 0)); c("#kit-melee .stat-tip").text(e); A.Aa(c("#kit-melee .stat-tip")); for (var e = c("<div>").addClass("builder-tip character-tip"), g = ["health", "armor", "barrier", "shield"], n = c("<tr>").append(c("<td>").addClass("stat-id").text("Light")),
-                q = c("<tr>").append(c("<td>").addClass("stat-id").text("Heavy")), s = 0; s < g.length; s++) { var u = p.Gg({ ea: g[s] }); n.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ui, 0)))); q.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ti, 0)))) } s = c("<table>").append(c("<tbody>").append(n, q)); e.append(c("<h3>").text(O.P), s); s = m.uf(d.i); !1 !== s && e.append(c("<h3>").text(O.Af), s); if (0 < d.C.length) {
+                q = c("<tr>").append(c("<td>").addClass("stat-id").text("Heavy")), s = 0; s < g.length; s++) { var u = p.Gg({ ea: g[s] }); n.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ui, 0)))); q.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ti, 0)))) } s = c("<table>").append(c("<tbody>").append(n, q)); e.append(c("<h3>").text(O.P), s); s = m.uf(d.i); !1 !== s && e.append(c("<h3>").text(O.Af), s); 
+                if (0 < d.C.length) {
                     g = c("<tbody>"); for (s = 0; s < d.C.length; s++)n = d.C[s], "power" == n.type ? m.Uc(g, n) : m.Vc(g, n); d = c("<table>").addClass("tip-bonus-table").append(g);
                     e.append(c("<h3>").text(O.Wc)).append(d)
                 } A.ba(c("#kit-melee .stat-tip"), e, { location: "bottomRight" })
@@ -5825,7 +5838,7 @@
             for (n = 0; n < d.C.length; n++)
                 q = d.C[n], "power" == q.type ? m.Uc(g, q) : m.Vc(g, q); 
             d = c("<table>").addClass("tip-bonus-table").append(g); 
-            e.append(c("<h3>").text(O.Wc)).append(d); 
+            e.append(c("<h3>").text(O.Wc)).append(d).append(p.www() ? "Standard wieght calculation." : "Assuming weight glitch."); 
             A.Aa(c("#power-recharge .stat-tip")); 
             A.ba(c("#power-recharge .stat-tip"), e, { location: "bottomRight" })
         } 
