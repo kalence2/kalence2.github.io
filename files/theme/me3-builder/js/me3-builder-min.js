@@ -3889,16 +3889,16 @@
             m.powerDamage && (k += m.powerDamage.value, f = m.powerDamage.C); 
             var g = character.powers[d]; 
             g.i && (t *= g.i[r.ea]); 
-            g = e(["globalDamage", "globalPowerDamage", "meleeDamage", "modMeleeDamage", "techDamage"]) // , "meleeDamageArmor", "meleeDamageBarrier", "meleeDamageShield"]);
+            g = e(["globalDamage", "globalPowerDamage", "meleeDamage", "modMeleeDamage", "techDamage", "meleeDamageArmor", "meleeDamageShield"]);
             f = f.concat(g.C); 
             k += 2 * g.data.globalDamage;
             k += g.data.globalPowerDamage + g.data.meleeDamage + g.data.techDamage; 
             k = m.shadowstrike.value * (1 + k) * t; 
             k *= 1 + g.data.modMeleeDamage;
-            // if (r.ea == "armor")
-            //     k *= 1 + g.data.meleeDamageArmor;
-            // else if (r.ea == "barrier")
-            //     k *= 1 + g.data.meleeDamageBarrier;
+            if (r.ea == "armor")
+                k *= 1 + g.data.meleeDamageArmor;
+            else if (r.ea == "barrier" || r.ea == "shield")
+                k *= 1 + g.data.meleeDamageShield;
             // else if (r.ea == "shield")
             //     k *= 1 + g.data.meleeDamageShield;
             return { value: k, C: f } 
@@ -5838,7 +5838,7 @@
             for (n = 0; n < d.C.length; n++)
                 q = d.C[n], "power" == q.type ? m.Uc(g, q) : m.Vc(g, q); 
             d = c("<table>").addClass("tip-bonus-table").append(g); 
-            e.append(c("<h3>").text(O.Wc)).append(d).append(p.www() ? "Standard wieght calculation." : "Assuming weight glitch."); 
+            e.append(c("<h3>").text(O.Wc)).append(d).append(p.www() ? "Standard weight calculation." : "Assuming weight glitch."); 
             A.Aa(c("#power-recharge .stat-tip")); 
             A.ba(c("#power-recharge .stat-tip"), e, { location: "bottomRight" })
         } 

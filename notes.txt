@@ -9,19 +9,19 @@ Corrected Batarian Slasher shields
 Corrected Phase Disruptor biotic damage
 Corrected "Quarian Female" descriptions
 Fixed armor weakening
+Fixed Shadow Strike
 Implemented Inferno Grenade glitch
 Implemented Blade Armor glitch
 Implemented Warp ammo biotic bonus
 Implemented Incendiary glitch
+Implemented weight glitch
 Implemented power DoT
 Implemented cryo buff to Incinerate and Concussive Shot
 Presented damage reduction
 
 Todo:
 Boss headshots
-Weight glitch
 Melee radius and cap
-Sword Mastery
 Synthetic damage
 Piercing damage
 fix images
