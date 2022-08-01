@@ -4057,24 +4057,16 @@
             switch (c) { 
                 case "adept": 
                 case "engineer": 
-                    equip_weapon(0, weapon_type.assault, 0, 0); 
-                    equip_weapon(1, weapon_type.pistol, 0, 0); 
+                    equip_weapon(0, weapon_type.pistol, 3, 9); 
                     break; 
-                case "soldier": 
-                    equip_weapon(0, weapon_type.assault, 0, 0); 
-                    equip_weapon(1, weapon_type.sniper, 0, 0); 
+                case "soldier":
+                case "infiltrator":
+                    equip_weapon(0, weapon_type.shotgun, 11, 9); 
                     break; 
-                case "sentinel": 
-                    equip_weapon(0, weapon_type.assault, 0, 0); 
-                    equip_weapon(1, weapon_type.shotgun, 0, 0); 
-                    break; 
-                case "infiltrator": 
-                    equip_weapon(0, weapon_type.sniper, 0, 0); 
-                    equip_weapon(1, weapon_type.smg, 0, 0); 
-                    break; 
+                case "sentinel":
                 case "vanguard": 
-                    equip_weapon(0, weapon_type.shotgun, 0, 0), 
-                    equip_weapon(1, weapon_type.smg, 0, 0) 
+                    equip_weapon(0, weapon_type.shotgun, 10, 9);
+                    break;
             } 
         }
 
@@ -5586,7 +5578,15 @@
         } 
         function L() {
             var d = c(this).data("slot"); 
-            d != S && (c("#build-content").trigger("overlayShowing.View.Character", t), S = d, c("#equipment-empty-button").hide(), c("#equipment-selector .rank-selector").show(), c("#equipment-selector .item-rank").removeClass("rank-active").show(), c("#equipment-selector .ui-collapse-down").click(), c("#equipment-selector > .selector-group").hide(), c("#equipment-type-" + G.mb).hide(), c("#equipment-type-" + S).show(),
+            d != S && (c("#build-content").trigger("overlayShowing.View.Character", t), 
+                       S = d, 
+                       c("#equipment-empty-button").hide(), 
+                       c("#equipment-selector .rank-selector").show(), 
+                       c("#equipment-selector .item-rank").removeClass("rank-active").show(), 
+                       c("#equipment-selector .ui-collapse-down").click(), 
+                       c("#equipment-selector > .selector-group").hide(), 
+                       c("#equipment-type-" + G.mb).hide(), 
+                       c("#equipment-type-" + S).show(),
                 d = E.equipment_type_at_index(S), -1 != d && (c("#equipment-empty-button").show(), v = E.equipment_level_at_index(S), c("#equipment-rank-" + v).addClass("rank-active")), S == G.Fa ? (c("#equipment-slot").text(w.SA), c("#equipment-selector .rank-selector").hide()) : S == G.jb ? (c("#equipment-slot").text(w.TA), c("#equipment-selector .rank-selector").hide()) : (S == G.mb ? (c("#equipment-slot").text(w.UA), c("#equipment-selector .stat-id").text(w.YA + ": "), -1 == d ? (v = U.mh, c("#equipment-rank-" + v).addClass("rank-active"), c("#gear-button-" + U.rarity.rare).click()) : c("#gear-button-" + equipment[S][d].f).click()) :
                     (c("#equipment-slot").text(w.VA), c("#equipment-selector .stat-id").text(w.JA + ": "), c("#equipment-selector #equipment-rank-3").hide(), c("#equipment-selector #equipment-rank-4").hide(), -1 == d && (v = 2, c("#equipment-rank-" + v).addClass("rank-active"))), na(c("#equipment-type-" + S))), t.fadeIn("fast"))
         } 
