@@ -4098,7 +4098,12 @@
                 weapon_loadout[c].index = f; 
                 weapon_loadout[c].ia = k; 
                 weapon_loadout[c].mod_1_type = e; 
-                weapon_loadout[c].mod_2_type = m 
+                weapon_loadout[c].mod_2_type = m
+                if (get_weapon_type_priority(weapon_loadout[0]) < get_weapon_type_priority(weapon_loadout[1])) {
+                    var temp = weapon_loadout[0];
+                    weapon_loadout[0] = weapon_loadout[1];
+                    weapon_loadout[1] = temp;
+                }
             } 
         } 
 
@@ -4554,18 +4559,19 @@
                     return d.weight_L + (d.weight_H - d.weight_L) / 9 * c.ia 
                 }; 
 
+                // Outdated knowledge
                 // https://files.catbox.moe/5cb869.jpg
-                var weight_glitch_matrix = [
-                    [true,  true,  false, true, true,  true,  true, true],
-                    [true,  true,  true,  true, true,  true,  true, true],
-                    [false, false, false, true, false, false, true, true],
-                    [false, false, true,  true, false, false, true, true],
-                    [true,  true,  false, true, true,  true,  true, true],
-                    [true,  true,  true,  true, true,  true,  true, true],
-                    [true,  true,  true,  true, true,  true,  true, true],
-                    [false, false, true,  true, false, false, true, true],
-                    [true,  true,  false, true, true,  true,  true, true]
-                ];
+                // var weight_glitch_matrix = [
+                //     [true,  true,  false, true, true,  true,  true, true],
+                //     [true,  true,  true,  true, true,  true,  true, true],
+                //     [false, false, false, true, false, false, true, true],
+                //     [false, false, true,  true, false, false, true, true],
+                //     [true,  true,  false, true, true,  true,  true, true],
+                //     [true,  true,  true,  true, true,  true,  true, true],
+                //     [true,  true,  true,  true, true,  true,  true, true],
+                //     [false, false, true,  true, false, false, true, true],
+                //     [true,  true,  false, true, true,  true,  true, true]
+                // ];
 
                 // d.get_weapon_type_priority = function(weapon) {
                 function get_weapon_type_priority(weapon) {
@@ -4609,32 +4615,57 @@
                 }
 
                 // d.get_mod_loadout_class = function(weapon) {
-                function get_mod_loadout_class(weapon) {
-                    // return 0;
-                    if (weapon.type == -1)
-                        return 8;
-                    var res = 0;
-                    if (is_dlc(weapon))
-                        res += 4;
-                    if (has_heavy_mod(weapon))
-                        res += 2;
-                    if (has_light_mod(weapon))
-                        res += 1;
-                    return res;
+                // function get_mod_loadout_class(weapon) {
+                //     // return 0;
+                //     if (weapon.type == -1)
+                //         return 8;
+                //     var res = 0;
+                //     if (is_dlc(weapon))
+                //         res += 4;
+                //     if (has_heavy_mod(weapon))
+                //         res += 2;
+                //     if (has_light_mod(weapon))
+                //         res += 1;
+                //     return res;
+                // }
+
+                // https://files.catbox.moe/zic6ce.png
+                function get_one_weapon_weight_glitch(weapon) {
+                    // return true;
+                    if (is_dlc(weapon)) {
+                        if (weapon.mod_1_type != -1 && mods[weapon.type][weapon.mod_1_type].light)
+                            return false;
+                        else
+                            return true;
+                    } else {
+                        if (weapon.mod_2_type != -1 && mods[weapon.type][weapon.mod_2_type].light)
+                            return true;
+                        else
+                            return false;
+                    }
                 }
 
-                // d.get_weight_glitch = function() {
+                // https://files.catbox.moe/t8xec7.png
                 function get_weight_glitch() {
                     var primary = weapon_loadout[0], secondary = weapon_loadout[1];
-                    if (get_weapon_type_priority(primary) < get_weapon_type_priority(secondary)) {
-                        var temp = primary;
-                        primary = secondary;
-                        secondary = temp;
+                    if (secondary.type == -1)
+                        return [get_one_weapon_weight_glitch(primary), false];
+                    
+                    if (has_light_mod(secondary)) {
+                        if (secondary.mod_2_type != -1 && mods[secondary.type][secondary.mod_2_type].heavy)
+                            return [true, false];
+                        else
+                            return [true, true];
+                    } else {
+                        if (has_heavy_mod(secondary)) {
+                            if (is_dlc(secondary))
+                                return [get_one_weapon_weight_glitch(primary), true];
+                            else
+                                return [get_one_weapon_weight_glitch(primary), false];
+                        } else {
+                            return [get_one_weapon_weight_glitch(primary), false];
+                        }
                     }
-                    // console.log("sec:" + get_mod_loadout_class(secondary))
-                    // console.log("prim:" + get_mod_loadout_class(primary))
-                    // console.log(weight_glitch_matrix[get_mod_loadout_class(secondary)][get_mod_loadout_class(primary)])
-                    return weight_glitch_matrix[get_mod_loadout_class(secondary)][get_mod_loadout_class(primary)];
                 }
 
                 d.www = function() {
@@ -4672,7 +4703,7 @@
                         g = g + c.data.encumbrance / 100;
                     var q = d.Qa(0), 
                         n = d.Fc(q);
-                    if (weight_applying)     
+                    if (weight_applying[0])     
                         n = n - c.data[f[q.type]];
                         n = n * (1 - c.data[k[q.type]]);
                         n = n - c.data.weaponWeight - c.data[m[q.type]];
@@ -4680,7 +4711,7 @@
                         q = d.Qa(1); 
                     if (-1 != q.type) {
                         n = d.Fc(q); 
-                        if (weight_applying) n -= c.data[f[q.type]];
+                        if (weight_applying[1]) n -= c.data[f[q.type]];
                         n *= 1 - c.data[k[q.type]];
                         n = n - c.data.weaponWeight - c.data[m[q.type]], g -= n
                     }
@@ -5838,7 +5869,7 @@
             for (n = 0; n < d.C.length; n++)
                 q = d.C[n], "power" == q.type ? m.Uc(g, q) : m.Vc(g, q); 
             d = c("<table>").addClass("tip-bonus-table").append(g); 
-            e.append(c("<h3>").text(O.Wc)).append(d).append(p.www() ? "Standard weight calculation." : "Assuming weight glitch."); 
+            e.append(c("<h3>").text(O.Wc)).append(d); 
             A.Aa(c("#power-recharge .stat-tip")); 
             A.ba(c("#power-recharge .stat-tip"), e, { location: "bottomRight" })
         } 
