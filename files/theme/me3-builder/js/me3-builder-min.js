@@ -2278,7 +2278,7 @@
             { name: a.Y, a: a.ma, attributes: { radiusPct: .4 } },
             { name: a.kc, a: a.tt, attributes: { globalRecharge: .15, ATTR_TIME: 15 } },
             { name: a.Hp, a: a.ut, attributes: { ATTR_PCT: .5, powerDamage: -.4, powerForce: -.4 } },
-            { name: a.Xe, a: a.vt, attributes: { poweDamageArmor: 1,
+            { name: a.Xe, a: a.vt, attributes: { powerDamageArmor: 1,
                     powerDamageBarrier: 1, powerDamageShield: 1
                 } },
             { name: a.Bz, a: a.wt, attributes: { ATTR_PCT: .25 } }],

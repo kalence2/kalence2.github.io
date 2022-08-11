@@ -3,6 +3,7 @@ Added BF3 Infiltrator
 Added Polonium Ammo
 Added Vibration Damper
 Added Chakram Launcher
+Changed default weapons to level X meta weapons
 Corrected Disruptor ammo
 Corrected Incendiary ammo (theoretical damage)
 Corrected Batarian Slasher shields
