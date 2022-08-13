@@ -22,10 +22,10 @@ Implemented boss headshots
 Implemented piercing damage
 Presented damage reduction
 
-Todo:
-Melee radius and cap ?
-Synthetic damage
-fix images
-Switch equipment
+Todo (maybe):
+Melee radius and cap summaries
+Synthetic damage (Overload + ED)
+"Remove equipment" button
+Fix images (Sword Mastery, Vengeful Ancient, ...?)
 
 [^a-zA-Z]
