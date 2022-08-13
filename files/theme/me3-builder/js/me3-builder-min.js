@@ -5767,6 +5767,8 @@
             
                 );
             }
+            if (modif == 1)
+                n.append(c("<span>")).append(c("<h4>").addClass("buff").text("Seamless piercing.")).append(c("<br>"))
             f = ia.uf(e.i.organic); 
             !1 !== f && n.append(c("<h3>").text(w.Af), f); 
             f = c("<tbody>"); 
