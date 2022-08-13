@@ -3,6 +3,7 @@ Added BF3 Infiltrator
 Added Polonium Ammo
 Added Vibration Damper
 Added Chakram Launcher
+Added "Remove equipment" button
 Changed default weapons to level X meta weapons
 Corrected Disruptor ammo
 Corrected Incendiary ammo (theoretical damage)
@@ -25,7 +26,6 @@ Presented damage reduction
 Todo (maybe):
 Melee radius and cap summaries
 Synthetic damage (Overload + ED)
-"Remove equipment" button
 Fix images (Sword Mastery, Vengeful Ancient, ...?)
 
 [^a-zA-Z]

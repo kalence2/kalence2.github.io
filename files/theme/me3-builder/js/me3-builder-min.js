@@ -5298,7 +5298,7 @@
             var d = [], 
                 e = c("<p>").append(c("<span>").addClass("stat-id").text(ea.lB + ": "))
                             .append(c("<span>").attr("id", "points-available").on("powerChanged.View.PowerSelector", ha)),
-                e = c("<div>").addClass("infobar").append(e).append(c("<div>").addClass("power-reset").attr("ui-tooltip-data", ea.pB).click(u)); 
+                e = c("<div>").addClass("infobar").append(e).append(c("<div>").addClass("power-reset").attr("ui-tooltip-data", "Remove all equipment.").click(deequip)).append(c("<div>").addClass("power-reset").attr("ui-tooltip-data", ea.pB).click(u)); 
                 d.push(e); 
             for (e = 0; 5 > e; e++) {
                 var n = c("<div>").addClass("power-label").data("power", e).append(c("<p>")); 
@@ -5367,6 +5367,10 @@
             c(".power-label > input").prop("checked", !1); c(".power-frame").removeClass("power-active power-inactive power-disabled");
             c("#points-available").trigger("powerChanged.View.PowerSelector"); c("#character-builder").trigger("powerChanged.View.PowerSelector")
         } 
+
+        function deequip() {
+            V.Ef.deeequip();
+        }
         
         function p(c) { 
             var d = c.data("power"), e = c.data("rank"), g = D.Ob(e); 
@@ -5574,12 +5578,12 @@
             c("#character-builder").trigger(k[e]) 
         } 
 
-        function deequip() {
+        d.deeequip = function() {
             for (var e = 0; e < 4; ++e) {
                 E.Iv(e); 
                 A(); 
                 d.Ea(); 
-                c("#character-builder").trigger(k[e])
+                c("#character-builder").trigger(k[e]) 
             }
         }
 
