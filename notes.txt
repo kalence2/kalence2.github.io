@@ -18,13 +18,14 @@ Implemented Incendiary glitch
 Implemented weight glitch
 Implemented power DoT
 Implemented cryo buff to Incinerate and Concussive Shot
+Implemented boss headshots
+Implemented piercing damage
 Presented damage reduction
 
 Todo:
-Boss headshots
-Melee radius and cap
+Melee radius and cap ?
 Synthetic damage
-Piercing damage
 fix images
+Switch equipment
 
 [^a-zA-Z]
