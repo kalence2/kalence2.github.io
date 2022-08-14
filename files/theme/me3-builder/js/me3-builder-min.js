@@ -3518,7 +3518,7 @@
         { name: a.jp, a: a.kp, ammo_capacity_L: 15, ammo_capacity_H: 25, damage_L: 714.2, damage_H: 892.7, magazine: 5, mode: H.I.na,  piercing_incapable: true,
             burst: 1.6, race: ua.Ua, f: H.rarity.rare, i: J, d: "Shotgun_Geth.png", type: H.D.shotgun, weight_L: 2, weight_H: 1.4, 
             uncharged_modifier: .45, charged: !0, headshot_capable: !1, armor_penalty: !1, charged_damage: 1 }, 
-        { name: a.yp, a: a.zp, ammo_capacity_L: 12, ammo_capacity_H: 22, damage_L: 88, damage_H: 110, magazine: 3, mode: H.I.na, 
+        { name: a.yp, a: a.zp, ammo_capacity_L: 12, ammo_capacity_H: 22, damage_L: 88, damage_H: 110, magazine: 3, mode: H.I.na, piercing_incapable: true, 
             burst: 6, f: H.rarity.rare, i: J, d: "Shotgun_Graal.png", type: H.D.shotgun, weight_L: 2, weight_H: 1.4, charged: !0, armor_penalty: !1, charged_ammo: !0, charged_damage: 2, headshot_modifier: 3 }, 
         { name: a.Mr, a: a.Nr, ammo_capacity_L: 8, ammo_capacity_H: 18, damage_L: 167.8, damage_H: 206, magazine: 1, mode: H.I.mc, 
             burst: 8, f: H.rarity.rare, i: J, d: "Shotgun_Claymore.png", type: H.D.shotgun, weight_L: 2.5, weight_H: 2 }, 
@@ -5751,7 +5751,7 @@
                 ), 
                 n.append(c("<table>").append(m))
             );
-            if (modif != 0 && modif != 1) {
+            if (!e.piercing_incapable && modif != 0 && modif != 1) {
             // if (true) {
                 n.append(c("<h3>").text("Weapon damage (piercing)")); 
             var m = c("<tbody>"), 
@@ -5795,7 +5795,7 @@
             
                 );
             }
-            if (modif == 1)
+            if (modif == 1 && !e.piercing_incapable)
                 n.append(c("<span>")).append(c("<h4>").addClass("buff").text("Seamless piercing.")).append(c("<br>"))
             f = ia.uf(e.i.organic); 
             !1 !== f && n.append(c("<h3>").text(w.Af), f); 
