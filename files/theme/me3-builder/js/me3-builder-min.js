@@ -1703,7 +1703,7 @@
             evolutions: [
             { name: a.re, a: a.Qm, attributes: { baseRechargeSpeed: 24, damage: 1E3, radius: 5, dsDOT: 250, duration: 5 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .15 } }, 
-            { name: a.l, a: a.Km, attributes: { poweDamage: .2,
+            { name: a.l, a: a.Km, attributes: { powerDamage: .2,
                     dotDamage: .15
                 } },
             { name: a.l, a: a.Lm, attributes: { powerDamage: .3, dotDamage: .2 } },
@@ -5134,7 +5134,7 @@
             damageReduction: { name: a.xc, j: "%", format: percent_format }, 
             decoyShield: { name: a.Xm, j: "" }, 
             dot: { name: a.pg, j: "" }, 
-            dsDOT: { name: a.pg, j: "" }, 
+            dsDOT: { name: "Damage Over Time", j: "" }, 
             durability: { name: a.Zp, j: "%", format: percent_format }, 
             duration: { name: a.W, j: a.xb }, 
             encumbrance: { name: a.DC, j: "" }, 
