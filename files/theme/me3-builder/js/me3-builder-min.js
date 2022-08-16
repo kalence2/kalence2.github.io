@@ -1699,7 +1699,7 @@
             i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic, is_biotic_primer: true
         }; 
         
-        d.re = { Z: { baseRechargeSpeed: a.bn, damage: a.an, duration: a.Cm, radius: a.tg }, h: ["baseRechargeSpeed", "damage", "radius", "dsDOT", "duration"], g: !0, icon: "DarkSingularity", 
+        d.re = { Z: { baseRechargeSpeed: a.bn, damage: a.an, duration: "Duration", radius: a.tg }, h: ["baseRechargeSpeed", "damage", "radius", "dsDOT", "duration"], g: !0, icon: "DarkSingularity", 
             evolutions: [
             { name: a.re, a: a.Qm, attributes: { baseRechargeSpeed: 24, damage: 1E3, radius: 5, dsDOT: 250, duration: 5 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .15 } }, 
@@ -4373,7 +4373,10 @@
                             return p(c, d, "powerDamage", !1, f) 
                         }, 
                         dsDOT: function () { 
-                            return p(c, d, "dotDamage", !1, f) 
+                            var res = p(c, d, "dotDamage", !1, f);
+                            var data = s(c);
+                            res.value /= data["duration"].value * (1 + (data["powerDuration"] ? data["powerDuration"].value : 0));
+                            return res;
                         }, 
                         hammer: function () { 
                             return p(c, d, "powerDamage", !0, f) 
@@ -4579,6 +4582,8 @@
                     ra = g.headshot_modifier ? g.headshot_modifier : 2.5;
                     "headshot" == m.type && !1 !== g.headshot_capable ? (ra *= 1 + F, q += sa) : "Boss HS" == m.type && !1 !== g.headshot_capable ? (ra = 1.4, q += sa) : ra = 1;
                     F = x * ba * q * (ra + f); 
+                    if (m.piercing)
+                        F *= get_piercing_modifier(weapons[x0.type][x0.index]);
                     "armor" == m.ea && !1 !== g.armor_penalty && (
                         k *= I, 
                         0 > k && 
@@ -4591,8 +4596,6 @@
                     g.burst && (F *= g.burst); 
                     F += n * (ra + f); 
                     m.gb && g.is_venom && (F += q * (g.charged_shots + 1));
-                    if (m.piercing)
-                        F *= get_piercing_modifier(weapons[x0.type][x0.index]);
                     return Math.round(F)
                 };
 
@@ -5134,7 +5137,7 @@
             damageReduction: { name: a.xc, j: "%", format: percent_format }, 
             decoyShield: { name: a.Xm, j: "" }, 
             dot: { name: a.pg, j: "" }, 
-            dsDOT: { name: "Damage Over Time", j: "" }, 
+            dsDOT: { name: "Damage Per Second", j: "" }, 
             durability: { name: a.Zp, j: "%", format: percent_format }, 
             duration: { name: a.W, j: a.xb }, 
             encumbrance: { name: a.DC, j: "" }, 
