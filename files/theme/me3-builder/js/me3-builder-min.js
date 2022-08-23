@@ -4470,13 +4470,10 @@
                     if (weapon_data.native_piercing)
                         return 1;
                     var penalty = 1;
-                    // console.log(weapon.mod_1_type)
                     if (weapon.mod_1_type != -1 && mods[weapon.type][weapon.mod_1_type].evolutions[weapon.mod_1_level].attributes.pierceDamage)
                         penalty = Math.min(penalty, mods[weapon.type][weapon.mod_1_type].evolutions[weapon.mod_1_level].attributes.pierceDamage);
                     if (weapon.mod_2_type != -1 && mods[weapon.type][weapon.mod_2_type].evolutions[weapon.mod_2_level].attributes.pierceDamage)
                         penalty = Math.min(penalty, mods[weapon.type][weapon.mod_2_type].evolutions[weapon.mod_2_level].attributes.pierceDamage);
-                        // console.log(weapon);
-                        // console.log("penalty: " + penalty)
                     if (penalty < 1)
                         return 1 - penalty;
                     if (equipment_type[3] == 0 || equipment_type[3] == 3)
@@ -4487,23 +4484,6 @@
                 d.get_piercing_modifier_wrapper = function(weapon_data) {
                     return get_piercing_modifier(weapon_data);
                 }
-
-                // has_piercing = function(weapon_data) {
-                //     if (weapon_data.native_piercing)
-                //         return true;
-                //     if (equipment_type[3] == 0 || equipment_type[3] == 3)
-                //         return true;
-                //     // if (weapon.mod_1_type != -1 && mods[weapon.type][weapon.mod_1_type].evolutions[weapon.mod_1_level].attributes.pierceDamage)
-                //     //     return true;
-                //     // if (weapon.mod_2_type != -1 && mods[weapon.type][weapon.mod_2_type].evolutions[weapon.mod_2_level].attributes.pierceDamage)
-                //     //     return true;
-                //     return false;
-                //     // return true;
-                // }
-                
-                // d.has_piercing_wrapper = function(weapon) {
-                //     return has_piercing(weapon);
-                // }
 
                 // x - weapon
                 d.Ec = function (x, m, f) {
@@ -4662,21 +4642,6 @@
                             return true;
                     return false;
                 }
-
-                // d.get_mod_loadout_class = function(weapon) {
-                // function get_mod_loadout_class(weapon) {
-                //     // return 0;
-                //     if (weapon.type == -1)
-                //         return 8;
-                //     var res = 0;
-                //     if (is_dlc(weapon))
-                //         res += 4;
-                //     if (has_heavy_mod(weapon))
-                //         res += 2;
-                //     if (has_light_mod(weapon))
-                //         res += 1;
-                //     return res;
-                // }
 
                 // https://files.catbox.moe/zic6ce.png
                 function get_one_weapon_weight_glitch(weapon) {
@@ -4838,6 +4803,7 @@
                     equipment_type[c] = -1; equipment_level[c] = -1; 
                     y() 
                 }; 
+
                 d.Kh = function () { 
                     is_toggled = [!1, !1, !1, !1, !1]; 
                     build = []; 
@@ -5578,7 +5544,10 @@
             E.Iv(e); 
             A(); 
             d.Ea(); 
-            c("#character-builder").trigger(k[e]) 
+            c("#character-builder").trigger(k[G.Fa]);
+            c("#character-builder").trigger(k[G.jb]);
+            c("#character-builder").trigger(k[G.mb]);
+            c("#character-builder").trigger(k[G.Hb]);
         } 
 
         d.deeequip = function() {
@@ -5629,8 +5598,22 @@
             e.stopPropagation() : (c("#equipment-selector .item-rank").removeClass("rank-active"), c(this).addClass("rank-active"), v = c(this).data("rank"), E.Kw(S, v), d.Ea(), S != G.Fa && S != G.jb && na(c("#equipment-type-" + S)), c("#character-builder").trigger(k[S]))
         } 
         
-        function n() { var e = S; if (S == G.Fa || S == G.jb) v = c(this).data("rank"); 
-        E.change_equipment(S, c(this).data("equipment"), v); Telemetry.trackEvent("ME3 Builder", "onEquipmentSelected", "slot: " + S); A(); d.Ea(); c("#character-builder").trigger(k[e]) } function Z() {
+        function n() { 
+            var e = S; 
+            if (S == G.Fa || S == G.jb) 
+            v = c(this).data("rank"); 
+            E.change_equipment(S, c(this).data("equipment"), v); 
+            Telemetry.trackEvent("ME3 Builder", "onEquipmentSelected", "slot: " + S); 
+            A(); 
+            d.Ea(); 
+            // c("#character-builder").trigger(k[e])
+            c("#character-builder").trigger(k[G.Fa]);
+            c("#character-builder").trigger(k[G.jb]);
+            c("#character-builder").trigger(k[G.mb]);
+            c("#character-builder").trigger(k[G.Hb]);
+        } 
+        
+        function Z() {
             var d = E.Qa(B.ha); la(c("#primary-weapon"),
                 d); Q.Aa(c("#primary-weapon .weapon-dmg")); Q.ba(c("#primary-weapon .weapon-dmg"), oa(d, X[d.type][d.index])); Q.Aa(c("#primary-weapon .weapon img")); Q.ba(c("#primary-weapon .weapon img"), va(d)); 
                 d = E.Qa(B.xa); -1 != d.type && (la(c("#secondary-weapon"), d), Q.Aa(c("#secondary-weapon .weapon-dmg")), Q.ba(c("#secondary-weapon .weapon-dmg"), oa(d, X[d.type][d.index])), Q.Aa(c("#secondary-weapon .weapon img")), Q.ba(c("#secondary-weapon .weapon img"), va(d)))
@@ -5663,17 +5646,50 @@
         } 
         function L() {
             var d = c(this).data("slot"); 
-            d != S && (c("#build-content").trigger("overlayShowing.View.Character", t), 
-                       S = d, 
-                       c("#equipment-empty-button").hide(), 
-                       c("#equipment-selector .rank-selector").show(), 
-                       c("#equipment-selector .item-rank").removeClass("rank-active").show(), 
-                       c("#equipment-selector .ui-collapse-down").click(), 
-                       c("#equipment-selector > .selector-group").hide(), 
-                       c("#equipment-type-" + G.mb).hide(), 
-                       c("#equipment-type-" + S).show(),
-                d = E.equipment_type_at_index(S), -1 != d && (c("#equipment-empty-button").show(), v = E.equipment_level_at_index(S), c("#equipment-rank-" + v).addClass("rank-active")), S == G.Fa ? (c("#equipment-slot").text(w.SA), c("#equipment-selector .rank-selector").hide()) : S == G.jb ? (c("#equipment-slot").text(w.TA), c("#equipment-selector .rank-selector").hide()) : (S == G.mb ? (c("#equipment-slot").text(w.UA), c("#equipment-selector .stat-id").text(w.YA + ": "), -1 == d ? (v = U.mh, c("#equipment-rank-" + v).addClass("rank-active"), c("#gear-button-" + U.rarity.rare).click()) : c("#gear-button-" + equipment[S][d].f).click()) :
-                    (c("#equipment-slot").text(w.VA), c("#equipment-selector .stat-id").text(w.JA + ": "), c("#equipment-selector #equipment-rank-3").hide(), c("#equipment-selector #equipment-rank-4").hide(), -1 == d && (v = 2, c("#equipment-rank-" + v).addClass("rank-active"))), na(c("#equipment-type-" + S))), t.fadeIn("fast"))
+            d != S && (
+                c("#build-content").trigger("overlayShowing.View.Character", t), 
+                S = d, 
+                c("#equipment-empty-button").hide(), 
+                c("#equipment-selector .rank-selector").show(), 
+                c("#equipment-selector .item-rank").removeClass("rank-active").show(), 
+                c("#equipment-selector .ui-collapse-down").click(), 
+                c("#equipment-selector > .selector-group").hide(), 
+                c("#equipment-type-" + G.mb).hide(), 
+                c("#equipment-type-" + S).show(),
+                d = E.equipment_type_at_index(S), 
+                -1 != d && (
+                    c("#equipment-empty-button").show(), 
+                    v = E.equipment_level_at_index(S), 
+                    c("#equipment-rank-" + v).addClass("rank-active")
+                ), 
+                S == G.Fa ? (
+                    c("#equipment-slot").text(w.SA), 
+                    c("#equipment-selector .rank-selector").hide()
+                ) : S == G.jb ? (
+                    c("#equipment-slot").text(w.TA), 
+                    c("#equipment-selector .rank-selector").hide()
+                ) : ( S == G.mb ? (
+                    c("#equipment-slot").text(w.UA), 
+                    c("#equipment-selector .stat-id").text(w.YA + ": "), 
+                    -1 == d ? (
+                        v = U.mh, 
+                        c("#equipment-rank-" + v).addClass("rank-active"), 
+                        c("#gear-button-" + U.rarity.rare).click()
+                    ) : c("#gear-button-" + equipment[S][d].f).click()
+                ) : (
+                    c("#equipment-slot").text(w.VA), 
+                    c("#equipment-selector .stat-id").text(w.JA + ": "), 
+                    c("#equipment-selector #equipment-rank-3").hide(), 
+                    c("#equipment-selector #equipment-rank-4").hide(), 
+                    -1 == d && (
+                        v = 2, 
+                        c("#equipment-rank-" + v).addClass("rank-active")
+                    )
+                ), 
+                na(c("#equipment-type-" + S))
+                ), 
+                t.fadeIn("fast")
+            )
         } 
         
         function da() {
@@ -5915,11 +5931,25 @@
         } 
         
         function ta(d) {
-            var e = c(d); Q.Aa(c(".consumable > img", e)); c(".consumable > img", e).remove(); c(".consumable > p", e).show(); var f = c(".consumable", e).data("slot"); d = E.equipment_type_at_index(f); if (-1 != d) {
-                c(".consumable > p", e).hide(); var g = equipment[f][d]; d = c("<img>").attr("height", 60).attr("width", 80).attr("src", Core.mediaUrl + "images/" + (f == G.mb ? "gear/" : "consumables/") + g.d); d.data("ui-tooltip-options", { location: "topRight" }); c(".consumable", e).append(d); e = E.equipment_level_at_index(f); e = c("<div>").append(c("<h3>").text(g.name + " " + Y[e])).append(c("<p>").text(ia.Nb(g.a,
-                    g.evolutions[e].attributes))); Q.ba(d, e)
+            var e = c(d); 
+            Q.Aa(c(".consumable > img", e)); 
+            c(".consumable > img", e).remove(); 
+            c(".consumable > p", e).show(); 
+            var f = c(".consumable", e).data("slot"); 
+            d = E.equipment_type_at_index(f); 
+            if (-1 != d) {
+                c(".consumable > p", e).hide(); 
+                var g = equipment[f][d]; 
+                d = c("<img>").attr("height", 60).attr("width", 80).attr("src", Core.mediaUrl + "images/" + (f == G.mb ? "gear/" : "consumables/") + g.d); 
+                d.data("ui-tooltip-options", { location: "topRight" }); 
+                c(".consumable", e).append(d); 
+                e = E.equipment_level_at_index(f); 
+                e = c("<div>").append(c("<h3>").text(g.name + " " + Y[e])).append(c("<p>").text(ia.Nb(g.a, g.evolutions[e].attributes))); 
+                Q.ba(d, e)
             }
-        } function na(d) { var e = d.data("type"); c(".weapon-small", d).each(function (d, f) { Q.Aa(c(f)); var g = c(f).data("equipment"), g = equipment[e][g], g = c("<div>").append(c("<h3>").text(g.name + " " + Y[v])).append(c("<p>").text(ia.Nb(g.a, g.evolutions[v].attributes))); Q.ba(c(f), g, { location: "topLeft" }) }) } function la(d, e) {
+        } 
+        
+        function na(d) { var e = d.data("type"); c(".weapon-small", d).each(function (d, f) { Q.Aa(c(f)); var g = c(f).data("equipment"), g = equipment[e][g], g = c("<div>").append(c("<h3>").text(g.name + " " + Y[v])).append(c("<p>").text(ia.Nb(g.a, g.evolutions[v].attributes))); Q.ba(c(f), g, { location: "topLeft" }) }) } function la(d, e) {
             ma ? c(".weapon-dmg", d).empty().append(c("<span>").addClass("armor").text(E.Ec(e, { ea: "armor" }, !0)), "/", c("<span>").addClass("barrier").text(E.Ec(e, { ea: "barrier" }, !0)), "/", c("<span>").addClass("shield").text(E.Ec(e,
                 { ea: "shield" }))) : c(".weapon-dmg", d).text(E.Ec(e, null, !0))
         } 
@@ -5995,22 +6025,82 @@
             ya = null; 
             
         d.initialize = function () {
-            ma = "true" == LocalStorage.get("me3.ui.showResistanceDamage") ? !0 : !1; var f = [], n = [w.HA, w.bB, w.BB, w.sB, w.FB], q = c("<p>").attr("id",
-                "weapon-slot"), r = c("<div>").addClass("ui-button ui-button-primary").text(w.xf).click(m), v = c("<div>").addClass("ui-button ui-button-default").attr("id", "weapon-equip-button").text(w.RA).click(p), x = c("<div>").addClass("ui-button ui-button-default").attr("id", "weapon-empty-button").text(w.zf).click(fa), q = c("<div>").addClass("infobar").append(q, r, x, v); f.push(q); q = c("<p>").append(c("<span>").addClass("stat-id").text(w.MB + ":")); for (r = 0; r <= U.xd; r++)v = c("<span>").addClass("item-rank").text(Y[r]).attr("id",
-                    "weapon-rank-" + r).data("rank", r).click(D), q.append(v); q = c("<div>").addClass("rank-selector").append(q); f.push(q); for (q = 0; q < X.length; q++) {
-                        r = c("<div>").addClass("ui-collapse-button").click(e); r = c("<div>").addClass("infobar ui-collapse-header").append(c("<p>").text(n[q])).append(r); r = c("<div>").addClass("selector-group").attr("id", "weapon-type-" + q).append(r); v = c("<div>").addClass("ui-collapsible"); for (x = 0; x < X[q].length; x++) {
-                            var L = X[q][x], L = c("<div>").addClass("weapon-small rarity-small-" + L.f).append(aa.Lb(Core.mediaUrl +
-                                "images/guns/" + L.d, 128, 96, "weapon")).append(c("<p>").text(L.name)).data("type", q).data("weapon", x).click(ca); v.append(L)
-                        } v.append(c("<div>").addClass("clearfix")).hide(); r.append(v); f.push(r)
-                    } xa = c("<div>").attr("id", "weapon-selector").append(f); c("#build-content").append(xa.hide()); f = []; n = c("<p>").attr("id", "mod-slot"); q = c("<div>").addClass("ui-button ui-button-primary").text(w.xf).click(ha); r = c("<div>").addClass("ui-button ui-button-default").attr("id", "mod-empty-button").text(w.zf).click(u); n = c("<div>").addClass("infobar").append(n,
-                        q, r); f.push(n); n = c("<p>").append(c("<span>").addClass("stat-id").text(w.LB + ":")); for (q = 0; q <= U.Qb; q++)r = c("<span>").addClass("item-rank").text(Y[q]).attr("id", "mod-rank-" + q).data("rank", q).click(ja), n.append(r); n = c("<div>").addClass("rank-selector").append(n); f.push(n); for (n = 0; n < ga.length; n++) {
-                            q = c("<div>").addClass("selector-group").attr("id", "mod-type-" + n).data("type", n); for (r = 0; r < ga[n].length; r++)v = ga[n][r], v = c("<div>").addClass("weapon-small rarity-small-" + v.f).append(aa.Lb(Core.mediaUrl + "images/mods/" +
-                                v.d, 128, 96, "weaponmod")).append(c("<p>").text(v.name)).data("type", n).data("mod", r).click(y), q.append(v); q.append(c("<div>").addClass("clearfix")); f.push(q.hide())
-                        } ya = c("<div>").attr("id", "mod-selector").append(f); c("#build-content").append(ya.hide()); f = []; n = c("<p>").attr("id", "equipment-slot"); q = c("<div>").addClass("ui-button ui-button-primary").text(w.xf).click(A); 
-                        r = c("<div>").addClass("ui-button ui-button-default").attr("id", "equipment-empty-button").text(w.zf).click(z); 
-                        n = c("<div>").addClass("infobar").append(n,
-                            q, r); f.push(n); n = c("<p>").append(c("<span>").addClass("stat-id")); for (q = 0; q <= U.mh; q++)r = c("<span>").addClass("item-rank").text(Y[q]).attr("id", "equipment-rank-" + q).data("rank", q).click(O), n.append(r); n = c("<div>").addClass("rank-selector").append(n); f.push(n); f.push(s()); f.push(K()); f.push(g()); f.push(P()); t = c("<div>").attr("id", "equipment-selector").append(f); c("#build-content").append(t.hide()); c("#character-builder").on("kitSelected.View.KitSelector", d.Ea); c("#character-builder").on("overlayShowing.View.Character closing.View.Character",
-                                A); c("#character-builder").on("overlayShowing.View.Character closing.View.Character", m); c("#character-builder").on("overlayShowing.View.Character closing.View.Character", ha); c("#character-builder").on("powerChanged.View.PowerSelector", Z); k[G.Fa] = "ammoEquipmentSelected.View.WeaponSelector"; k[G.jb] = "armorEquipmentSelected.View.WeaponSelector"; k[G.mb] = "gearEquipmentSelected.View.WeaponSelector"; k[G.Hb] = "weaponEquipmentSelected.View.WeaponSelector"
+            ma = "true" == LocalStorage.get("me3.ui.showResistanceDamage") ? !0 : !1; 
+            var f = [], 
+                n = [w.HA, w.bB, w.BB, w.sB, w.FB], 
+                q = c("<p>").attr("id", "weapon-slot"), 
+                r = c("<div>").addClass("ui-button ui-button-primary").text(w.xf).click(m), 
+                v = c("<div>").addClass("ui-button ui-button-default").attr("id", "weapon-equip-button").text(w.RA).click(p), 
+                x = c("<div>").addClass("ui-button ui-button-default").attr("id", "weapon-empty-button").text(w.zf).click(fa), 
+                q = c("<div>").addClass("infobar").append(q, r, x, v); 
+            f.push(q); 
+            q = c("<p>").append(c("<span>").addClass("stat-id").text(w.MB + ":")); 
+            for (r = 0; r <= U.xd; r++)
+                v = c("<span>").addClass("item-rank").text(Y[r]).attr("id", "weapon-rank-" + r).data("rank", r).click(D), q.append(v); 
+            q = c("<div>").addClass("rank-selector").append(q); 
+            f.push(q); 
+            for (q = 0; q < X.length; q++) {
+                r = c("<div>").addClass("ui-collapse-button").click(e); 
+                r = c("<div>").addClass("infobar ui-collapse-header").append(c("<p>").text(n[q])).append(r); 
+                r = c("<div>").addClass("selector-group").attr("id", "weapon-type-" + q).append(r); 
+                v = c("<div>").addClass("ui-collapsible"); 
+                for (x = 0; x < X[q].length; x++) {
+                    var L = X[q][x], L = c("<div>").addClass("weapon-small rarity-small-" + L.f).append(aa.Lb(Core.mediaUrl + "images/guns/" + L.d, 128, 96, "weapon")).append(c("<p>").text(L.name)).data("type", q).data("weapon", x).click(ca); 
+                    v.append(L)
+                        
+                } 
+                v.append(c("<div>").addClass("clearfix")).hide(); 
+                r.append(v); 
+                f.push(r)
+            } 
+            xa = c("<div>").attr("id", "weapon-selector").append(f); 
+            c("#build-content").append(xa.hide()); 
+            f = []; 
+            n = c("<p>").attr("id", "mod-slot"); 
+            q = c("<div>").addClass("ui-button ui-button-primary").text(w.xf).click(ha); 
+            r = c("<div>").addClass("ui-button ui-button-default").attr("id", "mod-empty-button").text(w.zf).click(u); 
+            n = c("<div>").addClass("infobar").append(n, q, r); 
+            f.push(n); 
+            n = c("<p>").append(c("<span>").addClass("stat-id").text(w.LB + ":")); 
+            for (q = 0; q <= U.Qb; q++)
+                r = c("<span>").addClass("item-rank").text(Y[q]).attr("id", "mod-rank-" + q).data("rank", q).click(ja), n.append(r); 
+            n = c("<div>").addClass("rank-selector").append(n); 
+            f.push(n); 
+            for (n = 0; n < ga.length; n++) {
+                q = c("<div>").addClass("selector-group").attr("id", "mod-type-" + n).data("type", n); 
+            for (r = 0; r < ga[n].length; r++)
+                v = ga[n][r], v = c("<div>").addClass("weapon-small rarity-small-" + v.f).append(aa.Lb(Core.mediaUrl + "images/mods/" + v.d, 128, 96, "weaponmod")).append(c("<p>").text(v.name)).data("type", n).data("mod", r).click(y), q.append(v); 
+            q.append(c("<div>").addClass("clearfix")); 
+            f.push(q.hide())
+            } 
+            ya = c("<div>").attr("id", "mod-selector").append(f); 
+            c("#build-content").append(ya.hide()); 
+            f = []; 
+            n = c("<p>").attr("id", "equipment-slot"); 
+            q = c("<div>").addClass("ui-button ui-button-primary").text(w.xf).click(A); 
+            r = c("<div>").addClass("ui-button ui-button-default").attr("id", "equipment-empty-button").text(w.zf).click(z); 
+            n = c("<div>").addClass("infobar").append(n, q, r); 
+            f.push(n); 
+            n = c("<p>").append(c("<span>").addClass("stat-id")); 
+            for (q = 0; q <= U.mh; q++)
+            r = c("<span>").addClass("item-rank").text(Y[q]).attr("id", "equipment-rank-" + q).data("rank", q).click(O), n.append(r); 
+            n = c("<div>").addClass("rank-selector").append(n); 
+            f.push(n); 
+            f.push(s()); 
+            f.push(K()); 
+            f.push(g()); 
+            f.push(P()); 
+            t = c("<div>").attr("id", "equipment-selector").append(f); 
+            c("#build-content").append(t.hide()); 
+            c("#character-builder").on("kitSelected.View.KitSelector", d.Ea); 
+            c("#character-builder").on("overlayShowing.View.Character closing.View.Character", A); 
+            c("#character-builder").on("overlayShowing.View.Character closing.View.Character", m); 
+            c("#character-builder").on("overlayShowing.View.Character closing.View.Character", ha); 
+            c("#character-builder").on("powerChanged.View.PowerSelector", Z); 
+            k[G.Fa] = "ammoEquipmentSelected.View.WeaponSelector"; 
+            k[G.jb] = "armorEquipmentSelected.View.WeaponSelector"; 
+            k[G.mb] = "gearEquipmentSelected.View.WeaponSelector"; 
+            k[G.Hb] = "weaponEquipmentSelected.View.WeaponSelector"
         }; 
         
         d.mm = function () {
