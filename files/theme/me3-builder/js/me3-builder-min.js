@@ -4568,7 +4568,7 @@
                         k *= I, 
                         0 > k && 
                             (k = 0), 
-                        F -= armor_penalty[m.Hf] * k, 
+                        F -= armor_penalty[m.Hf] * k * (m.gb && g.name == a.vj ? 3 : 1), 
                         5 > F && 
                         (F = 5)
                     ); 
