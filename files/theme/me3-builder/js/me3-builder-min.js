@@ -2236,7 +2236,7 @@
             { name: a.Kf, a: a.Lq, attributes: { accuracy: .15 } },
             { name: a.ro, a: a.ys, attributes: { weaponROF: .15 } },
             { name: a.W, a: a.Ca, attributes: { powerDuration: .4 } },
-            { name: a.ca, a: a.zs, attributes: { ATTR_PCT: .25, headshotMod: .3125 } },
+            { name: a.ca, a: a.zs, attributes: { ATTR_PCT: .3125, headshotMod: .3125 } },
             { name: a.Ri, a: a.As, attributes: { accuracy: .1, weaponROF: .1 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .4 } }]
         }; 
