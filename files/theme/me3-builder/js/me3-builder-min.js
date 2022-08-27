@@ -2091,7 +2091,7 @@
         evolutions: [
             { name: a.Je, a: a.Sp, attributes: { baseRechargeSpeed: 8, damage: 600, force: 650 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
-            { name: a.ga, a: a.ua, attributes: { poweDamage: .25,
+            { name: a.ga, a: a.ua, attributes: { powerDamage: .25,
                     powerForce: .25
                 } },
             { name: a.ga, a: a.ua, attributes: { powerDamage: .35, powerForce: .35 } },
@@ -2114,7 +2114,7 @@
             { name: a.Hh, a: a.Pg, attributes: { missileFrequency: .35 } },
             { name: a.Sa, a: a.Mq, attributes: { powerDamageArmor: .5 } },
             { name: a.Bq, a: a.Wp, attributes: { ATTR_INT: 2, powerDamage: -.25, powerForce: .25 } },
-            { name: a.Pl, a: a.Xp, attributes: { poweDamage: 1.5,
+            { name: a.Pl, a: a.Xp, attributes: { powerDamage: 1.5,
                     powerForce: 1.5, radiusPct: 3
                 }
             }]
@@ -2245,7 +2245,7 @@
         evolutions: [
             { name: a.Te, a: a.Qs, attributes: { damage: 350, force: 1E3, radius: 4 } },
             { name: a.La, a: a.ka, attributes: { grenadeCapacity: 1 } },
-            { name: a.ga, a: a.ua, attributes: { poweDamage: .2, powerForce: .2 } }, 
+            { name: a.ga, a: a.ua, attributes: { powerDamage: .2, powerForce: .2 } }, 
             { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .2 } },
             { name: a.Y, a: a.ma, attributes: { radiusPct: .35 } },
             { name: a.La, a: a.ka, attributes: { grenadeCapacity: 2 } }, 
@@ -2941,7 +2941,7 @@
             { name: a.l, a: a.p, attributes: { powerDamage: .2 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } },
             { name: a.jf, a: a.gc, attributes: { rangePct: .5 } },
-            { name: a.zn, a: a.my, attributes: { poweDuration: .5, enemyMovementSpeed: -.2 } },
+            { name: a.zn, a: a.my, attributes: { powerDuration: .5, enemyMovementSpeed: -.2 } },
             { name: a.lg, a: a.Wg, attributes: { enemyDamageTaken: .1 } },
             { name: a.Am, a: a.ny, attributes: { powerDamage: .4, enemyArmorWeakening: .25 } },
             { name: a.iA, a: a.oy, attributes: { techCombo: 1 } }], 
