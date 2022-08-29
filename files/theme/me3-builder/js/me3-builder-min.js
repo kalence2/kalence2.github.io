@@ -6295,9 +6295,9 @@
             c("#damage-reduction").hide();
             if (p.has_DR_power()) {
                 var d = p.get_damage_reduction();
-                c("#damage-reduction .stat-tip").text(Math.round(d.value*100*5/7)+"%");
+                c("#damage-reduction .stat-tip").text(Math.round(d.value*100*5/7)+"/"+Math.min(100, Math.round(d.value*100))+"%");
                 A.Aa(c("#damage-reduction .stat-tip"));
-                0 < d.C.length ? A.ba(c("#damage-reduction .stat-tip"), K(d.C).append(c("<tr>").text("Out-of-cover modifier applied.")), { location: "bottomRight" }) : A.ba(c("#damage-reduction .stat-tip"), O.Xc, { location: "bottomRight" });
+                0 < d.C.length ? A.ba(c("#damage-reduction .stat-tip"), K(d.C).append(c("<tr>").text("Out of cover / In cover")), { location: "bottomRight" }) : A.ba(c("#damage-reduction .stat-tip"), O.Xc, { location: "bottomRight" });
                 c("#damage-reduction").show();
             }
             u(); 
