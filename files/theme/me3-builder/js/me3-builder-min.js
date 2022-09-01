@@ -3149,142 +3149,144 @@
     qa.Tb = { eb: 0, be: 1, ve: 2, OC: 3, vd: 4, Ze: 5, mf: 6, vf: 7, ge: 8, Ua: 9, Sb: 10, Cf: 11, Bf: 12, JC: 13 }; 
     qa.Oh = "adept soldier engineer sentinel infiltrator vanguard".split(" ");
     qa.Re = [[
-        { id: "male-adept", name: a.dc, V: a.qq, d: "AdeptHumanMale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "male-adept", name: a.dc, V: a.qq, d: "AdeptHumanMale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 3,
         heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Pc, h.b.fb, h.b.Fb, h.b.ab, h.b.Za] }, 
-        { id: "female-adept", name: a.cc, V: a.kq, d: "AdeptHumanFemale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "female-adept", name: a.cc, V: a.kq, d: "AdeptHumanFemale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 3,
         heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Pc, h.b.fb, h.b.Fb, h.b.ab, h.b.Za] }, 
-        { id: "asari-adept", name: a.be, V: a.Kj, d: "MP_Asari0.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "asari-adept", name: a.be, V: a.Kj, d: "MP_Asari0.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 4.5,
         heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Qc, h.b.fb, h.b.nc, h.b.Hd, h.b.Ga] },
-        { id: "drell-adept", name: a.ve, V: a.pn, d: "MP_Drell0.png", health: 500, barrier: 250, base_encumbrance: .45, light_melee_base_dmg: 225, 
+        { id: "drell-adept", name: a.ve, V: a.pn, d: "MP_Drell0.png", health: 500, barrier: 250, base_encumbrance: .45, light_melee_base_dmg: 225, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.tv, h.b.Mc, h.b.Yb, h.b.cf, h.b.Be] },
-        { id: "asari-justicar", name: a.ce, d: "MP_AsariComm.png", health: 500, barrier: 600, base_encumbrance: .4, light_melee_base_dmg: 150, 
+        { id: "asari-justicar", name: a.ce, d: "MP_AsariComm.png", health: 500, barrier: 600, base_encumbrance: .4, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.ke, h.b.sv, h.b.Mc, h.b.Zu, h.b.Ga] }, 
-        { id: "cerberus-adept", name: a.xg, V: a.$n, d: "MP_Cerberus.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 400, 
+        { id: "cerberus-adept", name: a.xg, V: a.$n, d: "MP_Cerberus.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 400, lm_radius: 0, hm_radius: 6,
         heavy_melee_base_dmg: 350, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Pc, h.b.Pd, h.b.hc, h.b.zh, h.b.Ga] },
-        { id: "n7-fury", name: a.ph, d: "MP_AllianceADP.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 350, 
+        { id: "n7-fury", name: a.ph, d: "MP_AllianceADP.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 350, lm_radius: 1.5, hm_radius: 6,
         heavy_melee_base_dmg: 350, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 }, powers: [h.b.bd, h.b.yc, h.b.nc, h.b.fv, h.b.Ga] },
-        { id: "volus-adept", name: a.Bf, V: a.bC, d: "MP_VolusADP.png", health: 150, barrier: 500, base_encumbrance: .15, light_melee_base_dmg: 0, 
+        { id: "volus-adept", name: a.Bf, V: a.bC, d: "MP_VolusADP.png", health: 150, barrier: 500, base_encumbrance: .15, light_melee_base_dmg: 0, lm_radius: 0, hm_radius: 2,
         heavy_melee_base_dmg: 150, heavy_melee_modifiers: l, powers: [h.b.Qc, h.b.ed, h.b.Eb, h.b.Jd, h.b.Ga] },
-        { id: "krogan-shaman", name: a.dr, d: "MP_KroganADP.png", health: 1E3, barrier: 1E3, base_encumbrance: .3, light_melee_base_dmg: 300, 
+        { id: "krogan-shaman", name: a.dr, d: "MP_KroganADP.png", health: 1E3, barrier: 1E3, base_encumbrance: .3, light_melee_base_dmg: 300, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 700, heavy_melee_modifiers: l, powers: [h.b.rb, h.b.fb, h.b.Fb, h.b.ef, h.b.kd] }, 
-        { id: "batarian-slasher", name: a.Bk, d: "MP_BatarianADP.png", health: 750, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 190, 
+        { id: "batarian-slasher", name: a.Bk, d: "MP_BatarianADP.png", health: 750, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 190, lm_radius: 2, hm_radius: 0,
         heavy_melee_base_dmg: 1E3, heavy_melee_modifiers: l, powers: [h.b.hc, h.b.fb, h.b.Yb, h.b.Id, h.b.ac] },
-        { id: "awakened-collector", name: a.gk, d: "MP_CollectADP.png", health: 500, barrier: 750, base_encumbrance: .3, light_melee_base_dmg: 450, light_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, 
+        { id: "awakened-collector", name: a.gk, d: "MP_CollectADP.png", health: 500, barrier: 750, base_encumbrance: .3, light_melee_base_dmg: 450, lm_radius: 7.5, hm_radius: 2,
+        light_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, 
         heavy_melee_base_dmg: 300, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, race: qa.Tb.Sb, powers: [h.b.re, h.b.nf, h.b.yc, h.b.lv, h.b.Bo] }
     ], [
-        { id: "male-soldier", name: a.dc, V: a.uq, d: "SoldierHumanMale.png", health: 500, shield: 500, base_encumbrance: .45, light_melee_base_dmg: 150, 
+        { id: "male-soldier", name: a.dc, V: a.uq, d: "SoldierHumanMale.png", health: 500, shield: 500, base_encumbrance: .45, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.sc, h.b.wc, h.b.Cc, h.b.ab, h.b.Za] },
-        { id: "female-soldier", name: a.cc, V: a.oq, d: "SoldierHumanFemale.png", health: 500, shield: 500, base_encumbrance: .45, light_melee_base_dmg: 150, 
+        { id: "female-soldier", name: a.cc, V: a.oq, d: "SoldierHumanFemale.png", health: 500, shield: 500, base_encumbrance: .45, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.sc, h.b.wc, h.b.Cc, h.b.ab, h.b.Za] },
-        { id: "krogan-soldier", name: a.vd, V: a.er, d: "MP_Krogan0.png", health: 750, shield: 1E3, base_encumbrance: .6, light_melee_base_dmg: 300, XC: "Krogan Headbutt", 
+        { id: "krogan-soldier", name: a.vd, V: a.er, d: "MP_Krogan0.png", health: 750, shield: 1E3, base_encumbrance: .6, light_melee_base_dmg: 300, lm_radius: 0, hm_radius: 0, XC: "Krogan Headbutt", 
         heavy_melee_base_dmg: 700, heavy_melee_modifiers: l, powers: [h.b.ld, h.b.Xb, h.b.td, h.b.ef, h.b.kd] },
-        { id: "turian-soldier", name: a.vf, V: a.vA, d: "MP_Turian0.png", health: 500, shield: 750, base_encumbrance: .65, light_melee_base_dmg: 200, 
+        { id: "turian-soldier", name: a.vf, V: a.vA, d: "MP_Turian0.png", health: 500, shield: 750, base_encumbrance: .65, light_melee_base_dmg: 200, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 675, heavy_melee_modifiers: l, powers: [h.b.yd, h.b.wc, h.b.lc, h.b.ff, h.b.ac] },
-        { id: "bf3-soldier", name: a.Dk, V: a.Ek, d: "MP_BF_HMM0.png", health: 500, shield: 500, base_encumbrance: .45, light_melee_base_dmg: 150, 
+        { id: "bf3-soldier", name: a.Dk, V: a.Ek, d: "MP_BF_HMM0.png", health: 500, shield: 500, base_encumbrance: .45, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.sc, h.b.Xb, h.b.Cc, h.b.ab, h.b.Za] },
-        { id: "batarian-soldier", name: a.ge, V: a.Ck, d: "MP_Batarian.png", health: 750, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 190, 
+        { id: "batarian-soldier", name: a.ge, V: a.Ck, d: "MP_Batarian.png", health: 750, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 190, lm_radius: 2, hm_radius: 0,
         heavy_melee_base_dmg: 1E3, heavy_melee_modifiers: l, powers: [h.b.fe, h.b.tc, h.b.td, h.b.Id, h.b.ac] },
-        { id: "vorcha-soldier", name: a.Cf, V: a.nC, d: "MP_Vorcha.png", health: 750, shield: 250, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        { id: "vorcha-soldier", name: a.Cf, V: a.nC, d: "MP_Vorcha.png", health: 750, shield: 250, base_encumbrance: .3, light_melee_base_dmg: 250, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.uc, h.b.Bc, h.b.Xb, h.b.gf, h.b.bc] },
-        { id: "n7-destroyer", name: a.Ys, d: "MP_AllianceSOL.png", health: 500, shield: 1E3, base_encumbrance: .3, light_melee_base_dmg: 450, 
+        { id: "n7-destroyer", name: a.Ys, d: "MP_AllianceSOL.png", health: 500, shield: 1E3, base_encumbrance: .3, light_melee_base_dmg: 450, lm_radius: 2, hm_radius: 6,
         heavy_melee_base_dmg: 500, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.ue, h.b.Ke, h.b.Te, h.b.ev, h.b.Fo] },
-        { id: "turian-havoc", name: a.sA, d: "MP_TurianSLD.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        { id: "turian-havoc", name: a.sA, d: "MP_TurianSLD.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, lm_radius: 0, hm_radius: 2.5,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Je, h.b.Rd, h.b.Zb, h.b.bf, h.b.De] },
-        { id: "geth-trooper", name: a.rp, d: "MP_GethSLD.png", health: 250, shield: 1E3, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        { id: "geth-trooper", name: a.rp, d: "MP_GethSLD.png", health: 250, shield: 1E3, base_encumbrance: .3, light_melee_base_dmg: 200, lm_radius: 0, hm_radius: 5,
         heavy_melee_base_dmg: 375, Ra: 5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, race: qa.Tb.Ua, powers: [h.b.Bc, h.b.ld, h.b.Hc, h.b.df, h.b.Ce] },
-        { id: "quarian-marksman", name: a.Xu, d: "MP_QuarianMSLD.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "quarian-marksman", name: a.Xu, d: "MP_QuarianMSLD.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.yd, h.b.Sc, h.b.Nc, h.b.jv, h.b.bc] },
-        { id: "geth-juggernaut", name: a.Lg, d: "MP_GethPSLD.png", health: 1E3, shield: 2E3, base_encumbrance: .75, light_melee_base_dmg: 250, 
+        { id: "geth-juggernaut", name: a.Lg, d: "MP_GethPSLD.png", health: 1E3, shield: 2E3, base_encumbrance: .75, light_melee_base_dmg: 250, lm_radius: 3, hm_radius: 1.25,
         heavy_melee_base_dmg: 60, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 2, shield: 2 }, race: qa.Tb.Ua, powers: [h.b.Le, h.b.rf, h.b.od, h.b.av, h.b.Do] }
     ], [   
-        { id: "male-engineer", name: a.dc, V: a.rq, d: "EngineerHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "male-engineer", name: a.dc, V: a.rq, d: "EngineerHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.vc, h.b.tb, h.b.Rb, h.b.ab, h.b.Za] },
-        { id: "female-engineer", name: a.cc, V: a.lq, d: "EngineerHumanFemale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "female-engineer", name: a.cc, V: a.lq, d: "EngineerHumanFemale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.vc, h.b.tb, h.b.Rb, h.b.ab, h.b.Za] },
-        { id: "quarian-enginner", name: a.Ze, V: a.Tu, d: "MP_Quarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "quarian-enginner", name: a.Ze, V: a.Tu, d: "MP_Quarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Md, h.b.tb, h.b.Zb, h.b.Ah, h.b.Ga] },
-        { id: "salarian-enginner", name: a.mf, V: a.pw, d: "MP_Salarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "salarian-enginner", name: a.mf, V: a.pw, d: "MP_Salarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Ac, h.b.jd, h.b.tb, h.b.Ch, h.b.Ga] },
-        { id: "geth-enginner", name: a.Ua, V: a.dp, d: "MP_GethEngineer.png", health: 250, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        { id: "geth-enginner", name: a.Ua, V: a.dp, d: "MP_GethEngineer.png", health: 250, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, lm_radius: 0, hm_radius: 5,
         heavy_melee_base_dmg: 375, Ra: 5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, race: qa.Tb.Ua, powers: [h.b.od, h.b.Hc, h.b.Rb, h.b.df, h.b.Ce] },
-        { id: "quarian-male-enginner", name: a.yh, V: a.Vu, d: "MP_QuarianMale0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "quarian-male-enginner", name: a.yh, V: a.Vu, d: "MP_QuarianMale0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Sc, h.b.tb, h.b.Of, h.b.Bh, h.b.bc] },
-        { id: "n7-demolisher", name: a.oh, d: "MP_AllianceENG.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 300, 
+        { id: "n7-demolisher", name: a.oh, d: "MP_AllianceENG.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 300, lm_radius: 2, hm_radius: 3.5,
         heavy_melee_base_dmg: 550, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.tf, h.b.uj, h.b.Gc, h.b.dv, h.b.Ga] },
-        { id: "volus-enginner", name: a.Bf, V: a.cC, d: "MP_VolusENG.png", health: 150, shield: 500, base_encumbrance: .15, light_melee_base_dmg: 0, 
+        { id: "volus-enginner", name: a.Bf, V: a.cC, d: "MP_VolusENG.png", health: 150, shield: 500, base_encumbrance: .15, light_melee_base_dmg: 0, lm_radius: 0, hm_radius: 2,
         heavy_melee_base_dmg: 150, heavy_melee_modifiers: l, powers: [h.b.Kd, h.b.lc, h.b.Eb, h.b.Jd, h.b.Ga] },
-        { id: "turian-saboteur", name: a.tA, d: "MP_TurianENG.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        { id: "turian-saboteur", name: a.tA, d: "MP_TurianENG.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, lm_radius: 0, hm_radius: 2.5,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Md, h.b.Nc, h.b.Gc, h.b.bf, h.b.De] },
-        { id: "vorcha-hunter", name: a.iC, d: "MP_VorchaENG.png", health: 750, shield: 250, base_encumbrance: .4, light_melee_base_dmg: 250, 
+        { id: "vorcha-hunter", name: a.iC, d: "MP_VorchaENG.png", health: 750, shield: 250, base_encumbrance: .4, light_melee_base_dmg: 250, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Sd, h.b.tb, h.b.uc, h.b.gf, h.b.bc] },
-        { id: "talon-merc", name: a.bA, d: "MP_MercENG.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 100, 
+        { id: "talon-merc", name: a.bA, d: "MP_MercENG.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 100, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 100, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, arrows: 3, powers: [h.b.le, h.b.me, h.b.ae, h.b.$u, h.b.Io], mutually_exclusive: [1, 2] }
     ], [
-        { id: "male-sentinel", name: a.dc, V: a.tq, d: "SentinelHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "male-sentinel", name: a.dc, V: a.tq, d: "SentinelHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Gb, h.b.fb, h.b.nc, h.b.ab, h.b.Za] },
-        { id: "female-sentinel", name: a.cc, V: a.nq, d: "SentinelHumanFemale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "female-sentinel", name: a.cc, V: a.nq, d: "SentinelHumanFemale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Gb, h.b.fb, h.b.nc, h.b.ab, h.b.Za] },
-        { id: "turian-sentinel", name: a.vf, V: a.uA, d: "MP_Turian0.png", health: 500, shield: 750, base_encumbrance: .5, light_melee_base_dmg: 200, 
+        { id: "turian-sentinel", name: a.vf, V: a.uA, d: "MP_Turian0.png", health: 500, shield: 750, base_encumbrance: .5, light_melee_base_dmg: 200, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 675, heavy_melee_modifiers: l, powers: [h.b.Gb, h.b.fb, h.b.Rb, h.b.ff, h.b.ac] },
-        { id: "krogan-sentinel", name: a.vd, V: a.cr, d: "MP_Krogan0.png", health: 750, shield: 1E3, base_encumbrance: .6, light_melee_base_dmg: 300, 
+        { id: "krogan-sentinel", name: a.vd, V: a.cr, d: "MP_Krogan0.png", health: 750, shield: 1E3, base_encumbrance: .6, light_melee_base_dmg: 300, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 700, heavy_melee_modifiers: l, powers: [h.b.Gb, h.b.tb, h.b.wd, h.b.ef, h.b.kd] },
-        { id: "batarian-sentinel", name: a.ge, V: a.Ak, d: "MP_Batarian.png", health: 750, shield: 750, base_encumbrance: .45, light_melee_base_dmg: 190, 
+        { id: "batarian-sentinel", name: a.ge, V: a.Ak, d: "MP_Batarian.png", health: 750, shield: 750, base_encumbrance: .45, light_melee_base_dmg: 190, lm_radius: 2, hm_radius: 0,
         heavy_melee_base_dmg: 1E3, heavy_melee_modifiers: l, powers: [h.b.tc, h.b.Fb, h.b.Sd, h.b.Id, h.b.ac] },
-        { id: "vorcha-sentinel", name: a.Cf, V: a.mC, d: "MP_Vorcha.png", health: 750, shield: 250, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        { id: "vorcha-sentinel", name: a.Cf, V: a.mC, d: "MP_Vorcha.png", health: 750, shield: 250, base_encumbrance: .3, light_melee_base_dmg: 250, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.uc, h.b.Bc, h.b.Yb, h.b.gf, h.b.bc] },
-        { id: "n7-paladin", name: a.qh, d: "MP_AllianceSEN.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 400, light_melee_modifiers: { health: 2, armor: 1.75, barrier: 2, shield: 2 }, 
+        { id: "n7-paladin", name: a.qh, d: "MP_AllianceSEN.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 400, lm_radius: 1, hm_radius: 2.5, 
+        light_melee_modifiers: { health: 2, armor: 1.75, barrier: 2, shield: 2 }, 
         heavy_melee_base_dmg: 400, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.Ac, h.b.tb, h.b.Qd, h.b.gv, h.b.Go] },
-        { id: "volus-merc", name: a.dC, d: "MP_VolusENG2.png", health: 150, shield: 500, base_encumbrance: .15, light_melee_base_dmg: 0, 
+        { id: "volus-merc", name: a.dC, d: "MP_VolusENG2.png", health: 150, shield: 500, base_encumbrance: .15, light_melee_base_dmg: 0, lm_radius: 0, hm_radius: 2,
         heavy_melee_base_dmg: 150, heavy_melee_modifiers: l, powers: [h.b.jd, h.b.vc, h.b.Eb, h.b.Jd, h.b.Ga] },
-        { id: "asari-valkyrie", name: a.Rj, d: "MP_AsariSEN.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "asari-valkyrie", name: a.Rj, d: "MP_AsariSEN.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 4.5,
         heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Gb, h.b.fb, h.b.bd, h.b.Hd, h.b.Ga] },
-        { id: "krogan-warlord", name: a.kh, d: "MP_BloodSEN.png", health: 1E3, barrier: 1250, base_encumbrance: .4, light_melee_base_dmg: 360, 
+        { id: "krogan-warlord", name: a.kh, d: "MP_BloodSEN.png", health: 1E3, barrier: 1250, base_encumbrance: .4, light_melee_base_dmg: 360, lm_radius: 1.5, hm_radius: 1.5,
         heavy_melee_base_dmg: 675, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.Gb, h.b.ie, h.b.ze, h.b.cv, h.b.Eo], mutually_exclusive: [1, 2] }
     ], [ 
-        { id: "male-infiltrator", name: a.dc, V: a.sq, d: "InfiltratorHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "male-infiltrator", name: a.dc, V: a.sq, d: "InfiltratorHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Zb, h.b.Rc, h.b.ab, h.b.Za] },
-        { id: "female-infiltrator", name: a.cc, V: a.mq, d: "InfiltratorHumanFemale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "female-infiltrator", name: a.cc, V: a.mq, d: "InfiltratorHumanFemale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Zb, h.b.Rc, h.b.ab, h.b.Za] },
-        { id: "salarian-inf", name: a.mf, V: a.qw, d: "MP_Salarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "salarian-inf", name: a.mf, V: a.qw, d: "MP_Salarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.lc, h.b.Ac, h.b.Ch, h.b.Ga] },
-        { id: "quarian-inf", name: a.Ze, V: a.Uu, d: "MP_Quarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "quarian-inf", name: a.Ze, V: a.Uu, d: "MP_Quarian0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Rc, h.b.Nc, h.b.Ah, h.b.Ga] },
-        { id: "geth-inf", name: a.Ua, V: a.ep, d: "MP_GethInfiltrator.png", health: 250, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        { id: "geth-inf", name: a.Ua, V: a.ep, d: "MP_GethInfiltrator.png", health: 250, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, lm_radius: 0, hm_radius: 5,
         heavy_melee_base_dmg: 375, Ra: 5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, race: qa.Tb.Ua, powers: [h.b.bb, h.b.lc, h.b.Hc, h.b.df, h.b.Ce] },
-        { id: "quarian-male-inf", name: a.yh, V: a.Wu, d: "MP_QuarianMale0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "quarian-male-inf", name: a.yh, V: a.Wu, d: "MP_QuarianMale0.png", health: 500, shield: 600, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Sc, h.b.Of, h.b.Bh, h.b.bc] },
-        { id: "n7-shadow", name: a.rh, d: "MP_AllianceINF.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        { id: "n7-shadow", name: a.rh, d: "MP_AllianceINF.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 250, lm_radius: 2.5, hm_radius: 2,
         heavy_melee_base_dmg: 700, Ra: 2, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.bb, h.b.xe, h.b.of, h.b.hv, h.b.Ho] },
-        { id: "turian-ghost", name: a.rA, d: "MP_TurianINF.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, 
+        { id: "turian-ghost", name: a.rA, d: "MP_TurianINF.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 200, lm_radius: 0, hm_radius: 2.5,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.Tz, h.b.Rd, h.b.Rb, h.b.bf, h.b.De] },
-        { id: "drell-assassin", name: a.we, d: "MP_DrellINF.png", health: 500, shield: 250, base_encumbrance: .3, light_melee_base_dmg: 225, 
+        { id: "drell-assassin", name: a.we, d: "MP_DrellINF.png", health: 500, shield: 250, base_encumbrance: .3, light_melee_base_dmg: 225, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.Gc, h.b.Kd, h.b.cf, h.b.Be] },
-        { id: "asari-huntress", name: a.Oj, d: "MP_AsariINF.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "asari-huntress", name: a.Oj, d: "MP_AsariINF.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 4.5,
         heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Uz, h.b.yc, h.b.fb, h.b.Hd, h.b.Ga] },
-        { id: "alliance-inf", name: a.ij, d: "MP_FBotINF.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 350, 
+        { id: "alliance-inf", name: a.ij, d: "MP_FBotINF.png", health: 500, shield: 750, base_encumbrance: .3, light_melee_base_dmg: 350, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 650, heavy_melee_modifiers: l, powers: [h.b.Sz, h.b.Qd, h.b.kf, h.b.kv, h.b.Co] },
-        { id: "bf3-infiltrator", name: a.Dk, V: a.bf3infiname, d: "MP_FBotINF.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "bf3-infiltrator", name: a.Dk, V: a.bf3infiname, d: "MP_FBotINF.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.bb, h.b.tb, h.b.Rc, h.b.ab, h.b.Za] }
     ], [
-        { id: "male-vanguard", name: a.dc, V: a.vq, d: "VanguardHumanMale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "male-vanguard", name: a.dc, V: a.vq, d: "VanguardHumanMale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 500, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.Fb, h.b.Bd, h.b.ab, h.b.Za] },
-        { id: "female-vanguard", name: a.cc, V: a.pq, d: "VanguardHumanFemale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "female-vanguard", name: a.cc, V: a.pq, d: "VanguardHumanFemale.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 500, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.Fb, h.b.Bd, h.b.ab, h.b.Za] },
-        { id: "drell-vanguard", name: a.ve, V: a.sn, d: "MP_Drell0.png", health: 500, barrier: 250, base_encumbrance: .6, light_melee_base_dmg: 225, 
+        { id: "drell-vanguard", name: a.ve, V: a.sn, d: "MP_Drell0.png", health: 500, barrier: 250, base_encumbrance: .6, light_melee_base_dmg: 225, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.Mc, h.b.Yb, h.b.cf, h.b.Be] },
-        { id: "asari-vanguard", name: a.be, V: a.Sj, d: "MP_Asari0.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, 
+        { id: "asari-vanguard", name: a.be, V: a.Sj, d: "MP_Asari0.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 4.5,
         heavy_melee_base_dmg: 500, Ra: 4.5, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.lb, h.b.Qc, h.b.wd, h.b.Hd, h.b.Ga] },
-        { id: "krogan-battlemaster", name: a.vd, V: a.br, d: "MP_KroganBM.png", health: 1E3, barrier: 1E3, base_encumbrance: .5, light_melee_base_dmg: 300, 
+        { id: "krogan-battlemaster", name: a.vd, V: a.br, d: "MP_KroganBM.png", health: 1E3, barrier: 1E3, base_encumbrance: .5, light_melee_base_dmg: 300, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 700, heavy_melee_modifiers: l, powers: [h.b.Kk, h.b.Xb, h.b.rb, h.b.bv, h.b.kd] },
-        { id: "cerberus-vanguard", name: a.xg, V: a.ao, d: "MP_Cerberus.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 400, 
+        { id: "cerberus-vanguard", name: a.xg, V: a.ao, d: "MP_Cerberus.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 400, lm_radius: 0, hm_radius: 6,
         heavy_melee_base_dmg: 350, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.lb, h.b.Pd, h.b.hc, h.b.zh, h.b.Ga] },
-        { id: "n7-slayer", name: a.sh, d: "MP_AllianceVAN.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        { id: "n7-slayer", name: a.sh, d: "MP_AllianceVAN.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 250, lm_radius: 2.5, hm_radius: 2.5,
         heavy_melee_base_dmg: 700, Ra: 2.5, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.lb, h.b.We, h.b.je, h.b.iv, h.b.Ga] },
-        { id: "volus-protector", name: a.eC, d: "MP_VolusVAN.png", health: 150, barrier: 500, base_encumbrance: .15, light_melee_base_dmg: 0, 
+        { id: "volus-protector", name: a.eC, d: "MP_VolusVAN.png", health: 150, barrier: 500, base_encumbrance: .15, light_melee_base_dmg: 0, lm_radius: 0, hm_radius: 2,
         heavy_melee_base_dmg: 150, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.Eb, h.b.ed, h.b.Jd, h.b.Ga] },
-        { id: "batarian-brawler", name: a.sk, d: "MP_BatarianVAN.png", health: 750, barrier: 750, base_encumbrance: .3, light_melee_base_dmg: 190, 
+        { id: "batarian-brawler", name: a.sk, d: "MP_BatarianVAN.png", health: 750, barrier: 750, base_encumbrance: .3, light_melee_base_dmg: 190, lm_radius: 2, hm_radius: 0,
         heavy_melee_base_dmg: 1E3, heavy_melee_modifiers: l, powers: [h.b.lb, h.b.hc, h.b.tc, h.b.Id, h.b.ac] },
-        { id: "turian-cabal", name: a.Bl, V: a.qA, d: "MP_TurianVAN.png", health: 500, barrier: 750, base_encumbrance: .3, light_melee_base_dmg: 250, 
+        { id: "turian-cabal", name: a.Bl, V: a.qA, d: "MP_TurianVAN.png", health: 500, barrier: 750, base_encumbrance: .3, light_melee_base_dmg: 250, lm_radius: 2.5, hm_radius: 2.5,
         heavy_melee_base_dmg: 700, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1, shield: 1 }, powers: [h.b.Ye, h.b.Ue, h.b.he, h.b.ff, h.b.Jo] }
     ]];
     /*
@@ -4925,6 +4927,17 @@
                     return 1;
                 }
 
+                d.get_light_melee_radius = function() {
+                    return 1.5;
+                }
+        
+                d.get_heavy_melee_radius = function() {
+                    if (equipment_type[1] == 18)
+                        return 0;
+                    else
+                        return 2;
+                }
+
     })(h.Xa = h.Xa || {}, jQuery191);
     /*
      Copyright 2013
@@ -6213,12 +6226,40 @@
         } 
         
         function g() {
-            var d = p.Gg(), e = Core.format("{0}/{1}", m.va(d.ui, 0), m.va(d.ti, 0)); c("#kit-melee .stat-tip").text(e); A.Aa(c("#kit-melee .stat-tip")); for (var e = c("<div>").addClass("builder-tip character-tip"), g = ["health", "armor", "barrier", "shield"], n = c("<tr>").append(c("<td>").addClass("stat-id").text("Light")),
-                q = c("<tr>").append(c("<td>").addClass("stat-id").text("Heavy")), s = 0; s < g.length; s++) { var u = p.Gg({ ea: g[s] }); n.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ui, 0)))); q.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ti, 0)))) } s = c("<table>").append(c("<tbody>").append(n, q)); e.append(c("<h3>").text(O.P), s); s = m.uf(d.i); !1 !== s && e.append(c("<h3>").text(O.Af), s); 
-                if (0 < d.C.length) {
-                    g = c("<tbody>"); for (s = 0; s < d.C.length; s++)n = d.C[s], "power" == n.type ? m.Uc(g, n) : m.Vc(g, n); d = c("<table>").addClass("tip-bonus-table").append(g);
-                    e.append(c("<h3>").text(O.Wc)).append(d)
-                } A.ba(c("#kit-melee .stat-tip"), e, { location: "bottomRight" })
+            var d = p.Gg(), 
+                e = Core.format("{0}/{1}", 
+                m.va(d.ui, 0), 
+                m.va(d.ti, 0)); 
+            c("#kit-melee .stat-tip").text(e); 
+            A.Aa(c("#kit-melee .stat-tip")); 
+            for (var e = c("<div>").addClass("builder-tip character-tip"), 
+                     g = ["health", "armor", "barrier", "shield"], 
+                     n = c("<tr>").append(c("<td>").addClass("stat-id").text("Light")),
+                     q = c("<tr>").append(c("<td>").addClass("stat-id").text("Heavy")), 
+                     s = 0; s < g.length; s++) { 
+                var u = p.Gg({ ea: g[s] }); 
+                n.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ui, 0)))); 
+                q.append(c("<td>").append(c("<span>").addClass(g[s]).text(m.va(u.ti, 0)))) 
+            } 
+            s = c("<table>").append(c("<tbody>").append(n, q)); 
+            e.append(c("<h3>").text(O.P), s); 
+            s = m.uf(d.i); 
+            !1 !== s && e.append(c("<h3>").text(O.Af), s); 
+            if (0 < d.C.length) {
+                g = c("<tbody>"); 
+                for (s = 0; s < d.C.length; s++)
+                    n = d.C[s], 
+                    "power" == n.type ? m.Uc(g, n) : m.Vc(g, n); d = c("<table>").addClass("tip-bonus-table").append(g);
+                e.append(c("<h3>").text(O.Wc)).append(d)
+            }
+            n = c("<tr>").append(c("<td>").addClass("stat-id").text("Light"));
+            q = c("<tr>").append(c("<td>").addClass("stat-id").text("Heavy")); 
+            n.append(c("<td>").append(c("<span>").text(p.get_light_melee_radius()+" m"))); 
+            q.append(c("<td>").append(c("<span>").text(p.get_heavy_melee_radius()+" m"))) 
+            s = c("<table>").append(c("<tbody>").append(n, q));
+            e.append(c("<h3>").text("Radius"), s);
+            // e.append(c("<tr>").append(c("<td>").addClass("stat-id").text("Light")))
+            A.ba(c("#kit-melee .stat-tip"), e, { location: "bottomRight" })
         } 
         
         function z() {
