@@ -4928,14 +4928,14 @@
                 }
 
                 d.get_light_melee_radius = function() {
-                    return 1.5;
+                    return characters[class_index][character_index_in_class].lm_radius;
                 }
         
                 d.get_heavy_melee_radius = function() {
                     if (equipment_type[1] == 18)
                         return 0;
                     else
-                        return 2;
+                        return characters[class_index][character_index_in_class].hm_radius;
                 }
 
     })(h.Xa = h.Xa || {}, jQuery191);
