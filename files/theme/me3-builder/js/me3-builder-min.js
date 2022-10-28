@@ -1421,7 +1421,7 @@
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
             { name: a.l, a: a.p, attributes: { powerDamage: .2 } },  { name: a.l, a: a.p, attributes: { powerDamage: .3 } },
             { name: a.lm, a: a.hk, attributes: { ATTR_INT: 20 } }, 
-            { name: a.Range, a: a.ik, attributes: { rangePct: .5 } },
+            { name: a.Range, a: a.ik, attributes: { rangePct: .5, radius: 6 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } },
             { name: a.xm, a: a.jk, attributes: { powerDamage: .5, powerDuration: .5 } }, 
             { name: a.ko, a: a.kk, attributes: { ATTR_TIME: 3, bladeDamage: 400 } }]
