@@ -1665,7 +1665,7 @@
             { name: a.ga, a: a.ua, attributes: { powerDamage: .3, powerForce: .3 } }, 
             { name: a.Y, a: a.Pb, attributes: { radius: 1.5 } },
             { name: a.Vw, a: a.hm, attributes: { ATTR_PCT: 1, freezeDamage: 1 } },
-            { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
+            { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }, 
             { name: a.Ip, a: a.im, attributes: { powerDamage: .5, radius: 1 } },
             { name: a.Zx, a: a.jm, attributes: { powerDOT: 2, ATTR_INT: 10, powerForce: .5 } }],
             i: { health: 1, armor: 1, barrier: 4, shield: 1 }
