@@ -3827,7 +3827,7 @@
         } 
 
         function p(d, r, f, k, t) {
-            var m = [], g = 0, I = 1, d0 = d;
+            var m = [], g = 0, I = 1, d0 = d, h = 0;
             t = c.extend({ ea: "health" }, t); 
             var F = s(d); 
             F[f] && (g += F[f].value, m = F[f].C); 
@@ -3835,7 +3835,7 @@
             F.powerDamageBarrier && ("barrier" == t.ea && (I += F.powerDamageBarrier.value), m = m.concat(F.powerDamageBarrier.C)); 
             F.powerDamageShield && ("shield" == t.ea && (I += F.powerDamageShield.value), F.powerDamageBarrier && F.powerDamageBarrier.value == F.powerDamageShield.value || (m = m.concat(F.powerDamageShield.C))); 
             f = character.powers[d]; 
-            f.i && (I *= f.i[t.ea]); 
+            // f.i && (I *= f.i[t.ea]); 
             d = ["globalDamage", "globalPowerDamage", "enemyDamageTaken", "enemyPowerDamageTaken"];
             f.type == power_types.biotic ? d = d.concat("bioticDamage") : f.type == power_types.ta && (d = d.concat("techDamage")); 
             k && (d = d.concat("modMeleeDamage")); 
@@ -3843,18 +3843,20 @@
             g += d.data.globalDamage + d.data.globalPowerDamage; 
             f.type == power_types.biotic ? g += d.data.bioticDamage : f.type == power_types.ta && (g += d.data.techDamage); 
             "armor" != r && (g += d.data.armorPowerDamage); 
-            f = d.data.enemyDamageTaken + d.data.enemyPowerDamageTaken; 
+            h = d.data.enemyDamageTaken + d.data.enemyPowerDamageTaken; 
             var ba = 0, ba = "undefined" !== typeof t.Yc ? t.Yc : F[r].value; 
-            r = ba * (1 + g) * (1 + f) * I; 
+            r = ba * (1 + g) * (1 + h) * I; 
             k && (r *= 1 + d.data.modMeleeDamage);
             if (character.powers[d0].is_inferno_glitched && equipment_type[3] == 5)
                 r *= 8/3;
-            if (F["powerDOT"]) {
-                r *= 1 + F.powerDOT.value
-                m = m.concat(F.powerDOT.C)
-            }
             if (has_cryo_active())
                 r *= get_cryo_bonus(d0);
+            var pre_modifier_damage = r;
+            f.i && (r *= f.i[t.ea]);
+            if (F["powerDOT"]) {
+                r += pre_modifier_damage * (1 + F.powerDOT.value)
+                m = m.concat(F.powerDOT.C)
+            }
             return { value: r, C: m }
         }
 
