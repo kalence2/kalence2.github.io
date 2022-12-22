@@ -3837,11 +3837,11 @@
             f = character.powers[d]; 
             f.i && (I *= f.i[t.ea]); 
             d = ["globalDamage", "globalPowerDamage", "enemyDamageTaken", "enemyPowerDamageTaken"];
-            f.type == power_types.biotic ? d = d.concat("bioticDamage") : f.type == power_types.ta && (d = d.concat("techDamage")); 
+            f.type == power_types.biotic ? d = d.concat("bioticDamage") : f.type == power_types.tech && (d = d.concat("techDamage")); 
             k && (d = d.concat("modMeleeDamage")); 
             "armor" != r && (d = d.concat("armorPowerDamage")); d = e(d); m = m.concat(d.C); 
             g += d.data.globalDamage + d.data.globalPowerDamage; 
-            f.type == power_types.biotic ? g += d.data.bioticDamage : f.type == power_types.ta && (g += d.data.techDamage); 
+            f.type == power_types.biotic ? g += d.data.bioticDamage : f.type == power_types.tech && (g += d.data.techDamage); 
             "armor" != r && (g += d.data.armorPowerDamage); 
             f = d.data.enemyDamageTaken + d.data.enemyPowerDamageTaken; 
             var ba = 0, ba = "undefined" !== typeof t.Yc ? t.Yc : F[r].value; 
