@@ -3834,7 +3834,8 @@
             F.powerDamageArmor && ("armor" == t.ea && (I += F.powerDamageArmor.value), m = m.concat(F.powerDamageArmor.C)); 
             F.powerDamageBarrier && ("barrier" == t.ea && (I += F.powerDamageBarrier.value), m = m.concat(F.powerDamageBarrier.C)); 
             F.powerDamageShield && ("shield" == t.ea && (I += F.powerDamageShield.value), F.powerDamageBarrier && F.powerDamageBarrier.value == F.powerDamageShield.value || (m = m.concat(F.powerDamageShield.C))); 
-            f = character.powers[d]; 
+            f = character.powers[d];
+            power = character.powers[d];
             f.i && (I *= f.i[t.ea]); 
             d = ["globalDamage", "globalPowerDamage", "enemyDamageTaken", "enemyPowerDamageTaken"];
             f.type == power_types.biotic ? d = d.concat("bioticDamage") : f.type == power_types.tech && (d = d.concat("techDamage")); 
@@ -3850,7 +3851,10 @@
             if (character.powers[d0].is_inferno_glitched && equipment_type[3] == 5)
                 r *= 8/3;
             if (F["powerDOT"]) {
-                r *= 1 + F.powerDOT.value
+                if (power.icon == "ConcussiveShot")
+                    r += r/I * F.powerDOT.value
+                else
+                    r += r * F.powerDOT.value
                 m = m.concat(F.powerDOT.C)
             }
             if (has_cryo_active())
