@@ -2132,7 +2132,8 @@
             { name: a.W, a: a.Ca, attributes: { powerDuration: 1 } },
             { name: a.Em, a: a.cq, attributes: { globalDamage: .1 } },
             { name: a.hr, a: a.dq, attributes: { hexShieldStrength: .4 } }],
-            i: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 }
+            i: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 },
+            type: d.type.tech
         }; 
         
         d.Gc = { h: ["damage", "radius"], g: !0, icon: "HomingGrenade", M: !0, 
