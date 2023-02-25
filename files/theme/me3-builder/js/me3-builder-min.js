@@ -1383,7 +1383,7 @@
             { name: a.cd, a: a.Ic, attributes: { powerDamageArmor: .75 } }, 
             { name: a.pf, a: a.qd, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }], 
             i: { health: 1, armor: 1, barrier: 2, shield: 2 }, 
-            is_grenade_power: !0, type: d.type.tech
+            is_grenade_power: !0
         }; 
 
         d.Of = { h: ["damage", "radius"], g: !1, icon: "EMPGrenade", M: !0, 
@@ -1397,7 +1397,7 @@
             { name: a.ye, a: a.Mf, attributes: { powerDOT: .4, ATTR_TIME: 10 } },
             { name: a.cd, a: a.Ic, attributes: { powerDamageArmor: .75 } }, 
             { name: a.pf, a: a.qd, attributes: { powerDamageBarrier: .75, powerDamageShield: .75 } }], 
-            i: { health: 1, armor: 1, barrier: 2, shield: 2 }, is_grenade_power: !0, type: d.type.tech
+            i: { health: 1, armor: 1, barrier: 2, shield: 2 }, is_grenade_power: !0
         }; 
 
         d.ae = { h: ["bonusGrenade", "bow", "arrowCount"], g: !0, icon: "BowModalTwo", M: !0, 
@@ -2099,7 +2099,8 @@
             { name: a.Gf, a: a.Pp, attributes: { weaponDamage: .25, ATTR_TIME: 5 } },
             { name: a.P, a: a.Qp, attributes: { meleeDamage: .4, ATTR_TIME: 5 } },
             { name: a.ga, a: a.p, attributes: { powerDamage: .55, powerForce: .55 } },
-            { name: a.Hq, a: a.Rp, attributes: { areaTargetBonus: 2, radius: 3 } }]
+            { name: a.Hq, a: a.Rp, attributes: { areaTargetBonus: 2, radius: 3 } }],
+            type: d.type.tech
         }; 
         
         d.Ke = { h: ["baseRechargeSpeed", "missileRefire", "damage", "radius", "force"], g: !0, icon: "MissileLauncher", 
@@ -2131,7 +2132,7 @@
             { name: a.W, a: a.Ca, attributes: { powerDuration: 1 } },
             { name: a.Em, a: a.cq, attributes: { globalDamage: .1 } },
             { name: a.hr, a: a.dq, attributes: { hexShieldStrength: .4 } }],
-            i: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 }, type: d.type.tech
+            i: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 }
         }; 
         
         d.Gc = { h: ["damage", "radius"], g: !0, icon: "HomingGrenade", M: !0, 
@@ -2792,7 +2793,7 @@
             { name: a.l, a: a.p, attributes: { powerDamage: .4 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } },
             { name: a.Sa, a: a.Ug, attributes: { powerDamageArmor: .75 } },
-            { name: a.Rq, a: a.yv, attributes: { enemyDamageTaken: .25, enemyMovementSpeed: -.3 } }], type: d.type.tech
+            { name: a.Rq, a: a.yv, attributes: { enemyDamageTaken: .25, enemyMovementSpeed: -.3 } }]
         }; 
         
         d.kf = { h: ["repairMatrix", "duration", "RMDR", "movementSpeed"], g: !0, icon: "RepairMatrix", M: !0, 
