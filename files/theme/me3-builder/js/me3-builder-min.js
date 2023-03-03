@@ -1978,6 +1978,19 @@
             { name: a.Ha, a: a.Ma, attributes: { shieldRechargeRate: .15 } },
             { name: a.Lc, a: a.Ag, attributes: { meleeDamage: .3, globalPowerDamage: .3, ATTR_TIME: 20 } },
             { name: a.Ta, a: a.T, attributes: { durability: .25 } }]
+        };
+
+        d.FuryFitness = { h: ["durability", "meleeDamage"], g: !1, icon: "MPMeleePassive", M: !0, 
+        evolutions: [
+            { name: a.$b, a: a.Mb, attributes: { durability: .15, meleeDamage: .15 } },
+            { name: a.S, a: a.T, attributes: { durability: .1 } },
+            { name: a.P, a: a.da, attributes: { meleeDamage: .2 } },
+            { name: a.P, a: a.da, attributes: { meleeDamage: .3 } },
+            { name: a.S, a: a.T, attributes: { durability: .15 } },
+            { name: a.$a, a: a.cb, attributes: { meleeDamage: .75, ATTR_TIME: 30 } },
+            { name: a.Ha, a: a.Ma, attributes: { shieldRechargeRate: .15 } },
+            { name: a.Lc, a: a.Xz, attributes: {  } },
+            { name: a.Ta, a: a.T, attributes: { durability: .25 } }]
         }; 
         
         d.bc = { h: ["durability", "meleeDamage"], g: !1, icon: "MPMeleePassive", M: !0, 
@@ -3164,7 +3177,7 @@
         { id: "cerberus-adept", name: a.xg, V: a.$n, d: "MP_Cerberus.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 400, lm_radius: 0, hm_radius: 6,
         heavy_melee_base_dmg: 350, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1.5, barrier: 1.5, shield: 1.5 }, powers: [h.b.Pc, h.b.Pd, h.b.hc, h.b.zh, h.b.Ga] },
         { id: "n7-fury", name: a.ph, d: "MP_AllianceADP.png", health: 500, barrier: 500, base_encumbrance: .3, light_melee_base_dmg: 350, lm_radius: 1.5, hm_radius: 6,
-        heavy_melee_base_dmg: 350, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 }, powers: [h.b.bd, h.b.yc, h.b.nc, h.b.fv, h.b.Ga] },
+        heavy_melee_base_dmg: 350, Ra: 6, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 1.5, shield: 1.5 }, powers: [h.b.bd, h.b.yc, h.b.nc, h.b.fv, h.b.FuryFitness] },
         { id: "volus-adept", name: a.Bf, V: a.bC, d: "MP_VolusADP.png", health: 150, barrier: 500, base_encumbrance: .15, light_melee_base_dmg: 0, lm_radius: 0, hm_radius: 2,
         heavy_melee_base_dmg: 150, heavy_melee_modifiers: l, powers: [h.b.Qc, h.b.ed, h.b.Eb, h.b.Jd, h.b.Ga] },
         { id: "krogan-shaman", name: a.dr, d: "MP_KroganADP.png", health: 1E3, barrier: 1E3, base_encumbrance: .3, light_melee_base_dmg: 300, lm_radius: 0, hm_radius: 0,
