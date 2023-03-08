@@ -1987,7 +1987,7 @@
             { name: a.P, a: a.da, attributes: { meleeDamage: .2 } },
             { name: a.P, a: a.da, attributes: { meleeDamage: .3 } },
             { name: a.S, a: a.T, attributes: { durability: .15 } },
-            { name: a.$a, a: a.cb, attributes: { meleeDamage: .75, ATTR_TIME: 30 } },
+            { name: a.$a, a: a.Xz, attributes: {  } },
             { name: a.Ha, a: a.Ma, attributes: { shieldRechargeRate: .15 } },
             { name: a.Lc, a: a.Xz, attributes: {  } },
             { name: a.Ta, a: a.T, attributes: { durability: .25 } }]
