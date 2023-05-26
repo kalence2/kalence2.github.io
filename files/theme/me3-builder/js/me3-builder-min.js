@@ -484,7 +484,7 @@
     b.zo = "Increase health and shield bonuses by {durability}%.\nIncrease damage protection by {rageDR}% and health regeneration by {rageHealthRegen}% while in Rage mode.";
     b.Ao = "Boost health, shields, melee damage, and durability.\nThis krogan regenerates health slowly during combat, restoring {rageHOT} health per second.\n\nMelee and kill {ATTR_INT} enemies within {ATTR_TIME} seconds to go into a frenzy to increase melee damage, reduce damage taken, and to boost health regeneration for {rageDuration} seconds.";
     b.Bc = "Flamer";
-    b.Ko = "Fire a powerful short-range flame attack. The flames will persist for a max duration and can be canceled early for a faster recharge.\n\nHighly effective against armor.\n\nSubject to a self-stacking glitch; damage can reach 3 times the presented value with continuous fire. Applies fire DoT.";
+    b.Ko = "Fire a powerful short-range flame attack. The flames will persist for a max duration and can be canceled early for a faster recharge.\n\nHighly effective against armor.\n\nApplies fire DoT.";
     b.Dg = "Flamethrower";
     b.Ee = "Force";
     b.ga = "Force & Damage";
