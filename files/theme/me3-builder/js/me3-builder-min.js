@@ -773,7 +773,7 @@
     b.kw = "Increase damage taken by {powerDamage}% when enemy weapons overheat.";
     b.lw = "Synthetics explode when destroyed, dealing {ATTR_DMG} points of damage across a {ATTR_INT} meter radius.";
     b.mw = "Hacked synthetics fighting on your side move faster and do {ATTR_PCT}% more damage.";
-    b.nw = "Increase all tech power damage done to target by {powerDamage}% for {ATTR_TIME} seconds.";
+    b.nw = "Increase all tech power damage done to target by {powerDOT}% for {ATTR_TIME} seconds.";
     b.ow = "Sabotage weapons and hack synthetics.\n\nCompromised synthetics fight on your side.\nAffected weapons overheat.";
     b.rw = "Salarian Operative";
     b.sw = "Decrease weight of sniper rifles by {weaponWeightSniper}%.";
@@ -2834,7 +2834,7 @@
             { name: a.lo, a: a.lw, attributes: { ATTR_DMG: 350, ATTR_INT: 4 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } },
             { name: a.Fk, a: a.mw, attributes: { ATTR_PCT: .5 } },
-            { name: a.kA, a: a.nw, attributes: { powerDamage: .5, ATTR_TIME: 10, sabotageMelee: .5 } }],
+            { name: a.kA, a: a.nw, attributes: { powerDOT: .5, ATTR_TIME: 10, sabotageMelee: .5 } }],
             i: { health: 1, armor: 1, barrier: 1, shield: 2 }, type: d.type.tech
         }; 
         
