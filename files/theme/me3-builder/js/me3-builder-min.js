@@ -771,7 +771,7 @@
     b.Nh = "Rockets";
     b.Nc = "Sabotage";
     b.kw = "Increase damage taken by {powerDamage}% when enemy weapons overheat.";
-    b.lw = "Synthetics explode when destroyed, dealing {ATTR_DMG} points of damage across a {ATTR_INT} meter radius.";
+    b.lw = "Synthetics explode when destroyed, dealing {hack} points of damage across a {ATTR_INT} meter radius.";
     b.mw = "Hacked synthetics fighting on your side move faster and do {ATTR_PCT}% more damage.";
     b.nw = "Increase all tech power damage done to target by {powerDOT}% for {ATTR_TIME} seconds.";
     b.ow = "Sabotage weapons and hack synthetics.\n\nCompromised synthetics fight on your side.\nAffected weapons overheat.";
@@ -2831,7 +2831,7 @@
             { name: a.Y, a: a.ma, attributes: { radiusPct: .3 } },
             { name: a.W, a: a.Ca, attributes: { powerDuration: .5 } },
             { name: a.Rf, a: a.kw, attributes: { powerDamage: .6 } },
-            { name: a.lo, a: a.lw, attributes: { ATTR_DMG: 350, ATTR_INT: 4 } },
+            { name: a.lo, a: a.lw, attributes: { hack: 350, ATTR_INT: 4 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } },
             { name: a.Fk, a: a.mw, attributes: { ATTR_PCT: .5 } },
             { name: a.kA, a: a.nw, attributes: { powerDOT: .5, ATTR_TIME: 10, sabotageMelee: .5 } }],
@@ -3842,7 +3842,7 @@
         } 
 
         function p(d, r, f, k, t) {
-            var m = [], g = 0, I = 1, d0 = d;
+            var m = [], g = 0, I = 1, d0 = d, f0 = f;
             t = c.extend({ ea: "health" }, t); 
             var F = s(d); 
             F[f] && (g += F[f].value, m = F[f].C); 
@@ -3865,7 +3865,7 @@
             k && (r *= 1 + d.data.modMeleeDamage);
             if (character.powers[d0].is_inferno_glitched && equipment_type[3] == 5)
                 r *= 8/3;
-            if (F["powerDOT"]) {
+            if (F["powerDOT"] && f0 != "hack_dmg") {
                 if (power.icon == "ConcussiveShot")
                     r += r/I * F.powerDOT.value
                 else
@@ -4398,7 +4398,10 @@
                             var data = s(c);
                             res.value /= data["duration"].value * (1 + (data["powerDuration"] ? data["powerDuration"].value : 0));
                             return res;
-                        }, 
+                        },
+                        hack: function() {
+                            return p(c, d, "hack_dmg", !0, f) 
+                        },
                         hammer: function () { 
                             return p(c, d, "powerDamage", !0, f) 
                         }, 
@@ -5149,7 +5152,8 @@
             globalPowerDamage: { name: a.J, j: "%", format: percent_format }, 
             globalRecharge: { name: a.k, j: "%", format: percent_format }, 
             grenadeCapacity: { name: a.La, j: "" }, 
-            grenadeResupply: { name: a.Dp, j: a.xb }, 
+            grenadeResupply: { name: a.Dp, j: a.xb },
+            hack: { name: "", j: "", $d: !0 }, 
             hammer: { name: a.l, j: "" },
             hammerCharges: { name: a.Cd, j: "" }, 
             headshot: { name: a.ca, j: "%", format: percent_format }, 
