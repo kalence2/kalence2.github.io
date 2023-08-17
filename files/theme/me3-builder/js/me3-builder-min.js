@@ -1699,9 +1699,9 @@
             i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic, is_biotic_primer: true
         }; 
         
-        d.re = { Z: { baseRechargeSpeed: a.bn, damage: a.an, duration: "Duration", radius: a.tg }, h: ["baseRechargeSpeed", "damage", "radius", "dsDOT", "duration"], g: !0, icon: "DarkSingularity", 
+        d.re = { Z: { baseRechargeSpeed: a.bn, damage: a.an, duration_real: "Duration", radius: a.tg }, h: ["baseRechargeSpeed", "damage", "radius", "dsDOT", "duration_real"], g: !0, icon: "DarkSingularity", 
             evolutions: [
-            { name: a.re, a: a.Qm, attributes: { baseRechargeSpeed: 24, damage: 1E3, radius: 5, dsDOT: 250, duration: 5 } },
+            { name: a.re, a: a.Qm, attributes: { baseRechargeSpeed: 24, damage: 1E3, radius: 5, dsDOT: 250, duration: 5, duration_real: 12.5 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .15 } }, 
             { name: a.l, a: a.Km, attributes: { powerDamage: .2,
                     dotDamage: .15
@@ -5141,6 +5141,7 @@
             dsDOT: { name: "Damage Per Second", j: "" }, 
             durability: { name: a.Zp, j: "%", format: percent_format }, 
             duration: { name: a.W, j: a.xb }, 
+            duration_real: { name: a.W, j: a.xb },
             encumbrance: { name: a.DC, j: "" }, 
             enemyArmorPenetration: { name: a.EA, j: "%", format: percent_format }, 
             enemyArmorWeakening: { name: a.fi, j: "%", format: percent_format }, 
