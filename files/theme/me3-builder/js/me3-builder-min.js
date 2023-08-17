@@ -1713,7 +1713,7 @@
             { name: a.Jm, a: a.Om, attributes: { powerDamage: 1, radiusPct: -.5 } }, 
             { name: a.TB, a: a.Pm, attributes: { radiusPct: .4, dotDamage: .4, powerDuration: .4 } }], 
                 type: d.type.biotic, is_biotic_primer: true
-        }; 
+        };  
         
         d.jd = { h: ["baseRechargeSpeed", "duration", "decoyShield"], g: !1, icon: "Decoy", 
         evolutions: [
