@@ -30,4 +30,4 @@ Changelog:
   * Synthetic damage (powers like Overload or Concussive Shot)
   * Piercing damage (show it alongside non-piercing damage)
 
-Contribute ideas, data or code: https://bsn.boards.net/thread/19720/kalence-correction-improvement-project or https://discord.gg/n7squad 
+Contribute ideas, data or code: https://bsn.boards.net/thread/19720/kalence-correction-improvement-project or https://discord.gg/MkURgPG 
