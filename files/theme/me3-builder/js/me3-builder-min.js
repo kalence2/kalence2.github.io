@@ -2127,7 +2127,7 @@
             { name: a.ym, a: a.Vp, attributes: { powerDamage: .4, powerForce: .4 } },
             { name: a.Hh, a: a.Pg, attributes: { missileFrequency: .35 } },
             { name: a.Sa, a: a.Mq, attributes: { powerDamageArmor: .5 } },
-            { name: a.Bq, a: a.Wp, attributes: { ATTR_INT: 2, powerDamage: -.25, powerForce: .25 } },
+            { name: a.Bq, a: a.Wp, attributes: { ATTR_INT: 2, powerDamage: -.25, powerForce: -.25 } },
             { name: a.Pl, a: a.Xp, attributes: { powerDamage: 1.5,
                     powerForce: 1.5, radiusPct: 3
                 }
