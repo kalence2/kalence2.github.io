@@ -96,6 +96,15 @@
   width: 48px;
 }
 
+.equipment-reset {
+  background: url('../images/consumables/MPCredits.png') no-repeat;
+  background-size: 48px 36px;
+  cursor: pointer;
+  float: right;
+  height: 36px;
+  width: 48px;
+}
+
 .power-tree {
   border-top: 1px solid #5C81A8;
   padding: 0.5em 0.25em;

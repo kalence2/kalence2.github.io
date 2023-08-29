@@ -5304,7 +5304,21 @@
             var d = [], 
                 e = c("<p>").append(c("<span>").addClass("stat-id").text(ea.lB + ": "))
                             .append(c("<span>").attr("id", "points-available").on("powerChanged.View.PowerSelector", ha)),
-                e = c("<div>").addClass("infobar").append(e).append(c("<div>").addClass("power-reset").attr("ui-tooltip-data", "Remove all equipment.").click(deequip)).append(c("<div>").addClass("power-reset").attr("ui-tooltip-data", ea.pB).click(u)); 
+                e = c("<div>")
+                    .addClass("infobar")
+                    .append(e)
+                    .append(
+                        c("<div>")
+                        .addClass("power-reset")
+                        .attr("ui-tooltip-data", ea.pB)
+                        .click(u)
+                    )
+                    .append(
+                        c("<div>")
+                        .addClass("equipment-reset")
+                        .attr("ui-tooltip-data", "Remove all equipment.")
+                        .click(deequip)
+                    ); 
                 d.push(e); 
             for (e = 0; 5 > e; e++) {
                 var n = c("<div>").addClass("power-label").data("power", e).append(c("<p>")); 
@@ -6301,13 +6315,23 @@
             A.Aa(c("#power-recharge .stat-tip")); 
             A.ba(c("#power-recharge .stat-tip"), e, { location: "bottomRight" })
         } 
-        
+
         function fa() {
             var d = p.$o(), e = p.has_barrier(); 
             c("#kit-shield .stat-id").text((e == n.rb ? O.hi : O.wB) + ":"); 
             c("#kit-shield .stat-tip").removeClass("barrier shield").addClass(e == n.rb ? "barrier" : "shield").text(m.va(d.value, 0)); 
             A.Aa(c("#kit-shield .stat-tip")); 
-            0 < d.C.length ? A.ba(c("#kit-shield .stat-tip"), K(d.C), { location: "bottomRight" }) : A.ba(c("#kit-shield .stat-tip"), O.Xc, { location: "bottomRight" })
+            // 0 < d.C.length ? A.ba(c("#kit-shield .stat-tip"), K(d.C), { location: "bottomRight" }) : A.ba(c("#kit-shield .stat-tip"), O.Xc, { location: "bottomRight" })
+            0 < d.C.length ? 
+                (p.has_DR_power() && p.get_damage_reduction().C.length) > 0 ? 
+                    A.ba(c("#kit-shield .stat-tip"), K(d.C).append(c("<h3>").html("Effective value out of cover: <font color='#" + (e == n.rb ? "7A5EAA" : "00ADE4") + "'>"+Math.round(d.value/(1-p.get_damage_reduction().value*5/7))+"</font>")), { location: "bottomRight" })
+                :
+                    A.ba(c("#kit-shield .stat-tip"), K(d.C), { location: "bottomRight" }) 
+            :
+                (p.has_DR_power() && p.get_damage_reduction().C.length) > 0 ? 
+                    A.ba(c("#kit-shield .stat-tip"), c("<div>").append(c("<h3>").html("Effective value out of cover: <font color='#" + (e == n.rb ? "7A5EAA" : "00ADE4") + "'>"+Math.round(d.value/(1-p.get_damage_reduction().value*5/7))+"</font>")), { location: "bottomRight" })
+                :
+                    A.ba(c("#kit-shield .stat-tip"), O.Xc, { location: "bottomRight" }); 
         } 
         
         function u() { 
@@ -6346,7 +6370,16 @@
             d = p.Wo(); 
             c("#kit-health .stat-tip").text(m.va(d.value, 0)); 
             A.Aa(c("#kit-health .stat-tip")); 
-            0 < d.C.length ? A.ba(c("#kit-health .stat-tip"), K(d.C), { location: "bottomRight" }) : A.ba(c("#kit-health .stat-tip"), O.Xc, { location: "bottomRight" }); 
+            0 < d.C.length ? 
+                (p.has_DR_power() && p.get_damage_reduction().C.length) > 0 ? 
+                    A.ba(c("#kit-health .stat-tip"), K(d.C).append(c("<h3>").html("Effective value out of cover: <font color='#D32224'>"+Math.round(d.value/(1-p.get_damage_reduction().value*5/7))+"</font>")), { location: "bottomRight" })
+                :
+                    A.ba(c("#kit-health .stat-tip"), K(d.C), { location: "bottomRight" }) 
+            :
+                (p.has_DR_power() && p.get_damage_reduction().C.length) > 0 ? 
+                    A.ba(c("#kit-health .stat-tip"), c("<div>").append(c("<h3>").html("Effective value out of cover: <font color='#D32224'>"+Math.round(d.value/(1-p.get_damage_reduction().value*5/7))+"</font>")), { location: "bottomRight" })
+                :
+                    A.ba(c("#kit-health .stat-tip"), O.Xc, { location: "bottomRight" }); 
             fa(); 
             g(); 
             c("#grenade-count").hide(); 
