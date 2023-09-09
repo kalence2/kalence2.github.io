@@ -788,7 +788,7 @@
     b.Md = "Sentry Turret";
     b.Ew = "Upgrade turret with shock attack to stun enemies.";
     b.Fw = "Upgrade turret with cryo ammo, giving it a chance to freeze enemies for {ATTR_TIME} seconds.";
-    b.Gw = "Upgrade turret with armor-piercing ammo, giving it a {powerDamageArmor}% damage bonus against armor.";
+    b.Gw = "Upgrade turret with armor-piercing ammo, giving it a 100% damage bonus against armor and health.";
     b.Hw = "Upgrade turret with long-range rockets that deal {ATTR_DMG} points of damage across a {radius} meter radius.";
     b.Iw = "Deploy this heavy-weapon turret for cover fire.";
     b.of = "Shadow Strike";
@@ -2859,7 +2859,7 @@
             { name: a.Ub, a: a.sd, attributes: { powerDamage: .4, petShieldStrength: .4 } },
             { name: a.Oc, a: a.Ew, attributes: {} },
             { name: a.nm, a: a.Fw, attributes: { ATTR_TIME: 3 } },
-            { name: a.Bj, a: a.Gw, attributes: { powerDOT: 1, powerDamageShield: -.5, powerDamageBarrier: -.5 } },
+            { name: a.Bj, a: a.Gw, attributes: { powerDamageHealth: 1, powerDamageArmor: 1 } },
             { name: a.Nh, a: a.Hw, attributes: { ATTR_DMG: 300, radius: 2.5 } },
             { name: a.Dg, a: a.di, attributes: { ATTR_DMG: 65 } }], type: d.type.tech
         }; 
@@ -3846,7 +3846,8 @@
             t = c.extend({ ea: "health" }, t); 
             var F = s(d); 
             F[f] && (g += F[f].value, m = F[f].C); 
-            F.powerDamageArmor && ("armor" == t.ea && (I += F.powerDamageArmor.value), m = m.concat(F.powerDamageArmor.C)); 
+            F.powerDamageHealth && ("health" == t.ea && (I += F.powerDamageHealth.value), m = m.concat(F.powerDamageHealth.C))
+            F.powerDamageArmor && ("armor" == t.ea && (I += F.powerDamageArmor.value), (!F.powerDamageHealth) && (m = m.concat(F.powerDamageArmor.C))); 
             F.powerDamageBarrier && ("barrier" == t.ea && (I += F.powerDamageBarrier.value), m = m.concat(F.powerDamageBarrier.C)); 
             F.powerDamageShield && ("shield" == t.ea && (I += F.powerDamageShield.value), F.powerDamageBarrier && F.powerDamageBarrier.value == F.powerDamageShield.value || (m = m.concat(F.powerDamageShield.C))); 
             f = character.powers[d];
