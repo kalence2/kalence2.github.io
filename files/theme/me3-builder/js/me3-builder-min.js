@@ -2859,7 +2859,7 @@
             { name: a.Ub, a: a.sd, attributes: { powerDamage: .4, petShieldStrength: .4 } },
             { name: a.Oc, a: a.Ew, attributes: {} },
             { name: a.nm, a: a.Fw, attributes: { ATTR_TIME: 3 } },
-            { name: a.Bj, a: a.Gw, attributes: { powerDamageArmor: 1 } },
+            { name: a.Bj, a: a.Gw, attributes: { powerDOT: 1, powerDamageShield: -.5, powerDamageBarrier: -.5 } },
             { name: a.Nh, a: a.Hw, attributes: { ATTR_DMG: 300, radius: 2.5 } },
             { name: a.Dg, a: a.di, attributes: { ATTR_DMG: 65 } }], type: d.type.tech
         }; 
