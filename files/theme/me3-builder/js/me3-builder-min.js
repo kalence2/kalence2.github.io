@@ -3841,12 +3841,13 @@
             return { value: c[d].value * (1 + m), C: t } 
         } 
 
-        function p(d, r, f, k, t) {
+        function p(d, r, f, k, t, side = false) {
             var m = [], g = 0, I = 1, d0 = d, f0 = f;
             t = c.extend({ ea: "health" }, t); 
             var F = s(d); 
             F[f] && (g += F[f].value, m = F[f].C); 
-            F.powerDamageHealth && ("health" == t.ea && (I += F.powerDamageHealth.value), m = m.concat(F.powerDamageHealth.C))
+            if (!side)
+                F.powerDamageHealth && ("health" == t.ea && (I += F.powerDamageHealth.value), m = m.concat(F.powerDamageHealth.C))
             F.powerDamageArmor && ("armor" == t.ea && (I += F.powerDamageArmor.value), (!F.powerDamageHealth) && (m = m.concat(F.powerDamageArmor.C))); 
             F.powerDamageBarrier && ("barrier" == t.ea && (I += F.powerDamageBarrier.value), m = m.concat(F.powerDamageBarrier.C)); 
             F.powerDamageShield && ("shield" == t.ea && (I += F.powerDamageShield.value), F.powerDamageBarrier && F.powerDamageBarrier.value == F.powerDamageShield.value || (m = m.concat(F.powerDamageShield.C))); 
@@ -4380,7 +4381,7 @@
                 d.Ge = function (c, d, f) {
                     var k = {
                         ATTR_DMG: function () { 
-                            return p(c, null, "powerDamage", !1, f) 
+                            return p(c, null, "powerDamage", !1, f, true) 
                         }, 
                         armor: function () { 
                             return p(c, d, "powerDamage", !1, f) 
