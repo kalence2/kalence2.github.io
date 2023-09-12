@@ -2099,6 +2099,20 @@
             { name: a.Ov, a: a.vp, attributes: { ATTR_PCT: .6 } }], 
                 type: d.type.tech
         }; 
+
+        d.jugg_turret = { Z: { damage: a.ci, petShield: a.ei }, h: ["baseRechargeSpeed", "damage", "petShield", "turretRestore"], g: !1, icon: "GethTurret", 
+            evolutions: [
+            { name: a.od, a: a.wp, attributes: { baseRechargeSpeed: 5, damage: 150, petShield: 500, turretRestore: 350, ATTR_INT: 8, ATTR_TIME: 8 } },
+            { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } }, 
+            { name: a.Ub, a: a.sd, attributes: { powerDamage: .3, petShieldStrength: .3 } },
+            { name: a.Ub, a: a.sd, attributes: { powerDamage: .4, petShieldStrength: .4 } }, 
+            { name: a.rx, a: a.sp, attributes: { turretRestorePct: .5 } },
+            { name: a.Sa, a: a.tp, attributes: { powerDamage: .3, powerDamageArmor: .5 } }, 
+            { name: a.Pv, a: a.up, attributes: { turretRestorePct: .5, rangePct: .4 } },
+            { name: a.Dg, a: a.di, attributes: { ATTR_DMG: 55 } },
+            { name: a.Ov, a: a.vp, attributes: { ATTR_PCT: .6 } }], 
+                type: d.type.tech
+        }; 
         
         d.Je = { h: ["baseRechargeSpeed", "damage", "force"], g: !0, icon: "HavocStrike", 
         evolutions: [
@@ -3211,7 +3225,7 @@
         { id: "quarian-marksman", name: a.Xu, d: "MP_QuarianMSLD.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.yd, h.b.Sc, h.b.Nc, h.b.jv, h.b.bc] },
         { id: "geth-juggernaut", name: a.Lg, d: "MP_GethPSLD.png", health: 1E3, shield: 2E3, base_encumbrance: .75, light_melee_base_dmg: 250, lm_radius: 3, hm_radius: 1.25,
-        heavy_melee_base_dmg: 60, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 2, shield: 2 }, race: qa.Tb.Ua, powers: [h.b.Le, h.b.rf, h.b.od, h.b.av, h.b.Do] }
+        heavy_melee_base_dmg: 60, heavy_melee_modifiers: { health: 1, armor: 1, barrier: 2, shield: 2 }, race: qa.Tb.Ua, powers: [h.b.Le, h.b.rf, h.b.jugg_turret, h.b.av, h.b.Do] }
     ], [   
         { id: "male-engineer", name: a.dc, V: a.rq, d: "EngineerHumanMale.png", health: 500, shield: 500, base_encumbrance: .3, light_melee_base_dmg: 150, lm_radius: 0, hm_radius: 0,
         heavy_melee_base_dmg: 600, heavy_melee_modifiers: l, powers: [h.b.vc, h.b.tb, h.b.Rb, h.b.ab, h.b.Za] },
