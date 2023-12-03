@@ -3095,7 +3095,7 @@
             { name: a.P, a: a.Td, attributes: { meleeDamage: .5 } },
             { name: a.Kb, a: a.Ud },
             { name: a.dk, a: a.Pz, attributes: {
-                    tcDamageAssault: .2, ATTR_TIME: 20
+                    tcDamageAssault: .2, ATTR_TIME: 10
                 }
             }]
         }; 
@@ -3850,8 +3850,8 @@
                     m += f.data[g]; 
                 0 < f.C.length && (t = t.concat(f.C)) 
             }
-            if (has_cryo_active())
-                c[d].value *= get_cryo_bonus(c0);
+            // if (has_cryo_active())
+            //     c[d].value *= get_cryo_bonus(c0);
             return { value: c[d].value * (1 + m), C: t } 
         } 
 
