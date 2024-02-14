@@ -3343,7 +3343,7 @@
         { name: a.bk, a: a.ck, f: C.rarity.uncommon, d: "Gear_WeaponDamage_AssaultRifle.png",
         evolutions: [{ attributes: { weaponDamageAssault: .05 } }, { attributes: { weaponDamageAssault: .075 } }, { attributes: { weaponDamageAssault: .1 } }, { attributes: { weaponDamageAssault: .125 } }, { attributes: { weaponDamageAssault: .15 } }] }, 
         { name: a.Ym, a: a.Zm, f: C.rarity.uncommon, d: "Gear_WeaponDamage_All.png",
-        evolutions: [{ attributes: { weaponDamage: .03 } }, { attributes: { weaponDamage: .05 } }, { attributes: { weaponDamage: .07 } }, { attributes: { weaponDamage: .085 } }, { attributes: { weaponDamage: .1 } }] },
+        evolutions: [{ attributes: { weaponDamage: .04 } }, { attributes: { weaponDamage: .06 } }, { attributes: { weaponDamage: .08 } }, { attributes: { weaponDamage: .10 } }, { attributes: { weaponDamage: .12 } }] },
         { name: a.Un, a: a.Vn, f: C.rarity.uncommon, d: "Gear_TechDamage.png",
         evolutions: [{ attributes: { techDamage: .05 } }, { attributes: { techDamage: .075 } }, { attributes: { techDamage: .1 } }, { attributes: { techDamage: .125 } }, { attributes: { techDamage: .15 } }] }, 
         { name: a.Cq, a: a.Dq, f: C.rarity.uncommon, d: "Gear_MeleeDamage.png",
