@@ -3162,7 +3162,7 @@
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } },
             { name: a.zb, a: a.vC, attributes: { comboDamage: .5, comboForce: .5, comboRadius: .5 } }, 
             { name: a.mr, a: a.Tg, attributes: { powerDamage: .4, powerDuration: .6 } },
-            { name: a.Ae, a: a.wC, attributes: { enemyWeaponDamageTaken: .15, enemyPowerDamageTaken: .15, ATTR_TIME: 10 } }, 
+            { name: a.Ae, a: a.wC, attributes: { enemyWeaponDamageTaken: .15, bioticDamage: .15, ATTR_TIME: 10 } }, 
             { name: a.Xe, a: a.xC, attributes: { powerDamageArmor: .5, powerDamageBarrier: .5, enemyArmorWeakening: .25 } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .35 } }],
             i: { health: 1, armor: 1.5, barrier: 2, shield: .5 }, type: d.type.biotic, is_biotic_primer: true
