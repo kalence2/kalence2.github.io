@@ -2047,7 +2047,7 @@
         
         d.Bc = { h: ["baseRechargeSpeed", "dot", "duration", "range"], g: !0, icon: "Flamer", 
         evolutions: [
-            { name: a.Bc, a: a.Ko, attributes: { baseRechargeSpeed: 8, dot: 200, duration: 5, range: 10, fireDoT: true } },
+            { name: a.Bc, a: a.Ko, attributes: { baseRechargeSpeed: 8, dot: 325, duration: 5, range: 10, fireDoT: true } },
             { name: a.k, a: a.m, attributes: { rechargeSpeed: .25 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .2 } },
             { name: a.l, a: a.p, attributes: { powerDamage: .3 } },
